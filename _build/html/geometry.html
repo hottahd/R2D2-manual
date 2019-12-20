@@ -42,6 +42,15 @@
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">目次</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">座標生成</a><ul>
+<li><a class="reference internal" href="#id2">一様グリッド</a></li>
+<li><a class="reference internal" href="#id3">非一様グリッド</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="code.html"
                         title="前の章へ">コードの構造</a></p>
@@ -75,6 +84,38 @@
             
   <div class="section" id="id1">
 <h1>座標生成<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>R2D2では中央差分法を用いているが、そのほとんどは数値フラックスを用いて書き直すことでき、提供される <code class="docutils literal notranslate"><span class="pre">x</span></code> , <code class="docutils literal notranslate"><span class="pre">y</span></code>　, <code class="docutils literal notranslate"><span class="pre">z</span></code> などは <strong>セル中心</strong> で定義される。よって計算領域内の最初のグリッドは、計算境界から半グリッド進んだところにある。</p>
+<p>また、R2D2では一様グリッドと非一様グリッドどちらでも計算できるようにしている。</p>
+<div class="section" id="id2">
+<h2>一様グリッド<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>一様グリッドを用いるときは</p>
+<ul class="simple">
+<li><p>格子間隔を計算する</p></li>
+</ul>
+<div class="math">
+<p><img src="_images/math/b03cd59e44857aace0ef497e5244943ed535e134.svg" alt="\Delta x = \frac{x_\mathrm{max} - x_\mathrm{min}}{N_x}"/></p>
+</div><p>ここで、コードでは、配列の要素数には <code class="docutils literal notranslate"><span class="pre">margin</span></code> も含むので
+<img class="math" src="_images/math/26e998c2eabba79f993e001e444c08a7d99952e9.svg" alt="N_x"/> を計算するには <code class="docutils literal notranslate"><span class="pre">margin</span></code> の部分を引く必要があることに注意。</p>
+<ul class="simple">
+<li><p><img class="math" src="_images/math/72cf50a8f9e3a03259a823d3348ea95fbf645531.svg" alt="x_1"/> を設定。<code class="docutils literal notranslate"><span class="pre">margin</span></code> の分も考慮して計算する。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">do</span> <span class="pre">loop</span></code> で順次足していく</p></li>
+</ul>
+<p>コードは以下のようになる</p>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="n">dx_unif</span> <span class="o">=</span> <span class="p">(</span><span class="n">xmax</span><span class="o">-</span><span class="n">xmin</span><span class="p">)</span><span class="o">/</span><span class="kt">real</span><span class="p">(</span><span class="n">ix00</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">marginx</span><span class="p">)</span>
+<span class="n">x00</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">xmin</span> <span class="o">+</span> <span class="p">(</span><span class="mf">0.5d0</span><span class="o">-</span><span class="nb">dble</span><span class="p">(</span><span class="n">marginx</span><span class="p">))</span><span class="o">*</span><span class="n">dx_unif</span>
+<span class="k">if</span><span class="p">(</span><span class="n">xdcheck</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">    do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">+</span><span class="n">i1</span><span class="p">,</span><span class="n">ix00</span>
+        <span class="n">x00</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="n">x00</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="n">i1</span><span class="p">)</span> <span class="o">+</span> <span class="n">dx_unif</span>
+    <span class="n">enddo</span>
+<span class="n">endif</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>非一様グリッド<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>非一様グリッドを用いるときは、太陽光球付近は、輻射輸送のために一様なグリッド、ある程度の深さから格子間隔が線形に増加する非一様グリッドを使うことにしている。</p>
+<p>よって、ある初期の格子間隔 <img class="math" src="_images/math/3b444a3da1e3dafbb42509f5af53b689809b54d0.svg" alt="\Delta x_0"/></p>
+</div>
 </div>
 
 
@@ -100,7 +141,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019, Hideyuki Hotta.
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0 で生成しました。
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.1 で生成しました。
     </div>
   </body>
 </html>

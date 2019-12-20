@@ -42,6 +42,18 @@
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">目次</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">数値スキーム</a><ul>
+<li><a class="reference internal" href="#mhd">MHDスキーム</a><ul>
+<li><a class="reference internal" href="#id2">空間微分</a></li>
+<li><a class="reference internal" href="#id3">時間積分</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="start.html"
                         title="前の章へ">とりあえず始めるには</a></p>
@@ -75,6 +87,20 @@
             
   <div class="section" id="id1">
 <h1>数値スキーム<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="mhd">
+<h2>MHDスキーム<a class="headerlink" href="#mhd" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id2">
+<h3>空間微分<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>R2D2では、4次の中央差分を用いている。格子間隔が一様な場合には中央差分では微分は</p>
+<div class="math">
+<p><img src="_images/math/becafec450d8eb9adadf390dd5375ce5eca8dde6.svg" alt="\left(\frac{\partial q}{\partial x}\right)_i =\frac{-q_{i+2}+8q_{i+1}-8q_{i-1}+q_{i-2}}{12\Delta x_i}"/></p>
+</div><p>となる。R2D2では、非一様な格子間隔にも対応しており、</p>
+</div>
+<div class="section" id="id3">
+<h3>時間積分<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>R2D2では、</p>
+</div>
+</div>
 </div>
 
 
@@ -100,7 +126,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019, Hideyuki Hotta.
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0 で生成しました。
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.1 で生成しました。
     </div>
   </body>
 </html>

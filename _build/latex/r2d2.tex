@@ -22,7 +22,6 @@
 \fvset{fontsize=\small}
 \usepackage[dvipdfm]{geometry}
 
-
 % Include hyperref last.
 \usepackage{hyperref}
 % Fix anchor placement for figures with captions.
@@ -58,28 +57,42 @@
 \noindent\sphinxincludegraphics[width=350\sphinxpxdimen]{{R2D2_logo}.png}
 
 
-\chapter{目次}
-\label{\detokenize{index:id1}}
-
-\section{とりあえず始めるには}
+\chapter{とりあえず始めるには}
 \label{\detokenize{start:id1}}\label{\detokenize{start::doc}}
 
-\section{数値スキーム}
+\chapter{数値スキーム}
 \label{\detokenize{scheme:id1}}\label{\detokenize{scheme::doc}}
 
-\section{フリーパラメタ}
+\section{MHDスキーム}
+\label{\detokenize{scheme:mhd}}
+
+\subsection{空間微分}
+\label{\detokenize{scheme:id2}}
+R2D2では、4次の中央差分を用いている。格子間隔が一様な場合には中央差分では微分は
+\begin{equation*}
+\begin{split}\left(\frac{\partial q}{\partial x}\right)_i =\frac{-q_{i+2}+8q_{i+1}-8q_{i-1}+q_{i-2}}{12\Delta x_i}\end{split}
+\end{equation*}
+となる。R2D2では、非一様な格子間隔にも対応しており、
+
+
+\subsection{時間積分}
+\label{\detokenize{scheme:id3}}
+R2D2では、
+
+
+\chapter{フリーパラメタ}
 \label{\detokenize{parameter:id1}}\label{\detokenize{parameter::doc}}
 
-\section{方程式}
+\chapter{方程式}
 \label{\detokenize{equation:id1}}\label{\detokenize{equation::doc}}
 
-\section{コードの構造}
+\chapter{コードの構造}
 \label{\detokenize{code:id1}}\label{\detokenize{code::doc}}
 
-\section{座標生成}
+\chapter{座標生成}
 \label{\detokenize{geometry:id1}}\label{\detokenize{geometry::doc}}
 
-\section{境界条件}
+\chapter{境界条件}
 \label{\detokenize{boundary:id1}}\label{\detokenize{boundary::doc}}
 論文を書くときは
 \begin{itemize}
@@ -108,7 +121,7 @@
 \noindent\sphinxincludegraphics[width=450\sphinxpxdimen]{{bc_sym}.png}
 
 
-\subsection{上部境界}
+\section{上部境界}
 \label{\detokenize{boundary:id2}}
 
 \subsection{ポテンシャル磁場}
@@ -116,7 +129,7 @@
 磁場があるときは、上部ではポテンシャル磁場境界条件を使う。
 
 
-\subsection{下部境界}
+\section{下部境界}
 \label{\detokenize{boundary:id4}}
 開く時
 どの質量フラックスも対称にする。 計算領域内での質量を一定に保つために、水平に平均した密度
@@ -130,17 +143,125 @@
 反対称な境界条件を用いて擾乱をゼロにする。これは元々のModel Sでの量を上昇流のエントロピーに用いるということである。
 
 
-\section{人工粘性}
+\chapter{人工粘性}
 \label{\detokenize{artdif:id1}}\label{\detokenize{artdif::doc}}
 
-\section{入力・出力}
+\chapter{入力・出力}
 \label{\detokenize{io:id1}}\label{\detokenize{io::doc}}
 
-\section{Sphinx使用の覚書}
+\section{バージョン履歴}
+\label{\detokenize{io:id2}}\begin{itemize}
+\item {} 
+ver. 1.0: バージョン制を導入
+
+\item {} 
+ver. 1.1: 光学的厚さが0.1, 0.01の部分も出力することにした。qq\_in, vcをconfigのグローバル変数として取扱ことにした。
+
+\end{itemize}
+
+
+\chapter{Sphinx使用の覚書}
 \label{\detokenize{sphinx:sphinx}}\label{\detokenize{sphinx::doc}}
 
+\section{はじめに}
+\label{\detokenize{sphinx:id1}}
+Sphinxは、reStructuredTextからHTMLやLatexなどの
+文章を生成するソフトウェアである。
+\sphinxhref{https://www.sphinx-doc.org/ja/master/index.html}{Sphinxの公式サイト}
+最近ではMarkdownでも記述できるが、結局最後のところはreStructuredTextで記述することになるので、現状では、Markdownは使用していない。このウェブサイトもSphinxで生成しているので、覚書をここに記す。
+
+
+\section{インストール}
+\label{\detokenize{sphinx:id3}}
+ここではAnacondaがすでにインストールしてあるMac
+にSphinxをインストールすることを考える。
+基本的には以下のコマンドを実行するのみである。
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+pip install sphinx
+\end{sphinxVerbatim}
+
+Markdownを使いたい時は以下のようにする。
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+pip install commonmark recommonmark
+\end{sphinxVerbatim}
+
+
+\section{HTMLファイルの生成}
+\label{\detokenize{sphinx:html}}
+適当なディレクトリを作成(ここでは \sphinxcode{\sphinxupquote{test}} )とする。
+そこで、 \sphinxcode{\sphinxupquote{sphinx-quickstart}} コマンドによりSphinxで作るドキュメントの
+初期設定を行う。
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+mkdir \PYG{n+nb}{test} \PYG{c+c1}{\PYGZsh{} ディレクトリ作成}
+\PYG{n+nb}{cd} \PYG{n+nb}{test}    \PYG{c+c1}{\PYGZsh{} ディレクトリに移動}
+sphinx\PYGZhy{}quickstart
+\end{sphinxVerbatim}
+
+いくつか質問をされる。基本的には読めばわかる質問であるが
+少し戸惑う質問を以下にあげる。
+\begin{itemize}
+\item {} 
+プロジェクトのリリース: 1.0などとversionを答える。後に \sphinxcode{\sphinxupquote{conf.py}} を編集すれば変更可能
+
+\item {} 
+プロジェクトの言語: デフォルトは英語の \sphinxcode{\sphinxupquote{en}} であるが、日本語を使いたい時は \sphinxcode{\sphinxupquote{ja}} とする
+
+\end{itemize}
+
+
+\section{VS codeの利用}
+\label{\detokenize{sphinx:vs-code}}
+VS codeを利用すると快適にreStructuredTextを作成することができる。
+\sphinxcode{\sphinxupquote{*.rst}} ファイルをVS codeで開くと自動で確認されるが、以下のプラグインをインストールする。
+
+\noindent\sphinxincludegraphics[width=500\sphinxpxdimen]{{restructuredtext_vs}.png}
+
+\sphinxcode{\sphinxupquote{Cmd+k Cmd+r}} で画面を分割してプレビューできる。正しい \sphinxcode{\sphinxupquote{conf.py}} の場所を設定する必要がある。
+
+
+\section{環境設定}
+\label{\detokenize{sphinx:id4}}
+デフォルトの設定では、数式を書く時にMathjaxを使用するようで、数式の太字が意図するように表示されなかったのでsvgで出力することにした。
+以下のように　\sphinxcode{\sphinxupquote{conf.py}} に追記する。
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{extensions} \PYG{o}{+}\PYG{o}{=} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{sphinx.ext.imgmath}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}
+\PYG{n}{imgmath\PYGZus{}image\PYGZus{}format} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{svg}\PYG{l+s+s1}{\PYGZsq{}}
+\PYG{n}{pngmath\PYGZus{}latex}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{platex}\PYG{l+s+s1}{\PYGZsq{}}
+\end{sphinxVerbatim}
+
+また、ウェブサイトのテーマを変更することもできる。どのようなテーマがあるかは
+\sphinxhref{https://sphinx-users.jp/cookbook/changetheme/index.html}{Sphinxのテーマ}
+を参照。好きなテーマを選んで \sphinxcode{\sphinxupquote{conf.py}} に以下のように設定。
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{html\PYGZus{}theme} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{bizstyle}\PYG{l+s+s1}{\PYGZsq{}}
+\PYG{n}{html\PYGZus{}theme\PYGZus{}options} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{maincolor}\PYG{l+s+s1}{\PYGZsq{}} \PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{\PYGZsh{}696969}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{\PYGZcb{}}
+\end{sphinxVerbatim}
+
+今後変更の余地あり。
+
+
+\section{記法}
+\label{\detokenize{sphinx:id6}}
+
+\subsection{リンク}
+\label{\detokenize{sphinx:id7}}
+
+\subsection{コード}
+\label{\detokenize{sphinx:id8}}
+
+\subsection{画像}
+\label{\detokenize{sphinx:id9}}
+
+\subsection{数式}
+\label{\detokenize{sphinx:id10}}
+
 \chapter{ライセンス}
-\label{\detokenize{index:id2}}
+\label{\detokenize{index:id1}}
 R2D2は現状、公開ソフトウェアではなく再配布も禁じている。
 これは今後、変更される可能性はあるが、開発者(堀田)の利益を守るためである。
 共同研究者のみが使って良いというルールになっており、R2D2の使用には、以下の規約を守る必要がある。
@@ -161,7 +282,7 @@ R2D2を用いた論文を出版するときは　\sphinxhref{https://ui.adsabs.h
 
 
 \chapter{索引と検索ページ}
-\label{\detokenize{index:id3}}\begin{itemize}
+\label{\detokenize{index:id2}}\begin{itemize}
 \item {} 
 \DUrole{xref,std,std-ref}{genindex}
 

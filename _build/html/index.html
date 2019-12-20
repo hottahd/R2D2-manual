@@ -40,10 +40,11 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="#">目次</a></h3>
   <ul>
-<li><a class="reference internal" href="#">R2D2マニュアル</a></li>
-<li><a class="reference internal" href="#id1">目次</a></li>
-<li><a class="reference internal" href="#id2">ライセンス</a></li>
-<li><a class="reference internal" href="#id3">索引と検索ページ</a></li>
+<li><a class="reference internal" href="#">R2D2マニュアル</a><ul>
+<li><a class="reference internal" href="#id1">ライセンス</a></li>
+<li><a class="reference internal" href="#id2">索引と検索ページ</a></li>
+</ul>
+</li>
 </ul>
 
   <h4>次のトピックへ</h4>
@@ -79,17 +80,21 @@
 <p>このページは太陽のための輻射磁気流体コードR2D2(RSST and Radiation for Deep Dynamics)
 のマニュアルである。</p>
 <a class="reference internal image-reference" href="_images/R2D2_logo.png"><img alt="_images/R2D2_logo.png" src="_images/R2D2_logo.png" style="width: 350px;" /></a>
-</div>
-<div class="section" id="id1">
-<h1>目次<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="start.html">とりあえず始めるには</a></li>
-<li class="toctree-l1"><a class="reference internal" href="scheme.html">数値スキーム</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scheme.html">数値スキーム</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scheme.html#mhd">MHDスキーム</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="parameter.html">フリーパラメタ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="equation.html">方程式</a></li>
 <li class="toctree-l1"><a class="reference internal" href="code.html">コードの構造</a></li>
-<li class="toctree-l1"><a class="reference internal" href="geometry.html">座標生成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geometry.html">座標生成</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="geometry.html#id2">一様グリッド</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometry.html#id3">非一様グリッド</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="boundary.html">境界条件</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="boundary.html#id2">上部境界</a></li>
 <li class="toctree-l2"><a class="reference internal" href="boundary.html#id4">下部境界</a></li>
@@ -106,14 +111,13 @@
 <li class="toctree-l2"><a class="reference internal" href="sphinx.html#html">HTMLファイルの生成</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sphinx.html#vs-code">VS codeの利用</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sphinx.html#id4">環境設定</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sphinx.html#id5">記法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sphinx.html#id6">記法</a></li>
 </ul>
 </li>
 </ul>
 </div>
-</div>
-<div class="section" id="id2">
-<h1>ライセンス<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="id1">
+<h2>ライセンス<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>R2D2は現状、公開ソフトウェアではなく再配布も禁じている。
 これは今後、変更される可能性はあるが、開発者(堀田)の利益を守るためである。
 共同研究者のみが使って良いというルールになっており、R2D2の使用には、以下の規約を守る必要がある。</p>
@@ -124,12 +128,13 @@
 <li><p>R2D2を用いた論文を出版するときは　<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019SciA....5.2307H/abstract">Hotta et al., 2019</a>　を引用すること。より詳しく説明した論文も出版予定である。</p></li>
 </ul>
 </div>
-<div class="section" id="id3">
-<h1>索引と検索ページ<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="id2">
+<h2>索引と検索ページ<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">索引</span></a></p></li>
 <li><p><a class="reference internal" href="search.html"><span class="std std-ref">検索ページ</span></a></p></li>
 </ul>
+</div>
 </div>
 
 
@@ -152,7 +157,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019, Hideyuki Hotta.
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0 で生成しました。
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.1 で生成しました。
     </div>
   </body>
 </html>

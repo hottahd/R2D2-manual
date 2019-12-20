@@ -65,3 +65,4 @@ html_static_path = ['_static']
 extensions += ['sphinx.ext.imgmath']
 imgmath_image_format = 'svg'
 pngmath_latex='platex'
+imgmath_font_size = 14 # 数式のフォントサイズ
