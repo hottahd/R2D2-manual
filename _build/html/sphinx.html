@@ -1,0 +1,158 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>Sphinx使用の覚書 &#8212; R2D2 1.1 ドキュメント</title>
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="prev" title="入力・出力" href="io.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="io.html" title="入力・出力"
+             accesskey="P">前へ</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">R2D2 1.1 ドキュメント</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">目次</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Sphinx使用の覚書</a><ul>
+<li><a class="reference internal" href="#id1">はじめに</a></li>
+<li><a class="reference internal" href="#id3">インストール</a></li>
+<li><a class="reference internal" href="#html">HTMLファイルの生成</a></li>
+<li><a class="reference internal" href="#vs-code">VS codeの利用</a></li>
+<li><a class="reference internal" href="#id4">環境設定</a></li>
+<li><a class="reference internal" href="#id5">記法</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>前のトピックへ</h4>
+  <p class="topless"><a href="io.html"
+                        title="前の章へ">入力・出力</a></p>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/sphinx.rst.txt"
+            rel="nofollow">ソースコードを表示</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="検索" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="sphinx">
+<h1>Sphinx使用の覚書<a class="headerlink" href="#sphinx" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="id1">
+<h2>はじめに<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Sphinxは、reStructuredTextからHTMLやLatexなどの
+文章を生成するソフトウェアである。
+<a class="reference external" href="https://www.sphinx-doc.org/ja/master/index.html">Sphinxの公式サイト</a>
+最近ではMarkdownでも記述できるが、結局最後のところはreStructuredTextで記述することに
+なるので、現状では、Markdownは使用していない。
+このウェブサイトもSphinxで生成しているので、覚書をここに記す。</p>
+</div>
+<div class="section" id="id3">
+<h2>インストール<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ここではAnacondaがすでにインストールしてあるMac
+にSphinxをインストールすることを考える。
+基本的には以下のコマンドを実行するのみである。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install sphinx
+</pre></div>
+</div>
+<p>Markdownを使いたい時は以下のようにする。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install commonmark recommonmark
+</pre></div>
+</div>
+</div>
+<div class="section" id="html">
+<h2>HTMLファイルの生成<a class="headerlink" href="#html" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>適当なディレクトリを作成(ここでは <code class="docutils literal notranslate"><span class="pre">test</span></code> )とする。
+そこで、 <code class="docutils literal notranslate"><span class="pre">sphinx-quickstart</span></code> コマンドによりSphinxで作るドキュメントの
+初期設定を行う。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mkdir <span class="nb">test</span> <span class="c1"># ディレクトリ作成</span>
+<span class="nb">cd</span> <span class="nb">test</span>    <span class="c1"># ディレクトリに移動</span>
+sphinx-quickstart
+</pre></div>
+</div>
+<p>いくつか質問をされる。基本的には読めばわかる質問であるが
+少し戸惑う質問を以下にあげる。</p>
+<ul class="simple">
+<li><p>プロジェクトのリリース: 1.0などとversionを答える。後に <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> を編集すれば変更可能</p></li>
+<li><p>プロジェクトの言語: デフォルトは英語の <code class="docutils literal notranslate"><span class="pre">en</span></code> であるが、日本語を使いたい時は <code class="docutils literal notranslate"><span class="pre">ja</span></code> とする</p></li>
+</ul>
+</div>
+<div class="section" id="vs-code">
+<h2>VS codeの利用<a class="headerlink" href="#vs-code" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="id4">
+<h2>環境設定<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">conf.py</span></code> を設定</p>
+</div>
+<div class="section" id="id5">
+<h2>記法<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="総合索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="io.html" title="入力・出力"
+             >前へ</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">R2D2 1.1 ドキュメント</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Hideyuki Hotta.
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0 で生成しました。
+    </div>
+  </body>
+</html>

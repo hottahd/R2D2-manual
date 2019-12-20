@@ -3,18 +3,47 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to R2D2's documentation!
+R2D2マニュアル
 ================================
 
+このページは太陽のための輻射磁気流体コードR2D2(RSST and Radiation for Deep Dynamics)
+のマニュアルである。
+
+.. image:: source/figs/R2D2_logo.png
+   :width: 350 px
+
+目次
+================================
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+
+   start.rst
+   scheme.rst
+   parameter.rst
+   equation.rst
+   code.rst
+   geometry.rst
+   boundary.rst
+   artdif.rst
+   io.rst
+   sphinx.rst
+	      
+	     
+ライセンス
+================================
+
+R2D2は現状、公開ソフトウェアではなく再配布も禁じている。
+これは今後、変更される可能性はあるが、開発者(堀田)の利益を守るためである。
+共同研究者のみが使って良いというルールになっており、R2D2の使用には、以下の規約を守る必要がある。
+
+* 再配布しない
+* 改変は許されるが、その時の実行結果については開発者は責任を持たない
+* R2D2で実行する計算は、堀田と議論する必要がある。パラメタ変更などの細かい変更には相談する必要はないが、新しいプロジェクトを開始するときはその都度相談すること。堀田自身のプロジェクト、堀田の指導学生のプロジェクトとの重複を避けるためである。
+* R2D2を用いた論文を出版するときは　`Hotta et al., 2019 <https://ui.adsabs.harvard.edu/abs/2019SciA....5.2307H/abstract>`_　を引用すること。より詳しく説明した論文も出版予定である。
 
 
-
-Indices and tables
+索引と検索ページ
 ==================
 
 * :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`
