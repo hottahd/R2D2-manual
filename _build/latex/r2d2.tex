@@ -22,6 +22,7 @@
 \fvset{fontsize=\small}
 \usepackage[dvipdfm]{geometry}
 
+
 % Include hyperref last.
 \usepackage{hyperref}
 % Fix anchor placement for figures with captions.
@@ -35,7 +36,7 @@
 
 
 \title{R2D2}
-\date{2019年12月20日}
+\date{2019年12月22日}
 \release{1.1}
 \author{Hideyuki Hotta}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -91,6 +92,52 @@ R2D2では、
 
 \chapter{座標生成}
 \label{\detokenize{geometry:id1}}\label{\detokenize{geometry::doc}}
+R2D2では中央差分法を用いているが、そのほとんどは数値フラックスを用いて書き直すことでき、提供される \sphinxcode{\sphinxupquote{x}} , \sphinxcode{\sphinxupquote{y}}　, \sphinxcode{\sphinxupquote{z}} などは \sphinxstylestrong{セル中心} で定義される。よって計算領域内の最初のグリッドは、計算境界から半グリッド進んだところにある。
+
+また、R2D2では一様グリッドと非一様グリッドどちらでも計算できるようにしている。
+
+
+\section{一様グリッド}
+\label{\detokenize{geometry:id2}}
+一様グリッドを用いるときは
+\begin{itemize}
+\item {} 
+格子間隔を計算する
+
+\end{itemize}
+\begin{equation*}
+\begin{split}\Delta x = \frac{x_\mathrm{max} - x_\mathrm{min}}{N_x}\end{split}
+\end{equation*}
+ここで、コードでは、配列の要素数には \sphinxcode{\sphinxupquote{margin}} も含むので
+\(N_x\) を計算するには \sphinxcode{\sphinxupquote{margin}} の部分を引く必要があることに注意。
+\begin{itemize}
+\item {} 
+\(x_1\) を設定。\sphinxcode{\sphinxupquote{margin}} の分も考慮して計算する。
+
+\item {} 
+\sphinxcode{\sphinxupquote{do loop}} で順次足していく
+
+\end{itemize}
+
+コードは以下のようになる
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{dx\PYGZus{}unif} \PYG{o}{=} \PYG{p}{(}\PYG{n}{xmax}\PYG{o}{\PYGZhy{}}\PYG{n}{xmin}\PYG{p}{)}\PYG{o}{/}\PYG{k+kt}{real}\PYG{p}{(}\PYG{n}{ix00}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{marginx}\PYG{p}{)}
+\PYG{n}{x00}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{o}{=} \PYG{n}{xmin} \PYG{o}{+} \PYG{p}{(}\PYG{l+m+mf}{0.5d0}\PYG{o}{\PYGZhy{}}\PYG{n+nb}{dble}\PYG{p}{(}\PYG{n}{marginx}\PYG{p}{)}\PYG{p}{)}\PYG{o}{*}\PYG{n}{dx\PYGZus{}unif}
+\PYG{k}{if}\PYG{p}{(}\PYG{n}{xdcheck} \PYG{o}{==} \PYG{l+m+mi}{2}\PYG{p}{)} \PYG{k}{then}
+\PYG{k}{    }\PYG{k}{do }\PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{o}{+}\PYG{n}{i1}\PYG{p}{,}\PYG{n}{ix00}
+        \PYG{n}{x00}\PYG{p}{(}\PYG{n}{i}\PYG{p}{)} \PYG{o}{=} \PYG{n}{x00}\PYG{p}{(}\PYG{n}{i}\PYG{o}{\PYGZhy{}}\PYG{n}{i1}\PYG{p}{)} \PYG{o}{+} \PYG{n}{dx\PYGZus{}unif}
+    \PYG{n}{enddo}
+\PYG{n}{endif}
+\end{sphinxVerbatim}
+
+
+\section{非一様グリッド}
+\label{\detokenize{geometry:id3}}
+非一様グリッドを用いるときは、太陽光球付近は、輻射輸送のために一様なグリッド、ある程度の深さから格子間隔が線形に増加する非一様グリッドを使うことにしている。
+
+よって、ある初期の格子間隔 \(\Delta x_0\)
+
 
 \chapter{境界条件}
 \label{\detokenize{boundary:id1}}\label{\detokenize{boundary::doc}}
@@ -149,13 +196,235 @@ R2D2では、
 \chapter{入力・出力}
 \label{\detokenize{io:id1}}\label{\detokenize{io::doc}}
 
+\section{出力}
+\label{\detokenize{io:id2}}
+
+\subsection{Fortranコード}
+\label{\detokenize{io:fortran}}
+
+\section{読込}
+\label{\detokenize{io:id3}}
+読み込みについては、PythonコードとIDLコードを用意しているが、開発の頻度が高いPythonコードの利用を推奨している。
+
+
+\subsection{Pythonコード}
+\label{\detokenize{io:python}}
+PythonでR2D2で定義された関数を使うには
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{R2D2}
+\end{sphinxVerbatim}
+
+として、ライブラリを読み込む。R2D2にはグローバル変数、関数が定義してある。
+
+以下にそれぞれの関数を示すが、
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{R2D2}\PYG{o}{.}\PYG{n}{help}\PYG{p}{(}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+とすると実行環境で簡単な説明を見ることができる。
+
+
+\subsubsection{グローバル変数}
+\label{\detokenize{io:id4}}
+Pythonでは一般に推奨されないが、R2D2ではメモリ節約の目的のためにいくつかのグローバル変数を用意している。R2D2をインポートした後は、\sphinxcode{\sphinxupquote{R2D2.*}} とすることで変数にアクセスできる。
+\index{p (組み込み変数)@\spxentry{p}\spxextra{組み込み変数}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{io:p}}\pysigline{\sphinxbfcode{\sphinxupquote{p}}}
+基本的なパラメタ。格子点数 \sphinxcode{\sphinxupquote{ix}} や領域サイズ \sphinxcode{\sphinxupquote{xmax}} など。 \sphinxcode{\sphinxupquote{read\_init}} で読み込んだ結果。
+
+\end{fulllineitems}
+
+\index{q2 (組み込み変数)@\spxentry{q2}\spxextra{組み込み変数}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{io:q2}}\pysigline{\sphinxbfcode{\sphinxupquote{q2}}}
+2次元のnumpy array。ある高さのデータ。\sphinxcode{\sphinxupquote{read\_qq\_select}} で読み込んだ結果。
+
+\end{fulllineitems}
+
+\index{q3 (組み込み変数)@\spxentry{q3}\spxextra{組み込み変数}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{io:q3}}\pysigline{\sphinxbfcode{\sphinxupquote{q3}}}
+3次元のnumpy array。計算領域全体のデータ。\sphinxcode{\sphinxupquote{read\_qq}} で読み込んだ結果。
+
+\end{fulllineitems}
+
+\index{qi (組み込み変数)@\spxentry{qi}\spxextra{組み込み変数}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{io:qi}}\pysigline{\sphinxbfcode{\sphinxupquote{qi}}}
+2次元のnumpy array。ある光学的厚さの面でのデータ。現在は光学的厚さ1, 0.1, 0.01でのデータを出力している。 \sphinxcode{\sphinxupquote{read\_qq}} で読み込んだ結果。
+
+\end{fulllineitems}
+
+\index{vc (組み込み変数)@\spxentry{vc}\spxextra{組み込み変数}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{io:vc}}\pysigline{\sphinxbfcode{\sphinxupquote{vc}}}
+Fortranの計算の中で解析した結果。 \sphinxcode{\sphinxupquote{read\_vc}} で読み込んだ結果。
+
+\end{fulllineitems}
+
+\index{qc (組み込み変数)@\spxentry{qc}\spxextra{組み込み変数}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{io:qc}}\pysigline{\sphinxbfcode{\sphinxupquote{qc}}}
+3次元のnumpy array。計算領域全体のデータ。Fortranの計算でチェックポイントのために出力しているデータを読み込む。主に解像度をあげたいときのために使う \sphinxcode{\sphinxupquote{read\_qq\_check}} で読み込んだ結果。
+
+\end{fulllineitems}
+
+
+\sphinxcode{\sphinxupquote{p}} については、\sphinxcode{\sphinxupquote{init.py}} などで
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{for} \PYG{n}{key} \PYG{o+ow}{in} \PYG{n}{R2D2}\PYG{o}{.}\PYG{n}{p}\PYG{p}{:}
+    \PYG{n}{exec}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+si}{\PYGZpc{}s}\PYG{l+s+s1}{ = }\PYG{l+s+si}{\PYGZpc{}s}\PYG{l+s+si}{\PYGZpc{}s}\PYG{l+s+si}{\PYGZpc{}s}\PYG{l+s+s1}{\PYGZsq{}} \PYG{o}{\PYGZpc{}} \PYG{p}{(}\PYG{n}{key}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{R2D2.p[}\PYG{l+s+s1}{\PYGZdq{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{n}{key}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdq{}}\PYG{l+s+s1}{]}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+としているために、辞書型の \sphinxcode{\sphinxupquote{key}} を名前にする変数に値が代入されている。例えば、 \sphinxcode{\sphinxupquote{R2D2.p{[}\textquotesingle{}ix\textquotesingle{}{]}}} と \sphinxcode{\sphinxupquote{ix}} には同じ値が入っている。
+
+
+\subsubsection{関数}
+\label{\detokenize{io:id5}}
+関数で指定する \sphinxcode{\sphinxupquote{dir}} はデータの場所を示す変数。R2D2の計算を実行すると \sphinxcode{\sphinxupquote{data}} ディレクトリが生成されて、その中にデータが保存される。この場所を指定すれば良い。
+\index{read\_init() (組み込み関数)@\spxentry{read\_init()}\spxextra{組み込み関数}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{io:read_init}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{read\_init}}}{\emph{dir}, \emph{dimension}}{}
+R2D2でデータを解析するときに、一番はじめに実行すべき関数。計算設定などのパラメタが読み込まれる。 \sphinxcode{\sphinxupquote{R2D2.p}} にデータが保存される。
+\begin{quote}\begin{description}
+\item[{パラメータ}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{\sphinxupquote{dir}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \sphinxhyphen{}\sphinxhyphen{} データの場所
+
+\item {} 
+\sphinxstyleliteralstrong{\sphinxupquote{dimension}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \sphinxhyphen{}\sphinxhyphen{} 2Dか3Dを示す
+
+\end{itemize}
+
+\item[{戻り値}] \leavevmode
+None
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+\index{read\_qq\_select() (組み込み関数)@\spxentry{read\_qq\_select()}\spxextra{組み込み関数}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{io:read_qq_select}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{read\_qq\_select}}}{\emph{dir}, \emph{xs}, \emph{n}}{}
+ある高さのデータのスライスを読み込む。戻り値を返さない時も \sphinxcode{\sphinxupquote{R2D2.q2}} にデータが保存される。
+\begin{quote}\begin{description}
+\item[{パラメータ}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{\sphinxupquote{dir}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \sphinxhyphen{}\sphinxhyphen{} データの場所
+
+\item {} 
+\sphinxstyleliteralstrong{\sphinxupquote{xs}} (\sphinxstyleliteralemphasis{\sphinxupquote{float}}) \sphinxhyphen{}\sphinxhyphen{} 読み込みたいデータの高さ
+
+\item {} 
+\sphinxstyleliteralstrong{\sphinxupquote{n}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}) \sphinxhyphen{}\sphinxhyphen{} 読み込みたい時間ステップ
+
+\end{itemize}
+
+\item[{戻り値}] \leavevmode
+\sphinxcode{\sphinxupquote{out=True}} が指定されているとデータが返される。
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+\index{read\_qq() (組み込み関数)@\spxentry{read\_qq()}\spxextra{組み込み関数}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{io:read_qq}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{read\_qq}}}{\emph{dir}, \emph{n}}{}
+3次元のデータを読み込む。戻り値を返さない時も \sphinxcode{\sphinxupquote{R2D2.q3}} にデータが保存される。
+\begin{quote}\begin{description}
+\item[{パラメータ}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{\sphinxupquote{dir}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \sphinxhyphen{}\sphinxhyphen{} データの場所
+
+\item {} 
+\sphinxstyleliteralstrong{\sphinxupquote{xs}} (\sphinxstyleliteralemphasis{\sphinxupquote{float}}) \sphinxhyphen{}\sphinxhyphen{} 読み込みたいデータの高さ
+
+\item {} 
+\sphinxstyleliteralstrong{\sphinxupquote{n}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}) \sphinxhyphen{}\sphinxhyphen{} 読み込みたい時間ステップ
+
+\end{itemize}
+
+\item[{戻り値}] \leavevmode
+\sphinxcode{\sphinxupquote{out=True}} が指定されているとデータが返される。
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+\index{read\_time() (組み込み関数)@\spxentry{read\_time()}\spxextra{組み込み関数}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{io:read_time}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{read\_time}}}{\emph{dir}, \emph{n}}{}
+ある高さのデータのスライスを読み込む
+\begin{quote}\begin{description}
+\item[{パラメータ}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{\sphinxupquote{dir}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \sphinxhyphen{}\sphinxhyphen{} データの場所
+
+\item {} 
+\sphinxstyleliteralstrong{\sphinxupquote{xs}} (\sphinxstyleliteralemphasis{\sphinxupquote{float}}) \sphinxhyphen{}\sphinxhyphen{} 読み込みたいデータの高さ
+
+\item {} 
+\sphinxstyleliteralstrong{\sphinxupquote{n}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}) \sphinxhyphen{}\sphinxhyphen{} 読み込みたい時間ステップ
+
+\end{itemize}
+
+\item[{戻り値}] \leavevmode
+\sphinxcode{\sphinxupquote{out=True}} が指定されているとデータが返される。
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+\index{read\_vc() (組み込み関数)@\spxentry{read\_vc()}\spxextra{組み込み関数}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{io:read_vc}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{read\_vc}}}{\emph{dir}, \emph{n}}{}
+ある高さのデータのスライスを読み込む
+\begin{quote}\begin{description}
+\item[{パラメータ}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{\sphinxupquote{dir}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \sphinxhyphen{}\sphinxhyphen{} データの場所
+
+\item {} 
+\sphinxstyleliteralstrong{\sphinxupquote{xs}} (\sphinxstyleliteralemphasis{\sphinxupquote{float}}) \sphinxhyphen{}\sphinxhyphen{} 読み込みたいデータの高さ
+
+\item {} 
+\sphinxstyleliteralstrong{\sphinxupquote{n}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}) \sphinxhyphen{}\sphinxhyphen{} 読み込みたい時間ステップ
+
+\end{itemize}
+
+\item[{戻り値}] \leavevmode
+\sphinxcode{\sphinxupquote{out=True}} が指定されているとデータが返される。
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+
+
+\subsection{IDLコード}
+\label{\detokenize{io:idl}}
+
 \section{バージョン履歴}
-\label{\detokenize{io:id2}}\begin{itemize}
+\label{\detokenize{io:id6}}\begin{itemize}
 \item {} 
 ver. 1.0: バージョン制を導入
 
 \item {} 
-ver. 1.1: 光学的厚さが0.1, 0.01の部分も出力することにした。qq\_in, vcをconfigのグローバル変数として取扱ことにした。
+ver. 1.1: 光学的厚さが0.1, 0.01の部分も出力することにした。qq\_in, vcをconfigのグローバル変数として取扱うことにした。
 
 \end{itemize}
 
@@ -191,7 +460,7 @@ pip install commonmark recommonmark
 \section{HTMLファイルの生成}
 \label{\detokenize{sphinx:html}}
 適当なディレクトリを作成(ここでは \sphinxcode{\sphinxupquote{test}} )とする。
-そこで、 \sphinxcode{\sphinxupquote{sphinx-quickstart}} コマンドによりSphinxで作るドキュメントの
+そこで、 \sphinxcode{\sphinxupquote{sphinx\sphinxhyphen{}quickstart}} コマンドによりSphinxで作るドキュメントの
 初期設定を行う。
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
@@ -230,6 +499,7 @@ VS codeを利用すると快適にreStructuredTextを作成することができ
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{n}{extensions} \PYG{o}{+}\PYG{o}{=} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{sphinx.ext.imgmath}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}
 \PYG{n}{imgmath\PYGZus{}image\PYGZus{}format} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{svg}\PYG{l+s+s1}{\PYGZsq{}}
+\PYG{n}{imgmath\PYGZus{}font\PYGZus{}size} \PYG{o}{=} \PYG{l+m+mi}{14}
 \PYG{n}{pngmath\PYGZus{}latex}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{platex}\PYG{l+s+s1}{\PYGZsq{}}
 \end{sphinxVerbatim}
 
@@ -249,16 +519,117 @@ VS codeを利用すると快適にreStructuredTextを作成することができ
 \label{\detokenize{sphinx:id6}}
 
 \subsection{リンク}
-\label{\detokenize{sphinx:id7}}
+\label{\detokenize{sphinx:id7}}\begin{itemize}
+\item {} 
+外部ウェブサイト
+
+\end{itemize}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{l+s}{`Twitter }\PYG{l+s+si}{\PYGZlt{}https://twitter.com\PYGZgt{}}\PYG{l+s}{`\PYGZus{}}
+\end{sphinxVerbatim}
+
+などとすると
+\begin{quote}
+
+\sphinxhref{https://twitter.com}{Twitter}
+\end{quote}
+
+とリンクが生成される
+\begin{itemize}
+\item {} 
+内部サイト
+
+\end{itemize}
+
+自分で作成しているドキュメントをリンクするには
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n+na}{:doc:}\PYG{n+nv}{`index`}
+\end{sphinxVerbatim}
+
+などとすると
+\begin{quote}
+
+{\hyperref[\detokenize{index::doc}]{\sphinxcrossref{\DUrole{doc}{R2D2マニュアル}}}}
+\end{quote}
+
+とリンクが生成される。
+
 
 \subsection{コード}
 \label{\detokenize{sphinx:id8}}
+Sphinxでは、コードを直接記載することができる。また、言語に合わせてハイライトも可能。
+コードの表記に選択できる言語は \sphinxhref{https://pygments.org/docs/lexers/}{Pygments} にまとめてある。
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{p}{..} \PYG{o+ow}{code}\PYG{p}{::} \PYG{k}{fortran}
+
+    \PYG{k}{implicit }\PYG{k}{none}
+    \PYG{k+kt}{real}\PYG{p}{(}\PYG{n+nb}{KIND}\PYG{o}{=}\PYG{l+m+mf}{0.d0}\PYG{p}{)} \PYG{k+kd}{::} \PYG{n}{a}\PYG{p}{,}\PYG{n}{b}\PYG{p}{,}\PYG{n}{c}
+
+    \PYG{n}{a} \PYG{o}{=} \PYG{l+m+mf}{1.d0}
+    \PYG{n}{b} \PYG{o}{=} \PYG{l+m+mf}{2.d0}
+    \PYG{n}{c} \PYG{o}{=} \PYG{n}{a} \PYG{o}{+} \PYG{n}{b}
+\end{sphinxVerbatim}
+
+このようにすると、以下のように表示される
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{implicit }\PYG{k}{none}
+\PYG{k+kt}{real}\PYG{p}{(}\PYG{n+nb}{KIND}\PYG{o}{=}\PYG{l+m+mf}{0.d0}\PYG{p}{)} \PYG{k+kd}{::} \PYG{n}{a}\PYG{p}{,}\PYG{n}{b}\PYG{p}{,}\PYG{n}{c}
+
+\PYG{n}{a} \PYG{o}{=} \PYG{l+m+mf}{1.d0}
+\PYG{n}{b} \PYG{o}{=} \PYG{l+m+mf}{2.d0}
+\PYG{n}{c} \PYG{o}{=} \PYG{n}{a} \PYG{o}{+} \PYG{n}{b}
+\end{sphinxVerbatim}
+
 
 \subsection{画像}
 \label{\detokenize{sphinx:id9}}
+画像の挿入には \sphinxcode{\sphinxupquote{image}} ディレクティブを使う。オプションで、画像サイズなどを調整できる。堀田はだいたいwidthで調整している。
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{p}{..} \PYG{o+ow}{image}\PYG{p}{::} source/figs/R2D2\PYGZus{}logo.png
+    \PYG{n+nc}{:width:} 350 px
+\end{sphinxVerbatim}
+
+とすると下記のように画像が挿入される。
+
+\noindent\sphinxincludegraphics[width=350\sphinxpxdimen]{{R2D2_logo}.png}
+
 
 \subsection{数式}
 \label{\detokenize{sphinx:id10}}
+SphinxではLatexを用いて数式を記述することができる。
+1行の独立した数式を取り扱うときは
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{p}{..}  \PYG{o+ow}{math}\PYG{p}{::}
+
+    \PYGZbs{}frac\PYGZob{}\PYGZbs{}partial \PYGZbs{}rho\PYGZcb{}\PYGZob{}\PYGZbs{}partial t\PYGZcb{} = \PYGZhy{}\PYGZbs{}nabla\PYGZbs{}cdot \PYGZbs{}left(\PYGZbs{}rho \PYGZob{}\PYGZbs{}boldsymbol v\PYGZcb{}\PYGZbs{}right)
+\end{sphinxVerbatim}
+
+とすると以下のように表示される。
+\begin{quote}
+\begin{equation*}
+\begin{split}\frac{\partial \rho}{\partial t} = -\nabla\cdot \left(\rho {\boldsymbol v}\right)\end{split}
+\end{equation*}\end{quote}
+
+インラインの数式では
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+ここで \PYG{n+na}{:math:}\PYG{n+nv}{`\PYGZbs{}rho\PYGZus{}1=x\PYGZca{}2`} とする
+\end{sphinxVerbatim}
+
+とすると
+\begin{quote}
+
+ここで \(\rho_1=x^2\) とする
+\end{quote}
+
+と表示される。
+
 
 \chapter{ライセンス}
 \label{\detokenize{index:id1}}
@@ -270,7 +641,7 @@ R2D2は現状、公開ソフトウェアではなく再配布も禁じている�
 再配布しない
 
 \item {} 
-改変は許されるが、その時の実行結果については開発者は責任を持たない
+改変は許されるが、その時の実行結果について堀田Ωは責任を持たない
 
 \item {} 
 R2D2で実行する計算は、堀田と議論する必要がある。パラメタ変更などの細かい変更には相談する必要はないが、新しいプロジェクトを開始するときはその都度相談すること。堀田自身のプロジェクト、堀田の指導学生のプロジェクトとの重複を避けるためである。
