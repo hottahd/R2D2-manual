@@ -1,0 +1,297 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>入力・出力 &#8212; R2D2 1.1 ドキュメント</title>
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="next" title="Sphinx使用の覚書" href="sphinx.html" />
+    <link rel="prev" title="人工粘性" href="artdif.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="sphinx.html" title="Sphinx使用の覚書"
+             accesskey="N">次へ</a> |</li>
+        <li class="right" >
+          <a href="artdif.html" title="人工粘性"
+             accesskey="P">前へ</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">R2D2 1.1 ドキュメント</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">目次</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">入力・出力</a><ul>
+<li><a class="reference internal" href="#id2">出力</a><ul>
+<li><a class="reference internal" href="#fortran">Fortranコード</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id3">読込</a><ul>
+<li><a class="reference internal" href="#python">Pythonコード</a><ul>
+<li><a class="reference internal" href="#id4">グローバル変数</a></li>
+<li><a class="reference internal" href="#id5">関数</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#idl">IDLコード</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id6">バージョン履歴</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>前のトピックへ</h4>
+  <p class="topless"><a href="artdif.html"
+                        title="前の章へ">人工粘性</a></p>
+  <h4>次のトピックへ</h4>
+  <p class="topless"><a href="sphinx.html"
+                        title="次の章へ">Sphinx使用の覚書</a></p>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/io.rst.txt"
+            rel="nofollow">ソースコードを表示</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="検索" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="id1">
+<h1>入力・出力<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="id2">
+<h2>出力<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="fortran">
+<h3>Fortranコード<a class="headerlink" href="#fortran" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>読込<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>読み込みについては、PythonコードとIDLコードを用意しているが、開発の頻度が高いPythonコードの利用を推奨している。</p>
+<div class="section" id="python">
+<h3>Pythonコード<a class="headerlink" href="#python" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>PythonでR2D2で定義された関数を使うには</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">R2D2</span>
+</pre></div>
+</div>
+<p>として、ライブラリを読み込む。R2D2にはグローバル変数、関数が定義してある。</p>
+<p>以下にそれぞれの関数を示すが、</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">R2D2</span><span class="o">.</span><span class="n">help</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>とすると実行環境で簡単な説明を見ることができる。</p>
+<div class="section" id="id4">
+<h4>グローバル変数<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>Pythonでは一般に推奨されないが、R2D2ではメモリ節約の目的のためにいくつかのグローバル変数を用意している。R2D2をインポートした後は、<code class="docutils literal notranslate"><span class="pre">R2D2.*</span></code> とすることで変数にアクセスできる。</p>
+<dl class="data">
+<dt id="p">
+<code class="sig-name descname">p</code><a class="headerlink" href="#p" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>基本的なパラメタ。格子点数 <code class="docutils literal notranslate"><span class="pre">ix</span></code> や領域サイズ <code class="docutils literal notranslate"><span class="pre">xmax</span></code> など。 <code class="docutils literal notranslate"><span class="pre">read_init</span></code> で読み込んだ結果。</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="q2">
+<code class="sig-name descname">q2</code><a class="headerlink" href="#q2" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>2次元のnumpy array。ある高さのデータ。<code class="docutils literal notranslate"><span class="pre">read_qq_select</span></code> で読み込んだ結果。</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="q3">
+<code class="sig-name descname">q3</code><a class="headerlink" href="#q3" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>3次元のnumpy array。計算領域全体のデータ。<code class="docutils literal notranslate"><span class="pre">read_qq</span></code> で読み込んだ結果。</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="qi">
+<code class="sig-name descname">qi</code><a class="headerlink" href="#qi" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>2次元のnumpy array。ある光学的厚さの面でのデータ。現在は光学的厚さ1, 0.1, 0.01でのデータを出力している。 <code class="docutils literal notranslate"><span class="pre">read_qq</span></code> で読み込んだ結果。</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="vc">
+<code class="sig-name descname">vc</code><a class="headerlink" href="#vc" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Fortranの計算の中で解析した結果。 <code class="docutils literal notranslate"><span class="pre">read_vc</span></code> で読み込んだ結果。</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="qc">
+<code class="sig-name descname">qc</code><a class="headerlink" href="#qc" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>3次元のnumpy array。計算領域全体のデータ。Fortranの計算でチェックポイントのために出力しているデータを読み込む。主に解像度をあげたいときのために使う <code class="docutils literal notranslate"><span class="pre">read_qq_check</span></code> で読み込んだ結果。</p>
+</dd></dl>
+
+<p><code class="docutils literal notranslate"><span class="pre">p</span></code> については、<code class="docutils literal notranslate"><span class="pre">init.py</span></code> などで</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">R2D2</span><span class="o">.</span><span class="n">p</span><span class="p">:</span>
+    <span class="n">exec</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> = </span><span class="si">%s%s%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s1">&#39;R2D2.p[&quot;&#39;</span><span class="p">,</span><span class="n">key</span><span class="p">,</span><span class="s1">&#39;&quot;]&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>としているために、辞書型の <code class="docutils literal notranslate"><span class="pre">key</span></code> を名前にする変数に値が代入されている。例えば、 <code class="docutils literal notranslate"><span class="pre">R2D2.p['ix']</span></code> と <code class="docutils literal notranslate"><span class="pre">ix</span></code> には同じ値が入っている。</p>
+</div>
+<div class="section" id="id5">
+<h4>関数<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>関数で指定する <code class="docutils literal notranslate"><span class="pre">dir</span></code> はデータの場所を示す変数。R2D2の計算を実行すると <code class="docutils literal notranslate"><span class="pre">data</span></code> ディレクトリが生成されて、その中にデータが保存される。この場所を指定すれば良い。</p>
+<dl class="function">
+<dt id="read_init">
+<code class="sig-name descname">read_init</code><span class="sig-paren">(</span><em class="sig-param">dir</em>, <em class="sig-param">dimension</em><span class="sig-paren">)</span><a class="headerlink" href="#read_init" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>R2D2でデータを解析するときに、一番はじめに実行すべき関数。計算設定などのパラメタが読み込まれる。 <code class="docutils literal notranslate"><span class="pre">R2D2.p</span></code> にデータが保存される。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dir</strong> (<em>str</em>) -- データの場所</p></li>
+<li><p><strong>dimension</strong> (<em>str</em>) -- 2Dか3Dを示す</p></li>
+</ul>
+</dd>
+<dt class="field-even">戻り値</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="read_qq_select">
+<code class="sig-name descname">read_qq_select</code><span class="sig-paren">(</span><em class="sig-param">dir</em>, <em class="sig-param">xs</em>, <em class="sig-param">n</em><span class="sig-paren">)</span><a class="headerlink" href="#read_qq_select" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>ある高さのデータのスライスを読み込む。戻り値を返さない時も <code class="docutils literal notranslate"><span class="pre">R2D2.q2</span></code> にデータが保存される。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dir</strong> (<em>str</em>) -- データの場所</p></li>
+<li><p><strong>xs</strong> (<em>float</em>) -- 読み込みたいデータの高さ</p></li>
+<li><p><strong>n</strong> (<em>int</em>) -- 読み込みたい時間ステップ</p></li>
+</ul>
+</dd>
+<dt class="field-even">戻り値</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">out=True</span></code> が指定されているとデータが返される。</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="read_qq">
+<code class="sig-name descname">read_qq</code><span class="sig-paren">(</span><em class="sig-param">dir</em>, <em class="sig-param">n</em><span class="sig-paren">)</span><a class="headerlink" href="#read_qq" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>3次元のデータを読み込む。戻り値を返さない時も <code class="docutils literal notranslate"><span class="pre">R2D2.q3</span></code> にデータが保存される。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dir</strong> (<em>str</em>) -- データの場所</p></li>
+<li><p><strong>xs</strong> (<em>float</em>) -- 読み込みたいデータの高さ</p></li>
+<li><p><strong>n</strong> (<em>int</em>) -- 読み込みたい時間ステップ</p></li>
+</ul>
+</dd>
+<dt class="field-even">戻り値</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">out=True</span></code> が指定されているとデータが返される。</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="read_time">
+<code class="sig-name descname">read_time</code><span class="sig-paren">(</span><em class="sig-param">dir</em>, <em class="sig-param">n</em><span class="sig-paren">)</span><a class="headerlink" href="#read_time" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>時間を読み込む</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dir</strong> (<em>str</em>) -- データの場所</p></li>
+<li><p><strong>n</strong> (<em>int</em>) -- 読み込みたい時間ステップ</p></li>
+</ul>
+</dd>
+<dt class="field-even">戻り値</dt>
+<dd class="field-even"><p>時間ステップでの時間が返される</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="read_vc">
+<code class="sig-name descname">read_vc</code><span class="sig-paren">(</span><em class="sig-param">dir</em>, <em class="sig-param">n</em><span class="sig-paren">)</span><a class="headerlink" href="#read_vc" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Fortranコードの中で解析した計算結果を読み込む。戻り値を返さない時も <code class="docutils literal notranslate"><span class="pre">R2D2.vc</span></code> にデータが保存される。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dir</strong> (<em>str</em>) -- データの場所</p></li>
+<li><p><strong>n</strong> (<em>int</em>) -- 読み込みたい時間ステップ</p></li>
+</ul>
+</dd>
+<dt class="field-even">戻り値</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">out=True</span></code> が指定されているとデータが返される。</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="idl">
+<h3>IDLコード<a class="headerlink" href="#idl" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>バージョン履歴<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>ver. 1.0: バージョン制を導入</p></li>
+<li><p>ver. 1.1: 光学的厚さが0.1, 0.01の部分も出力することにした。qq_in, vcをconfigのグローバル変数として取扱うことにした。</p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="総合索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="sphinx.html" title="Sphinx使用の覚書"
+             >次へ</a> |</li>
+        <li class="right" >
+          <a href="artdif.html" title="人工粘性"
+             >前へ</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">R2D2 1.1 ドキュメント</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Hideyuki Hotta.
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0 で生成しました。
+    </div>
+  </body>
+</html>
