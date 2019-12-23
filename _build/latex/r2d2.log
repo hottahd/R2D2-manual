@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.2-190131-2.6 (utf8.euc) (TeX Live 2019) (preloaded format=platex 2019.6.4)  23 DEC 2019 15:54
+This is e-pTeX, Version 3.14159265-p3.8.2-190131-2.6 (utf8.euc) (TeX Live 2019) (preloaded format=platex 2019.6.4)  23 DEC 2019 21:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1029,7 +1029,7 @@ File: restructuredtext_vs.png Graphic file (type bmp)
 File: R2D2_logo.png Graphic file (type bmp)
 <R2D2_logo.png>
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 6.72699pt on input line 612.
+(Font)              scaled to size 6.72699pt on input line 614.
  [19] [20]
 第11章
 [21
@@ -1057,18 +1057,18 @@ LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
 
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 665.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 665.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 667.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 667.
  (./r2d2.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 665.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 665.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 667.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 667.
 Package rerunfilecheck Info: File `r2d2.out' has not changed.
 (rerunfilecheck)             Checksum: 469F517591D3A8A83B3B578C04D3AD21;1547.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 665.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 667.
  ) 
 Here is how much of TeX's memory you used:
  9542 strings out of 493223
@@ -1079,4 +1079,4 @@ Here is how much of TeX's memory you used:
  935 hyphenation exceptions out of 8191
  37i,21n,45p,551b,526s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on r2d2.dvi (26 pages, 65012 bytes).
+Output written on r2d2.dvi (26 pages, 65252 bytes).
