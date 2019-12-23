@@ -66,3 +66,7 @@ extensions += ['sphinx.ext.imgmath']
 imgmath_image_format = 'svg'
 pngmath_latex='platex'
 imgmath_font_size = 14 # 数式のフォントサイズ
+
+latex_elements = { \
+'extraclassoptions': 'report', \
+}
