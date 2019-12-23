@@ -1,0 +1,29 @@
+\begin{sphinxtheindex}
+\let\bigletter\sphinxstyleindexlettergroup
+\let\spxpagem \sphinxstyleindexpagemain
+\let\spxentry \sphinxstyleindexentry
+\let\spxextra \sphinxstyleindexextra
+
+
+  \item \spxentry{p}\spxextra{組み込み変数}, \hyperpage{13}
+
+  \indexspace
+
+  \item \spxentry{q2}\spxextra{組み込み変数}, \hyperpage{13}
+  \item \spxentry{q3}\spxextra{組み込み変数}, \hyperpage{13}
+  \item \spxentry{qc}\spxextra{組み込み変数}, \hyperpage{13}
+  \item \spxentry{qi}\spxextra{組み込み変数}, \hyperpage{13}
+
+  \indexspace
+
+  \item \spxentry{read\_init()}\spxextra{組み込み関数}, \hyperpage{13}
+  \item \spxentry{read\_qq()}\spxextra{組み込み関数}, \hyperpage{14}
+  \item \spxentry{read\_qq\_select()}\spxextra{組み込み関数}, \hyperpage{14}
+  \item \spxentry{read\_time()}\spxextra{組み込み関数}, \hyperpage{14}
+  \item \spxentry{read\_vc()}\spxextra{組み込み関数}, \hyperpage{14}
+
+  \indexspace
+
+  \item \spxentry{vc}\spxextra{組み込み変数}, \hyperpage{13}
+
+\end{sphinxtheindex}
