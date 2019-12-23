@@ -7,7 +7,9 @@ R2D2マニュアル
 ================================
 
 このページは太陽のための輻射磁気流体コードR2D2(RSST and Radiation for Deep Dynamics)
-のマニュアルである。
+のマニュアルである。 
+
+`PDF版はこちら <https://github.com/hottahd/R2D2-manual/raw/master/_build/latex/r2d2.pdf>`_ 
 
 .. image:: source/figs/R2D2_logo.png
    :width: 350 px
