@@ -63,265 +63,6 @@
 \chapter{R2D2を使い始めるには}
 \label{\detokenize{start:r2d2}}\label{\detokenize{start::doc}}
 
-\chapter{R2D2 pythonでのキーワードの説明}
-\label{\detokenize{notation:r2d2-python}}\label{\detokenize{notation::doc}}\index{R2D2.p (組み込み変数)@\spxentry{R2D2.p}\spxextra{組み込み変数}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{notation:R2D2.p}}\pysigline{\sphinxcode{\sphinxupquote{R2D2.}}\sphinxbfcode{\sphinxupquote{p}}}~\begin{itemize}
-\item {} 
-datadir (str) \sphinxhyphen{}\sphinxhyphen{} データの保存場所
-
-\item {} 
-nd (int) \sphinxhyphen{}\sphinxhyphen{} 現在までのアウトプット時間ステップ数(3次元データ)
-
-\item {} 
-ni (int) \sphinxhyphen{}\sphinxhyphen{} 現在までのアウトプット時間ステップ数(光学的厚さ一定のデータ)
-
-\item {} 
-xdcheck (int) \sphinxhyphen{}\sphinxhyphen{} x軸方向に解いているか。解いていたら2、解いていなかったら1
-
-\item {} 
-ydcheck (int) \sphinxhyphen{}\sphinxhyphen{} y軸方向に解いているか。解いていたら2、解いていなかったら1
-
-\item {} 
-zdcheck (int) \sphinxhyphen{}\sphinxhyphen{} z軸方向に解いているか。解いていたら2、解いていなかったら1
-
-\item {} 
-margin (int) \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-nx (int) \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-ny (int) \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-nz (int) \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-npe (int) \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-ix0 (int) \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-jx0 (int) \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-kx0 (int) \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-mtype (int) \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-xmax (float) \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-xmin (float) \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-ymax (float) \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-ymin (float) \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-zmax (float) \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-zmin (float) \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-dtout (float) \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-tend (float) \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-swap (int) \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-ix\_e (int) \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-jx\_e (int) \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-ixr (int) \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-jxr (int) \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-m\_in (int) \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-m\_tu (int) \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-dtoui (float) \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-ifac (int) \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-jc (int) \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-kc (int) \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-deep\_top\_flag (int) \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-ib\_excluded\_top (int) \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-endian (char) \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-ix (int) \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-jx (int) \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-kx (int) \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-x (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-y (float) {[}jx{]} \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-z (float) {[}kx{]} \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-pr0 (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-te0 (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-ro0 (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-se0 (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-en0 (float) {[}ix{]}
-
-\item {} 
-op0 (float) {[}ix{]}
-
-\item {} 
-tu0 (float) {[}ix{]}
-
-\item {} 
-dsedr0 (float) {[}ix{]}
-
-\item {} 
-dtedr0 (float) {[}ix{]}
-
-\item {} 
-dprdro (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場の \((\partial p/\partial \rho)_s\)
-
-\item {} 
-dprdse (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場の \((\partial p/\partial \rho)_s\)
-
-\item {} 
-dtedro (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場の \((\partial p/\partial \rho)_s\)
-
-\item {} 
-dtedse (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場の \((\partial p/\partial \rho)_s\)
-
-\item {} 
-dendro (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場の \((\partial p/\partial \rho)_s\)
-
-\item {} 
-dendse (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場の \((\partial p/\partial \rho)_s\)
-
-\item {} 
-gx (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-kp (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-cp (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-fa (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-sa (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-xi (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-rsun (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-xr (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} x/rsun
-
-\item {} 
-xn (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} (x\sphinxhyphen{}rsun)*1.e\sphinxhyphen{}8
-
-\item {} 
-m2da (int) \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-cl (char) {[}m2da{]} \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-iss (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-iee (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-jss (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-jee (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-iixl (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-jjxl (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-np\_ijr (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-ir (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-jr (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-i2ir (int) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-j2jr (int) {[}jx{]} \sphinxhyphen{}\sphinxhyphen{}
-
-\end{itemize}
-
-\end{fulllineitems}
-
-\index{a (組み込み変数)@\spxentry{a}\spxextra{組み込み変数}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{notation:a}}\pysigline{\sphinxbfcode{\sphinxupquote{a}}}
-aaa
-
-\end{fulllineitems}
-
-
-
 \chapter{数値スキーム}
 \label{\detokenize{scheme:id1}}\label{\detokenize{scheme::doc}}
 
@@ -658,6 +399,280 @@ ver. 1.0: バージョン制を導入
 
 \item {} 
 ver. 1.1: 光学的厚さが0.1, 0.01の部分も出力することにした。qq\_in, vcをconfigのグローバル変数として取扱うことにした。
+
+\end{itemize}
+
+
+\chapter{R2D2 pythonでのキーワードの説明}
+\label{\detokenize{notation:r2d2-python}}\label{\detokenize{notation::doc}}
+
+\section{R2D2.p}
+\label{\detokenize{notation:r2d2-p}}
+
+\subsection{出力・時間に関する量}
+\label{\detokenize{notation:id1}}\begin{itemize}
+\item {} 
+datadir (str) \sphinxhyphen{}\sphinxhyphen{} データの保存場所
+
+\item {} 
+nd (int) \sphinxhyphen{}\sphinxhyphen{} 現在までのアウトプット時間ステップ数(3次元データ)
+
+\item {} 
+ni (int) \sphinxhyphen{}\sphinxhyphen{} 現在までのアウトプット時間ステップ数(光学的厚さ一定のデータ)
+
+\item {} 
+dtout (float) \sphinxhyphen{}\sphinxhyphen{}　出力ケーデンス {[}s{]}
+
+\item {} 
+dtoui (float) \sphinxhyphen{}\sphinxhyphen{}　光学的厚さ一定のデータの出力ケーデンス {[}s{]}
+
+\item {} 
+ifac (int) \sphinxhyphen{}\sphinxhyphen{} dtout/dtoui
+
+\item {} 
+tend (float) \sphinxhyphen{}\sphinxhyphen{} 計算終了時間。大きく取ってあるためにこの時間まで計算することはあまりない {[}s{]}
+
+\item {} 
+swap (int) \sphinxhyphen{}\sphinxhyphen{}　エンディアン指定
+
+\item {} 
+endian (char) \sphinxhyphen{}\sphinxhyphen{} エンディアン指定
+
+\item {} 
+jc (int) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+kc (int) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+m\_in (int) \sphinxhyphen{}\sphinxhyphen{} 光学的厚さ一定のデータを出力する変数の数
+
+\item {} 
+m\_tu (int) \sphinxhyphen{}\sphinxhyphen{} 光学的厚さ一定のデータの層の数
+
+\end{itemize}
+
+
+\subsection{座標に関する量}
+\label{\detokenize{notation:id2}}\begin{itemize}
+\item {} 
+xdcheck (int) \sphinxhyphen{}\sphinxhyphen{} x軸方向に解いているか。解いていたら2、解いていなかったら1
+
+\item {} 
+ydcheck (int) \sphinxhyphen{}\sphinxhyphen{} y軸方向に解いているか。解いていたら2、解いていなかったら1
+
+\item {} 
+zdcheck (int) \sphinxhyphen{}\sphinxhyphen{} z軸方向に解いているか。解いていたら2、解いていなかったら1
+
+\item {} 
+margin (int) \sphinxhyphen{}\sphinxhyphen{} マージン(ゴーストセル)の数
+
+\item {} 
+nx (int) \sphinxhyphen{}\sphinxhyphen{} 1 MPIスレッドあたりのx方向の格子点の数
+
+\item {} 
+ny (int) \sphinxhyphen{}\sphinxhyphen{} 1 MPIスレッドあたりのy方向の格子点の数
+
+\item {} 
+nz (int) \sphinxhyphen{}\sphinxhyphen{} 1 MPIスレッドあたりのz方向の格子点の数
+
+\item {} 
+ix0 (int) \sphinxhyphen{}\sphinxhyphen{} x方向のMPI領域分割の数
+
+\item {} 
+jx0 (int) \sphinxhyphen{}\sphinxhyphen{} y方向のMPI領域分割の数
+
+\item {} 
+kx0 (int) \sphinxhyphen{}\sphinxhyphen{} z方向のMPI領域分割の数
+
+\item {} 
+ix (int) \sphinxhyphen{}\sphinxhyphen{} x方向の格子点数 ix0*nx
+
+\item {} 
+jx (int) \sphinxhyphen{}\sphinxhyphen{} y方向の格子点数 jx0*ny
+
+\item {} 
+kx (int) \sphinxhyphen{}\sphinxhyphen{} z方向の格子点数 kx0*nz
+
+\item {} 
+npe (int) \sphinxhyphen{}\sphinxhyphen{} 全MPIスレッドの数 npe = ix0*jx0*kx0
+
+\item {} 
+mtype (int) \sphinxhyphen{}\sphinxhyphen{} 変数の数
+
+\item {} 
+xmax (float) \sphinxhyphen{}\sphinxhyphen{} x方向境界の位置(上限値)　{[}cm{]}
+
+\item {} 
+xmin (float) \sphinxhyphen{}\sphinxhyphen{} x方向境界の位置(下限値)　{[}cm{]}
+
+\item {} 
+ymax (float) \sphinxhyphen{}\sphinxhyphen{} y方向境界の位置(上限値)　{[}cm{]}
+
+\item {} 
+ymin (float) \sphinxhyphen{}\sphinxhyphen{} y方向境界の位置(下限値)　{[}cm{]}
+
+\item {} 
+zmax (float) \sphinxhyphen{}\sphinxhyphen{} z方向境界の位置(上限値)　{[}cm{]}
+
+\item {} 
+zmin (float) \sphinxhyphen{}\sphinxhyphen{} z方向境界の位置(下限値)　{[}cm{]}
+
+\item {} 
+x (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} x方向の座標 {[}cm{]}
+
+\item {} 
+y (float) {[}jx{]} \sphinxhyphen{}\sphinxhyphen{} y方向の座標 {[}cm{]}
+
+\item {} 
+z (float) {[}kx{]} \sphinxhyphen{}\sphinxhyphen{} z方向の座標 {[}cm{]}
+
+\item {} 
+xr (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} x/rsun
+
+\item {} 
+xn (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} (x\sphinxhyphen{}rsun)*1.e\sphinxhyphen{}8
+
+\item {} 
+deep\_top\_flag (int) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+ib\_excluded\_top (int) \sphinxhyphen{}\sphinxhyphen{}
+
+\end{itemize}
+
+
+\subsection{背景場に関する量}
+\label{\detokenize{notation:id3}}\begin{itemize}
+\item {} 
+pr0 (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場の圧力 {[}dyn cm $^{\text{\sphinxhyphen{}2}}${]}
+
+\item {} 
+te0 (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場の温度 {[}K{]}
+
+\item {} 
+ro0 (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場の密度 {[}g cm $^{\text{\sphinxhyphen{}3}}${]}
+
+\item {} 
+se0 (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場のエントロピー {[}erg g $^{\text{\sphinxhyphen{}1}}$ K $^{\text{\sphinxhyphen{}1}}${]}
+
+\item {} 
+en0 (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場の内部エネルギー {[}erg cm $^{\text{\sphinxhyphen{}3}}${]}
+
+\item {} 
+op0 (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場のオパシティー {[}{]}
+
+\item {} 
+tu0 (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場の光学的厚さ
+
+\item {} 
+dsedr0 (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場の鉛直エントロピー勾配 {[}erg g $^{\text{\sphinxhyphen{}1}}$ K $^{\text{\sphinxhyphen{}1}}$ cm $^{\text{\sphinxhyphen{}1}}${]}
+
+\item {} 
+dtedr0 (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場の鉛直温度勾配 {[}K cm $^{\text{\sphinxhyphen{}1}}${]}
+
+\item {} 
+dprdro (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場の \((\partial p/\partial \rho)_s\)
+
+\item {} 
+dprdse (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場の \((\partial p/\partial s)_\rho\)
+
+\item {} 
+dtedro (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場の \((\partial T/\partial \rho)_s\)
+
+\item {} 
+dtedse (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場の \((\partial T/\partial s)_\rho\)
+
+\item {} 
+dendro (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場の \((\partial e/\partial \rho)_s\)
+
+\item {} 
+dendse (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場の \((\partial e/\partial s)_\rho\)
+
+\item {} 
+gx (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 重力加速度 {[}cm s $^{\text{\sphinxhyphen{}2}}${]}
+
+\item {} 
+kp (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 放射拡散係数 {[}cm $^{\text{2}}$ s $^{\text{\sphinxhyphen{}1}}${]}
+
+\item {} 
+cp (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 定圧比熱　{[}erg g $^{\text{\sphinxhyphen{}1}}$ K $^{\text{\sphinxhyphen{}1}}${]}
+
+\item {} 
+fa (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+sa (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+xi (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+rsun (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+ix\_e (int) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+jx\_e (int) \sphinxhyphen{}\sphinxhyphen{}
+
+\end{itemize}
+
+
+\subsection{解析のためのデータ再配置(remap)に関する量}
+\label{\detokenize{notation:remap}}\begin{itemize}
+\item {} 
+m2da (int) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+ixr (int) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+jxr (int) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+cl (char) {[}m2da{]} \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+iss (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+iee (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+jss (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+jee (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+iixl (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+jjxl (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+np\_ijr (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+ir (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+jr (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+i2ir (int) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+j2jr (int) {[}jx{]} \sphinxhyphen{}\sphinxhyphen{}
+
+\end{itemize}
+
+
+\section{R2D2.q2}
+\label{\detokenize{notation:r2d2-q2}}\begin{itemize}
+\item {} 
+aaa
 
 \end{itemize}
 

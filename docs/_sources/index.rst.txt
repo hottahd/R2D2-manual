@@ -18,7 +18,6 @@ R2D2マニュアル
    :maxdepth: 2
 
    start.rst
-   notation.rst
    scheme.rst
    parameter.rst
    equation.rst
@@ -27,8 +26,8 @@ R2D2マニュアル
    boundary.rst
    artdif.rst
    io.rst
+   notation.rst
    sphinx.rst
-	      
 	     
 ライセンス
 ----------------------------------

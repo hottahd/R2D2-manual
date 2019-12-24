@@ -18,8 +18,8 @@
     <script type="text/javascript" src="_static/bizstyle.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
-    <link rel="next" title="数値スキーム" href="scheme.html" />
-    <link rel="prev" title="R2D2を使い始めるには" href="start.html" />
+    <link rel="next" title="Sphinx使用の覚書" href="sphinx.html" />
+    <link rel="prev" title="出力と読込" href="io.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
@@ -32,22 +32,37 @@
           <a href="genindex.html" title="総合索引"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="scheme.html" title="数値スキーム"
+          <a href="sphinx.html" title="Sphinx使用の覚書"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="start.html" title="R2D2を使い始めるには"
+          <a href="io.html" title="出力と読込"
              accesskey="P">前へ</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">R2D2 1.1 ドキュメント</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">目次</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">R2D2 pythonでのキーワードの説明</a><ul>
+<li><a class="reference internal" href="#r2d2-p">R2D2.p</a><ul>
+<li><a class="reference internal" href="#id1">出力・時間に関する量</a></li>
+<li><a class="reference internal" href="#id2">座標に関する量</a></li>
+<li><a class="reference internal" href="#id3">背景場に関する量</a></li>
+<li><a class="reference internal" href="#remap">解析のためのデータ再配置(remap)に関する量</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#r2d2-q2">R2D2.q2</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>前のトピックへ</h4>
-  <p class="topless"><a href="start.html"
-                        title="前の章へ">R2D2を使い始めるには</a></p>
+  <p class="topless"><a href="io.html"
+                        title="前の章へ">出力と読込</a></p>
   <h4>次のトピックへ</h4>
-  <p class="topless"><a href="scheme.html"
-                        title="次の章へ">数値スキーム</a></p>
+  <p class="topless"><a href="sphinx.html"
+                        title="次の章へ">Sphinx使用の覚書</a></p>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -75,78 +90,94 @@
             
   <div class="section" id="r2d2-python">
 <h1>R2D2 pythonでのキーワードの説明<a class="headerlink" href="#r2d2-python" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<dl class="data">
-<dt id="R2D2.p">
-<code class="sig-prename descclassname">R2D2.</code><code class="sig-name descname">p</code><a class="headerlink" href="#R2D2.p" title="この定義へのパーマリンク">¶</a></dt>
-<dd><ul class="simple">
+<div class="section" id="r2d2-p">
+<h2>R2D2.p<a class="headerlink" href="#r2d2-p" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id1">
+<h3>出力・時間に関する量<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
 <li><p>datadir (str) -- データの保存場所</p></li>
 <li><p>nd (int) -- 現在までのアウトプット時間ステップ数(3次元データ)</p></li>
 <li><p>ni (int) -- 現在までのアウトプット時間ステップ数(光学的厚さ一定のデータ)</p></li>
+<li><p>dtout (float) --　出力ケーデンス [s]</p></li>
+<li><p>dtoui (float) --　光学的厚さ一定のデータの出力ケーデンス [s]</p></li>
+<li><p>ifac (int) -- dtout/dtoui</p></li>
+<li><p>tend (float) -- 計算終了時間。大きく取ってあるためにこの時間まで計算することはあまりない [s]</p></li>
+<li><p>swap (int) --　エンディアン指定</p></li>
+<li><p>endian (char) -- エンディアン指定</p></li>
+<li><p>jc (int) --</p></li>
+<li><p>kc (int) --</p></li>
+<li><p>m_in (int) -- 光学的厚さ一定のデータを出力する変数の数</p></li>
+<li><p>m_tu (int) -- 光学的厚さ一定のデータの層の数</p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h3>座標に関する量<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
 <li><p>xdcheck (int) -- x軸方向に解いているか。解いていたら2、解いていなかったら1</p></li>
 <li><p>ydcheck (int) -- y軸方向に解いているか。解いていたら2、解いていなかったら1</p></li>
 <li><p>zdcheck (int) -- z軸方向に解いているか。解いていたら2、解いていなかったら1</p></li>
-<li><p>margin (int) --</p></li>
-<li><p>nx (int) --</p></li>
-<li><p>ny (int) --</p></li>
-<li><p>nz (int) --</p></li>
-<li><p>npe (int) --</p></li>
-<li><p>ix0 (int) --</p></li>
-<li><p>jx0 (int) --</p></li>
-<li><p>kx0 (int) --</p></li>
-<li><p>mtype (int) --</p></li>
-<li><p>xmax (float) --</p></li>
-<li><p>xmin (float) --</p></li>
-<li><p>ymax (float) --</p></li>
-<li><p>ymin (float) --</p></li>
-<li><p>zmax (float) --</p></li>
-<li><p>zmin (float) --</p></li>
-<li><p>dtout (float) --</p></li>
-<li><p>tend (float) --</p></li>
-<li><p>swap (int) --</p></li>
-<li><p>ix_e (int) --</p></li>
-<li><p>jx_e (int) --</p></li>
-<li><p>ixr (int) --</p></li>
-<li><p>jxr (int) --</p></li>
-<li><p>m_in (int) --</p></li>
-<li><p>m_tu (int) --</p></li>
-<li><p>dtoui (float) --</p></li>
-<li><p>ifac (int) --</p></li>
-<li><p>jc (int) --</p></li>
-<li><p>kc (int) --</p></li>
+<li><p>margin (int) -- マージン(ゴーストセル)の数</p></li>
+<li><p>nx (int) -- 1 MPIスレッドあたりのx方向の格子点の数</p></li>
+<li><p>ny (int) -- 1 MPIスレッドあたりのy方向の格子点の数</p></li>
+<li><p>nz (int) -- 1 MPIスレッドあたりのz方向の格子点の数</p></li>
+<li><p>ix0 (int) -- x方向のMPI領域分割の数</p></li>
+<li><p>jx0 (int) -- y方向のMPI領域分割の数</p></li>
+<li><p>kx0 (int) -- z方向のMPI領域分割の数</p></li>
+<li><p>ix (int) -- x方向の格子点数 ix0*nx</p></li>
+<li><p>jx (int) -- y方向の格子点数 jx0*ny</p></li>
+<li><p>kx (int) -- z方向の格子点数 kx0*nz</p></li>
+<li><p>npe (int) -- 全MPIスレッドの数 npe = ix0*jx0*kx0</p></li>
+<li><p>mtype (int) -- 変数の数</p></li>
+<li><p>xmax (float) -- x方向境界の位置(上限値)　[cm]</p></li>
+<li><p>xmin (float) -- x方向境界の位置(下限値)　[cm]</p></li>
+<li><p>ymax (float) -- y方向境界の位置(上限値)　[cm]</p></li>
+<li><p>ymin (float) -- y方向境界の位置(下限値)　[cm]</p></li>
+<li><p>zmax (float) -- z方向境界の位置(上限値)　[cm]</p></li>
+<li><p>zmin (float) -- z方向境界の位置(下限値)　[cm]</p></li>
+<li><p>x (float) [ix] -- x方向の座標 [cm]</p></li>
+<li><p>y (float) [jx] -- y方向の座標 [cm]</p></li>
+<li><p>z (float) [kx] -- z方向の座標 [cm]</p></li>
+<li><p>xr (float) [ix] -- x/rsun</p></li>
+<li><p>xn (float) [ix] -- (x-rsun)*1.e-8</p></li>
 <li><p>deep_top_flag (int) --</p></li>
 <li><p>ib_excluded_top (int) --</p></li>
-<li><p>endian (char) --</p></li>
-<li><p>ix (int) --</p></li>
-<li><p>jx (int) --</p></li>
-<li><p>kx (int) --</p></li>
-<li><p>x (float) [ix] --</p></li>
-<li><p>y (float) [jx] --</p></li>
-<li><p>z (float) [kx] --</p></li>
-<li><p>pr0 (float) [ix] --</p></li>
-<li><p>te0 (float) [ix] --</p></li>
-<li><p>ro0 (float) [ix] --</p></li>
-<li><p>se0 (float) [ix] --</p></li>
-<li><p>en0 (float) [ix]</p></li>
-<li><p>op0 (float) [ix]</p></li>
-<li><p>tu0 (float) [ix]</p></li>
-<li><p>dsedr0 (float) [ix]</p></li>
-<li><p>dtedr0 (float) [ix]</p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h3>背景場に関する量<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li><p>pr0 (float) [ix] -- 背景場の圧力 [dyn cm <sup>-2</sup>]</p></li>
+<li><p>te0 (float) [ix] -- 背景場の温度 [K]</p></li>
+<li><p>ro0 (float) [ix] -- 背景場の密度 [g cm <sup>-3</sup>]</p></li>
+<li><p>se0 (float) [ix] -- 背景場のエントロピー [erg g <sup>-1</sup> K <sup>-1</sup>]</p></li>
+<li><p>en0 (float) [ix] -- 背景場の内部エネルギー [erg cm <sup>-3</sup>]</p></li>
+<li><p>op0 (float) [ix] -- 背景場のオパシティー []</p></li>
+<li><p>tu0 (float) [ix] -- 背景場の光学的厚さ</p></li>
+<li><p>dsedr0 (float) [ix] -- 背景場の鉛直エントロピー勾配 [erg g <sup>-1</sup> K <sup>-1</sup> cm <sup>-1</sup>]</p></li>
+<li><p>dtedr0 (float) [ix] -- 背景場の鉛直温度勾配 [K cm <sup>-1</sup>]</p></li>
 <li><p>dprdro (float) [ix] -- 背景場の <img class="math" src="_images/math/81c65d4c160fe4b63577bfde090102c24c52ef4c.svg" alt="(\partial p/\partial \rho)_s"/></p></li>
-<li><p>dprdse (float) [ix] -- 背景場の <img class="math" src="_images/math/81c65d4c160fe4b63577bfde090102c24c52ef4c.svg" alt="(\partial p/\partial \rho)_s"/></p></li>
-<li><p>dtedro (float) [ix] -- 背景場の <img class="math" src="_images/math/81c65d4c160fe4b63577bfde090102c24c52ef4c.svg" alt="(\partial p/\partial \rho)_s"/></p></li>
-<li><p>dtedse (float) [ix] -- 背景場の <img class="math" src="_images/math/81c65d4c160fe4b63577bfde090102c24c52ef4c.svg" alt="(\partial p/\partial \rho)_s"/></p></li>
-<li><p>dendro (float) [ix] -- 背景場の <img class="math" src="_images/math/81c65d4c160fe4b63577bfde090102c24c52ef4c.svg" alt="(\partial p/\partial \rho)_s"/></p></li>
-<li><p>dendse (float) [ix] -- 背景場の <img class="math" src="_images/math/81c65d4c160fe4b63577bfde090102c24c52ef4c.svg" alt="(\partial p/\partial \rho)_s"/></p></li>
-<li><p>gx (float) [ix] --</p></li>
-<li><p>kp (float) [ix] --</p></li>
-<li><p>cp (float) [ix] --</p></li>
+<li><p>dprdse (float) [ix] -- 背景場の <img class="math" src="_images/math/d0fd372b4642ebd7d943cdabe2e5e51733b7283e.svg" alt="(\partial p/\partial s)_\rho"/></p></li>
+<li><p>dtedro (float) [ix] -- 背景場の <img class="math" src="_images/math/00d481b624d6922f06e35c7422059f8a721bbd76.svg" alt="(\partial T/\partial \rho)_s"/></p></li>
+<li><p>dtedse (float) [ix] -- 背景場の <img class="math" src="_images/math/5d6c951ef796b464dc7b6ea82e31d1e86a48353c.svg" alt="(\partial T/\partial s)_\rho"/></p></li>
+<li><p>dendro (float) [ix] -- 背景場の <img class="math" src="_images/math/58ed3db63bb34aee6535c73d8f57a08fa045aa4c.svg" alt="(\partial e/\partial \rho)_s"/></p></li>
+<li><p>dendse (float) [ix] -- 背景場の <img class="math" src="_images/math/dadb30cfb02a4f5f3ac915828750903429675815.svg" alt="(\partial e/\partial s)_\rho"/></p></li>
+<li><p>gx (float) [ix] -- 重力加速度 [cm s <sup>-2</sup>]</p></li>
+<li><p>kp (float) [ix] -- 放射拡散係数 [cm <sup>2</sup> s <sup>-1</sup>]</p></li>
+<li><p>cp (float) [ix] -- 定圧比熱　[erg g <sup>-1</sup> K <sup>-1</sup>]</p></li>
 <li><p>fa (float) [ix] --</p></li>
 <li><p>sa (float) [ix] --</p></li>
 <li><p>xi (float) [ix] --</p></li>
 <li><p>rsun (float) [ix] --</p></li>
-<li><p>xr (float) [ix] -- x/rsun</p></li>
-<li><p>xn (float) [ix] -- (x-rsun)*1.e-8</p></li>
+<li><p>ix_e (int) --</p></li>
+<li><p>jx_e (int) --</p></li>
+</ul>
+</div>
+<div class="section" id="remap">
+<h3>解析のためのデータ再配置(remap)に関する量<a class="headerlink" href="#remap" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
 <li><p>m2da (int) --</p></li>
+<li><p>ixr (int) --</p></li>
+<li><p>jxr (int) --</p></li>
 <li><p>cl (char) [m2da] --</p></li>
 <li><p>iss (int) [npe] --</p></li>
 <li><p>iee (int) [npe] --</p></li>
@@ -160,14 +191,14 @@
 <li><p>i2ir (int) [ix] --</p></li>
 <li><p>j2jr (int) [jx] --</p></li>
 </ul>
-</dd></dl>
-
-<dl class="data">
-<dt id="a">
-<code class="sig-name descname">a</code><a class="headerlink" href="#a" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>aaa</p>
-</dd></dl>
-
+</div>
+</div>
+<div class="section" id="r2d2-q2">
+<h2>R2D2.q2<a class="headerlink" href="#r2d2-q2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>aaa</p></li>
+</ul>
+</div>
 </div>
 
 
@@ -183,10 +214,10 @@
           <a href="genindex.html" title="総合索引"
              >索引</a></li>
         <li class="right" >
-          <a href="scheme.html" title="数値スキーム"
+          <a href="sphinx.html" title="Sphinx使用の覚書"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="start.html" title="R2D2を使い始めるには"
+          <a href="io.html" title="出力と読込"
              >前へ</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">R2D2 1.1 ドキュメント</a> &#187;</li> 
       </ul>
