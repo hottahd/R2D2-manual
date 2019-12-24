@@ -36,7 +36,7 @@
 
 
 \title{R2D2}
-\date{2019年12月24日}
+\date{2019年12月25日}
 \release{1.1}
 \author{Hideyuki Hotta}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -72,19 +72,19 @@
 datadir (str) \sphinxhyphen{}\sphinxhyphen{} データの保存場所
 
 \item {} 
-nd (int) \sphinxhyphen{}\sphinxhyphen{}
+nd (int) \sphinxhyphen{}\sphinxhyphen{} 現在までのアウトプット時間ステップ数(3次元データ)
 
 \item {} 
-ni (int) \sphinxhyphen{}\sphinxhyphen{}
+ni (int) \sphinxhyphen{}\sphinxhyphen{} 現在までのアウトプット時間ステップ数(光学的厚さ一定のデータ)
 
 \item {} 
-xdcheck (int) \sphinxhyphen{}\sphinxhyphen{}
+xdcheck (int) \sphinxhyphen{}\sphinxhyphen{} x軸方向に解いているか。解いていたら2、解いていなかったら1
 
 \item {} 
-ydcheck (int) \sphinxhyphen{}\sphinxhyphen{}
+ydcheck (int) \sphinxhyphen{}\sphinxhyphen{} y軸方向に解いているか。解いていたら2、解いていなかったら1
 
 \item {} 
-zdcheck (int) \sphinxhyphen{}\sphinxhyphen{}
+zdcheck (int) \sphinxhyphen{}\sphinxhyphen{} z軸方向に解いているか。解いていたら2、解いていなかったら1
 
 \item {} 
 margin (int) \sphinxhyphen{}\sphinxhyphen{}
@@ -252,7 +252,61 @@ kp (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{}
 cp (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{}
 
 \item {} 
-fa (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{}\textquotesingle{}, \textquotesingle{}sa\textquotesingle{}, \textquotesingle{}xi\textquotesingle{}, \textquotesingle{}rsun\textquotesingle{}, \textquotesingle{}xr\textquotesingle{}, \textquotesingle{}xn\textquotesingle{}, \textquotesingle{}m2da\textquotesingle{}, \textquotesingle{}cl\textquotesingle{}, \textquotesingle{}iss\textquotesingle{}, \textquotesingle{}iee\textquotesingle{}, \textquotesingle{}jss\textquotesingle{}, \textquotesingle{}jee\textquotesingle{}, \textquotesingle{}iixl\textquotesingle{}, \textquotesingle{}jjxl\textquotesingle{}, \textquotesingle{}np\_ijr\textquotesingle{}, \textquotesingle{}ir\textquotesingle{}, \textquotesingle{}jr\textquotesingle{}, \textquotesingle{}i2ir\textquotesingle{}, \textquotesingle{}j2jr\textquotesingle{}
+fa (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+sa (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+xi (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+rsun (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+xr (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} x/rsun
+
+\item {} 
+xn (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} (x\sphinxhyphen{}rsun)*1.e\sphinxhyphen{}8
+
+\item {} 
+m2da (int) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+cl (char) {[}m2da{]} \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+iss (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+iee (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+jss (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+jee (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+iixl (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+jjxl (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+np\_ijr (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+ir (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+jr (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+i2ir (int) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+j2jr (int) {[}jx{]} \sphinxhyphen{}\sphinxhyphen{}
 
 \end{itemize}
 

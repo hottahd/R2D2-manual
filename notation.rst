@@ -4,11 +4,11 @@ R2D2 pythonでのキーワードの説明
 .. py:data:: R2D2.p
 
     * datadir (str) -- データの保存場所
-    * nd (int) -- 
-    * ni (int) --
-    * xdcheck (int) -- 
-    * ydcheck (int) -- 
-    * zdcheck (int) --
+    * nd (int) -- 現在までのアウトプット時間ステップ数(3次元データ)
+    * ni (int) -- 現在までのアウトプット時間ステップ数(光学的厚さ一定のデータ)
+    * xdcheck (int) -- x軸方向に解いているか。解いていたら2、解いていなかったら1
+    * ydcheck (int) -- y軸方向に解いているか。解いていたら2、解いていなかったら1
+    * zdcheck (int) -- z軸方向に解いているか。解いていたら2、解いていなかったら1    
     * margin (int) -- 
     * nx (int) --
     * ny (int) -- 
@@ -64,7 +64,26 @@ R2D2 pythonでのキーワードの説明
     * gx (float) [ix] -- 
     * kp (float) [ix] -- 
     * cp (float) [ix] -- 
-    * fa (float) [ix] --', 'sa', 'xi', 'rsun', 'xr', 'xn', 'm2da', 'cl', 'iss', 'iee', 'jss', 'jee', 'iixl', 'jjxl', 'np_ijr', 'ir', 'jr', 'i2ir', 'j2jr'
+    * fa (float) [ix] --
+    * sa (float) [ix] --
+    * xi (float) [ix] --
+    * rsun (float) [ix] -- 
+    * xr (float) [ix] -- x/rsun
+    * xn (float) [ix] -- (x-rsun)*1.e-8
+    * m2da (int) -- 
+    * cl (char) [m2da] --
+    * iss (int) [npe] --
+    * iee (int) [npe] --
+    * jss (int) [npe] --
+    * jee (int) [npe] --
+    * iixl (int) [npe] --
+    * jjxl (int) [npe] --
+    * np_ijr (int) [npe] --
+    * ir (int) [npe] --
+    * jr (int) [npe] --
+    * i2ir (int) [ix] --
+    * j2jr (int) [jx] --
+
 .. py:data:: a
 
     aaa

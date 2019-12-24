@@ -5,30 +5,30 @@
 \let\spxextra \sphinxstyleindexextra
 
 
-  \item \spxentry{a}\spxextra{組み込み変数}, \hyperpage{5}
+  \item \spxentry{a}\spxextra{組み込み変数}, \hyperpage{6}
 
   \indexspace
 
-  \item \spxentry{p}\spxextra{組み込み変数}, \hyperpage{16}
+  \item \spxentry{p}\spxextra{組み込み変数}, \hyperpage{17}
 
   \indexspace
 
-  \item \spxentry{q2}\spxextra{組み込み変数}, \hyperpage{16}
-  \item \spxentry{q3}\spxextra{組み込み変数}, \hyperpage{16}
-  \item \spxentry{qc}\spxextra{組み込み変数}, \hyperpage{16}
-  \item \spxentry{qi}\spxextra{組み込み変数}, \hyperpage{16}
+  \item \spxentry{q2}\spxextra{組み込み変数}, \hyperpage{17}
+  \item \spxentry{q3}\spxextra{組み込み変数}, \hyperpage{17}
+  \item \spxentry{qc}\spxextra{組み込み変数}, \hyperpage{17}
+  \item \spxentry{qi}\spxextra{組み込み変数}, \hyperpage{17}
 
   \indexspace
 
   \item \spxentry{R2D2.p}\spxextra{組み込み変数}, \hyperpage{3}
-  \item \spxentry{read\_init()}\spxextra{組み込み関数}, \hyperpage{16}
-  \item \spxentry{read\_qq()}\spxextra{組み込み関数}, \hyperpage{17}
-  \item \spxentry{read\_qq\_select()}\spxextra{組み込み関数}, \hyperpage{16}
-  \item \spxentry{read\_time()}\spxextra{組み込み関数}, \hyperpage{17}
-  \item \spxentry{read\_vc()}\spxextra{組み込み関数}, \hyperpage{17}
+  \item \spxentry{read\_init()}\spxextra{組み込み関数}, \hyperpage{17}
+  \item \spxentry{read\_qq()}\spxextra{組み込み関数}, \hyperpage{18}
+  \item \spxentry{read\_qq\_select()}\spxextra{組み込み関数}, \hyperpage{17}
+  \item \spxentry{read\_time()}\spxextra{組み込み関数}, \hyperpage{18}
+  \item \spxentry{read\_vc()}\spxextra{組み込み関数}, \hyperpage{18}
 
   \indexspace
 
-  \item \spxentry{vc}\spxextra{組み込み変数}, \hyperpage{16}
+  \item \spxentry{vc}\spxextra{組み込み変数}, \hyperpage{17}
 
 \end{sphinxtheindex}
