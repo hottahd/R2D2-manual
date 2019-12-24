@@ -63,8 +63,210 @@
 \chapter{R2D2を使い始めるには}
 \label{\detokenize{start:r2d2}}\label{\detokenize{start::doc}}
 
-\chapter{表記法}
-\label{\detokenize{notation:id1}}\label{\detokenize{notation::doc}}
+\chapter{R2D2 pythonでのキーワードの説明}
+\label{\detokenize{notation:r2d2-python}}\label{\detokenize{notation::doc}}\index{R2D2.p (組み込み変数)@\spxentry{R2D2.p}\spxextra{組み込み変数}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{notation:R2D2.p}}\pysigline{\sphinxcode{\sphinxupquote{R2D2.}}\sphinxbfcode{\sphinxupquote{p}}}~\begin{itemize}
+\item {} 
+datadir (str) \sphinxhyphen{}\sphinxhyphen{} データの保存場所
+
+\item {} 
+nd (int) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+ni (int) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+xdcheck (int) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+ydcheck (int) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+zdcheck (int) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+margin (int) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+nx (int) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+ny (int) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+nz (int) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+npe (int) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+ix0 (int) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+jx0 (int) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+kx0 (int) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+mtype (int) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+xmax (float) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+xmin (float) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+ymax (float) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+ymin (float) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+zmax (float) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+zmin (float) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+dtout (float) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+tend (float) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+swap (int) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+ix\_e (int) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+jx\_e (int) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+ixr (int) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+jxr (int) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+m\_in (int) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+m\_tu (int) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+dtoui (float) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+ifac (int) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+jc (int) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+kc (int) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+deep\_top\_flag (int) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+ib\_excluded\_top (int) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+endian (char) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+ix (int) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+jx (int) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+kx (int) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+x (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+y (float) {[}jx{]} \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+z (float) {[}kx{]} \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+pr0 (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+te0 (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+ro0 (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+se0 (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+en0 (float) {[}ix{]}
+
+\item {} 
+op0 (float) {[}ix{]}
+
+\item {} 
+tu0 (float) {[}ix{]}
+
+\item {} 
+dsedr0 (float) {[}ix{]}
+
+\item {} 
+dtedr0 (float) {[}ix{]}
+
+\item {} 
+dprdro (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場の \((\partial p/\partial \rho)_s\)
+
+\item {} 
+dprdse (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場の \((\partial p/\partial \rho)_s\)
+
+\item {} 
+dtedro (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場の \((\partial p/\partial \rho)_s\)
+
+\item {} 
+dtedse (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場の \((\partial p/\partial \rho)_s\)
+
+\item {} 
+dendro (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場の \((\partial p/\partial \rho)_s\)
+
+\item {} 
+dendse (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場の \((\partial p/\partial \rho)_s\)
+
+\item {} 
+gx (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+kp (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+cp (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+fa (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{}\textquotesingle{}, \textquotesingle{}sa\textquotesingle{}, \textquotesingle{}xi\textquotesingle{}, \textquotesingle{}rsun\textquotesingle{}, \textquotesingle{}xr\textquotesingle{}, \textquotesingle{}xn\textquotesingle{}, \textquotesingle{}m2da\textquotesingle{}, \textquotesingle{}cl\textquotesingle{}, \textquotesingle{}iss\textquotesingle{}, \textquotesingle{}iee\textquotesingle{}, \textquotesingle{}jss\textquotesingle{}, \textquotesingle{}jee\textquotesingle{}, \textquotesingle{}iixl\textquotesingle{}, \textquotesingle{}jjxl\textquotesingle{}, \textquotesingle{}np\_ijr\textquotesingle{}, \textquotesingle{}ir\textquotesingle{}, \textquotesingle{}jr\textquotesingle{}, \textquotesingle{}i2ir\textquotesingle{}, \textquotesingle{}j2jr\textquotesingle{}
+
+\end{itemize}
+
+\end{fulllineitems}
+
+\index{a (組み込み変数)@\spxentry{a}\spxextra{組み込み変数}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{notation:a}}\pysigline{\sphinxbfcode{\sphinxupquote{a}}}
+aaa
+
+\end{fulllineitems}
+
+
 
 \chapter{数値スキーム}
 \label{\detokenize{scheme:id1}}\label{\detokenize{scheme::doc}}
@@ -299,17 +501,11 @@ Fortranの計算の中で解析した結果。 \sphinxcode{\sphinxupquote{read\_
 \index{read\_init() (組み込み関数)@\spxentry{read\_init()}\spxextra{組み込み関数}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{io:read_init}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{read\_init}}}{\emph{dir}, \emph{dimension}}{}
+\phantomsection\label{\detokenize{io:read_init}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{read\_init}}}{\emph{dir}}{}
 R2D2でデータを解析するときに、一番はじめに実行すべき関数。計算設定などのパラメタが読み込まれる。 \sphinxcode{\sphinxupquote{R2D2.p}} にデータが保存される。
 \begin{quote}\begin{description}
-\item[{パラメータ}] \leavevmode\begin{itemize}
-\item {} 
+\item[{パラメータ}] \leavevmode
 \sphinxstyleliteralstrong{\sphinxupquote{dir}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \sphinxhyphen{}\sphinxhyphen{} データの場所
-
-\item {} 
-\sphinxstyleliteralstrong{\sphinxupquote{dimension}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \sphinxhyphen{}\sphinxhyphen{} 2Dか3Dを示す
-
-\end{itemize}
 
 \item[{戻り値}] \leavevmode
 None
@@ -321,13 +517,10 @@ None
 \index{read\_qq\_select() (組み込み関数)@\spxentry{read\_qq\_select()}\spxextra{組み込み関数}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{io:read_qq_select}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{read\_qq\_select}}}{\emph{dir}, \emph{xs}, \emph{n}}{}
+\phantomsection\label{\detokenize{io:read_qq_select}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{read\_qq\_select}}}{\emph{xs}, \emph{n}, \emph{silent}, \emph{out}}{}
 ある高さのデータのスライスを読み込む。戻り値を返さない時も \sphinxcode{\sphinxupquote{R2D2.q2}} にデータが保存される。
 \begin{quote}\begin{description}
 \item[{パラメータ}] \leavevmode\begin{itemize}
-\item {} 
-\sphinxstyleliteralstrong{\sphinxupquote{dir}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \sphinxhyphen{}\sphinxhyphen{} データの場所
-
 \item {} 
 \sphinxstyleliteralstrong{\sphinxupquote{xs}} (\sphinxstyleliteralemphasis{\sphinxupquote{float}}) \sphinxhyphen{}\sphinxhyphen{} 読み込みたいデータの高さ
 
@@ -346,13 +539,10 @@ None
 \index{read\_qq() (組み込み関数)@\spxentry{read\_qq()}\spxextra{組み込み関数}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{io:read_qq}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{read\_qq}}}{\emph{dir}, \emph{n}}{}
+\phantomsection\label{\detokenize{io:read_qq}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{read\_qq}}}{\emph{n}}{}
 3次元のデータを読み込む。戻り値を返さない時も \sphinxcode{\sphinxupquote{R2D2.q3}} にデータが保存される。
 \begin{quote}\begin{description}
 \item[{パラメータ}] \leavevmode\begin{itemize}
-\item {} 
-\sphinxstyleliteralstrong{\sphinxupquote{dir}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \sphinxhyphen{}\sphinxhyphen{} データの場所
-
 \item {} 
 \sphinxstyleliteralstrong{\sphinxupquote{xs}} (\sphinxstyleliteralemphasis{\sphinxupquote{float}}) \sphinxhyphen{}\sphinxhyphen{} 読み込みたいデータの高さ
 
@@ -371,17 +561,11 @@ None
 \index{read\_time() (組み込み関数)@\spxentry{read\_time()}\spxextra{組み込み関数}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{io:read_time}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{read\_time}}}{\emph{dir}, \emph{n}}{}
+\phantomsection\label{\detokenize{io:read_time}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{read\_time}}}{\emph{n}}{}
 時間を読み込む
 \begin{quote}\begin{description}
-\item[{パラメータ}] \leavevmode\begin{itemize}
-\item {} 
-\sphinxstyleliteralstrong{\sphinxupquote{dir}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \sphinxhyphen{}\sphinxhyphen{} データの場所
-
-\item {} 
+\item[{パラメータ}] \leavevmode
 \sphinxstyleliteralstrong{\sphinxupquote{n}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}) \sphinxhyphen{}\sphinxhyphen{} 読み込みたい時間ステップ
-
-\end{itemize}
 
 \item[{戻り値}] \leavevmode
 時間ステップでの時間が返される
@@ -393,17 +577,11 @@ None
 \index{read\_vc() (組み込み関数)@\spxentry{read\_vc()}\spxextra{組み込み関数}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{io:read_vc}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{read\_vc}}}{\emph{dir}, \emph{n}}{}
+\phantomsection\label{\detokenize{io:read_vc}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{read\_vc}}}{\emph{n}}{}
 Fortranコードの中で解析した計算結果を読み込む。戻り値を返さない時も \sphinxcode{\sphinxupquote{R2D2.vc}} にデータが保存される。
 \begin{quote}\begin{description}
-\item[{パラメータ}] \leavevmode\begin{itemize}
-\item {} 
-\sphinxstyleliteralstrong{\sphinxupquote{dir}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \sphinxhyphen{}\sphinxhyphen{} データの場所
-
-\item {} 
+\item[{パラメータ}] \leavevmode
 \sphinxstyleliteralstrong{\sphinxupquote{n}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}) \sphinxhyphen{}\sphinxhyphen{} 読み込みたい時間ステップ
-
-\end{itemize}
 
 \item[{戻り値}] \leavevmode
 \sphinxcode{\sphinxupquote{out=True}} が指定されているとデータが返される。
@@ -642,7 +820,7 @@ R2D2は現状、公開ソフトウェアではなく再配布も禁じている�
 再配布しない
 
 \item {} 
-改変は許されるが、その時の実行結果について堀田Ωは責任を持たない
+改変は許されるが、その時の実行結果について堀田は責任を持たない
 
 \item {} 
 R2D2で実行する計算は、堀田と議論する必要がある。パラメタ変更などの細かい変更には相談する必要はないが、新しいプロジェクトを開始するときはその都度相談すること。堀田自身のプロジェクト、堀田の指導学生のプロジェクトとの重複を避けるためである。
@@ -662,6 +840,8 @@ R2D2を用いた論文を出版するときは　\sphinxhref{https://ui.adsabs.h
 \DUrole{xref,std,std-ref}{search}
 
 \end{itemize}
+
+Ω
 
 
 

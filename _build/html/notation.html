@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
   <head>
     <meta charset="utf-8" />
-    <title>表記法 &#8212; R2D2 1.1 ドキュメント</title>
+    <title>R2D2 pythonでのキーワードの説明 &#8212; R2D2 1.1 ドキュメント</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -73,8 +73,83 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="id1">
-<h1>表記法<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+  <div class="section" id="r2d2-python">
+<h1>R2D2 pythonでのキーワードの説明<a class="headerlink" href="#r2d2-python" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<dl class="data">
+<dt id="R2D2.p">
+<code class="sig-prename descclassname">R2D2.</code><code class="sig-name descname">p</code><a class="headerlink" href="#R2D2.p" title="この定義へのパーマリンク">¶</a></dt>
+<dd><ul class="simple">
+<li><p>datadir (str) -- データの保存場所</p></li>
+<li><p>nd (int) --</p></li>
+<li><p>ni (int) --</p></li>
+<li><p>xdcheck (int) --</p></li>
+<li><p>ydcheck (int) --</p></li>
+<li><p>zdcheck (int) --</p></li>
+<li><p>margin (int) --</p></li>
+<li><p>nx (int) --</p></li>
+<li><p>ny (int) --</p></li>
+<li><p>nz (int) --</p></li>
+<li><p>npe (int) --</p></li>
+<li><p>ix0 (int) --</p></li>
+<li><p>jx0 (int) --</p></li>
+<li><p>kx0 (int) --</p></li>
+<li><p>mtype (int) --</p></li>
+<li><p>xmax (float) --</p></li>
+<li><p>xmin (float) --</p></li>
+<li><p>ymax (float) --</p></li>
+<li><p>ymin (float) --</p></li>
+<li><p>zmax (float) --</p></li>
+<li><p>zmin (float) --</p></li>
+<li><p>dtout (float) --</p></li>
+<li><p>tend (float) --</p></li>
+<li><p>swap (int) --</p></li>
+<li><p>ix_e (int) --</p></li>
+<li><p>jx_e (int) --</p></li>
+<li><p>ixr (int) --</p></li>
+<li><p>jxr (int) --</p></li>
+<li><p>m_in (int) --</p></li>
+<li><p>m_tu (int) --</p></li>
+<li><p>dtoui (float) --</p></li>
+<li><p>ifac (int) --</p></li>
+<li><p>jc (int) --</p></li>
+<li><p>kc (int) --</p></li>
+<li><p>deep_top_flag (int) --</p></li>
+<li><p>ib_excluded_top (int) --</p></li>
+<li><p>endian (char) --</p></li>
+<li><p>ix (int) --</p></li>
+<li><p>jx (int) --</p></li>
+<li><p>kx (int) --</p></li>
+<li><p>x (float) [ix] --</p></li>
+<li><p>y (float) [jx] --</p></li>
+<li><p>z (float) [kx] --</p></li>
+<li><p>pr0 (float) [ix] --</p></li>
+<li><p>te0 (float) [ix] --</p></li>
+<li><p>ro0 (float) [ix] --</p></li>
+<li><p>se0 (float) [ix] --</p></li>
+<li><p>en0 (float) [ix]</p></li>
+<li><p>op0 (float) [ix]</p></li>
+<li><p>tu0 (float) [ix]</p></li>
+<li><p>dsedr0 (float) [ix]</p></li>
+<li><p>dtedr0 (float) [ix]</p></li>
+<li><p>dprdro (float) [ix] -- 背景場の <img class="math" src="_images/math/81c65d4c160fe4b63577bfde090102c24c52ef4c.svg" alt="(\partial p/\partial \rho)_s"/></p></li>
+<li><p>dprdse (float) [ix] -- 背景場の <img class="math" src="_images/math/81c65d4c160fe4b63577bfde090102c24c52ef4c.svg" alt="(\partial p/\partial \rho)_s"/></p></li>
+<li><p>dtedro (float) [ix] -- 背景場の <img class="math" src="_images/math/81c65d4c160fe4b63577bfde090102c24c52ef4c.svg" alt="(\partial p/\partial \rho)_s"/></p></li>
+<li><p>dtedse (float) [ix] -- 背景場の <img class="math" src="_images/math/81c65d4c160fe4b63577bfde090102c24c52ef4c.svg" alt="(\partial p/\partial \rho)_s"/></p></li>
+<li><p>dendro (float) [ix] -- 背景場の <img class="math" src="_images/math/81c65d4c160fe4b63577bfde090102c24c52ef4c.svg" alt="(\partial p/\partial \rho)_s"/></p></li>
+<li><p>dendse (float) [ix] -- 背景場の <img class="math" src="_images/math/81c65d4c160fe4b63577bfde090102c24c52ef4c.svg" alt="(\partial p/\partial \rho)_s"/></p></li>
+<li><p>gx (float) [ix] --</p></li>
+<li><p>kp (float) [ix] --</p></li>
+<li><p>cp (float) [ix] --</p></li>
+<li><p>fa (float) [ix] --', 'sa', 'xi', 'rsun', 'xr', 'xn', 'm2da', 'cl', 'iss', 'iee', 'jss', 'jee', 'iixl', 'jjxl', 'np_ijr', 'ir', 'jr', 'i2ir', 'j2jr'</p></li>
+</ul>
+</dd></dl>
+
+<dl class="data">
+<dt id="a">
+<code class="sig-name descname">a</code><a class="headerlink" href="#a" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>aaa</p>
+</dd></dl>
+
 </div>
 
 

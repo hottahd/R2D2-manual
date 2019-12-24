@@ -67,41 +67,37 @@ Pythonでは一般に推奨されないが、R2D2ではメモリ節約の目的�
 
 関数で指定する ``dir`` はデータの場所を示す変数。R2D2の計算を実行すると ``data`` ディレクトリが生成されて、その中にデータが保存される。この場所を指定すれば良い。
 
-.. py:function:: read_init(dir,dimension)
+.. py:function:: read_init(dir)
     
     R2D2でデータを解析するときに、一番はじめに実行すべき関数。計算設定などのパラメタが読み込まれる。 ``R2D2.p`` にデータが保存される。
     
     :argument str dir: データの場所
-    :param str dimension: 2Dか3Dを示す
     :return: None
-.. py:function:: read_qq_select(dir,xs,n)
+
+.. py:function:: read_qq_select(xs,n,silent,out)
     
     ある高さのデータのスライスを読み込む。戻り値を返さない時も ``R2D2.q2`` にデータが保存される。
 
-    :argument str dir: データの場所
     :param float xs: 読み込みたいデータの高さ
     :param int n: 読み込みたい時間ステップ
     :return: ``out=True`` が指定されているとデータが返される。
-.. py:function:: read_qq(dir,n)
+.. py:function:: read_qq(n)
     
     3次元のデータを読み込む。戻り値を返さない時も ``R2D2.q3`` にデータが保存される。
 
-    :argument str dir: データの場所
     :param float xs: 読み込みたいデータの高さ
     :param int n: 読み込みたい時間ステップ
     :return: ``out=True`` が指定されているとデータが返される。
-.. py:function:: read_time(dir,n)
+.. py:function:: read_time(n)
     
     時間を読み込む
 
-    :argument str dir: データの場所
     :param int n: 読み込みたい時間ステップ
     :return: 時間ステップでの時間が返される
-.. py:function:: read_vc(dir,n)
+.. py:function:: read_vc(n)
     
     Fortranコードの中で解析した計算結果を読み込む。戻り値を返さない時も ``R2D2.vc`` にデータが保存される。
 
-    :argument str dir: データの場所
     :param int n: 読み込みたい時間ステップ
     :return: ``out=True`` が指定されているとデータが返される。
 
