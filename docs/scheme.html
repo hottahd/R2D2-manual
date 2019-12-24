@@ -2,10 +2,10 @@
 
 <!doctype html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
   <head>
     <meta charset="utf-8" />
-    <title>数値スキーム &#8212; R2D2 1.1 documentation</title>
+    <title>数値スキーム &#8212; R2D2 1.1 ドキュメント</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -14,34 +14,35 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
     <script type="text/javascript" src="_static/bizstyle.js"></script>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
     <link rel="next" title="パラメータ" href="parameter.html" />
-    <link rel="prev" title="R2D2を使い始めるには" href="start.html" />
+    <link rel="prev" title="表記法" href="notation.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
+          <a href="genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
         <li class="right" >
           <a href="parameter.html" title="パラメータ"
-             accesskey="N">next</a> |</li>
+             accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="start.html" title="R2D2を使い始めるには"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">R2D2 1.1 documentation</a> &#187;</li> 
+          <a href="notation.html" title="表記法"
+             accesskey="P">前へ</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">R2D2 1.1 ドキュメント</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table of Contents</a></h3>
+  <h3><a href="index.html">目次</a></h3>
   <ul>
 <li><a class="reference internal" href="#">数値スキーム</a><ul>
 <li><a class="reference internal" href="#mhd">MHDスキーム</a><ul>
@@ -53,25 +54,25 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="start.html"
-                        title="previous chapter">R2D2を使い始めるには</a></p>
-  <h4>Next topic</h4>
+  <h4>前のトピックへ</h4>
+  <p class="topless"><a href="notation.html"
+                        title="前の章へ">表記法</a></p>
+  <h4>次のトピックへ</h4>
   <p class="topless"><a href="parameter.html"
-                        title="next chapter">パラメータ</a></p>
+                        title="次の章へ">パラメータ</a></p>
   <div role="note" aria-label="source link">
-    <h3>This Page</h3>
+    <h3>このページ</h3>
     <ul class="this-page-menu">
       <li><a href="_sources/scheme.rst.txt"
-            rel="nofollow">Show Source</a></li>
+            rel="nofollow">ソースコードを表示</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
+  <h3 id="searchlabel">クイック検索</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
+      <input type="submit" value="検索" />
     </form>
     </div>
 </div>
@@ -85,18 +86,18 @@
           <div class="body" role="main">
             
   <div class="section" id="id1">
-<h1>数値スキーム<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<h1>数値スキーム<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="mhd">
-<h2>MHDスキーム<a class="headerlink" href="#mhd" title="Permalink to this headline">¶</a></h2>
+<h2>MHDスキーム<a class="headerlink" href="#mhd" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="id2">
-<h3>空間微分<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<h3>空間微分<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>R2D2では、4次の中央差分を用いている。格子間隔が一様な場合には中央差分では微分は</p>
 <div class="math">
 <p><img src="_images/math/becafec450d8eb9adadf390dd5375ce5eca8dde6.svg" alt="\left(\frac{\partial q}{\partial x}\right)_i =\frac{-q_{i+2}+8q_{i+1}-8q_{i-1}+q_{i-2}}{12\Delta x_i}"/></p>
 </div><p>となる。R2D2では、非一様な格子間隔にも対応しており、</p>
 </div>
 <div class="section" id="id3">
-<h3>時間積分<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<h3>時間積分<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>R2D2では、</p>
 </div>
 </div>
@@ -109,23 +110,23 @@
       <div class="clearer"></div>
     </div>
     <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
+          <a href="genindex.html" title="総合索引"
+             >索引</a></li>
         <li class="right" >
           <a href="parameter.html" title="パラメータ"
-             >next</a> |</li>
+             >次へ</a> |</li>
         <li class="right" >
-          <a href="start.html" title="R2D2を使い始めるには"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">R2D2 1.1 documentation</a> &#187;</li> 
+          <a href="notation.html" title="表記法"
+             >前へ</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">R2D2 1.1 ドキュメント</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019, Hideyuki Hotta.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0.
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0 で生成しました。
     </div>
   </body>
 </html>

@@ -1,57 +1,76 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.6.4)  24 DEC 2019 15:10
+This is e-pTeX, Version 3.14159265-p3.8.2-190131-2.6 (utf8.euc) (TeX Live 2019) (preloaded format=platex 2019.6.4)  24 DEC 2019 15:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **r2d2.tex
 (./r2d2.tex
-LaTeX2e <2018-12-01>
+pLaTeX2e <2019-04-06> (based on LaTeX2e <2018-12-01>)
 (./sphinxmanual.cls
 Document Class: sphinxmanual 2019/12/01 v2.3.0 Document class (Sphinx manual)
-(/usr/local/texlive/2019/texmf-dist/tex/latex/base/report.cls
-Document Class: report 2018/09/03 v1.4i Standard LaTeX document class
-(/usr/local/texlive/2019/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2018/09/03 v1.4i Standard LaTeX file (size option)
+(/usr/local/texlive/2019/texmf-dist/tex/platex/jsclasses/jsbook.cls
+Document Class: jsbook 2019/04/06 jsclasses (okumura, texjporg)
+\jsc@mpt=\dimen118
+\jsc@mmm=\dimen119
+\jsc@smallskipamount=\skip41
+LaTeX Info: Redefining \rmfamily on input line 471.
+LaTeX Info: Redefining \sffamily on input line 474.
+LaTeX Info: Redefining \ttfamily on input line 477.
+LaTeX Info: Redefining \textmc on input line 481.
+LaTeX Info: Redefining \textgt on input line 483.
+\symmincho=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `mincho' in version `bold'
+(Font)                  JY1/mc/m/n --> JY1/gt/m/n on input line 545.
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 736.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 736.
+\fullwidth=\dimen120
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 7.68799pt on input line 897.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 7.68799pt on input line 897.
+\c@part=\count83
+\c@chapter=\count84
+\c@section=\count85
+\c@subsection=\count86
+\c@subsubsection=\count87
+\c@paragraph=\count88
+\c@subparagraph=\count89
+\c@figure=\count90
+\c@table=\count91
+\abovecaptionskip=\skip42
+\belowcaptionskip=\skip43
+\jsc@tocl@width=\dimen121
+\@lnumwidth=\dimen122
+\bibindent=\dimen123
+(/usr/local/texlive/2019/texmf-dist/tex/platex/jsclasses/jslogo.sty
+Package: jslogo 2017/02/24 okumura, texjporg
+LaTeX Info: Redefining \TeX on input line 94.
+LaTeX Info: Redefining \LaTeX on input line 147.
+LaTeX Info: Redefining \LaTeXe on input line 200.
 )
-\c@part=\count80
-\c@chapter=\count81
-\c@section=\count82
-\c@subsection=\count83
-\c@subsubsection=\count84
-\c@paragraph=\count85
-\c@subparagraph=\count86
-\c@figure=\count87
-\c@table=\count88
-\abovecaptionskip=\skip41
-\belowcaptionskip=\skip42
-\bibindent=\dimen102
+\heisei=\count92
 )
 LaTeX Info: Redefining \and on input line 35.
 )
-(/usr/local/texlive/2019/texmf-dist/tex/latex/base/inputenc.sty
-Package: inputenc 2018/08/11 v1.3c Input encoding file
-\inpenc@prehook=\toks14
-\inpenc@posthook=\toks15
-)
-   defining Unicode char U+00A0 (decimal 160)
-   defining Unicode char U+2500 (decimal 9472)
-   defining Unicode char U+2502 (decimal 9474)
-   defining Unicode char U+2514 (decimal 9492)
-   defining Unicode char U+251C (decimal 9500)
-   defining Unicode char U+2572 (decimal 9586)
+\sphinxpxdimen=\dimen124
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/cmap/cmap.sty
 Package: cmap 2008/03/06 v1.0h CMap support: searchable PDF
-)
-(/usr/local/texlive/2019/texmf-dist/tex/latex/base/fontenc.sty
+
+
+Package cmap Warning: pdftex not detected - exiting.
+
+) (/usr/local/texlive/2019/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2018/08/11 v2.0j Standard LaTeX package
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/base/t1enc.def
 File: t1enc.def 2018/08/11 v2.0j Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
-)<<t1.cmap>>)
+))
 (/usr/local/texlive/2019/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2018/12/01 v2.17b AMS math features
-\@mathmargin=\skip43
+\@mathmargin=\skip44
 
 For additional information on amsmath, use the `?' option.
 (/usr/local/texlive/2019/texmf-dist/tex/latex/amsmath/amstext.sty
@@ -59,51 +78,51 @@ Package: amstext 2000/06/29 v2.01 AMS text
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks16
-\ex@=\dimen103
+\@emptytoks=\toks15
+\ex@=\dimen125
 ))
 (/usr/local/texlive/2019/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen104
+\pmbraise@=\dimen126
 )
 (/usr/local/texlive/2019/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count89
+\inf@bad=\count93
 LaTeX Info: Redefining \frac on input line 223.
-\uproot@=\count90
-\leftroot@=\count91
+\uproot@=\count94
+\leftroot@=\count95
 LaTeX Info: Redefining \overline on input line 385.
-\classnum@=\count92
-\DOTSCASE@=\count93
+\classnum@=\count96
+\DOTSCASE@=\count97
 LaTeX Info: Redefining \ldots on input line 482.
 LaTeX Info: Redefining \dots on input line 485.
 LaTeX Info: Redefining \cdots on input line 606.
-\Mathstrutbox@=\box27
-\strutbox@=\box28
-\big@size=\dimen105
+\Mathstrutbox@=\box43
+\strutbox@=\box44
+\big@size=\dimen127
 LaTeX Font Info:    Redeclaring font encoding OML on input line 729.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 730.
-\macc@depth=\count94
-\c@MaxMatrixCols=\count95
+\macc@depth=\count98
+\c@MaxMatrixCols=\count99
 \dotsspace@=\muskip10
-\c@parentequation=\count96
-\dspbrk@lvl=\count97
-\tag@help=\toks17
-\row@=\count98
-\column@=\count99
-\maxfields@=\count100
-\andhelp@=\toks18
-\eqnshift@=\dimen106
-\alignsep@=\dimen107
-\tagshift@=\dimen108
-\tagwidth@=\dimen109
-\totwidth@=\dimen110
-\lineht@=\dimen111
-\@envbody=\toks19
-\multlinegap=\skip44
-\multlinetaggap=\skip45
-\mathdisplay@stack=\toks20
+\c@parentequation=\count100
+\dspbrk@lvl=\count101
+\tag@help=\toks16
+\row@=\count102
+\column@=\count103
+\maxfields@=\count104
+\andhelp@=\toks17
+\eqnshift@=\dimen128
+\alignsep@=\dimen129
+\tagshift@=\dimen130
+\tagwidth@=\dimen131
+\totwidth@=\dimen132
+\lineht@=\dimen133
+\@envbody=\toks18
+\multlinegap=\skip45
+\multlinetaggap=\skip46
+\mathdisplay@stack=\toks19
 LaTeX Info: Redefining \[ on input line 2844.
 LaTeX Info: Redefining \] on input line 2845.
 )
@@ -112,48 +131,14 @@ Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
-\symAMSa=\mathgroup4
-\symAMSb=\mathgroup5
+\symAMSa=\mathgroup5
+\symAMSb=\mathgroup6
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-(/usr/local/texlive/2019/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2019/05/04 3.31 The Babel package
-
-(/usr/local/texlive/2019/texmf-dist/tex/generic/babel/switch.def
-File: switch.def 2019/05/04 3.31 Babel switching mechanism
-)
-(/usr/local/texlive/2019/texmf-dist/tex/generic/babel-english/english.ldf
-Language: english 2017/06/06 v3.3r English support from the babel system
-
-(/usr/local/texlive/2019/texmf-dist/tex/generic/babel/babel.def
-File: babel.def 2019/05/04 3.31 Babel common definitions
-\babel@savecnt=\count101
-\U@D=\dimen112
-
-(/usr/local/texlive/2019/texmf-dist/tex/generic/babel/txtbabel.def)
-\bbl@dirlevel=\count102
-)
-\l@canadian = a dialect from \language\l@american 
-\l@australian = a dialect from \language\l@british 
-\l@newzealand = a dialect from \language\l@british 
-))
 (/usr/local/texlive/2019/texmf-dist/tex/latex/psnfss/times.sty
 Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
-)
-(/usr/local/texlive/2019/texmf-dist/tex/latex/fncychap/fncychap.sty
-Package: fncychap 2007/07/30 v1.34 LaTeX package (Revised chapters)
-\RW=\skip46
-\mylen=\skip47
-\myhi=\skip48
-\px=\skip49
-\py=\skip50
-\pyy=\skip51
-\pxx=\skip52
-\c@AlphaCnt=\count103
-\c@AlphaDecCnt=\count104
-)
-(./sphinx.sty
+) (./sphinx.sty
 Package: sphinx 2019/09/02 v2.3.0 LaTeX package (Sphinx markup)
 
 (/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
@@ -164,7 +149,7 @@ Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks21
+\KV@toks@=\toks20
 )
 (/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
@@ -175,26 +160,26 @@ Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 (/usr/local/texlive/2019/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 99.
+Package graphics Info: Driver file: dvipdfmx.def on input line 99.
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics-def/dvipdfmx.def
+File: dvipdfmx.def 2017/06/24 v5.0g Graphics/color driver for dvipdfmx
 ))
-\Gin@req@height=\dimen113
-\Gin@req@width=\dimen114
+\Gin@req@height=\dimen134
+\Gin@req@width=\dimen135
 )
 (/usr/local/texlive/2019/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2019/01/31 v3.10 Extensive control of page headers and footer
 s
-\f@nch@headwidth=\skip53
-\f@nch@O@elh=\skip54
-\f@nch@O@erh=\skip55
-\f@nch@O@olh=\skip56
-\f@nch@O@orh=\skip57
-\f@nch@O@elf=\skip58
-\f@nch@O@erf=\skip59
-\f@nch@O@olf=\skip60
-\f@nch@O@orf=\skip61
+\f@nch@headwidth=\skip47
+\f@nch@O@elh=\skip48
+\f@nch@O@erh=\skip49
+\f@nch@O@olh=\skip50
+\f@nch@O@orh=\skip51
+\f@nch@O@elf=\skip52
+\f@nch@O@erf=\skip53
+\f@nch@O@olf=\skip54
+\f@nch@O@orf=\skip55
 )
 (/usr/local/texlive/2019/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2018/08/11 v2.0j Standard LaTeX package
@@ -355,75 +340,75 @@ Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
 )
 (/usr/local/texlive/2019/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
-\ttl@box=\box29
-\beforetitleunit=\skip62
-\aftertitleunit=\skip63
-\ttl@plus=\dimen115
-\ttl@minus=\dimen116
-\ttl@toksa=\toks22
-\titlewidth=\dimen117
-\titlewidthlast=\dimen118
-\titlewidthfirst=\dimen119
+\ttl@box=\box45
+\beforetitleunit=\skip56
+\aftertitleunit=\skip57
+\ttl@plus=\dimen136
+\ttl@minus=\dimen137
+\ttl@toksa=\toks21
+\titlewidth=\dimen138
+\titlewidthlast=\dimen139
+\titlewidthfirst=\dimen140
 )
 (/usr/local/texlive/2019/texmf-dist/tex/latex/tabulary/tabulary.sty
 Package: tabulary 2014/06/11 v0.10 tabulary package (DPC)
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/tools/array.sty
 Package: array 2018/12/30 v2.4k Tabular extension package (FMi)
-\col@sep=\dimen120
-\ar@mcellbox=\box30
-\extrarowheight=\dimen121
-\NC@list=\toks23
-\extratabsurround=\skip64
-\backup@length=\skip65
-\ar@cellbox=\box31
+\col@sep=\dimen141
+\ar@mcellbox=\box46
+\extrarowheight=\dimen142
+\NC@list=\toks22
+\extratabsurround=\skip58
+\backup@length=\skip59
+\ar@cellbox=\box47
 )
 \TY@count=\count105
-\TY@linewidth=\dimen122
-\tymin=\dimen123
-\tymax=\dimen124
-\TY@tablewidth=\dimen125
+\TY@linewidth=\dimen143
+\tymin=\dimen144
+\tymax=\dimen145
+\TY@tablewidth=\dimen146
 )
 (/usr/local/texlive/2019/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)+ FMi change
-\LTleft=\skip66
-\LTright=\skip67
-\LTpre=\skip68
-\LTpost=\skip69
+\LTleft=\skip60
+\LTright=\skip61
+\LTpre=\skip62
+\LTpost=\skip63
 \LTchunksize=\count106
-\LTcapwidth=\dimen126
-\LT@head=\box32
-\LT@firsthead=\box33
-\LT@foot=\box34
-\LT@lastfoot=\box35
+\LTcapwidth=\dimen147
+\LT@head=\box48
+\LT@firsthead=\box49
+\LT@foot=\box50
+\LT@lastfoot=\box51
 \LT@cols=\count107
 \LT@rows=\count108
 \c@LT@tables=\count109
 \c@LT@chunks=\count110
-\LT@p@ftn=\toks24
+\LT@p@ftn=\toks23
 )
 (/usr/local/texlive/2019/texmf-dist/tex/latex/varwidth/varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
-\@vwid@box=\box36
+\@vwid@box=\box52
 \sift@deathcycles=\count111
-\@vwid@loff=\dimen127
-\@vwid@roff=\dimen128
+\@vwid@loff=\dimen148
+\@vwid@roff=\dimen149
 )
 (./sphinxmulticell.sty
 Package: sphinxmulticell 2017/02/23 v1.6 better span rows and columns of a tabl
 e (Sphinx team)
-\sphinx@TY@tablewidth=\dimen129
+\sphinx@TY@tablewidth=\dimen150
 )
 (/usr/local/texlive/2019/texmf-dist/tex/latex/base/makeidx.sty
 Package: makeidx 2014/09/29 v1.0m Standard LaTeX package
 )
 (/usr/local/texlive/2019/texmf-dist/tex/latex/framed/framed.sty
 Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
-\OuterFrameSep=\skip70
-\fb@frw=\dimen130
-\fb@frh=\dimen131
-\FrameRule=\dimen132
-\FrameSep=\dimen133
+\OuterFrameSep=\skip64
+\fb@frw=\dimen151
+\fb@frh=\dimen152
+\FrameRule=\dimen153
+\FrameSep=\dimen154
 )
 (/usr/local/texlive/2019/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
@@ -431,9 +416,8 @@ Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
 (/usr/local/texlive/2019/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Driver file: dvipdfmx.def on input line 225.
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
 Package xcolor Info: Model `RGB' extended on input line 1364.
 Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
 Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
@@ -448,29 +432,29 @@ Package: fancyvrb 2019/01/15
 Style option: `fancyvrb' v3.2a <2019/01/15> (tvz)
 \FV@CodeLineNo=\count112
 \FV@InFile=\read1
-\FV@TabBox=\box37
+\FV@TabBox=\box53
 \c@FancyVerbLine=\count113
 \FV@StepNumber=\count114
 \FV@OutFile=\write3
 ) (./footnotehyper-sphinx.sty
 Package: footnotehyper-sphinx 2017/10/27 v1.7 hyperref aware footnote.sty for s
 phinx (JFB)
-\FNH@notes=\box38
-\FNH@width=\dimen134
+\FNH@notes=\box54
+\FNH@width=\dimen155
 ) (/usr/local/texlive/2019/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count115
-\float@exts=\toks25
-\float@box=\box39
-\@float@everytoks=\toks26
-\@floatcapt=\box40
+\float@exts=\toks24
+\float@box=\box55
+\@float@everytoks=\toks25
+\@floatcapt=\box56
 )
 (/usr/local/texlive/2019/texmf-dist/tex/latex/wrapfig/wrapfig.sty
-\wrapoverhang=\dimen135
-\WF@size=\dimen136
+\wrapoverhang=\dimen156
+\WF@size=\dimen157
 \c@WF@wrappedlines=\count116
-\WF@box=\box41
-\WF@everypar=\toks27
+\WF@box=\box57
+\WF@everypar=\toks26
 Package: wrapfig 2003/01/31  v 3.6
 )
 (/usr/local/texlive/2019/texmf-dist/tex/latex/parskip/parskip.sty
@@ -493,6 +477,15 @@ Package: capt-of 2009/12/29 v0.2 standard captions outside of floats
 (/usr/local/texlive/2019/texmf-dist/tex/latex/needspace/needspace.sty
 Package: needspace 2010/09/12 v1.3d reserve vertical space
 )
+(/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/atbegshi.sty
+Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
+
+(/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+(/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
+))
 (./sphinxhighlight.sty
 Package: sphinxhighlight 2016/05/29 stylesheet for highlighting with pygments
 )
@@ -502,9 +495,6 @@ Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 (/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
 Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
 
-(/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/infwarerr.sty
-Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
-)
 (/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/etexcmds.sty
 Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
 
@@ -512,29 +502,31 @@ Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
 Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
 ))))
-\sphinxverbatimsep=\dimen137
-\sphinxverbatimborder=\dimen138
-\sphinxshadowsep=\dimen139
-\sphinxshadowsize=\dimen140
-\sphinxshadowrule=\dimen141
-\spx@notice@border=\dimen142
-\spx@image@maxheight=\dimen143
-\spx@image@box=\dimen144
+\sphinxverbatimsep=\dimen158
+\sphinxverbatimborder=\dimen159
+\sphinxshadowsep=\dimen160
+\sphinxshadowsize=\dimen161
+\sphinxshadowrule=\dimen162
+\spx@notice@border=\dimen163
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 632.
+
+(/usr/local/texlive/2019/texmf-dist/tex/latex/psnfss/t1ptm.fd
+File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
+)
+\spx@image@maxheight=\dimen164
+\spx@image@box=\dimen165
 \c@literalblock=\count117
-\sphinxcontinuationbox=\box42
-\sphinxvisiblespacebox=\box43
-\sphinxVerbatim@TitleBox=\box44
-\sphinxVerbatim@ContentsBox=\box45
-\py@argswidth=\skip71
-\lineblockindentation=\skip72
-\DUlineblockindent=\skip73
+\sphinxcontinuationbox=\box58
+\sphinxvisiblespacebox=\box59
+\sphinxVerbatim@TitleBox=\box60
+\sphinxVerbatim@ContentsBox=\box61
+\py@argswidth=\skip65
+\lineblockindentation=\skip66
+\DUlineblockindent=\skip67
 )
 (/usr/local/texlive/2019/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2018/04/16 v5.8 Page Geometry
 
-(/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/ifpdf.sty
-Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
-)
 (/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/ifvtex.sty
 Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
 Package ifvtex Info: VTeX not detected.
@@ -545,15 +537,15 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@cnth=\count118
 \Gm@cntv=\count119
 \c@Gm@tempcnt=\count120
-\Gm@bindingoffset=\dimen145
-\Gm@wd@mp=\dimen146
-\Gm@odd@mp=\dimen147
-\Gm@even@mp=\dimen148
-\Gm@layoutwidth=\dimen149
-\Gm@layoutheight=\dimen150
-\Gm@layouthoffset=\dimen151
-\Gm@layoutvoffset=\dimen152
-\Gm@dimlist=\toks28
+\Gm@bindingoffset=\dimen166
+\Gm@wd@mp=\dimen167
+\Gm@odd@mp=\dimen168
+\Gm@even@mp=\dimen169
+\Gm@layoutwidth=\dimen170
+\Gm@layoutheight=\dimen171
+\Gm@layouthoffset=\dimen172
+\Gm@layoutvoffset=\dimen173
+\Gm@dimlist=\toks27
 )
 (/usr/local/texlive/2019/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2018/11/30 v6.88e Hypertext links for LaTeX
@@ -577,9 +569,10 @@ Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
 Package: pdftexcmds 2018/09/10 v0.29 Utility functions of pdfTeX for LuaTeX (HO
 )
 Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: pdfTeX >= 1.30 not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode found.
+Package pdftexcmds Info: \pdfdraftmode not found.
 Package: pdfescape 2016/05/16 v1.14 Implements pdfTeX's escape features (HO)
 Package: bigintcalc 2016/05/16 v1.4 Expandable calculations on big integers (HO
 )
@@ -592,14 +585,14 @@ Package: hopatch 2016/05/16 v1.3 Wrapper for package hooks (HO)
 Package: xcolor-patch 2016/05/16 xcolor patch
 Package: atveryend 2016/05/16 v1.9 Hooks at the very end of document (HO)
 Package atveryend Info: \enddocument detected (standard20110627).
-Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
+Package hobsub Info: Skipping package `atbegshi' (already loaded).
 Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
 Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
 )
 (/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/auxhook.sty
 Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
 )
-\@linkdim=\dimen153
+\@linkdim=\dimen174
 \Hy@linkcounter=\count121
 \Hy@pagecounter=\count122
 
@@ -613,13 +606,7 @@ Now handling font encoding PD1 ...
 (/usr/local/texlive/2019/texmf-dist/tex/latex/latexconfig/hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
-Package hyperref Info: Option `unicode' set `true' on input line 4393.
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2018/11/30 v6.88e Hyperref: PDF Unicode definition (HO)
-Now handling font encoding PU ...
-... no UTF-8 mapping file for font encoding PU
-)
+Package hyperref Info: Option `setpagesize' set `false' on input line 4393.
 Package hyperref Info: Option `colorlinks' set `true' on input line 4393.
 Package hyperref Info: Option `breaklinks' set `true' on input line 4393.
 Package hyperref Info: Hyper figures OFF on input line 4519.
@@ -636,10 +623,10 @@ Package hyperref Info: Bookmarks ON on input line 4772.
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5125.
-\XeTeXLinkMargin=\dimen154
+\XeTeXLinkMargin=\dimen175
 \Fld@menulength=\count125
-\Field@Width=\dimen155
-\Fld@charsize=\dimen156
+\Field@Width=\dimen176
+\Fld@charsize=\dimen177
 Package hyperref Info: Hyper figures OFF on input line 6380.
 Package hyperref Info: Link nesting OFF on input line 6385.
 Package hyperref Info: Hyper index ON on input line 6388.
@@ -653,19 +640,22 @@ LaTeX Info: Redefining \pageref on input line 6454.
 \c@Item=\count127
 \c@Hfootnote=\count128
 )
-Package hyperref Info: Driver (autodetected): hpdftex.
+Package hyperref Info: Driver: hdvipdfm.
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2018/11/30 v6.88e Hyperref driver for pdfTeX
-\Fld@listcount=\count129
-\c@bookmark@seq@number=\count130
+(/usr/local/texlive/2019/texmf-dist/tex/latex/hyperref/hdvipdfm.def
+File: hdvipdfm.def 2018/11/30 v6.88e Hyperref driver for dvipdfm
+\pdfm@box=\box62
+\c@Hy@AnnotLevel=\count129
+\HyField@AnnotCount=\count130
+\Fld@listcount=\count131
+\c@bookmark@seq@number=\count132
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
 Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 82.
 )
-\Hy@SectionHShift=\skip74
+\Hy@SectionHShift=\skip68
 )
 (/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/hypcap.sty
 Package: hypcap 2016/05/16 v1.12 Adjusting the anchors of captions (HO)
@@ -678,4167 +668,419 @@ Package: sphinxmessages 2019/01/04 v2.0 Localized LaTeX macros (Sphinx team)
 
 
 Writing index file r2d2.idx
-
-LaTeX Warning: Unused global option(s):
-    [report].
-
 (./r2d2.aux)
 \openout1 = `r2d2.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 81.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 81.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 45.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 45.
  (/usr/local/texlive/2019/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Try loading font information for T1+ptm on input line 81.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/psnfss/t1ptm.fd
-File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
-)
-(/usr/local/texlive/2019/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count131
-\scratchdimen=\dimen157
-\scratchbox=\box46
-\nofMPsegments=\count132
-\nofMParguments=\count133
-\everyMPshowfont=\toks29
-\MPscratchCnt=\count134
-\MPscratchDim=\dimen158
-\MPnumerator=\count135
-\makeMPintoPDFobject=\count136
-\everyMPtoPDFconversion=\toks30
-) (/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
-Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+(I search kanjifont definition file: . . )
+\AtBeginShipoutBox=\box63
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/grfext.sty
-Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
-)
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
-38.
-Package grfext Info: Graphics extension search list:
-(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
-G,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 456.
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
-e
-))
-*geometry* driver: auto-detecting
-*geometry* detected driver: pdftex
+*geometry* detected driver: dvipdfm
 *geometry* verbose mode - [ preamble ] result:
-* driver: pdftex
+* driver: dvipdfm
 * paper: letterpaper
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
-* modes: twoside 
-* h-part:(L,W,R)=(72.26999pt, 469.75502pt, 72.26999pt)
-* v-part:(T,H,B)=(72.26999pt, 650.43001pt, 72.26999pt)
+* lines: 41
+* hratio: 1:1
+* vratio: 1:1
+* modes: 
+* h-part:(L,W,R)=(71.35226pt, 471.59047pt, 71.35226pt)
+* v-part:(T,H,B)=(71.10463pt, 652.76073pt, 71.10463pt)
 * \paperwidth=614.295pt
 * \paperheight=794.96999pt
-* \textwidth=469.75502pt
-* \textheight=650.43001pt
-* \oddsidemargin=0.0pt
-* \evensidemargin=0.0pt
-* \topmargin=-37.0pt
-* \headheight=12.0pt
-* \headsep=25.0pt
-* \topskip=10.0pt
-* \footskip=30.0pt
-* \marginparwidth=36.135pt
-* \marginparsep=11.0pt
-* \columnsep=10.0pt
-* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \textwidth=471.59047pt
+* \textheight=652.76073pt
+* \oddsidemargin=-0.91772pt
+* \evensidemargin=-0.91772pt
+* \topmargin=-35.17615pt
+* \headheight=20.0pt
+* \headsep=14.01079pt
+* \topskip=12.76073pt
+* \footskip=32.0pt
+* \marginparwidth=36.98749pt
+* \marginparsep=18.49374pt
+* \columnsep=18.49374pt
+* \skip\footins=16.0pt plus 5.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
 * \@twocolumnfalse
-* \@twosidetrue
-* \@mparswitchtrue
+* \@twosidefalse
+* \@mparswitchfalse
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\AtBeginShipoutBox=\box47
-Package hyperref Info: Link coloring ON on input line 81.
+Package hyperref Info: Link coloring ON on input line 45.
 (/usr/local/texlive/2019/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
 (/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count137
+\c@section@level=\count133
 )
-LaTeX Info: Redefining \ref on input line 81.
-LaTeX Info: Redefining \pageref on input line 81.
-LaTeX Info: Redefining \nameref on input line 81.
+LaTeX Info: Redefining \ref on input line 45.
+LaTeX Info: Redefining \pageref on input line 45.
+LaTeX Info: Redefining \nameref on input line 45.
 
 (./r2d2.out) (./r2d2.out)
 \@outlinefile=\write5
 \openout5 = `r2d2.out'.
 
-Package hyperref Info: Option `pageanchor' set `false' on input line 89.
-LaTeX Font Info:    Try loading font information for T1+phv on input line 89.
+Package hyperref Info: Option `pageanchor' set `false' on input line 48.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 48.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 48.
+LaTeX Font Info:    Try loading font information for T1+phv on input line 48.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 )
+LaTeX Font Info:    Font shape `JT1/gt/bx/n' in size <10> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 48.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 48.
+LaTeX Font Info:    Font shape `JY1/gt/bx/n' in size <10> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 48.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 48.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 89.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 48.
+LaTeX Font Info:    Font shape `JT1/gt/bx/n' in size <24.88> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 48.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 23.90964pt on input line 48.
+LaTeX Font Info:    Font shape `JY1/gt/bx/n' in size <24.88> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 48.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 23.90964pt on input line 48.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 89.
-LaTeX Font Info:    Font shape `T1/phv/bx/it' in size <10> not available
-(Font)              Font shape `T1/phv/b/it' tried instead on input line 89.
-LaTeX Font Info:    Font shape `T1/phv/b/it' in size <10> not available
-(Font)              Font shape `T1/phv/b/sl' tried instead on input line 89.
-LaTeX Font Info:    Font shape `T1/phv/bx/it' in size <17.28> not available
-(Font)              Font shape `T1/phv/b/it' tried instead on input line 89.
-LaTeX Font Info:    Font shape `T1/phv/b/it' in size <17.28> not available
-(Font)              Font shape `T1/phv/b/sl' tried instead on input line 89.
-LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 89.
-<<ot1.cmap>><<oml.cmap>><<oms.cmap>><<omx.cmap>>
-LaTeX Font Info:    Try loading font information for U+msa on input line 89.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 48.
 
+
+LaTeX Font Warning: Font shape `JT1/gt/bx/it' undefined
+(Font)              using `JT1/gt/bx/n' instead on input line 48.
+
+
+LaTeX Font Warning: Font shape `JY1/gt/bx/it' undefined
+(Font)              using `JY1/gt/bx/n' instead on input line 48.
+
+LaTeX Font Info:    Font shape `T1/phv/bx/it' in size <10> not available
+(Font)              Font shape `T1/phv/b/it' tried instead on input line 48.
+LaTeX Font Info:    Font shape `T1/phv/b/it' in size <10> not available
+(Font)              Font shape `T1/phv/b/sl' tried instead on input line 48.
+LaTeX Font Info:    Font shape `JT1/gt/bx/it' in size <17.28> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 48.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 16.60605pt on input line 48.
+LaTeX Font Info:    Font shape `JY1/gt/bx/it' in size <17.28> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 48.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 16.60605pt on input line 48.
+LaTeX Font Info:    Font shape `T1/phv/bx/it' in size <17.28> not available
+(Font)              Font shape `T1/phv/b/it' tried instead on input line 48.
+LaTeX Font Info:    Font shape `T1/phv/b/it' in size <17.28> not available
+(Font)              Font shape `T1/phv/b/sl' tried instead on input line 48.
+LaTeX Font Info:    Font shape `JT1/gt/bx/n' in size <17.28> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 48.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 16.60605pt on input line 48.
+LaTeX Font Info:    Font shape `JY1/gt/bx/n' in size <17.28> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 48.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 16.60605pt on input line 48.
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <17.28> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 48.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 16.60605pt on input line 48.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 11.53198pt on input line 48.
+LaTeX Font Info:    Try loading font information for U+msa on input line 48.
 (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 89.
+LaTeX Font Info:    Try loading font information for U+msb on input line 48.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
+LaTeX Font Info:    Font shape `JT1/gt/bx/n' in size <12> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 48.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 11.53198pt on input line 48.
+LaTeX Font Info:    Font shape `JY1/gt/bx/n' in size <12> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 48.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 11.53198pt on input line 48.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <12> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 89.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 48.
  [1
-
-{/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2
 
 
 ]
-LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 91.
- (./r2d2.toc)
+
+Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is use
+less on input line 49.
+
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 23.90964pt on input line 50.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 23.90964pt on input line 50.
+(./r2d2.toc
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 6.72699pt on input line 4.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 4.805pt on input line 4.
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 38.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 38.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 38.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 38.
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 38.
+ [1
+
+
+
+])
 \tf@toc=\write6
 \openout6 = `r2d2.toc'.
 
+ [2]
 
-[1
+Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is use
+less on input line 51.
 
-] [2
 
-]
+Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is use
+less on input line 51.
 
-! Package inputenc Error: Unicode character こ (U+3053)
-(inputenc)                not set up for use with LaTeX.
 
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.96 こ
-        のページは太陽のための輻射磁気流体コードR2D2(RSS...
+Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
+less on input line 51.
 
-? s
-OK, entering \scrollmode...
-
-! Package inputenc Error: Unicode character の (U+306E)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.96 この
-           ページは太陽のための輻射磁気流体コードR2D2(RSS...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character ペ (U+30DA)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.96 このペ
-              ージは太陽のための輻射磁気流体コードR2D2(RSS...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character ー (U+30FC)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.96 このペー
-                 ジは太陽のための輻射磁気流体コードR2D2(RSS...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character ジ (U+30B8)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.96 このページ
-                    は太陽のための輻射磁気流体コードR2D2(RSS...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character は (U+306F)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.96 このページは
-                       太陽のための輻射磁気流体コードR2D2(RSS...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 太 (U+592A)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.96 このページは太
-                          陽のための輻射磁気流体コードR2D2(RSS...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 陽 (U+967D)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.96 このページは太陽
-                             のための輻射磁気流体コードR2D2(RSS...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character の (U+306E)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.96 このページは太陽の
-                                ための輻射磁気流体コードR2D2(RSS...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character た (U+305F)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.96 このページは太陽のた
-                                   めの輻射磁気流体コードR2D2(RSS...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character め (U+3081)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.96 このページは太陽のため
-                                      の輻射磁気流体コードR2D2(RSS...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character の (U+306E)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.96 このページは太陽のための
-                                         輻射磁気流体コードR2D2(RSS...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 輻 (U+8F3B)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.96 このページは太陽のための輻
-                                            射磁気流体コードR2D2(RSS...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 射 (U+5C04)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.96 このページは太陽のための輻射
-                                               磁気流体コードR2D2(RSS...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 磁 (U+78C1)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.96 このページは太陽のための輻射磁
-                                                  気流体コードR2D2(RSS...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 気 (U+6C17)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.96 ...ページは太陽のための輻射磁気
-                                                  流体コードR2D2(RSST a...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 流 (U+6D41)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.96 ...ージは太陽のための輻射磁気流
-                                                  体コードR2D2(RSST and ...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 体 (U+4F53)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.96 ...ジは太陽のための輻射磁気流体
-                                                  コードR2D2(RSST and Rad...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character コ (U+30B3)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.96 ...は太陽のための輻射磁気流体コ
-                                                  ードR2D2(RSST and Radiat...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character ー (U+30FC)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.96 ...太陽のための輻射磁気流体コー
-                                                  ドR2D2(RSST and Radiation...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character ド (U+30C9)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.96 ...陽のための輻射磁気流体コード
-                                                  R2D2(RSST and Radiation fo...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character の (U+306E)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.97 の
-        マニュアルである。
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character マ (U+30DE)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.97 のマ
-           ニュアルである。
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character ニ (U+30CB)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.97 のマニ
-              ュアルである。
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character ュ (U+30E5)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.97 のマニュ
-                 アルである。
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character ア (U+30A2)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.97 のマニュア
-                    ルである。
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character ル (U+30EB)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.97 のマニュアル
-                       である。
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character で (U+3067)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.97 のマニュアルで
-                          ある。
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character あ (U+3042)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.97 のマニュアルであ
-                             る。
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character る (U+308B)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.97 のマニュアルである
-                                。
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 。 (U+3002)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.97 のマニュアルである。
-                                   
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 版 (U+7248)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.99 ..._build/latex/r2d2.pdf}{PDF版はこちら}
-                                                  ^^M
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character は (U+306F)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.99 ..._build/latex/r2d2.pdf}{PDF版はこちら}
-                                                  ^^M
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character こ (U+3053)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.99 ..._build/latex/r2d2.pdf}{PDF版はこちら}
-                                                  ^^M
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character ち (U+3061)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.99 ..._build/latex/r2d2.pdf}{PDF版はこちら}
-                                                  ^^M
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character ら (U+3089)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.99 ..._build/latex/r2d2.pdf}{PDF版はこちら}
-                                                  ^^M
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-<R2D2_logo.png, id=56, 492.3996pt x 224.5188pt>
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 101.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 60.
 (/usr/local/texlive/2019/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
-File: R2D2_logo.png Graphic file (type png)
-<use R2D2_logo.png>
-Package pdftex.def Info: R2D2_logo.png  used on input line 101.
-(pdftex.def)             Requested size: 263.48267pt x 120.14548pt.
- [1 <./R2D2_logo.png>] [2
+File: R2D2_logo.png Graphic file (type bmp)
+<R2D2_logo.png>
+ [1
 
 ]
-Chapter 1.
-
-! PACKAGE INPUTENC ERROR: UNICODE CHARACTER Â� (U+3092)
-(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
-
-SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.104 \chapter{R2D2を使い始めるには}
-                                            
-YOU MAY PROVIDE A DEFINITION WITH
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! PACKAGE INPUTENC ERROR: UNICODE CHARACTER Ľ� (U+4F7F)
-(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
-
-SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.104 \chapter{R2D2を使い始めるには}
-                                            
-YOU MAY PROVIDE A DEFINITION WITH
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! PACKAGE INPUTENC ERROR: UNICODE CHARACTER Á� (U+3044)
-(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
-
-SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.104 \chapter{R2D2を使い始めるには}
-                                            
-YOU MAY PROVIDE A DEFINITION WITH
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! PACKAGE INPUTENC ERROR: UNICODE CHARACTER Ň� (U+59CB)
-(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
-
-SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.104 \chapter{R2D2を使い始めるには}
-                                            
-YOU MAY PROVIDE A DEFINITION WITH
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! PACKAGE INPUTENC ERROR: UNICODE CHARACTER Â� (U+3081)
-(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
-
-SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.104 \chapter{R2D2を使い始めるには}
-                                            
-YOU MAY PROVIDE A DEFINITION WITH
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! PACKAGE INPUTENC ERROR: UNICODE CHARACTER Â� (U+308B)
-(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
-
-SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.104 \chapter{R2D2を使い始めるには}
-                                            
-YOU MAY PROVIDE A DEFINITION WITH
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! PACKAGE INPUTENC ERROR: UNICODE CHARACTER Á� (U+306B)
-(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
-
-SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.104 \chapter{R2D2を使い始めるには}
-                                            
-YOU MAY PROVIDE A DEFINITION WITH
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! PACKAGE INPUTENC ERROR: UNICODE CHARACTER Á� (U+306F)
-(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
-
-SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.104 \chapter{R2D2を使い始めるには}
-                                            
-YOU MAY PROVIDE A DEFINITION WITH
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-[3]
-
-! Package inputenc Error: Unicode character を (U+3092)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.107 \chapter
-              {表記法}
-You may provide a definition with
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! Package inputenc Error: Unicode character 使 (U+4F7F)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.107 \chapter
-              {表記法}
-You may provide a definition with
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! Package inputenc Error: Unicode character い (U+3044)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.107 \chapter
-              {表記法}
-You may provide a definition with
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! Package inputenc Error: Unicode character 始 (U+59CB)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.107 \chapter
-              {表記法}
-You may provide a definition with
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! Package inputenc Error: Unicode character め (U+3081)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.107 \chapter
-              {表記法}
-You may provide a definition with
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! Package inputenc Error: Unicode character る (U+308B)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.107 \chapter
-              {表記法}
-You may provide a definition with
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! Package inputenc Error: Unicode character に (U+306B)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.107 \chapter
-              {表記法}
-You may provide a definition with
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! Package inputenc Error: Unicode character は (U+306F)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.107 \chapter
-              {表記法}
-You may provide a definition with
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
+第1章
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 19.9311pt on input line 63.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 19.9311pt on input line 63.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 19.9311pt on input line 63.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 19.9311pt on input line 63.
+[2
+
+]
+第2章
+[3
+
+]
+第3章
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 13.83836pt on input line 72.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 13.83836pt on input line 72.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 13.83836pt on input line 72.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 13.83836pt on input line 72.
+LaTeX Font Info:    Font shape `JT1/gt/bx/n' in size <14.4> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 72.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 13.83836pt on input line 72.
+LaTeX Font Info:    Font shape `JY1/gt/bx/n' in size <14.4> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 72.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 13.83836pt on input line 72.
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 72.
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 11.53198pt on input line 75.
 [4
 
 ]
-Chapter 2.
+第4章
+[5
 
-! PACKAGE INPUTENC ERROR: UNICODE CHARACTER ȁ� (U+8868)
-(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
-
-SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.107 \chapter{表記法}
-                         
-YOU MAY PROVIDE A DEFINITION WITH
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! PACKAGE INPUTENC ERROR: UNICODE CHARACTER Ȉ� (U+8A18)
-(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
-
-SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.107 \chapter{表記法}
-                         
-YOU MAY PROVIDE A DEFINITION WITH
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! PACKAGE INPUTENC ERROR: UNICODE CHARACTER Ɠ� (U+6CD5)
-(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
-
-SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.107 \chapter{表記法}
-                         
-YOU MAY PROVIDE A DEFINITION WITH
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-[5]
-
-! Package inputenc Error: Unicode character 表 (U+8868)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.110 \chapter
-              {数値スキーム}
-You may provide a definition with
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! Package inputenc Error: Unicode character 記 (U+8A18)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.110 \chapter
-              {数値スキーム}
-You may provide a definition with
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! Package inputenc Error: Unicode character 法 (U+6CD5)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.110 \chapter
-              {数値スキーム}
-You may provide a definition with
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
+]
+第5章
 [6
 
 ]
-Chapter 3.
-
-! PACKAGE INPUTENC ERROR: UNICODE CHARACTER ƕ� (U+6570)
-(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
-
-SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.110 \chapter{数値スキーム}
-                                  
-YOU MAY PROVIDE A DEFINITION WITH
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! PACKAGE INPUTENC ERROR: UNICODE CHARACTER ŀ� (U+5024)
-(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
-
-SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.110 \chapter{数値スキーム}
-                                  
-YOU MAY PROVIDE A DEFINITION WITH
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! PACKAGE INPUTENC ERROR: UNICODE CHARACTER Â� (U+30B9)
-(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
-
-SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.110 \chapter{数値スキーム}
-                                  
-YOU MAY PROVIDE A DEFINITION WITH
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! PACKAGE INPUTENC ERROR: UNICODE CHARACTER Â� (U+30AD)
-(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
-
-SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.110 \chapter{数値スキーム}
-                                  
-YOU MAY PROVIDE A DEFINITION WITH
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! PACKAGE INPUTENC ERROR: UNICODE CHARACTER Ã� (U+30FC)
-(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
-
-SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.110 \chapter{数値スキーム}
-                                  
-YOU MAY PROVIDE A DEFINITION WITH
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! PACKAGE INPUTENC ERROR: UNICODE CHARACTER Ã� (U+30E0)
-(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
-
-SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.110 \chapter{数値スキーム}
-                                  
-YOU MAY PROVIDE A DEFINITION WITH
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! Package inputenc Error: Unicode character ス (U+30B9)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.113 \section{MHDスキーム}
-                               
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character キ (U+30AD)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.113 \section{MHDスキーム}
-                               
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character ー (U+30FC)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.113 \section{MHDスキーム}
-                               
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character ム (U+30E0)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.113 \section{MHDスキーム}
-                               
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 空 (U+7A7A)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.116 \subsection{空間微分}
-                               
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 間 (U+9593)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.116 \subsection{空間微分}
-                               
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 微 (U+5FAE)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.116 \subsection{空間微分}
-                               
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 分 (U+5206)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.116 \subsection{空間微分}
-                               
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character で (U+3067)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.118 R2D2で
-             は、4次の中央差分を用いている。格子間隔が�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character は (U+306F)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.118 R2D2では
-                、4次の中央差分を用いている。格子間隔が�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 、 (U+3001)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.118 R2D2では、
-                   4次の中央差分を用いている。格子間隔が�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 次 (U+6B21)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.118 R2D2では、4次
-                       の中央差分を用いている。格子間隔が�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character の (U+306E)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.118 R2D2では、4次の
-                          中央差分を用いている。格子間隔が�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 中 (U+4E2D)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.118 R2D2では、4次の中
-                             央差分を用いている。格子間隔が�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 央 (U+592E)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.118 R2D2では、4次の中央
-                                差分を用いている。格子間隔が�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 差 (U+5DEE)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.118 R2D2では、4次の中央差
-                                   分を用いている。格子間隔が�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 分 (U+5206)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.118 R2D2では、4次の中央差分
-                                      を用いている。格子間隔が�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character を (U+3092)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.118 R2D2では、4次の中央差分を
-                                         用いている。格子間隔が�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 用 (U+7528)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.118 R2D2では、4次の中央差分を用
-                                            いている。格子間隔が�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character い (U+3044)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.118 R2D2では、4次の中央差分を用い
-                                               ている。格子間隔が�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character て (U+3066)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.118 R2D2では、4次の中央差分を用いて
-                                                  いる。格子間隔が�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character い (U+3044)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.118 ...�は、4次の中央差分を用いてい
-                                                  る。格子間隔が一�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character る (U+308B)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.118 ...�、4次の中央差分を用いている
-                                                  。格子間隔が一様�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 。 (U+3002)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.118 ...�4次の中央差分を用いている。
-                                                  格子間隔が一様な�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 格 (U+683C)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.118 ...��の中央差分を用いている。格
-                                                  子間隔が一様な場�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 子 (U+5B50)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.118 ...��中央差分を用いている。格子
-                                                  間隔が一様な場合�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 間 (U+9593)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.118 ...��央差分を用いている。格子間
-                                                  隔が一様な場合に�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 隔 (U+9694)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.118 ...��差分を用いている。格子間隔
-                                                  が一様な場合には�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character が (U+304C)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.118 ...��分を用いている。格子間隔が
-                                                  一様な場合には中�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 一 (U+4E00)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.118 ...��を用いている。格子間隔が一
-                                                  様な場合には中央�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 様 (U+69D8)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.118 ...��用いている。格子間隔が一様
-                                                  な場合には中央差�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character な (U+306A)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.118 ...��いている。格子間隔が一様な
-                                                  場合には中央差分�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 場 (U+5834)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.118 ...��ている。格子間隔が一様な場
-                                                  合には中央差分で�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 合 (U+5408)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.118 ...��いる。格子間隔が一様な場合
-                                                  には中央差分では�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character に (U+306B)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.118 ...��る。格子間隔が一様な場合に
-                                                  は中央差分では微�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character は (U+306F)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.118 ...��。格子間隔が一様な場合には
-                                                  中央差分では微分は
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 中 (U+4E2D)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.118 ...��格子間隔が一様な場合には中
-                                                  央差分では微分は
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 央 (U+592E)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.118 ...��子間隔が一様な場合には中央
-                                                  差分では微分は
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 差 (U+5DEE)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.118 ...��間隔が一様な場合には中央差
-                                                  分では微分は
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 分 (U+5206)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.118 ...��隔が一様な場合には中央差分
-                                                  では微分は
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character で (U+3067)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.118 ...��が一様な場合には中央差分で
-                                                  は微分は
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character は (U+306F)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.118 ...��一様な場合には中央差分では
-                                                  微分は
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 微 (U+5FAE)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.118 ...��様な場合には中央差分では微
-                                                  分は
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 分 (U+5206)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.118 ...��な場合には中央差分では微分
-                                                  は
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character は (U+306F)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.118 ...��場合には中央差分では微分は
-                                                  
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character と (U+3068)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.122 と
-         なる。R2D2では、非一様な格子間隔にも対応してお...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character な (U+306A)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.122 とな
-            る。R2D2では、非一様な格子間隔にも対応してお...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character る (U+308B)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.122 となる
-               。R2D2では、非一様な格子間隔にも対応してお...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 。 (U+3002)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.122 となる。
-                  R2D2では、非一様な格子間隔にも対応してお...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character で (U+3067)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.122 となる。R2D2で
-                         は、非一様な格子間隔にも対応してお...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character は (U+306F)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.122 となる。R2D2では
-                            、非一様な格子間隔にも対応してお...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 、 (U+3001)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.122 となる。R2D2では、
-                               非一様な格子間隔にも対応してお...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 非 (U+975E)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.122 となる。R2D2では、非
-                                  一様な格子間隔にも対応してお...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 一 (U+4E00)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.122 となる。R2D2では、非一
-                                     様な格子間隔にも対応してお...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 様 (U+69D8)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.122 となる。R2D2では、非一様
-                                        な格子間隔にも対応してお...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character な (U+306A)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.122 となる。R2D2では、非一様な
-                                           格子間隔にも対応してお...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 格 (U+683C)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.122 となる。R2D2では、非一様な格
-                                              子間隔にも対応してお...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 子 (U+5B50)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.122 となる。R2D2では、非一様な格子
-                                                 間隔にも対応してお...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 間 (U+9593)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.122 ...�る。R2D2では、非一様な格子間
-                                                  隔にも対応してお�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 隔 (U+9694)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.122 ...�。R2D2では、非一様な格子間隔
-                                                  にも対応しており、
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character に (U+306B)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.122 ...�R2D2では、非一様な格子間隔に
-                                                  も対応しており、
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character も (U+3082)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.122 ...D2では、非一様な格子間隔にも
-                                                  対応しており、
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 対 (U+5BFE)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.122 ...��は、非一様な格子間隔にも対
-                                                  応しており、
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 応 (U+5FDC)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.122 ...��、非一様な格子間隔にも対応
-                                                  しており、
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character し (U+3057)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.122 ...��非一様な格子間隔にも対応し
-                                                  ており、
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character て (U+3066)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.122 ...��一様な格子間隔にも対応して
-                                                  おり、
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character お (U+304A)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.122 ...��様な格子間隔にも対応してお
-                                                  り、
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character り (U+308A)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.122 ...��な格子間隔にも対応しており
-                                                  、
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 、 (U+3001)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.122 ...��格子間隔にも対応しており、
-                                                  
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 時 (U+6642)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.125 \subsection{時間積分}
-                               
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 間 (U+9593)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.125 \subsection{時間積分}
-                               
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 積 (U+7A4D)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.125 \subsection{時間積分}
-                               
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 分 (U+5206)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.125 \subsection{時間積分}
-                               
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character で (U+3067)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.127 R2D2で
-             は、
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character は (U+306F)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.127 R2D2では
-                、
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 、 (U+3001)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.127 R2D2では、
-                   
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-[7]
-
-! Package inputenc Error: Unicode character 数 (U+6570)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.130 \chapter
-              {パラメータ}
-You may provide a definition with
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! Package inputenc Error: Unicode character 値 (U+5024)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.130 \chapter
-              {パラメータ}
-You may provide a definition with
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! Package inputenc Error: Unicode character ス (U+30B9)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.130 \chapter
-              {パラメータ}
-You may provide a definition with
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! Package inputenc Error: Unicode character キ (U+30AD)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.130 \chapter
-              {パラメータ}
-You may provide a definition with
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! Package inputenc Error: Unicode character ー (U+30FC)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.130 \chapter
-              {パラメータ}
-You may provide a definition with
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! Package inputenc Error: Unicode character ム (U+30E0)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.130 \chapter
-              {パラメータ}
-You may provide a definition with
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-[8
+第6章
+[7
 
 ]
-Chapter 4.
+第7章
+LaTeX Font Info:    Try loading font information for TS1+ptm on input line 109.
 
-! PACKAGE INPUTENC ERROR: UNICODE CHARACTER Ã� (U+30D1)
-(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
+(/usr/local/texlive/2019/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+)
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 8.64899pt on input line 129.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 8.64899pt on input line 129.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 8.64899pt on input line 129.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 8.64899pt on input line 129.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 4.805pt on input line 129.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 4.805pt on input line 129.
+LaTeX Font Info:    Font shape `JT1/gt/bx/n' in size <9> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 130.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 8.64899pt on input line 130.
+LaTeX Font Info:    Font shape `JY1/gt/bx/n' in size <9> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 130.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 8.64899pt on input line 130.
+LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <9> not available
+(Font)              Font shape `T1/pcr/b/n' tried instead on input line 130.
+ [8
 
-SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.130 \chapter{パラメータ}
-                               
-YOU MAY PROVIDE A DEFINITION WITH
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! PACKAGE INPUTENC ERROR: UNICODE CHARACTER Ã� (U+30E9)
-(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
-
-SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.130 \chapter{パラメータ}
-                               
-YOU MAY PROVIDE A DEFINITION WITH
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! PACKAGE INPUTENC ERROR: UNICODE CHARACTER Ã� (U+30E1)
-(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
-
-SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.130 \chapter{パラメータ}
-                               
-YOU MAY PROVIDE A DEFINITION WITH
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! PACKAGE INPUTENC ERROR: UNICODE CHARACTER Ã� (U+30FC)
-(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
-
-SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.130 \chapter{パラメータ}
-                               
-YOU MAY PROVIDE A DEFINITION WITH
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! PACKAGE INPUTENC ERROR: UNICODE CHARACTER Â� (U+30BF)
-(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
-
-SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.130 \chapter{パラメータ}
-                               
-YOU MAY PROVIDE A DEFINITION WITH
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-[9]
-
-! Package inputenc Error: Unicode character パ (U+30D1)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.133 \chapter
-              {方程式}
-You may provide a definition with
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! Package inputenc Error: Unicode character ラ (U+30E9)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.133 \chapter
-              {方程式}
-You may provide a definition with
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! Package inputenc Error: Unicode character メ (U+30E1)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.133 \chapter
-              {方程式}
-You may provide a definition with
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! Package inputenc Error: Unicode character ー (U+30FC)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.133 \chapter
-              {方程式}
-You may provide a definition with
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! Package inputenc Error: Unicode character タ (U+30BF)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.133 \chapter
-              {方程式}
-You may provide a definition with
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
+] [9]
+第8章
+File: bc_sym.png Graphic file (type bmp)
+<bc_sym.png>
 [10
 
-]
-Chapter 5.
-
-! PACKAGE INPUTENC ERROR: UNICODE CHARACTER Ɩ� (U+65B9)
-(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
-
-SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.133 \chapter{方程式}
-                         
-YOU MAY PROVIDE A DEFINITION WITH
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! PACKAGE INPUTENC ERROR: UNICODE CHARACTER ǈ� (U+7A0B)
-(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
-
-SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.133 \chapter{方程式}
-                         
-YOU MAY PROVIDE A DEFINITION WITH
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! PACKAGE INPUTENC ERROR: UNICODE CHARACTER Ŝ� (U+5F0F)
-(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
-
-SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.133 \chapter{方程式}
-                         
-YOU MAY PROVIDE A DEFINITION WITH
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-[11]
-
-! Package inputenc Error: Unicode character 方 (U+65B9)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.136 \chapter
-              {コード構造}
-You may provide a definition with
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! Package inputenc Error: Unicode character 程 (U+7A0B)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.136 \chapter
-              {コード構造}
-You may provide a definition with
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! Package inputenc Error: Unicode character 式 (U+5F0F)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.136 \chapter
-              {コード構造}
-You may provide a definition with
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
+] [11]
+第9章
 [12
 
 ]
-Chapter 6.
-
-! PACKAGE INPUTENC ERROR: UNICODE CHARACTER Â� (U+30B3)
-(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
-
-SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.136 \chapter{コード構造}
-                               
-YOU MAY PROVIDE A DEFINITION WITH
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! PACKAGE INPUTENC ERROR: UNICODE CHARACTER Ã� (U+30FC)
-(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
-
-SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.136 \chapter{コード構造}
-                               
-YOU MAY PROVIDE A DEFINITION WITH
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! PACKAGE INPUTENC ERROR: UNICODE CHARACTER Ã� (U+30C9)
-(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
-
-SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.136 \chapter{コード構造}
-                               
-YOU MAY PROVIDE A DEFINITION WITH
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! PACKAGE INPUTENC ERROR: UNICODE CHARACTER Ƈ� (U+69CB)
-(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
-
-SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.136 \chapter{コード構造}
-                               
-YOU MAY PROVIDE A DEFINITION WITH
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! PACKAGE INPUTENC ERROR: UNICODE CHARACTER ɀ� (U+9020)
-(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
-
-SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.136 \chapter{コード構造}
-                               
-YOU MAY PROVIDE A DEFINITION WITH
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-[13]
-
-! Package inputenc Error: Unicode character コ (U+30B3)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.139 \chapter
-              {座標生成}
-You may provide a definition with
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! Package inputenc Error: Unicode character ー (U+30FC)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.139 \chapter
-              {座標生成}
-You may provide a definition with
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! Package inputenc Error: Unicode character ド (U+30C9)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.139 \chapter
-              {座標生成}
-You may provide a definition with
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! Package inputenc Error: Unicode character 構 (U+69CB)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.139 \chapter
-              {座標生成}
-You may provide a definition with
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! Package inputenc Error: Unicode character 造 (U+9020)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.139 \chapter
-              {座標生成}
-You may provide a definition with
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-[14
+第10章
+[13
 
 ]
-Chapter 7.
-
-! PACKAGE INPUTENC ERROR: UNICODE CHARACTER Ś� (U+5EA7)
-(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
-
-SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.139 \chapter{座標生成}
-                            
-YOU MAY PROVIDE A DEFINITION WITH
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! PACKAGE INPUTENC ERROR: UNICODE CHARACTER ƈ� (U+6A19)
-(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
-
-SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.139 \chapter{座標生成}
-                            
-YOU MAY PROVIDE A DEFINITION WITH
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! PACKAGE INPUTENC ERROR: UNICODE CHARACTER ǔ� (U+751F)
-(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
-
-SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.139 \chapter{座標生成}
-                            
-YOU MAY PROVIDE A DEFINITION WITH
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! PACKAGE INPUTENC ERROR: UNICODE CHARACTER ƈ� (U+6210)
-(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
-
-SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.139 \chapter{座標生成}
-                            
-YOU MAY PROVIDE A DEFINITION WITH
-\GenericError {               }{LaTeX Error: Can be used only in preamble}{See 
-the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.
-
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.}
-
-
-! Package inputenc Error: Unicode character で (U+3067)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 R2D2で
-             は中央差分法を用いているが、そのほとんどは...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character は (U+306F)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 R2D2では
-                中央差分法を用いているが、そのほとんどは...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 中 (U+4E2D)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 R2D2では中
-                   央差分法を用いているが、そのほとんどは...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 央 (U+592E)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 R2D2では中央
-                      差分法を用いているが、そのほとんどは...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 差 (U+5DEE)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 R2D2では中央差
-                         分法を用いているが、そのほとんどは...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 分 (U+5206)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 R2D2では中央差分
-                            法を用いているが、そのほとんどは...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 法 (U+6CD5)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 R2D2では中央差分法
-                               を用いているが、そのほとんどは...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character を (U+3092)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 R2D2では中央差分法を
-                                  用いているが、そのほとんどは...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 用 (U+7528)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 R2D2では中央差分法を用
-                                     いているが、そのほとんどは...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character い (U+3044)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 R2D2では中央差分法を用い
-                                        ているが、そのほとんどは...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character て (U+3066)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 R2D2では中央差分法を用いて
-                                           いるが、そのほとんどは...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character い (U+3044)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 R2D2では中央差分法を用いてい
-                                              るが、そのほとんどは...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character る (U+308B)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 R2D2では中央差分法を用いている
-                                                 が、そのほとんどは...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character が (U+304C)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��は中央差分法を用いているが
-                                                  、そのほとんどは�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 、 (U+3001)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��中央差分法を用いているが、
-                                                  そのほとんどは数�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character そ (U+305D)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��央差分法を用いているが、そ
-                                                  のほとんどは数値�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character の (U+306E)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��差分法を用いているが、その
-                                                  ほとんどは数値フ�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character ほ (U+307B)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��分法を用いているが、そのほ
-                                                  とんどは数値フラ�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character と (U+3068)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��法を用いているが、そのほと
-                                                  んどは数値フラッ�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character ん (U+3093)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��を用いているが、そのほとん
-                                                  どは数値フラック�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character ど (U+3069)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��用いているが、そのほとんど
-                                                  は数値フラックス�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character は (U+306F)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��いているが、そのほとんどは
-                                                  数値フラックスを�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 数 (U+6570)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��ているが、そのほとんどは数
-                                                  値フラックスを用�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 値 (U+5024)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��いるが、そのほとんどは数値
-                                                  フラックスを用い�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character フ (U+30D5)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��るが、そのほとんどは数値フ
-                                                  ラックスを用いて�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character ラ (U+30E9)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��が、そのほとんどは数値フラ
-                                                  ックスを用いて書�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character ッ (U+30C3)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��、そのほとんどは数値フラッ
-                                                  クスを用いて書き�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character ク (U+30AF)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��そのほとんどは数値フラック
-                                                  スを用いて書き直�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character ス (U+30B9)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��のほとんどは数値フラックス
-                                                  を用いて書き直す�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character を (U+3092)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��ほとんどは数値フラックスを
-                                                  用いて書き直すこ�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 用 (U+7528)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��とんどは数値フラックスを用
-                                                  いて書き直すこと�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character い (U+3044)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��んどは数値フラックスを用い
-                                                  て書き直すことで�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character て (U+3066)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��どは数値フラックスを用いて
-                                                  書き直すことでき�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 書 (U+66F8)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��は数値フラックスを用いて書
-                                                  き直すことでき、�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character き (U+304D)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��数値フラックスを用いて書き
-                                                  直すことでき、提�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 直 (U+76F4)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��値フラックスを用いて書き直
-                                                  すことでき、提供�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character す (U+3059)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��フラックスを用いて書き直す
-                                                  ことでき、提供さ�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character こ (U+3053)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��ラックスを用いて書き直すこ
-                                                  とでき、提供され�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character と (U+3068)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��ックスを用いて書き直すこと
-                                                  でき、提供される \...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character で (U+3067)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��クスを用いて書き直すことで
-                                                  き、提供される \sph...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character き (U+304D)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��スを用いて書き直すことでき
-                                                  、提供される \sphinx...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 、 (U+3001)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��を用いて書き直すことでき、
-                                                  提供される \sphinxcod...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 提 (U+63D0)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��用いて書き直すことでき、提
-                                                  供される \sphinxcode{\...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 供 (U+4F9B)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��いて書き直すことでき、提供
-                                                  される \sphinxcode{\sph...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character さ (U+3055)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��て書き直すことでき、提供さ
-                                                  れる \sphinxcode{\sphinx...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character れ (U+308C)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��書き直すことでき、提供され
-                                                  る \sphinxcode{\sphinxupq...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character る (U+308B)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��き直すことでき、提供される
-                                                   \sphinxcode{\sphinxupquot...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 　 (U+3000)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...e{x}} , \sphinxcode{\sphinxupquote{y}}　
-                                                  , \sphinxcode{\sphinxupquo...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character な (U+306A)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...}}　, \sphinxcode{\sphinxupquote{z}} な
-                                                  どは \sphinxstylestrong{...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character ど (U+3069)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��, \sphinxcode{\sphinxupquote{z}} など
-                                                  は \sphinxstylestrong{セ...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character は (U+306F)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ... \sphinxcode{\sphinxupquote{z}} などは
-                                                   \sphinxstylestrong{セル...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 141.
-
-! Package inputenc Error: Unicode character セ (U+30BB)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��どは \sphinxstylestrong{セル中心}
-                                                   で定義される。よ�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character ル (U+30EB)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��どは \sphinxstylestrong{セル中心}
-                                                   で定義される。よ�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 中 (U+4E2D)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��どは \sphinxstylestrong{セル中心}
-                                                   で定義される。よ�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 心 (U+5FC3)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��どは \sphinxstylestrong{セル中心}
-                                                   で定義される。よ�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character で (U+3067)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...�は \sphinxstylestrong{セル中心} で
-                                                  定義される。よっ�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 定 (U+5B9A)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...� \sphinxstylestrong{セル中心} で定
-                                                  義される。よって�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 義 (U+7FA9)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...sphinxstylestrong{セル中心} で定義
-                                                  される。よって計�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character さ (U+3055)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...inxstylestrong{セル中心} で定義さ
-                                                  れる。よって計算�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character れ (U+308C)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...stylestrong{セル中心} で定義され
-                                                  る。よって計算領�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character る (U+308B)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...lestrong{セル中心} で定義される
-                                                  。よって計算領域�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 。 (U+3002)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...trong{セル中心} で定義される。
-                                                  よって計算領域内�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character よ (U+3088)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...ng{セル中心} で定義される。よ
-                                                  って計算領域内の�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character っ (U+3063)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...セル中心} で定義される。よっ
-                                                  て計算領域内の最�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character て (U+3066)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...ル中心} で定義される。よって
-                                                  計算領域内の最初�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 計 (U+8A08)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...中心} で定義される。よって計
-                                                  算領域内の最初の�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 算 (U+7B97)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...心} で定義される。よって計算
-                                                  領域内の最初のグ�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 領 (U+9818)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...} で定義される。よって計算領
-                                                  域内の最初のグリ�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 域 (U+57DF)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��定義される。よって計算領域
-                                                  内の最初のグリッ�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 内 (U+5185)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��義される。よって計算領域内
-                                                  の最初のグリッド�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character の (U+306E)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��される。よって計算領域内の
-                                                  最初のグリッドは�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 最 (U+6700)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��れる。よって計算領域内の最
-                                                  初のグリッドは、�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 初 (U+521D)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��る。よって計算領域内の最初
-                                                  のグリッドは、計�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character の (U+306E)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��。よって計算領域内の最初の
-                                                  グリッドは、計算�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character グ (U+30B0)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��よって計算領域内の最初のグ
-                                                  リッドは、計算境�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character リ (U+30EA)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��って計算領域内の最初のグリ
-                                                  ッドは、計算境界�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character ッ (U+30C3)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��て計算領域内の最初のグリッ
-                                                  ドは、計算境界か�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character ド (U+30C9)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��計算領域内の最初のグリッド
-                                                  は、計算境界から�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character は (U+306F)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��算領域内の最初のグリッドは
-                                                  、計算境界から半�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 、 (U+3001)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��領域内の最初のグリッドは、
-                                                  計算境界から半グ�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 計 (U+8A08)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��域内の最初のグリッドは、計
-                                                  算境界から半グリ�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 算 (U+7B97)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��内の最初のグリッドは、計算
-                                                  境界から半グリッ�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 境 (U+5883)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��の最初のグリッドは、計算境
-                                                  界から半グリッド�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 界 (U+754C)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��最初のグリッドは、計算境界
-                                                  から半グリッド進�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character か (U+304B)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��初のグリッドは、計算境界か
-                                                  ら半グリッド進ん�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character ら (U+3089)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��のグリッドは、計算境界から
-                                                  半グリッド進んだ�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 半 (U+534A)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��グリッドは、計算境界から半
-                                                  グリッド進んだと�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character グ (U+30B0)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��リッドは、計算境界から半グ
-                                                  リッド進んだとこ�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character リ (U+30EA)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��ッドは、計算境界から半グリ
-                                                  ッド進んだところ�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character ッ (U+30C3)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��ドは、計算境界から半グリッ
-                                                  ド進んだところに�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character ド (U+30C9)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��は、計算境界から半グリッド
-                                                  進んだところにあ�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character 進 (U+9032)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��、計算境界から半グリッド進
-                                                  んだところにある。
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character ん (U+3093)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��計算境界から半グリッド進ん
-                                                  だところにある。
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character だ (U+3060)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��算境界から半グリッド進んだ
-                                                  ところにある。
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character と (U+3068)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��境界から半グリッド進んだと
-                                                  ころにある。
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! Package inputenc Error: Unicode character こ (U+3053)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.141 ...��界から半グリッド進んだとこ
-                                                  ろにある。
-(That makes 100 errors; please try again.) 
+LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <10> not available
+(Font)              Font shape `T1/pcr/b/n' tried instead on input line 240.
+LaTeX Font Info:    Try loading font information for TS1+pcr on input line 290.
+
+ (/usr/local/texlive/2019/texmf-dist/tex/latex/psnfss/ts1pcr.fd
+File: ts1pcr.fd 2001/06/04 font definitions for TS1/pcr.
+)
+LaTeX Font Info:    Font shape `JT1/gt/m/it' in size <9> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 290.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 8.64899pt on input line 290.
+LaTeX Font Info:    Font shape `JY1/gt/m/it' in size <9> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 290.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 8.64899pt on input line 290.
+LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <9> not available
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 290.
+LaTeX Font Info:    Font shape `JT1/gt/m/it' in size <10> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 302.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 302.
+LaTeX Font Info:    Font shape `JY1/gt/m/it' in size <10> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 302.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 302.
+LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <10> not available
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 307.
+ [14]
+[15] [16]
+第11章
+[17
+
+]
+File: restructuredtext_vs.png Graphic file (type bmp)
+<restructuredtext_vs.png>
+ [18] [19]
+File: R2D2_logo.png Graphic file (type bmp)
+<R2D2_logo.png>
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 6.72699pt on input line 617.
+ [20] [21]
+第12章
+[22
+
+]
+第13章
+(./r2d2.ind [23
+
+]
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 7.68799pt on input line 8.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 7.68799pt on input line 8.
+LaTeX Font Info:    Font shape `JT1/gt/m/it' in size <8> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 8.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 7.68799pt on input line 8.
+LaTeX Font Info:    Font shape `JY1/gt/m/it' in size <8> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 8.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 7.68799pt on input line 8.
+ [24
+
+
+
+
+])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 670.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 670.
+ (./r2d2.aux)
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 670.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 670.
+Package rerunfilecheck Info: File `r2d2.out' has not changed.
+(rerunfilecheck)             Checksum: DDEA39663146C6DA96FCEEF099F3651E;1588.
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 670.
+ ) 
 Here is how much of TeX's memory you used:
- 13460 strings out of 492616
- 188139 string characters out of 6129482
- 281999 words of memory out of 5000000
- 17078 multiletter control sequences out of 15000+600000
- 40631 words of font info for 57 fonts, out of 8000000 for 9000
- 1142 hyphenation exceptions out of 8191
- 37i,16n,45p,4416b,392s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 9544 strings out of 493223
+ 136863 string characters out of 6144416
+ 255715 words of memory out of 5000000
+ 13318 multiletter control sequences out of 15000+600000
+ 61431 words of font info for 131 fonts, out of 8000000 for 9000
+ 935 hyphenation exceptions out of 8191
+ 37i,21n,45p,551b,526s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-!  ==> Fatal error occurred, no output PDF file produced!
+Output written on r2d2.dvi (27 pages, 65844 bytes).
