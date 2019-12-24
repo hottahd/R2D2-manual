@@ -2,10 +2,10 @@
 
 <!doctype html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>座標生成 &#8212; R2D2 1.1 ドキュメント</title>
+    <title>座標生成 &#8212; R2D2 1.1 documentation</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -14,35 +14,34 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/language_data.js"></script>
-    <script type="text/javascript" src="_static/translations.js"></script>
     <script type="text/javascript" src="_static/bizstyle.js"></script>
-    <link rel="index" title="索引" href="genindex.html" />
-    <link rel="search" title="検索" href="search.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="境界条件" href="boundary.html" />
-    <link rel="prev" title="コードの構造" href="code.html" />
+    <link rel="prev" title="コード構造" href="code.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
-      <h3>ナビゲーション</h3>
+      <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="総合索引"
-             accesskey="I">索引</a></li>
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
         <li class="right" >
           <a href="boundary.html" title="境界条件"
-             accesskey="N">次へ</a> |</li>
+             accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="code.html" title="コードの構造"
-             accesskey="P">前へ</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">R2D2 1.1 ドキュメント</a> &#187;</li> 
+          <a href="code.html" title="コード構造"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">R2D2 1.1 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">目次</a></h3>
+  <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">座標生成</a><ul>
 <li><a class="reference internal" href="#id2">一様グリッド</a></li>
@@ -51,25 +50,25 @@
 </li>
 </ul>
 
-  <h4>前のトピックへ</h4>
+  <h4>Previous topic</h4>
   <p class="topless"><a href="code.html"
-                        title="前の章へ">コードの構造</a></p>
-  <h4>次のトピックへ</h4>
+                        title="previous chapter">コード構造</a></p>
+  <h4>Next topic</h4>
   <p class="topless"><a href="boundary.html"
-                        title="次の章へ">境界条件</a></p>
+                        title="next chapter">境界条件</a></p>
   <div role="note" aria-label="source link">
-    <h3>このページ</h3>
+    <h3>This Page</h3>
     <ul class="this-page-menu">
       <li><a href="_sources/geometry.rst.txt"
-            rel="nofollow">ソースコードを表示</a></li>
+            rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">クイック検索</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="検索" />
+      <input type="submit" value="Go" />
     </form>
     </div>
 </div>
@@ -83,11 +82,11 @@
           <div class="body" role="main">
             
   <div class="section" id="id1">
-<h1>座標生成<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1>座標生成<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <p>R2D2では中央差分法を用いているが、そのほとんどは数値フラックスを用いて書き直すことでき、提供される <code class="docutils literal notranslate"><span class="pre">x</span></code> , <code class="docutils literal notranslate"><span class="pre">y</span></code>　, <code class="docutils literal notranslate"><span class="pre">z</span></code> などは <strong>セル中心</strong> で定義される。よって計算領域内の最初のグリッドは、計算境界から半グリッド進んだところにある。</p>
 <p>また、R2D2では一様グリッドと非一様グリッドどちらでも計算できるようにしている。</p>
 <div class="section" id="id2">
-<h2>一様グリッド<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>一様グリッド<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>一様グリッドを用いるときは</p>
 <ul class="simple">
 <li><p>格子間隔を計算する</p></li>
@@ -112,7 +111,7 @@
 </div>
 </div>
 <div class="section" id="id3">
-<h2>非一様グリッド<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>非一様グリッド<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>非一様グリッドを用いるときは、太陽光球付近は、輻射輸送のために一様なグリッド、ある程度の深さから格子間隔が線形に増加する非一様グリッドを使うことにしている。</p>
 <p>よって、ある初期の格子間隔 <img class="math" src="_images/math/3b444a3da1e3dafbb42509f5af53b689809b54d0.svg" alt="\Delta x_0"/></p>
 </div>
@@ -125,23 +124,23 @@
       <div class="clearer"></div>
     </div>
     <div class="related" role="navigation" aria-label="related navigation">
-      <h3>ナビゲーション</h3>
+      <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="総合索引"
-             >索引</a></li>
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
         <li class="right" >
           <a href="boundary.html" title="境界条件"
-             >次へ</a> |</li>
+             >next</a> |</li>
         <li class="right" >
-          <a href="code.html" title="コードの構造"
-             >前へ</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">R2D2 1.1 ドキュメント</a> &#187;</li> 
+          <a href="code.html" title="コード構造"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">R2D2 1.1 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019, Hideyuki Hotta.
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0 で生成しました。
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0.
     </div>
   </body>
 </html>

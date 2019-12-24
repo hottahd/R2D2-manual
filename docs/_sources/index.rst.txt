@@ -18,6 +18,7 @@ R2D2マニュアル
    :maxdepth: 2
 
    start.rst
+   notation.rst
    scheme.rst
    parameter.rst
    equation.rst

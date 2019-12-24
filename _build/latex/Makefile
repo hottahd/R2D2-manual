@@ -16,23 +16,20 @@ LATEXMKOPTS =
 # format: pdf or dvi (used only by archive targets)
 FMT = pdf
 
-# latexmkrc is read then overridden by latexmkjarc
-LATEX = latexmk -r latexmkjarc -dvi
-PDFLATEX = latexmk -r latexmkjarc -pdfdvi -dvi- -ps-
+LATEX = latexmk -dvi
+PDFLATEX = latexmk -pdf -dvi- -ps-
 
 
 %.png %.gif %.jpg %.jpeg: FORCE_MAKE
 	extractbb '$@'
 
-%.dvi: %.tex $(ALLIMGS) FORCE_MAKE
-	for f in *.pdf; do extractbb "$$f"; done
+%.dvi: %.tex FORCE_MAKE
 	$(LATEX) $(LATEXMKOPTS) '$<'
 
 %.ps: %.dvi
 	dvips '$<'
 
-%.pdf: %.tex $(ALLIMGS) FORCE_MAKE
-	for f in *.pdf; do extractbb "$$f"; done
+%.pdf: %.tex FORCE_MAKE
 	$(PDFLATEX) $(LATEXMKOPTS) '$<'
 
 all: $(ALLPDF)

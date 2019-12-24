@@ -4,8 +4,7 @@ REM Command file for Sphinx documentation
 
 pushd %~dp0
 
-REM latexmkrc is read then overridden by latexmkjarc
-set PDFLATEX=latexmk -r latexmkjarc -pdfdvi -dvi- -ps-
+set PDFLATEX=latexmk -pdf -dvi- -ps-
 
 set "LATEXOPTS= "
 
@@ -13,9 +12,6 @@ if "%1" == "" goto all-pdf
 
 if "%1" == "all-pdf" (
 	:all-pdf
-	for %%i in (*.png *.gif *.jpg *.jpeg *.pdf) do (
-		extractbb %%i
-	)
 	for %%i in (*.tex) do (
 		%PDFLATEX% %LATEXMKOPTS% %%i
 	)

@@ -2,10 +2,10 @@
 
 <!doctype html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>境界条件 &#8212; R2D2 1.1 ドキュメント</title>
+    <title>境界条件 &#8212; R2D2 1.1 documentation</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -14,35 +14,34 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/language_data.js"></script>
-    <script type="text/javascript" src="_static/translations.js"></script>
     <script type="text/javascript" src="_static/bizstyle.js"></script>
-    <link rel="index" title="索引" href="genindex.html" />
-    <link rel="search" title="検索" href="search.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="人工粘性" href="artdif.html" />
-    <link rel="prev" title="座標生成" href="geometry.html" />
+    <link rel="prev" title="Geometry generation" href="geometry.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
-      <h3>ナビゲーション</h3>
+      <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="総合索引"
-             accesskey="I">索引</a></li>
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
         <li class="right" >
           <a href="artdif.html" title="人工粘性"
-             accesskey="N">次へ</a> |</li>
+             accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="geometry.html" title="座標生成"
-             accesskey="P">前へ</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">R2D2 1.1 ドキュメント</a> &#187;</li> 
+          <a href="geometry.html" title="Geometry generation"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">R2D2 1.1 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">目次</a></h3>
+  <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">境界条件</a><ul>
 <li><a class="reference internal" href="#id2">上部境界</a><ul>
@@ -54,25 +53,25 @@
 </li>
 </ul>
 
-  <h4>前のトピックへ</h4>
+  <h4>Previous topic</h4>
   <p class="topless"><a href="geometry.html"
-                        title="前の章へ">座標生成</a></p>
-  <h4>次のトピックへ</h4>
+                        title="previous chapter">Geometry generation</a></p>
+  <h4>Next topic</h4>
   <p class="topless"><a href="artdif.html"
-                        title="次の章へ">人工粘性</a></p>
+                        title="next chapter">人工粘性</a></p>
   <div role="note" aria-label="source link">
-    <h3>このページ</h3>
+    <h3>This Page</h3>
     <ul class="this-page-menu">
       <li><a href="_sources/boundary.rst.txt"
-            rel="nofollow">ソースコードを表示</a></li>
+            rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">クイック検索</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="検索" />
+      <input type="submit" value="Go" />
     </form>
     </div>
 </div>
@@ -86,7 +85,7 @@
           <div class="body" role="main">
             
   <div class="section" id="id1">
-<h1>境界条件<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1>境界条件<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <p>論文を書くときは</p>
 <ul class="simple">
 <li><p><img class="math" src="_images/math/e0731fefacaa118be6d1ecdaa4092d32716e8790.svg" alt="x"/> , <img class="math" src="_images/math/cf201e3b2032836e993fcc5c900ccb0b23c211d7.svg" alt="y"/> : 水平方向</p></li>
@@ -101,14 +100,14 @@
 <p>また、対称・反対称とは以下のような状況を表す。</p>
 <a class="reference internal image-reference" href="_images/bc_sym.png"><img alt="_images/bc_sym.png" src="_images/bc_sym.png" style="width: 450px;" /></a>
 <div class="section" id="id2">
-<h2>上部境界<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>上部境界<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id3">
-<h3>ポテンシャル磁場<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>ポテンシャル磁場<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>磁場があるときは、上部ではポテンシャル磁場境界条件を使う。</p>
 </div>
 </div>
 <div class="section" id="id4">
-<h2>下部境界<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>下部境界<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <p>開く時
 どの質量フラックスも対称にする。 計算領域内での質量を一定に保つために、水平に平均した密度
 <img class="math" src="_images/math/7d6712637510ab33e8a2467781e8f077f86eab93.svg" alt="\langle \rho_1\rangle"/> は反対称。 そこからのずれ
@@ -128,23 +127,23 @@
       <div class="clearer"></div>
     </div>
     <div class="related" role="navigation" aria-label="related navigation">
-      <h3>ナビゲーション</h3>
+      <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="総合索引"
-             >索引</a></li>
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
         <li class="right" >
           <a href="artdif.html" title="人工粘性"
-             >次へ</a> |</li>
+             >next</a> |</li>
         <li class="right" >
-          <a href="geometry.html" title="座標生成"
-             >前へ</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">R2D2 1.1 ドキュメント</a> &#187;</li> 
+          <a href="geometry.html" title="Geometry generation"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">R2D2 1.1 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019, Hideyuki Hotta.
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0 で生成しました。
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0.
     </div>
   </body>
 </html>
