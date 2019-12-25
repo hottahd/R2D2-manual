@@ -42,6 +42,15 @@
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">目次</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">方程式</a><ul>
+<li><a class="reference internal" href="#mhd">MHD</a></li>
+<li><a class="reference internal" href="#id2">輻射輸送</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="parameter.html"
                         title="前の章へ">パラメータ</a></p>
@@ -75,6 +84,27 @@
             
   <div class="section" id="id1">
 <h1>方程式<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>R2D2で解く方程式は以下である</p>
+<div class="section" id="mhd">
+<h2>MHD<a class="headerlink" href="#mhd" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="math">
+<p><img src="_images/math/8ca92d981520fb52fe2a783bcd1d9ed11b35555d.svg" alt="\frac{\partial \rho_1}{\partial t} &amp;= - \frac{1}{\xi^2}\nabla\cdot
+\left(\rho \boldsymbol{v}\right) \\
+\frac{\partial}{\partial t}\left(\rho \boldsymbol{v}\right) &amp;=
+-\nabla\cdot\left(\rho\boldsymbol{vv}\right)
+- \nabla p_1 - \rho_1 g\boldsymbol{e}_x
++\frac{1}{4\pi}\left(\nabla\times\boldsymbol{B}\right)
+\times\boldsymbol{B} \\
+\frac{\partial \boldsymbol{B}}{\partial t} &amp;=
+\nabla\times\left(\boldsymbol{v\times B}\right)
++ \eta_\mathrm{d}\nabla\left(\nabla\cdot\boldsymbol{B}\right)\\
+\rho T \frac{\partial s_1}{\partial t} &amp;= -\rho T
+\left(\boldsymbol{v}\cdot\nabla\right) s + Q_\mathrm{rad} \\
+p_1 &amp;= p_1(\rho_1,s_1,x)"/></p>
+</div></div>
+<div class="section" id="id2">
+<h2>輻射輸送<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
 </div>
 
 

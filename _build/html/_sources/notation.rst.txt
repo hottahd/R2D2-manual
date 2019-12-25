@@ -1,5 +1,11 @@
 R2D2 pythonでのキーワードの説明
-================================
+=========================================
+
+以下では、R2D2 pythonで使われている辞書型に含まれるキーの説明を行う
+
+* キーの名前 (型) -- 説明 [単位]
+
+というフォーマットを採用する。
 
 R2D2.p
 --------------------------------
@@ -14,10 +20,8 @@ R2D2.p
 * dtoui (float) --　光学的厚さ一定のデータの出力ケーデンス [s]
 * ifac (int) -- dtout/dtoui
 * tend (float) -- 計算終了時間。大きく取ってあるためにこの時間まで計算することはあまりない [s]
-* swap (int) --　エンディアン指定
-* endian (char) -- エンディアン指定
-* jc (int) --
-* kc (int) --
+* swap (int) --　エンディアン指定。big endianは、little endianは
+* endian (char) -- エンディアン指定。big endianは、little endianは
 * m_in (int) -- 光学的厚さ一定のデータを出力する変数の数
 * m_tu (int) -- 光学的厚さ一定のデータの層の数
 
@@ -37,7 +41,7 @@ R2D2.p
 * ix (int) -- x方向の格子点数 ix0*nx
 * jx (int) -- y方向の格子点数 jx0*ny
 * kx (int) -- z方向の格子点数 kx0*nz
-* npe (int) -- 全MPIスレッドの数 npe = ix0*jx0*kx0
+* npe (int) -- 全MPIスレッドの数 ``npe = ix0*jx0*kx0``
 * mtype (int) -- 変数の数
 * xmax (float) -- x方向境界の位置(上限値)　[cm]
 * xmin (float) -- x方向境界の位置(下限値)　[cm]
@@ -49,9 +53,10 @@ R2D2.p
 * y (float) [jx] -- y方向の座標 [cm]
 * z (float) [kx] -- z方向の座標 [cm]
 * xr (float) [ix] -- x/rsun
-* xn (float) [ix] -- (x-rsun)*1.e-8
+* xn (float) [ix] -- ``(x-rsun)*1.e-8``
 * deep_top_flag (int) --
 * ib_excluded_top (int) --
+* rsun (float) [ix] -- 太陽半径 [cm]
 
 背景場に関する量
 ::::::::::::::::::::::::::::::::
@@ -73,20 +78,21 @@ R2D2.p
 * gx (float) [ix] -- 重力加速度 [cm s `-2`:sup:]
 * kp (float) [ix] -- 放射拡散係数 [cm `2`:sup: s `-1`:sup:]
 * cp (float) [ix] -- 定圧比熱　[erg g `-1`:sup: K `-1`:sup:]
-* fa (float) [ix] --
-* sa (float) [ix] --
-* xi (float) [ix] --
-* rsun (float) [ix] -- 
-* ix_e (int) --
-* jx_e (int) --
+* fa (float) [ix] -- 対流層の底付近の輻射によるエネルギーフラックス。光球付近では輻射輸送を直に解くために含まれないが、上部境界が光球にない場合は、上部境界付近の人工的なエネルギーフラックス(冷却が含まれる) [erg cm `-2`:sup:]
+* sa (float) [ix] -- 上記faによる加熱率 [erg cm `-3`:sup:]
+* xi (float) [ix] -- 音速抑制率
+* ix_e (int) -- 状態方程式の密度の格子点数
+* jx_e (int) -- 状態方程式のエントロピーの格子点数
 
 解析のためのデータ再配置(remap)に関する量
 ::::::::::::::::::::::::::::::::
 
-* m2da (int) -- 
-* ixr (int) --
-* jxr (int) --
-* cl (char) [m2da] --
+* m2da (int) -- remapで出力した解析量の数
+* cl (char) [m2da] --　remapで出力した解析量の名前
+* jc (int) -- ``R2D2.vc['vxp']`` などで出力するスライスのy方向の位置
+* kc (int) -- 浮上磁場の中心と思っている場所を出力(あまり使わない)
+* ixr (int) -- remap後のx方向分割の数
+* jxr (int) -- remap後のy方向分割の数
 * iss (int) [npe] --
 * iee (int) [npe] --
 * jss (int) [npe] --
@@ -103,3 +109,16 @@ R2D2.q2
 --------------------------------
 
 * aaa
+
+R2D2.q3
+--------------------------------
+
+R2D2.q2と同様
+
+R2D2.qi
+--------------------------------
+
+ほぼR2D2.q2と同様だが、以下の追加量が保存してある。
+
+R2D2.vc
+--------------------------------

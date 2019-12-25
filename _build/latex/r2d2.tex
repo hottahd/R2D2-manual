@@ -36,7 +36,7 @@
 
 
 \title{R2D2}
-\date{2019年12月25日}
+\date{2019年12月26日}
 \release{1.1}
 \author{Hideyuki Hotta}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -88,6 +88,28 @@ R2D2では、
 
 \chapter{方程式}
 \label{\detokenize{equation:id1}}\label{\detokenize{equation::doc}}
+R2D2で解く方程式は以下である
+
+
+\section{MHD}
+\label{\detokenize{equation:mhd}}\begin{equation*}
+\begin{split}\frac{\partial \rho_1}{\partial t} &= - \frac{1}{\xi^2}\nabla\cdot
+\left(\rho \boldsymbol{v}\right) \\
+\frac{\partial}{\partial t}\left(\rho \boldsymbol{v}\right) &=
+-\nabla\cdot\left(\rho\boldsymbol{vv}\right)
+- \nabla p_1 - \rho_1 g\boldsymbol{e}_x
++\frac{1}{4\pi}\left(\nabla\times\boldsymbol{B}\right)
+\times\boldsymbol{B} \\
+\frac{\partial \boldsymbol{B}}{\partial t} &=
+\nabla\times\left(\boldsymbol{v\times B}\right)
++ \eta_\mathrm{d}\nabla\left(\nabla\cdot\boldsymbol{B}\right)\\
+\rho T \frac{\partial s_1}{\partial t} &= -\rho T
+\left(\boldsymbol{v}\cdot\nabla\right) s + Q_\mathrm{rad} \\
+p_1 &= p_1(\rho_1,s_1,x)\end{split}
+\end{equation*}
+
+\section{輻射輸送}
+\label{\detokenize{equation:id2}}
 
 \chapter{コード構造}
 \label{\detokenize{code:id1}}\label{\detokenize{code::doc}}
@@ -405,6 +427,15 @@ ver. 1.1: 光学的厚さが0.1, 0.01の部分も出力することにした。q
 
 \chapter{R2D2 pythonでのキーワードの説明}
 \label{\detokenize{notation:r2d2-python}}\label{\detokenize{notation::doc}}
+以下では、R2D2 pythonで使われている辞書型に含まれるキーの説明を行う
+\begin{itemize}
+\item {} 
+キーの名前 (型) \sphinxhyphen{}\sphinxhyphen{} 説明 {[}単位{]}
+
+\end{itemize}
+
+というフォーマットを採用する。
+
 
 \section{R2D2.p}
 \label{\detokenize{notation:r2d2-p}}
@@ -433,16 +464,10 @@ ifac (int) \sphinxhyphen{}\sphinxhyphen{} dtout/dtoui
 tend (float) \sphinxhyphen{}\sphinxhyphen{} 計算終了時間。大きく取ってあるためにこの時間まで計算することはあまりない {[}s{]}
 
 \item {} 
-swap (int) \sphinxhyphen{}\sphinxhyphen{}　エンディアン指定
+swap (int) \sphinxhyphen{}\sphinxhyphen{}　エンディアン指定。big endianは、little endianは
 
 \item {} 
-endian (char) \sphinxhyphen{}\sphinxhyphen{} エンディアン指定
-
-\item {} 
-jc (int) \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-kc (int) \sphinxhyphen{}\sphinxhyphen{}
+endian (char) \sphinxhyphen{}\sphinxhyphen{} エンディアン指定。big endianは、little endianは
 
 \item {} 
 m\_in (int) \sphinxhyphen{}\sphinxhyphen{} 光学的厚さ一定のデータを出力する変数の数
@@ -495,7 +520,7 @@ jx (int) \sphinxhyphen{}\sphinxhyphen{} y方向の格子点数 jx0*ny
 kx (int) \sphinxhyphen{}\sphinxhyphen{} z方向の格子点数 kx0*nz
 
 \item {} 
-npe (int) \sphinxhyphen{}\sphinxhyphen{} 全MPIスレッドの数 npe = ix0*jx0*kx0
+npe (int) \sphinxhyphen{}\sphinxhyphen{} 全MPIスレッドの数 \sphinxcode{\sphinxupquote{npe = ix0*jx0*kx0}}
 
 \item {} 
 mtype (int) \sphinxhyphen{}\sphinxhyphen{} 変数の数
@@ -531,13 +556,16 @@ z (float) {[}kx{]} \sphinxhyphen{}\sphinxhyphen{} z方向の座標 {[}cm{]}
 xr (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} x/rsun
 
 \item {} 
-xn (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} (x\sphinxhyphen{}rsun)*1.e\sphinxhyphen{}8
+xn (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} \sphinxcode{\sphinxupquote{(x\sphinxhyphen{}rsun)*1.e\sphinxhyphen{}8}}
 
 \item {} 
 deep\_top\_flag (int) \sphinxhyphen{}\sphinxhyphen{}
 
 \item {} 
 ib\_excluded\_top (int) \sphinxhyphen{}\sphinxhyphen{}
+
+\item {} 
+rsun (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 太陽半径 {[}cm{]}
 
 \end{itemize}
 
@@ -599,22 +627,19 @@ kp (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 放射拡散係数 {[}cm $^{\
 cp (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 定圧比熱　{[}erg g $^{\text{\sphinxhyphen{}1}}$ K $^{\text{\sphinxhyphen{}1}}${]}
 
 \item {} 
-fa (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{}
+fa (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 対流層の底付近の輻射によるエネルギーフラックス。光球付近では輻射輸送を直に解くために含まれないが、上部境界が光球にない場合は、上部境界付近の人工的なエネルギーフラックス(冷却が含まれる) {[}erg cm $^{\text{\sphinxhyphen{}2}}${]}
 
 \item {} 
-sa (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{}
+sa (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 上記faによる加熱率 {[}erg cm $^{\text{\sphinxhyphen{}3}}${]}
 
 \item {} 
-xi (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{}
+xi (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 音速抑制率
 
 \item {} 
-rsun (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{}
+ix\_e (int) \sphinxhyphen{}\sphinxhyphen{} 状態方程式の密度の格子点数
 
 \item {} 
-ix\_e (int) \sphinxhyphen{}\sphinxhyphen{}
-
-\item {} 
-jx\_e (int) \sphinxhyphen{}\sphinxhyphen{}
+jx\_e (int) \sphinxhyphen{}\sphinxhyphen{} 状態方程式のエントロピーの格子点数
 
 \end{itemize}
 
@@ -622,16 +647,22 @@ jx\_e (int) \sphinxhyphen{}\sphinxhyphen{}
 \subsection{解析のためのデータ再配置(remap)に関する量}
 \label{\detokenize{notation:remap}}\begin{itemize}
 \item {} 
-m2da (int) \sphinxhyphen{}\sphinxhyphen{}
+m2da (int) \sphinxhyphen{}\sphinxhyphen{} remapで出力した解析量の数
 
 \item {} 
-ixr (int) \sphinxhyphen{}\sphinxhyphen{}
+cl (char) {[}m2da{]} \sphinxhyphen{}\sphinxhyphen{}　remapで出力した解析量の名前
 
 \item {} 
-jxr (int) \sphinxhyphen{}\sphinxhyphen{}
+jc (int) \sphinxhyphen{}\sphinxhyphen{} \sphinxcode{\sphinxupquote{R2D2.vc{[}\textquotesingle{}vxp\textquotesingle{}{]}}} などで出力するスライスのy方向の位置
 
 \item {} 
-cl (char) {[}m2da{]} \sphinxhyphen{}\sphinxhyphen{}
+kc (int) \sphinxhyphen{}\sphinxhyphen{} 浮上磁場の中心と思っている場所を出力(あまり使わない)
+
+\item {} 
+ixr (int) \sphinxhyphen{}\sphinxhyphen{} remap後のx方向分割の数
+
+\item {} 
+jxr (int) \sphinxhyphen{}\sphinxhyphen{} remap後のy方向分割の数
 
 \item {} 
 iss (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{}
@@ -676,6 +707,19 @@ aaa
 
 \end{itemize}
 
+
+\section{R2D2.q3}
+\label{\detokenize{notation:r2d2-q3}}
+R2D2.q2と同様
+
+
+\section{R2D2.qi}
+\label{\detokenize{notation:r2d2-qi}}
+ほぼR2D2.q2と同様だが、以下の追加量が保存してある。
+
+
+\section{R2D2.vc}
+\label{\detokenize{notation:r2d2-vc}}
 
 \chapter{Sphinx使用の覚書}
 \label{\detokenize{sphinx:sphinx}}\label{\detokenize{sphinx::doc}}

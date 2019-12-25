@@ -53,6 +53,9 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#r2d2-q2">R2D2.q2</a></li>
+<li><a class="reference internal" href="#r2d2-q3">R2D2.q3</a></li>
+<li><a class="reference internal" href="#r2d2-qi">R2D2.qi</a></li>
+<li><a class="reference internal" href="#r2d2-vc">R2D2.vc</a></li>
 </ul>
 </li>
 </ul>
@@ -90,6 +93,11 @@
             
   <div class="section" id="r2d2-python">
 <h1>R2D2 pythonでのキーワードの説明<a class="headerlink" href="#r2d2-python" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>以下では、R2D2 pythonで使われている辞書型に含まれるキーの説明を行う</p>
+<ul class="simple">
+<li><p>キーの名前 (型) -- 説明 [単位]</p></li>
+</ul>
+<p>というフォーマットを採用する。</p>
 <div class="section" id="r2d2-p">
 <h2>R2D2.p<a class="headerlink" href="#r2d2-p" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="id1">
@@ -102,10 +110,8 @@
 <li><p>dtoui (float) --　光学的厚さ一定のデータの出力ケーデンス [s]</p></li>
 <li><p>ifac (int) -- dtout/dtoui</p></li>
 <li><p>tend (float) -- 計算終了時間。大きく取ってあるためにこの時間まで計算することはあまりない [s]</p></li>
-<li><p>swap (int) --　エンディアン指定</p></li>
-<li><p>endian (char) -- エンディアン指定</p></li>
-<li><p>jc (int) --</p></li>
-<li><p>kc (int) --</p></li>
+<li><p>swap (int) --　エンディアン指定。big endianは、little endianは</p></li>
+<li><p>endian (char) -- エンディアン指定。big endianは、little endianは</p></li>
 <li><p>m_in (int) -- 光学的厚さ一定のデータを出力する変数の数</p></li>
 <li><p>m_tu (int) -- 光学的厚さ一定のデータの層の数</p></li>
 </ul>
@@ -126,7 +132,7 @@
 <li><p>ix (int) -- x方向の格子点数 ix0*nx</p></li>
 <li><p>jx (int) -- y方向の格子点数 jx0*ny</p></li>
 <li><p>kx (int) -- z方向の格子点数 kx0*nz</p></li>
-<li><p>npe (int) -- 全MPIスレッドの数 npe = ix0*jx0*kx0</p></li>
+<li><p>npe (int) -- 全MPIスレッドの数 <code class="docutils literal notranslate"><span class="pre">npe</span> <span class="pre">=</span> <span class="pre">ix0*jx0*kx0</span></code></p></li>
 <li><p>mtype (int) -- 変数の数</p></li>
 <li><p>xmax (float) -- x方向境界の位置(上限値)　[cm]</p></li>
 <li><p>xmin (float) -- x方向境界の位置(下限値)　[cm]</p></li>
@@ -138,9 +144,10 @@
 <li><p>y (float) [jx] -- y方向の座標 [cm]</p></li>
 <li><p>z (float) [kx] -- z方向の座標 [cm]</p></li>
 <li><p>xr (float) [ix] -- x/rsun</p></li>
-<li><p>xn (float) [ix] -- (x-rsun)*1.e-8</p></li>
+<li><p>xn (float) [ix] -- <code class="docutils literal notranslate"><span class="pre">(x-rsun)*1.e-8</span></code></p></li>
 <li><p>deep_top_flag (int) --</p></li>
 <li><p>ib_excluded_top (int) --</p></li>
+<li><p>rsun (float) [ix] -- 太陽半径 [cm]</p></li>
 </ul>
 </div>
 <div class="section" id="id3">
@@ -164,21 +171,22 @@
 <li><p>gx (float) [ix] -- 重力加速度 [cm s <sup>-2</sup>]</p></li>
 <li><p>kp (float) [ix] -- 放射拡散係数 [cm <sup>2</sup> s <sup>-1</sup>]</p></li>
 <li><p>cp (float) [ix] -- 定圧比熱　[erg g <sup>-1</sup> K <sup>-1</sup>]</p></li>
-<li><p>fa (float) [ix] --</p></li>
-<li><p>sa (float) [ix] --</p></li>
-<li><p>xi (float) [ix] --</p></li>
-<li><p>rsun (float) [ix] --</p></li>
-<li><p>ix_e (int) --</p></li>
-<li><p>jx_e (int) --</p></li>
+<li><p>fa (float) [ix] -- 対流層の底付近の輻射によるエネルギーフラックス。光球付近では輻射輸送を直に解くために含まれないが、上部境界が光球にない場合は、上部境界付近の人工的なエネルギーフラックス(冷却が含まれる) [erg cm <sup>-2</sup>]</p></li>
+<li><p>sa (float) [ix] -- 上記faによる加熱率 [erg cm <sup>-3</sup>]</p></li>
+<li><p>xi (float) [ix] -- 音速抑制率</p></li>
+<li><p>ix_e (int) -- 状態方程式の密度の格子点数</p></li>
+<li><p>jx_e (int) -- 状態方程式のエントロピーの格子点数</p></li>
 </ul>
 </div>
 <div class="section" id="remap">
 <h3>解析のためのデータ再配置(remap)に関する量<a class="headerlink" href="#remap" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
-<li><p>m2da (int) --</p></li>
-<li><p>ixr (int) --</p></li>
-<li><p>jxr (int) --</p></li>
-<li><p>cl (char) [m2da] --</p></li>
+<li><p>m2da (int) -- remapで出力した解析量の数</p></li>
+<li><p>cl (char) [m2da] --　remapで出力した解析量の名前</p></li>
+<li><p>jc (int) -- <code class="docutils literal notranslate"><span class="pre">R2D2.vc['vxp']</span></code> などで出力するスライスのy方向の位置</p></li>
+<li><p>kc (int) -- 浮上磁場の中心と思っている場所を出力(あまり使わない)</p></li>
+<li><p>ixr (int) -- remap後のx方向分割の数</p></li>
+<li><p>jxr (int) -- remap後のy方向分割の数</p></li>
 <li><p>iss (int) [npe] --</p></li>
 <li><p>iee (int) [npe] --</p></li>
 <li><p>jss (int) [npe] --</p></li>
@@ -198,6 +206,17 @@
 <ul class="simple">
 <li><p>aaa</p></li>
 </ul>
+</div>
+<div class="section" id="r2d2-q3">
+<h2>R2D2.q3<a class="headerlink" href="#r2d2-q3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>R2D2.q2と同様</p>
+</div>
+<div class="section" id="r2d2-qi">
+<h2>R2D2.qi<a class="headerlink" href="#r2d2-qi" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ほぼR2D2.q2と同様だが、以下の追加量が保存してある。</p>
+</div>
+<div class="section" id="r2d2-vc">
+<h2>R2D2.vc<a class="headerlink" href="#r2d2-vc" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </div>
 </div>
 
