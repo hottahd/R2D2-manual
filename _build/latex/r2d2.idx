@@ -1,11 +1,12 @@
-\indexentry{p (組み込み変数)@\spxentry{p}\spxextra{組み込み変数}|hyperpage}{14}
-\indexentry{q2 (組み込み変数)@\spxentry{q2}\spxextra{組み込み変数}|hyperpage}{14}
-\indexentry{q3 (組み込み変数)@\spxentry{q3}\spxextra{組み込み変数}|hyperpage}{14}
-\indexentry{qi (組み込み変数)@\spxentry{qi}\spxextra{組み込み変数}|hyperpage}{14}
-\indexentry{vc (組み込み変数)@\spxentry{vc}\spxextra{組み込み変数}|hyperpage}{14}
-\indexentry{qc (組み込み変数)@\spxentry{qc}\spxextra{組み込み変数}|hyperpage}{14}
-\indexentry{read\_init() (組み込み関数)@\spxentry{read\_init()}\spxextra{組み込み関数}|hyperpage}{14}
-\indexentry{read\_qq\_select() (組み込み関数)@\spxentry{read\_qq\_select()}\spxextra{組み込み関数}|hyperpage}{14}
-\indexentry{read\_qq() (組み込み関数)@\spxentry{read\_qq()}\spxextra{組み込み関数}|hyperpage}{15}
-\indexentry{read\_time() (組み込み関数)@\spxentry{read\_time()}\spxextra{組み込み関数}|hyperpage}{15}
-\indexentry{read\_vc() (組み込み関数)@\spxentry{read\_vc()}\spxextra{組み込み関数}|hyperpage}{15}
+\indexentry{R2D2 (モジュール)@\spxentry{R2D2}\spxextra{モジュール}|hyperpage}{13}
+\indexentry{R2D2.p (R2D2 モジュール)@\spxentry{R2D2.p}\spxextra{R2D2 モジュール}|hyperpage}{14}
+\indexentry{R2D2.q2 (R2D2 モジュール)@\spxentry{R2D2.q2}\spxextra{R2D2 モジュール}|hyperpage}{14}
+\indexentry{R2D2.q3 (R2D2 モジュール)@\spxentry{R2D2.q3}\spxextra{R2D2 モジュール}|hyperpage}{14}
+\indexentry{R2D2.qi (R2D2 モジュール)@\spxentry{R2D2.qi}\spxextra{R2D2 モジュール}|hyperpage}{14}
+\indexentry{R2D2.vc (R2D2 モジュール)@\spxentry{R2D2.vc}\spxextra{R2D2 モジュール}|hyperpage}{14}
+\indexentry{R2D2.qc (R2D2 モジュール)@\spxentry{R2D2.qc}\spxextra{R2D2 モジュール}|hyperpage}{14}
+\indexentry{init() (R2D2 モジュール)@\spxentry{init()}\spxextra{R2D2 モジュール}|hyperpage}{14}
+\indexentry{read\_qq\_select() (R2D2 モジュール)@\spxentry{read\_qq\_select()}\spxextra{R2D2 モジュール}|hyperpage}{14}
+\indexentry{read\_qq() (R2D2 モジュール)@\spxentry{read\_qq()}\spxextra{R2D2 モジュール}|hyperpage}{15}
+\indexentry{read\_time() (R2D2 モジュール)@\spxentry{read\_time()}\spxextra{R2D2 モジュール}|hyperpage}{15}
+\indexentry{read\_vc() (R2D2 モジュール)@\spxentry{read\_vc()}\spxextra{R2D2 モジュール}|hyperpage}{15}

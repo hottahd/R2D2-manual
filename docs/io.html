@@ -18,7 +18,7 @@
     <script type="text/javascript" src="_static/bizstyle.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
-    <link rel="next" title="Sphinx使用の覚書" href="sphinx.html" />
+    <link rel="next" title="R2D2 pythonでのキーワードの説明" href="notation.html" />
     <link rel="prev" title="人工粘性" href="artdif.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
@@ -32,7 +32,10 @@
           <a href="genindex.html" title="総合索引"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="sphinx.html" title="Sphinx使用の覚書"
+          <a href="py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="notation.html" title="R2D2 pythonでのキーワードの説明"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="artdif.html" title="人工粘性"
@@ -50,7 +53,7 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#id3">読込</a><ul>
-<li><a class="reference internal" href="#python">Pythonコード</a><ul>
+<li><a class="reference internal" href="#module-R2D2">Pythonコード</a><ul>
 <li><a class="reference internal" href="#id4">グローバル変数</a></li>
 <li><a class="reference internal" href="#id5">関数</a></li>
 </ul>
@@ -67,8 +70,8 @@
   <p class="topless"><a href="artdif.html"
                         title="前の章へ">人工粘性</a></p>
   <h4>次のトピックへ</h4>
-  <p class="topless"><a href="sphinx.html"
-                        title="次の章へ">Sphinx使用の覚書</a></p>
+  <p class="topless"><a href="notation.html"
+                        title="次の章へ">R2D2 pythonでのキーワードの説明</a></p>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -105,54 +108,55 @@
 <div class="section" id="id3">
 <h2>読込<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>読み込みについては、PythonコードとIDLコードを用意しているが、開発の頻度が高いPythonコードの利用を推奨している。</p>
-<div class="section" id="python">
-<h3>Pythonコード<a class="headerlink" href="#python" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="module-R2D2">
+<span id="python"></span><h3>Pythonコード<a class="headerlink" href="#module-R2D2" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>PythonでR2D2で定義された関数を使うには</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">R2D2</span>
 </pre></div>
 </div>
 <p>として、ライブラリを読み込む。R2D2にはグローバル変数、関数が定義してある。</p>
-<p>以下にそれぞれの関数を示すが、</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">R2D2</span><span class="o">.</span><span class="n">help</span><span class="p">()</span>
+<p>以下にそれぞれの関数を示すが、docstringは記入してあるので</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">R2D2</span><span class="p">)</span>
+<span class="n">help</span><span class="p">(</span><span class="n">R2D2</span><span class="o">.</span><span class="n">init</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>とすると実行環境で簡単な説明を見ることができる。</p>
+<p>とすると実行環境で、モジュール全体や各関数の簡単な説明を見ることができる。</p>
 <div class="section" id="id4">
 <h4>グローバル変数<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>Pythonでは一般に推奨されないが、R2D2ではメモリ節約の目的のためにいくつかのグローバル変数を用意している。R2D2をインポートした後は、<code class="docutils literal notranslate"><span class="pre">R2D2.*</span></code> とすることで変数にアクセスできる。</p>
 <dl class="data">
-<dt id="p">
-<code class="sig-name descname">p</code><a class="headerlink" href="#p" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>基本的なパラメタ。格子点数 <code class="docutils literal notranslate"><span class="pre">ix</span></code> や領域サイズ <code class="docutils literal notranslate"><span class="pre">xmax</span></code> など。 <code class="docutils literal notranslate"><span class="pre">read_init</span></code> で読み込んだ結果。</p>
+<dt id="R2D2.R2D2.p">
+<code class="sig-prename descclassname">R2D2.</code><code class="sig-name descname">p</code><a class="headerlink" href="#R2D2.R2D2.p" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>基本的なパラメタ。格子点数 <code class="docutils literal notranslate"><span class="pre">ix</span></code> や領域サイズ <code class="docutils literal notranslate"><span class="pre">xmax</span></code> など。 <code class="docutils literal notranslate"><span class="pre">init</span></code> で読み込んだ結果。</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="q2">
-<code class="sig-name descname">q2</code><a class="headerlink" href="#q2" title="この定義へのパーマリンク">¶</a></dt>
+<dt id="R2D2.R2D2.q2">
+<code class="sig-prename descclassname">R2D2.</code><code class="sig-name descname">q2</code><a class="headerlink" href="#R2D2.R2D2.q2" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>2次元のnumpy array。ある高さのデータ。<code class="docutils literal notranslate"><span class="pre">read_qq_select</span></code> で読み込んだ結果。</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="q3">
-<code class="sig-name descname">q3</code><a class="headerlink" href="#q3" title="この定義へのパーマリンク">¶</a></dt>
+<dt id="R2D2.R2D2.q3">
+<code class="sig-prename descclassname">R2D2.</code><code class="sig-name descname">q3</code><a class="headerlink" href="#R2D2.R2D2.q3" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>3次元のnumpy array。計算領域全体のデータ。<code class="docutils literal notranslate"><span class="pre">read_qq</span></code> で読み込んだ結果。</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="qi">
-<code class="sig-name descname">qi</code><a class="headerlink" href="#qi" title="この定義へのパーマリンク">¶</a></dt>
+<dt id="R2D2.R2D2.qi">
+<code class="sig-prename descclassname">R2D2.</code><code class="sig-name descname">qi</code><a class="headerlink" href="#R2D2.R2D2.qi" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>2次元のnumpy array。ある光学的厚さの面でのデータ。現在は光学的厚さ1, 0.1, 0.01でのデータを出力している。 <code class="docutils literal notranslate"><span class="pre">read_qq</span></code> で読み込んだ結果。</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="vc">
-<code class="sig-name descname">vc</code><a class="headerlink" href="#vc" title="この定義へのパーマリンク">¶</a></dt>
+<dt id="R2D2.R2D2.vc">
+<code class="sig-prename descclassname">R2D2.</code><code class="sig-name descname">vc</code><a class="headerlink" href="#R2D2.R2D2.vc" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Fortranの計算の中で解析した結果。 <code class="docutils literal notranslate"><span class="pre">read_vc</span></code> で読み込んだ結果。</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="qc">
-<code class="sig-name descname">qc</code><a class="headerlink" href="#qc" title="この定義へのパーマリンク">¶</a></dt>
+<dt id="R2D2.R2D2.qc">
+<code class="sig-prename descclassname">R2D2.</code><code class="sig-name descname">qc</code><a class="headerlink" href="#R2D2.R2D2.qc" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>3次元のnumpy array。計算領域全体のデータ。Fortranの計算でチェックポイントのために出力しているデータを読み込む。主に解像度をあげたいときのために使う <code class="docutils literal notranslate"><span class="pre">read_qq_check</span></code> で読み込んだ結果。</p>
 </dd></dl>
 
@@ -167,8 +171,8 @@
 <h4>関数<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>関数で指定する <code class="docutils literal notranslate"><span class="pre">dir</span></code> はデータの場所を示す変数。R2D2の計算を実行すると <code class="docutils literal notranslate"><span class="pre">data</span></code> ディレクトリが生成されて、その中にデータが保存される。この場所を指定すれば良い。</p>
 <dl class="function">
-<dt id="read_init">
-<code class="sig-name descname">read_init</code><span class="sig-paren">(</span><em class="sig-param">dir</em><span class="sig-paren">)</span><a class="headerlink" href="#read_init" title="この定義へのパーマリンク">¶</a></dt>
+<dt id="R2D2.init">
+<code class="sig-prename descclassname">R2D2.</code><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">dir</em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.init" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>R2D2でデータを解析するときに、一番はじめに実行すべき関数。計算設定などのパラメタが読み込まれる。 <code class="docutils literal notranslate"><span class="pre">R2D2.p</span></code> にデータが保存される。</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ</dt>
@@ -181,8 +185,8 @@
 </dd></dl>
 
 <dl class="function">
-<dt id="read_qq_select">
-<code class="sig-name descname">read_qq_select</code><span class="sig-paren">(</span><em class="sig-param">xs</em>, <em class="sig-param">n</em>, <em class="sig-param">silent</em>, <em class="sig-param">out</em><span class="sig-paren">)</span><a class="headerlink" href="#read_qq_select" title="この定義へのパーマリンク">¶</a></dt>
+<dt id="R2D2.read_qq_select">
+<code class="sig-prename descclassname">R2D2.</code><code class="sig-name descname">read_qq_select</code><span class="sig-paren">(</span><em class="sig-param">xs</em>, <em class="sig-param">n</em>, <em class="sig-param">silent</em>, <em class="sig-param">out</em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.read_qq_select" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>ある高さのデータのスライスを読み込む。戻り値を返さない時も <code class="docutils literal notranslate"><span class="pre">R2D2.q2</span></code> にデータが保存される。</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ</dt>
@@ -198,15 +202,12 @@
 </dd></dl>
 
 <dl class="function">
-<dt id="read_qq">
-<code class="sig-name descname">read_qq</code><span class="sig-paren">(</span><em class="sig-param">n</em><span class="sig-paren">)</span><a class="headerlink" href="#read_qq" title="この定義へのパーマリンク">¶</a></dt>
+<dt id="R2D2.read_qq">
+<code class="sig-prename descclassname">R2D2.</code><code class="sig-name descname">read_qq</code><span class="sig-paren">(</span><em class="sig-param">n</em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.read_qq" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>3次元のデータを読み込む。戻り値を返さない時も <code class="docutils literal notranslate"><span class="pre">R2D2.q3</span></code> にデータが保存される。</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>xs</strong> (<em>float</em>) -- 読み込みたいデータの高さ</p></li>
-<li><p><strong>n</strong> (<em>int</em>) -- 読み込みたい時間ステップ</p></li>
-</ul>
+<dd class="field-odd"><p><strong>n</strong> (<em>int</em>) -- 読み込みたい時間ステップ</p>
 </dd>
 <dt class="field-even">戻り値</dt>
 <dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">out=True</span></code> が指定されているとデータが返される。</p>
@@ -215,8 +216,8 @@
 </dd></dl>
 
 <dl class="function">
-<dt id="read_time">
-<code class="sig-name descname">read_time</code><span class="sig-paren">(</span><em class="sig-param">n</em><span class="sig-paren">)</span><a class="headerlink" href="#read_time" title="この定義へのパーマリンク">¶</a></dt>
+<dt id="R2D2.read_time">
+<code class="sig-prename descclassname">R2D2.</code><code class="sig-name descname">read_time</code><span class="sig-paren">(</span><em class="sig-param">n</em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.read_time" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>時間を読み込む</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ</dt>
@@ -229,8 +230,8 @@
 </dd></dl>
 
 <dl class="function">
-<dt id="read_vc">
-<code class="sig-name descname">read_vc</code><span class="sig-paren">(</span><em class="sig-param">n</em><span class="sig-paren">)</span><a class="headerlink" href="#read_vc" title="この定義へのパーマリンク">¶</a></dt>
+<dt id="R2D2.read_vc">
+<code class="sig-prename descclassname">R2D2.</code><code class="sig-name descname">read_vc</code><span class="sig-paren">(</span><em class="sig-param">n</em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.read_vc" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Fortranコードの中で解析した計算結果を読み込む。戻り値を返さない時も <code class="docutils literal notranslate"><span class="pre">R2D2.vc</span></code> にデータが保存される。</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ</dt>
@@ -271,7 +272,10 @@
           <a href="genindex.html" title="総合索引"
              >索引</a></li>
         <li class="right" >
-          <a href="sphinx.html" title="Sphinx使用の覚書"
+          <a href="py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="notation.html" title="R2D2 pythonでのキーワードの説明"
              >次へ</a> |</li>
         <li class="right" >
           <a href="artdif.html" title="人工粘性"
