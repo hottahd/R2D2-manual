@@ -1,9 +1,9 @@
 # Fdb version 3
-["dvipdf"] 1577330245 "r2d2.dvi" "r2d2.pdf" "r2d2" 1577330247
-  "r2d2.dvi" 1577330245 88428 e8031a67023edcb8651c8d9469437878 "latex"
+["dvipdf"] 1577330789 "r2d2.dvi" "r2d2.pdf" "r2d2" 1577330790
+  "r2d2.dvi" 1577330789 88428 83e1a19ff72ddf0cceb6765bc40be630 "latex"
   (generated)
   "r2d2.pdf"
-["latex"] 1577330245 "r2d2.tex" "r2d2.dvi" "r2d2" 1577330247
+["latex"] 1577330788 "r2d2.tex" "r2d2.dvi" "r2d2" 1577330790
   "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/courier/pcrb8t.tfm" 1136768653 1384 87406e4336af44af883a035f17f319d9 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/courier/pcrr8c.tfm" 1136768653 1268 8bd405dc5751cfed76cb6fb2db78cb50 ""
@@ -118,32 +118,32 @@
   "/usr/local/texlive/2019/texmf-dist/web2c/texmf.cnf" 1557092114 35484 cb1661360667bf4db662a8895053b554 ""
   "/usr/local/texlive/2019/texmf-var/web2c/eptex/platex.fmt" 1559604719 4524394 773a089a8a818fd6e6be588320e50ae3 ""
   "/usr/local/texlive/2019/texmf.cnf" 1557341546 577 d150fef99ac436ad1156e86b0892f6ef ""
-  "R2D2_logo.png" 1576935813 358854 05abf585359615863259d619556449ae ""
-  "R2D2_logo.xbb" 1577330243 182 0025ee12301337a0982517be0311f515 ""
+  "R2D2_logo.png" 1577330715 311532 ce55853a16e2314f145a250b92d0001c ""
+  "R2D2_logo.xbb" 1577330787 182 4be19cb5021d0ad2a6df9eca635471e8 ""
   "bc_sym.png" 1576826014 24571 8f8fe1d7a7980265fdee613336cefe68 ""
-  "bc_sym.xbb" 1577330243 179 b3fbae26ed4c3bcd9c0043471a2f3cef ""
+  "bc_sym.xbb" 1577330787 179 1084544a6591b1f0162625f9cba7eb0a ""
   "footnotehyper-sphinx.sty" 1576513146 8888 1bbd7bdeae8c8bed1d10d551bddb1cc9 ""
-  "r2d2.aux" 1577330245 12841 3d7448b1c0ee4052262a778ee29b7627 "latex"
+  "r2d2.aux" 1577330789 12841 3d7448b1c0ee4052262a778ee29b7627 "latex"
   "r2d2.ind" 1577329932 1040 1c4e8347aa753855662d7fdcec3ea821 "makeindex r2d2.idx"
-  "r2d2.out" 1577330245 2017 479b02eee2f5c4debee99d84a6e7653c "latex"
+  "r2d2.out" 1577330789 2017 479b02eee2f5c4debee99d84a6e7653c "latex"
   "r2d2.tex" 1577330243 38261 b0b2b36309b034ae0291355e0137f254 ""
-  "r2d2.toc" 1577330245 4121 f2705779bd7c6e577f9f8681ac4cb17a "latex"
+  "r2d2.toc" 1577330789 4121 f2705779bd7c6e577f9f8681ac4cb17a "latex"
   "restructuredtext_vs.png" 1576831775 230452 30d588fb86c328f930d97d31dd70892e ""
-  "restructuredtext_vs.xbb" 1577330243 192 2d1b5fb9ed0cdc83b730f707faa5cc42 ""
+  "restructuredtext_vs.xbb" 1577330787 192 a8ffed4114c1a262b16fcd9f72692e5d ""
   "sphinx.sty" 1576513146 81878 44d14f90f8cb22a202794c148df60b64 ""
-  "sphinxhighlight.sty" 1577330242 8137 38a433148fcb7611515a989ff1750dd5 ""
+  "sphinxhighlight.sty" 1577330786 8137 38a433148fcb7611515a989ff1750dd5 ""
   "sphinxmanual.cls" 1576513146 4236 124cd90deb92742b5d3922bfc2cd70c0 ""
-  "sphinxmessages.sty" 1577330243 696 5bb1165146ddbf027d24a235a3c6e53f ""
+  "sphinxmessages.sty" 1577330786 696 5bb1165146ddbf027d24a235a3c6e53f ""
   "sphinxmulticell.sty" 1576513146 14606 0b6edc2b1a83546ed92026d1f6a311b5 ""
   (generated)
-  "r2d2.log"
-  "r2d2.out"
   "r2d2.toc"
-  "r2d2.idx"
+  "r2d2.out"
   "r2d2.aux"
   "r2d2.dvi"
-["makeindex r2d2.idx"] 1577329931 "r2d2.idx" "r2d2.ind" "r2d2" 1577330247
-  "r2d2.idx" 1577330245 1136 d275f950fde6bf8621432c55d4dd8cbf "latex"
+  "r2d2.idx"
+  "r2d2.log"
+["makeindex r2d2.idx"] 1577329931 "r2d2.idx" "r2d2.ind" "r2d2" 1577330790
+  "r2d2.idx" 1577330789 1136 d275f950fde6bf8621432c55d4dd8cbf "latex"
   (generated)
   "r2d2.ilg"
   "r2d2.ind"
