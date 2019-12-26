@@ -63,6 +63,97 @@
 \chapter{R2D2を使い始めるには}
 \label{\detokenize{start:r2d2}}\label{\detokenize{start::doc}}
 
+\section{ディレクトリ構造の準備}
+\label{\detokenize{start:id1}}
+R2D2は現在公開していないので、R2D2のzipファイルを堀田から受け取ったと仮定する。コードをしっかり読めば従う必要はないが、基本的には以下のようなディレクトリ構造で計算することを想定している。
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+project\PYGZus{}name/
+           ├─ run/
+           │    ├─ d001/
+           │    ├─ d002/
+           │    ├─ d003/
+           │    ├─ ...
+           │
+           ├─ py/
+           └─ idl/
+\end{sphinxVerbatim}
+
+pyには \sphinxhref{https://github.com/hottahd/R2D2\_py}{R2D2\_py} をクローンしてきたもの、idlには \sphinxhref{https://github.com/hottahd/R2D2\_idl}{R2D2\_idl} をクローンしてきたものを配置する。ここは名前が変わっても問題ない。python(py)とidlのどちらかを使えば解析は可能である(両方ダウンロードする必要はない)。
+
+堀田から受け取ったR2D2.zipファイルをそれぞれrunディレクトリのd001などと名前を変えて配置することで色々な計算ケースを実行するのが良いだろう。
+
+R2D2ディレクトリの中は以下のようなディレクトリ構造になっている。
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+R2D2/
+   ├─ F90\PYGZus{}deps.py
+   ├─ Makefile
+   ├─ README.md
+   ├─ gen\PYGZus{}time.py
+   ├─ data/
+   │    ├─ back.dac
+   │    ├─ param/
+   │    ├─ qq/
+   │    ├─ remap/
+   │    └─ time/
+   │
+   ├─ input\PYGZus{}data/
+   ├─ make/
+   ├─ retired\PYGZus{}src/
+   ├─ sh/
+   └─ src/
+        ├─ all/
+        └─ include/
+\end{sphinxVerbatim}
+
+それぞれのファイル、ディレクトリの簡単な説明は以下である。
+\begin{itemize}
+\item {} \begin{description}
+\item[{F90\_deps.py}] \leavevmode
+make/Makefile生成のためのpythonスクリプト。fortranコードの依存性を調べて、make/R2D2.depsに出力する。新しいプログラムを作成したときは
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+python F90\PYGZus{}deps.py
+\end{sphinxVerbatim}
+
+としてmake/R2D2.depsを更新する。
+
+\end{description}
+
+\item {} \begin{description}
+\item[{Makefile}] \leavevmode
+makeをするときにmakeディクレクトリに移動する為のファイル。編集する必要はない。編集すべきMakefileはmake/Makefileに配置してある。
+
+\end{description}
+
+\item {} \begin{description}
+\item[{README.md}] \leavevmode
+GitHubに表示する為の表示する為の説明ファイル。情報が古くなっている可能性があるので、README.mdを見るよりは、このウェブページの情報を参照されたい。
+
+\end{description}
+
+\item {} \begin{description}
+\item[{gen\_time.py}] \leavevmode
+他のモデルから計算結果をもらったときにdataディレクトリや時間のファイルを生成する為のpythonスクリプト
+
+\end{description}
+
+\item {} \begin{description}
+\item[{data/}] \leavevmode
+fortranプログラムを実行した後に、データが保存されるディレクトリ
+
+\end{description}
+
+\end{itemize}
+
+
+\section{コンパイル}
+\label{\detokenize{start:id2}}
+
+\section{基本的なパラメータ}
+\label{\detokenize{start:id3}}
+
 \chapter{方程式}
 \label{\detokenize{equation:id1}}\label{\detokenize{equation::doc}}
 R2D2で解く方程式は以下である。現状では、デカルト座標 \((x,y,z)\)  のみを提供している。数値計算コードの中では、\(x\) を重力方向(鉛直方向)に取っているが、論文を書く際は各自適切に判断されたい。

@@ -18,7 +18,7 @@
     <script type="text/javascript" src="_static/bizstyle.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
-    <link rel="next" title="表記法" href="notation.html" />
+    <link rel="next" title="方程式" href="equation.html" />
     <link rel="prev" title="R2D2マニュアル" href="index.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
@@ -32,7 +32,10 @@
           <a href="genindex.html" title="総合索引"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="notation.html" title="表記法"
+          <a href="py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="equation.html" title="方程式"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="index.html" title="R2D2マニュアル"
@@ -42,12 +45,22 @@
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">目次</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">R2D2を使い始めるには</a><ul>
+<li><a class="reference internal" href="#id1">ディレクトリ構造の準備</a></li>
+<li><a class="reference internal" href="#id2">コンパイル</a></li>
+<li><a class="reference internal" href="#id3">基本的なパラメータ</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="index.html"
                         title="前の章へ">R2D2マニュアル</a></p>
   <h4>次のトピックへ</h4>
-  <p class="topless"><a href="notation.html"
-                        title="次の章へ">表記法</a></p>
+  <p class="topless"><a href="equation.html"
+                        title="次の章へ">方程式</a></p>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -75,6 +88,83 @@
             
   <div class="section" id="r2d2">
 <h1>R2D2を使い始めるには<a class="headerlink" href="#r2d2" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="id1">
+<h2>ディレクトリ構造の準備<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>R2D2は現在公開していないので、R2D2のzipファイルを堀田から受け取ったと仮定する。コードをしっかり読めば従う必要はないが、基本的には以下のようなディレクトリ構造で計算することを想定している。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>project_name/
+           ├─ run/
+           │    ├─ d001/
+           │    ├─ d002/
+           │    ├─ d003/
+           │    ├─ ...
+           │
+           ├─ py/
+           └─ idl/
+</pre></div>
+</div>
+<p>pyには <a class="reference external" href="https://github.com/hottahd/R2D2_py">R2D2_py</a> をクローンしてきたもの、idlには <a class="reference external" href="https://github.com/hottahd/R2D2_idl">R2D2_idl</a> をクローンしてきたものを配置する。ここは名前が変わっても問題ない。python(py)とidlのどちらかを使えば解析は可能である(両方ダウンロードする必要はない)。</p>
+<p>堀田から受け取ったR2D2.zipファイルをそれぞれrunディレクトリのd001などと名前を変えて配置することで色々な計算ケースを実行するのが良いだろう。</p>
+<p>R2D2ディレクトリの中は以下のようなディレクトリ構造になっている。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>R2D2/
+   ├─ F90_deps.py
+   ├─ Makefile
+   ├─ README.md
+   ├─ gen_time.py
+   ├─ data/
+   │    ├─ back.dac
+   │    ├─ param/
+   │    ├─ qq/
+   │    ├─ remap/
+   │    └─ time/
+   │
+   ├─ input_data/
+   ├─ make/
+   ├─ retired_src/
+   ├─ sh/
+   └─ src/
+        ├─ all/
+        └─ include/
+</pre></div>
+</div>
+<p>それぞれのファイル、ディレクトリの簡単な説明は以下である。</p>
+<ul>
+<li><dl>
+<dt>F90_deps.py</dt><dd><p>make/Makefile生成のためのpythonスクリプト。fortranコードの依存性を調べて、make/R2D2.depsに出力する。新しいプログラムを作成したときは</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python F90_deps.py
+</pre></div>
+</div>
+<p>としてmake/R2D2.depsを更新する。</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Makefile</dt><dd><p>makeをするときにmakeディクレクトリに移動する為のファイル。編集する必要はない。編集すべきMakefileはmake/Makefileに配置してある。</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>README.md</dt><dd><p>GitHubに表示する為の表示する為の説明ファイル。情報が古くなっている可能性があるので、README.mdを見るよりは、このウェブページの情報を参照されたい。</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>gen_time.py</dt><dd><p>他のモデルから計算結果をもらったときにdataディレクトリや時間のファイルを生成する為のpythonスクリプト</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>data/</dt><dd><p>fortranプログラムを実行した後に、データが保存されるディレクトリ</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>コンパイル<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="id3">
+<h2>基本的なパラメータ<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
 </div>
 
 
@@ -90,7 +180,10 @@
           <a href="genindex.html" title="総合索引"
              >索引</a></li>
         <li class="right" >
-          <a href="notation.html" title="表記法"
+          <a href="py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="equation.html" title="方程式"
              >次へ</a> |</li>
         <li class="right" >
           <a href="index.html" title="R2D2マニュアル"
