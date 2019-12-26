@@ -63,29 +63,6 @@
 \chapter{R2D2を使い始めるには}
 \label{\detokenize{start:r2d2}}\label{\detokenize{start::doc}}
 
-\chapter{数値スキーム}
-\label{\detokenize{scheme:id1}}\label{\detokenize{scheme::doc}}
-
-\section{MHDスキーム}
-\label{\detokenize{scheme:mhd}}
-
-\subsection{空間微分}
-\label{\detokenize{scheme:id2}}
-R2D2では、4次の中央差分を用いている。格子間隔が一様な場合には中央差分では微分は
-\begin{equation*}
-\begin{split}\left(\frac{\partial q}{\partial x}\right)_i =\frac{-q_{i+2}+8q_{i+1}-8q_{i-1}+q_{i-2}}{12\Delta x_i}\end{split}
-\end{equation*}
-となる。R2D2では、非一様な格子間隔にも対応しており、
-
-
-\subsection{時間積分}
-\label{\detokenize{scheme:id3}}
-R2D2では、
-
-
-\chapter{パラメータ}
-\label{\detokenize{parameter:id1}}\label{\detokenize{parameter::doc}}
-
 \chapter{方程式}
 \label{\detokenize{equation:id1}}\label{\detokenize{equation::doc}}
 R2D2で解く方程式は以下である。現状では、デカルト座標 \((x,y,z)\)  のみを提供している。数値計算コードの中では、\(x\) を重力方向(鉛直方向)に取っているが、論文を書く際は各自適切に判断されたい。
@@ -126,6 +103,29 @@ T &= T_0 + T_1 \\\end{split}
 
 \chapter{コード構造}
 \label{\detokenize{code:id1}}\label{\detokenize{code::doc}}
+
+\chapter{数値スキーム}
+\label{\detokenize{scheme:id1}}\label{\detokenize{scheme::doc}}
+
+\section{MHDスキーム}
+\label{\detokenize{scheme:mhd}}
+
+\subsection{空間微分}
+\label{\detokenize{scheme:id2}}
+R2D2では、4次の中央差分を用いている。格子間隔が一様な場合には中央差分では微分は
+\begin{equation*}
+\begin{split}\left(\frac{\partial q}{\partial x}\right)_i =\frac{-q_{i+2}+8q_{i+1}-8q_{i-1}+q_{i-2}}{12\Delta x_i}\end{split}
+\end{equation*}
+となる。R2D2では、非一様な格子間隔にも対応しており、
+
+
+\subsection{時間積分}
+\label{\detokenize{scheme:id3}}
+R2D2では、
+
+
+\chapter{パラメータ}
+\label{\detokenize{parameter:id1}}\label{\detokenize{parameter::doc}}
 
 \chapter{座標生成}
 \label{\detokenize{geometry:id1}}\label{\detokenize{geometry::doc}}
@@ -954,11 +954,14 @@ R2D2で実行する計算は、堀田と議論する必要がある。パラメ�
 \item {} 
 R2D2を用いた論文を出版するときは　\sphinxhref{https://ui.adsabs.harvard.edu/abs/2019SciA....5.2307H/abstract}{Hotta et al., 2019}　を引用すること。より詳しく説明した論文も出版予定である。
 
+\item {} 
+R2D2を用いた研究を発表するときは、\sphinxhref{https://hottahd.github.io/R2D2-manual/\_images/R2D2\_logo.png}{R2D2のロゴ} の使用が推奨される(強制ではない)。
+
 \end{itemize}
 
 
 \chapter{索引と検索ページ}
-\label{\detokenize{index:id2}}\begin{itemize}
+\label{\detokenize{index:id3}}\begin{itemize}
 \item {} 
 \DUrole{xref,std,std-ref}{genindex}
 
@@ -966,8 +969,6 @@ R2D2を用いた論文を出版するときは　\sphinxhref{https://ui.adsabs.h
 \DUrole{xref,std,std-ref}{search}
 
 \end{itemize}
-
-Ω
 
 
 

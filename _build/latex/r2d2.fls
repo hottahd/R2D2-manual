@@ -245,9 +245,6 @@ INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/ptex-fonts/standard/tgoth10.t
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/ptex-fonts/jis/jisg.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/helvetic/phvr8t.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/helvetic/phvb8t.tfm
-INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/ptex-fonts/standard/tmin10.tfm
-INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/times/ptmr8t.tfm
-INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/helvetic/phvr8t.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
@@ -259,6 +256,9 @@ INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/ptex-fonts/jis/jisg.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/ptex-fonts/jis/jisg.tfm
+INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/ptex-fonts/standard/tmin10.tfm
+INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/times/ptmr8t.tfm
+INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/helvetic/phvr8t.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/times/ptmr8c.tfm
