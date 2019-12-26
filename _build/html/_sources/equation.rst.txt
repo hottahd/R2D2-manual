@@ -1,10 +1,12 @@
 方程式
 =================
 
-R2D2で解く方程式は以下である
+R2D2で解く方程式は以下である。現状では、デカルト座標 :math:`(x,y,z)`  のみを提供している。数値計算コードの中では、:math:`x` を重力方向(鉛直方向)に取っているが、論文を書く際は各自適切に判断されたい。
 
-MHD
+磁気流体力学
 -----------------
+磁気流体力学の方程式は以下を解いている。
+
 
 .. math::
 
@@ -17,10 +19,23 @@ MHD
     \times\boldsymbol{B} \\
     \frac{\partial \boldsymbol{B}}{\partial t} &= 
     \nabla\times\left(\boldsymbol{v\times B}\right)
-    + \eta_\mathrm{d}\nabla\left(\nabla\cdot\boldsymbol{B}\right)\\
+    \\
     \rho T \frac{\partial s_1}{\partial t} &= -\rho T 
     \left(\boldsymbol{v}\cdot\nabla\right) s + Q_\mathrm{rad} \\
     p_1 &= p_1(\rho_1,s_1,x)
+
+ここで :math:`\rho` は密度、:math:`\boldsymbol{v}` は流体速度、:math:`\boldsymbol{B}` は磁場、 :math:`s` はエントロピー、:math:`p` は圧力、 :math:`T` は温度、 :math:`g` は重力加速度、 :math:`Q_\mathrm{rad}` は輻射による加熱率である。
+
+R2D2では熱力学量を以下のように時間的に一定で :math:`x` 方向の依存性のみを持つ0次の量とそこから擾乱の1次の量に分けている。
+
+.. math::
+
+    \rho &= \rho_0 + \rho_1 \\
+    p &= p_0 + p_1 \\
+    s &= s_0 + s_1 \\
+    T &= T_0 + T_1 \\
+
+太陽内部では、:math:`\rho_1 << \rho_0` などが成り立っているが、太陽表面では熱対流による擾乱と背景場は同程度となるので、R2D2の中では :math:`\rho_1 << \rho_0` などは仮定しない。0次の量はModel Sを参考にして計算をしている。詳細は出版予定の論文Hotta & Iijima, in prep (2020?)を参照されたい。
 
 輻射輸送
 -----------------

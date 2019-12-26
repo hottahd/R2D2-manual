@@ -45,8 +45,8 @@
   <h3><a href="index.html">目次</a></h3>
   <ul>
 <li><a class="reference internal" href="#">方程式</a><ul>
-<li><a class="reference internal" href="#mhd">MHD</a></li>
-<li><a class="reference internal" href="#id2">輻射輸送</a></li>
+<li><a class="reference internal" href="#id2">磁気流体力学</a></li>
+<li><a class="reference internal" href="#id3">輻射輸送</a></li>
 </ul>
 </li>
 </ul>
@@ -84,11 +84,12 @@
             
   <div class="section" id="id1">
 <h1>方程式<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>R2D2で解く方程式は以下である</p>
-<div class="section" id="mhd">
-<h2>MHD<a class="headerlink" href="#mhd" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>R2D2で解く方程式は以下である。現状では、デカルト座標 <img class="math" src="_images/math/1116875b6e858cccbec90769a08143e049fdf64f.svg" alt="(x,y,z)"/>  のみを提供している。数値計算コードの中では、<img class="math" src="_images/math/e0731fefacaa118be6d1ecdaa4092d32716e8790.svg" alt="x"/> を重力方向(鉛直方向)に取っているが、論文を書く際は各自適切に判断されたい。</p>
+<div class="section" id="id2">
+<h2>磁気流体力学<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>磁気流体力学の方程式は以下を解いている。</p>
 <div class="math">
-<p><img src="_images/math/8ca92d981520fb52fe2a783bcd1d9ed11b35555d.svg" alt="\frac{\partial \rho_1}{\partial t} &amp;= - \frac{1}{\xi^2}\nabla\cdot
+<p><img src="_images/math/478a274bbfabe27c19b5b1725d219cc77db8a2b8.svg" alt="\frac{\partial \rho_1}{\partial t} &amp;= - \frac{1}{\xi^2}\nabla\cdot
 \left(\rho \boldsymbol{v}\right) \\
 \frac{\partial}{\partial t}\left(\rho \boldsymbol{v}\right) &amp;=
 -\nabla\cdot\left(\rho\boldsymbol{vv}\right)
@@ -97,13 +98,21 @@
 \times\boldsymbol{B} \\
 \frac{\partial \boldsymbol{B}}{\partial t} &amp;=
 \nabla\times\left(\boldsymbol{v\times B}\right)
-+ \eta_\mathrm{d}\nabla\left(\nabla\cdot\boldsymbol{B}\right)\\
+\\
 \rho T \frac{\partial s_1}{\partial t} &amp;= -\rho T
 \left(\boldsymbol{v}\cdot\nabla\right) s + Q_\mathrm{rad} \\
 p_1 &amp;= p_1(\rho_1,s_1,x)"/></p>
-</div></div>
-<div class="section" id="id2">
-<h2>輻射輸送<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div><p>ここで <img class="math" src="_images/math/322c023ed2656c17c7a1c58ed3d3b486126753fb.svg" alt="\rho"/> は密度、<img class="math" src="_images/math/2e8d4eecd1dfb4c549edaf11ea98ee640455fdc6.svg" alt="\boldsymbol{v}"/> は流体速度、<img class="math" src="_images/math/454a233bd2a1b7a636990b0a623a4e8b44f5a255.svg" alt="\boldsymbol{B}"/> は磁場、 <img class="math" src="_images/math/59a08f79b7a2ff89afd6fec8e4ce3316e6083984.svg" alt="s"/> はエントロピー、<img class="math" src="_images/math/2fc229bfa6b8fbc87851ca4de7836a1c514a995d.svg" alt="p"/> は圧力、 <img class="math" src="_images/math/1b11b92d13586230ee0d19cae5f617b1a6555d53.svg" alt="T"/> は温度、 <img class="math" src="_images/math/c247f41bdc482b478bc10b3405e2d3c413de18f9.svg" alt="g"/> は重力加速度、 <img class="math" src="_images/math/b9e26b53060c8acbd411ce08217eb3e3dacda21d.svg" alt="Q_\mathrm{rad}"/> は輻射による加熱率である。</p>
+<p>R2D2では熱力学量を以下のように時間的に一定で <img class="math" src="_images/math/e0731fefacaa118be6d1ecdaa4092d32716e8790.svg" alt="x"/> 方向の依存性のみを持つ0次の量とそこから擾乱の1次の量に分けている。</p>
+<div class="math">
+<p><img src="_images/math/770dcaeddd9b45ce3b96871a69a317cb1622e0fe.svg" alt="\rho &amp;= \rho_0 + \rho_1 \\
+p &amp;= p_0 + p_1 \\
+s &amp;= s_0 + s_1 \\
+T &amp;= T_0 + T_1 \\"/></p>
+</div><p>太陽内部では、<img class="math" src="_images/math/5a7bf6a66e74d1bf3cf51ac6e582f9496bb8ceae.svg" alt="\rho_1 &lt;&lt; \rho_0"/> などが成り立っているが、太陽表面では熱対流による擾乱と背景場は同程度となるので、R2D2の中では <img class="math" src="_images/math/5a7bf6a66e74d1bf3cf51ac6e582f9496bb8ceae.svg" alt="\rho_1 &lt;&lt; \rho_0"/> などは仮定しない。0次の量はModel Sを参考にして計算をしている。詳細は出版予定の論文Hotta &amp; Iijima, in prep (2020?)を参照されたい。</p>
+</div>
+<div class="section" id="id3">
+<h2>輻射輸送<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </div>
 </div>
 

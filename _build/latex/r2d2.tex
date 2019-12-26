@@ -88,11 +88,13 @@ R2D2では、
 
 \chapter{方程式}
 \label{\detokenize{equation:id1}}\label{\detokenize{equation::doc}}
-R2D2で解く方程式は以下である
+R2D2で解く方程式は以下である。現状では、デカルト座標 \((x,y,z)\)  のみを提供している。数値計算コードの中では、\(x\) を重力方向(鉛直方向)に取っているが、論文を書く際は各自適切に判断されたい。
 
 
-\section{MHD}
-\label{\detokenize{equation:mhd}}\begin{equation*}
+\section{磁気流体力学}
+\label{\detokenize{equation:id2}}
+磁気流体力学の方程式は以下を解いている。
+\begin{equation*}
 \begin{split}\frac{\partial \rho_1}{\partial t} &= - \frac{1}{\xi^2}\nabla\cdot
 \left(\rho \boldsymbol{v}\right) \\
 \frac{\partial}{\partial t}\left(\rho \boldsymbol{v}\right) &=
@@ -102,14 +104,25 @@ R2D2で解く方程式は以下である
 \times\boldsymbol{B} \\
 \frac{\partial \boldsymbol{B}}{\partial t} &=
 \nabla\times\left(\boldsymbol{v\times B}\right)
-+ \eta_\mathrm{d}\nabla\left(\nabla\cdot\boldsymbol{B}\right)\\
+\\
 \rho T \frac{\partial s_1}{\partial t} &= -\rho T
 \left(\boldsymbol{v}\cdot\nabla\right) s + Q_\mathrm{rad} \\
 p_1 &= p_1(\rho_1,s_1,x)\end{split}
 \end{equation*}
+ここで \(\rho\) は密度、\(\boldsymbol{v}\) は流体速度、\(\boldsymbol{B}\) は磁場、 \(s\) はエントロピー、\(p\) は圧力、 \(T\) は温度、 \(g\) は重力加速度、 \(Q_\mathrm{rad}\) は輻射による加熱率である。
+
+R2D2では熱力学量を以下のように時間的に一定で \(x\) 方向の依存性のみを持つ0次の量とそこから擾乱の1次の量に分けている。
+\begin{equation*}
+\begin{split}\rho &= \rho_0 + \rho_1 \\
+p &= p_0 + p_1 \\
+s &= s_0 + s_1 \\
+T &= T_0 + T_1 \\\end{split}
+\end{equation*}
+太陽内部では、\(\rho_1 << \rho_0\) などが成り立っているが、太陽表面では熱対流による擾乱と背景場は同程度となるので、R2D2の中では \(\rho_1 << \rho_0\) などは仮定しない。0次の量はModel Sを参考にして計算をしている。詳細は出版予定の論文Hotta \& Iijima, in prep (2020?)を参照されたい。
+
 
 \section{輻射輸送}
-\label{\detokenize{equation:id2}}
+\label{\detokenize{equation:id3}}
 
 \chapter{コード構造}
 \label{\detokenize{code:id1}}\label{\detokenize{code::doc}}
@@ -520,7 +533,7 @@ jx (int) \sphinxhyphen{}\sphinxhyphen{} y方向の格子点数 jx0*ny
 kx (int) \sphinxhyphen{}\sphinxhyphen{} z方向の格子点数 kx0*nz
 
 \item {} 
-npe (int) \sphinxhyphen{}\sphinxhyphen{} 全MPIスレッドの数 \sphinxcode{\sphinxupquote{npe = ix0*jx0*kx0}}
+npe (int) \sphinxhyphen{}\sphinxhyphen{} 全MPIスレッドの数 \sphinxcode{\sphinxupquote{npe = ix0*jx0*kx0}}
 
 \item {} 
 mtype (int) \sphinxhyphen{}\sphinxhyphen{} 変数の数
