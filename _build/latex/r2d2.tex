@@ -92,11 +92,21 @@ R2D2/
    ├─ README.md
    ├─ gen\PYGZus{}time.py
    ├─ data/
-   │    ├─ back.dac
-   │    ├─ param/
-   │    ├─ qq/
-   │    ├─ remap/
-   │    └─ time/
+   │     ├─ back.dac
+   │     ├─ param/
+   │     │      ├─ nd.dac
+   │     │      ├─ params.dac
+   │     │      └─ xyz.dac
+   │     │
+   │     ├─ qq/
+   │     │   ├─ qq.dac.e
+   │     │   ├─ qq.dac.o
+   │     │   ├─ qq.dac.00000000
+   │     │   ├─ qq.dac.00000001
+   │     │   ├─ ...
+   │     │
+   │     ├─ remap/
+   │     └─ time/
    │
    ├─ input\PYGZus{}data/
    ├─ make/
@@ -141,7 +151,36 @@ GitHubに表示する為の表示する為の説明ファイル。情報が古�
 
 \item {} \begin{description}
 \item[{data/}] \leavevmode
-fortranプログラムを実行した後に、データが保存されるディレクトリ
+fortranプログラムを実行した後に、データが保存されるディレクトリ。fortranプログラムを実行すると自動的に生成される。
+\begin{itemize}
+\item {} \begin{description}
+\item[{data/back.dac}] \leavevmode
+背景場の物理量を出力するファイル
+
+\end{description}
+
+\item {} \begin{description}
+\item[{data/param/}] \leavevmode
+基本的な計算設定パラメタを出力する為のディレクトリ
+
+\end{description}
+
+\item {} \begin{description}
+\item[{data/qq/}] \leavevmode
+チェックポイントのための３次元データを出力するためのディレクトリ
+
+\end{description}
+
+\item {} \begin{description}
+\item[{data/remap}] \leavevmode
+解析のための
+
+\end{description}
+
+\item {} 
+data/time/
+
+\end{itemize}
 
 \end{description}
 
@@ -153,6 +192,9 @@ fortranプログラムを実行した後に、データが保存されるディ�
 
 \section{基本的なパラメータ}
 \label{\detokenize{start:id3}}
+
+\section{初期条件データを受け取った場合}
+\label{\detokenize{start:id4}}
 最終更新日：2019年12月27日
 
 

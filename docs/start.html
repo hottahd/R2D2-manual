@@ -51,6 +51,7 @@
 <li><a class="reference internal" href="#id1">ディレクトリ構造の準備</a></li>
 <li><a class="reference internal" href="#id2">コンパイル</a></li>
 <li><a class="reference internal" href="#id3">基本的なパラメータ</a></li>
+<li><a class="reference internal" href="#id4">初期条件データを受け取った場合</a></li>
 </ul>
 </li>
 </ul>
@@ -111,11 +112,21 @@
    ├─ README.md
    ├─ gen_time.py
    ├─ data/
-   │    ├─ back.dac
-   │    ├─ param/
-   │    ├─ qq/
-   │    ├─ remap/
-   │    └─ time/
+   │     ├─ back.dac
+   │     ├─ param/
+   │     │      ├─ nd.dac
+   │     │      ├─ params.dac
+   │     │      └─ xyz.dac
+   │     │
+   │     ├─ qq/
+   │     │   ├─ qq.dac.e
+   │     │   ├─ qq.dac.o
+   │     │   ├─ qq.dac.00000000
+   │     │   ├─ qq.dac.00000001
+   │     │   ├─ ...
+   │     │
+   │     ├─ remap/
+   │     └─ time/
    │
    ├─ input_data/
    ├─ make/
@@ -153,7 +164,30 @@
 </dl>
 </li>
 <li><dl class="simple">
-<dt>data/</dt><dd><p>fortranプログラムを実行した後に、データが保存されるディレクトリ</p>
+<dt>data/</dt><dd><p>fortranプログラムを実行した後に、データが保存されるディレクトリ。fortranプログラムを実行すると自動的に生成される。</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>data/back.dac</dt><dd><p>背景場の物理量を出力するファイル</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>data/param/</dt><dd><p>基本的な計算設定パラメタを出力する為のディレクトリ</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>data/qq/</dt><dd><p>チェックポイントのための３次元データを出力するためのディレクトリ</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>data/remap</dt><dd><p>解析のための</p>
+</dd>
+</dl>
+</li>
+<li><p>data/time/</p></li>
+</ul>
 </dd>
 </dl>
 </li>
@@ -164,6 +198,9 @@
 </div>
 <div class="section" id="id3">
 <h2>基本的なパラメータ<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="id4">
+<h2>初期条件データを受け取った場合<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>最終更新日：2019年12月27日</p>
 </div>
 </div>

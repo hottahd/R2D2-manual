@@ -5,20 +5,20 @@
 \let\spxextra \sphinxstyleindexextra
 
 
-  \item \spxentry{init()}\spxextra{R2D2 モジュール}, \hyperpage{15}
+  \item \spxentry{init()}\spxextra{R2D2 モジュール}, \hyperpage{16}
 
   \indexspace
 
-  \item \spxentry{R2D2}\spxextra{モジュール}, \hyperpage{14}
-  \item \spxentry{R2D2.p}\spxextra{R2D2 モジュール}, \hyperpage{15}
-  \item \spxentry{R2D2.q2}\spxextra{R2D2 モジュール}, \hyperpage{15}
-  \item \spxentry{R2D2.q3}\spxextra{R2D2 モジュール}, \hyperpage{15}
-  \item \spxentry{R2D2.qc}\spxextra{R2D2 モジュール}, \hyperpage{15}
-  \item \spxentry{R2D2.qi}\spxextra{R2D2 モジュール}, \hyperpage{15}
-  \item \spxentry{R2D2.vc}\spxextra{R2D2 モジュール}, \hyperpage{15}
-  \item \spxentry{read\_qq()}\spxextra{R2D2 モジュール}, \hyperpage{16}
-  \item \spxentry{read\_qq\_select()}\spxextra{R2D2 モジュール}, \hyperpage{15}
-  \item \spxentry{read\_time()}\spxextra{R2D2 モジュール}, \hyperpage{16}
-  \item \spxentry{read\_vc()}\spxextra{R2D2 モジュール}, \hyperpage{16}
+  \item \spxentry{R2D2}\spxextra{モジュール}, \hyperpage{15}
+  \item \spxentry{R2D2.p}\spxextra{R2D2 モジュール}, \hyperpage{16}
+  \item \spxentry{R2D2.q2}\spxextra{R2D2 モジュール}, \hyperpage{16}
+  \item \spxentry{R2D2.q3}\spxextra{R2D2 モジュール}, \hyperpage{16}
+  \item \spxentry{R2D2.qc}\spxextra{R2D2 モジュール}, \hyperpage{16}
+  \item \spxentry{R2D2.qi}\spxextra{R2D2 モジュール}, \hyperpage{16}
+  \item \spxentry{R2D2.vc}\spxextra{R2D2 モジュール}, \hyperpage{16}
+  \item \spxentry{read\_qq()}\spxextra{R2D2 モジュール}, \hyperpage{17}
+  \item \spxentry{read\_qq\_select()}\spxextra{R2D2 モジュール}, \hyperpage{16}
+  \item \spxentry{read\_time()}\spxextra{R2D2 モジュール}, \hyperpage{17}
+  \item \spxentry{read\_vc()}\spxextra{R2D2 モジュール}, \hyperpage{17}
 
 \end{sphinxtheindex}
