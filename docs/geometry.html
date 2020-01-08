@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
   <head>
     <meta charset="utf-8" />
-    <title>座標生成 &#8212; R2D2 1.1 ドキュメント</title>
+    <title>座標生成 &#8212; R2D2 1.2 ドキュメント</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="parameter.html" title="パラメータ"
              accesskey="P">前へ</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">R2D2 1.1 ドキュメント</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">R2D2 1.2 ドキュメント</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -96,11 +96,11 @@
 <li><p>格子間隔を計算する</p></li>
 </ul>
 <div class="math">
-<p><img src="_images/math/b03cd59e44857aace0ef497e5244943ed535e134.svg" alt="\Delta x = \frac{x_\mathrm{max} - x_\mathrm{min}}{N_x}"/></p>
+<p><img src="_images/math/c56312fbb686a536b7bdb7771eb97175a7d93d0f.svg" alt="\Delta x = \frac{x_\mathrm{max} - x_\mathrm{min}}{N_x}"/></p>
 </div><p>ここで、コードでは、配列の要素数には <code class="docutils literal notranslate"><span class="pre">margin</span></code> も含むので
-<img class="math" src="_images/math/26e998c2eabba79f993e001e444c08a7d99952e9.svg" alt="N_x"/> を計算するには <code class="docutils literal notranslate"><span class="pre">margin</span></code> の部分を引く必要があることに注意。</p>
+<img class="math" src="_images/math/a1729962c26beb42d327aa593380c398fd12e58d.svg" alt="N_x"/> を計算するには <code class="docutils literal notranslate"><span class="pre">margin</span></code> の部分を引く必要があることに注意。</p>
 <ul class="simple">
-<li><p><img class="math" src="_images/math/72cf50a8f9e3a03259a823d3348ea95fbf645531.svg" alt="x_1"/> を設定。<code class="docutils literal notranslate"><span class="pre">margin</span></code> の分も考慮して計算する。</p></li>
+<li><p><img class="math" src="_images/math/bf1ca8663b68b90b8f4265861e4d5b5e0bb9bfa7.svg" alt="x_1"/> を設定。<code class="docutils literal notranslate"><span class="pre">margin</span></code> の分も考慮して計算する。</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">do</span> <span class="pre">loop</span></code> で順次足していく</p></li>
 </ul>
 <p>コードは以下のようになる</p>
@@ -116,9 +116,36 @@
 </div>
 <div class="section" id="id3">
 <h2>非一様グリッド<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>非一様グリッドを用いるときは、太陽光球付近は、輻射輸送のために一様なグリッド、ある程度の深さから格子間隔が線形に増加する非一様グリッドを使うことにしている。</p>
-<p>よって、ある初期の格子間隔 <img class="math" src="_images/math/3b444a3da1e3dafbb42509f5af53b689809b54d0.svg" alt="\Delta x_0"/></p>
-<p>最終更新日：2019年12月27日</p>
+<p>非一様グリッドを用いるときは、太陽光球付近は、輻射輸送のために一様なグリッド、ある程度の深さから格子間隔が線形に増加する非一様グリッドを使うことにしている。光球近くは、光球をちゃんと解像するために一様グリッド、光球からある程度進むと、非一様グリッドを採用することにしている。
+実際の構造は以下のようになっている。非一様グリッド領域の両端２つのグリッド間隔は一様グリッドをとるようにしている。</p>
+<p>fortranのコードの中では</p>
+<ul class="simple">
+<li><p><img class="math" src="_images/math/c958aaff1051873d1b84513b02af139dbaf9b723.svg" alt="\Delta x_0"/> → <code class="docutils literal notranslate"><span class="pre">dx00</span></code> : 一様グリッドでの格子点間隔</p></li>
+<li><p><img class="math" src="_images/math/8e395f70bf56638b4f39d001ad2b295b11972cd8.svg" alt="i_\mathrm{x\left(uni\right)}"/> → <code class="docutils literal notranslate"><span class="pre">ix_ununi</span></code>: 一様グリッドの格子点数</p></li>
+<li><p><img class="math" src="_images/math/70c4109e100ec794663f57058854d015e129825d.svg" alt="x_\mathrm{ran}"/> → <code class="docutils literal notranslate"><span class="pre">xrange</span></code>: 領域サイズ</p></li>
+<li><p><img class="math" src="_images/math/45129fb549d2c20fb1e1147f819ef050605ed782.svg" alt="x_\mathrm{ran0}"/> → <code class="docutils literal notranslate"><span class="pre">xrange0</span></code>: 一様グリッドの領域サイズ</p></li>
+<li><p><img class="math" src="_images/math/e9030bdf96dc6b3a255e63fd59c08189483c531f.svg" alt="x_\mathrm{ran1}"/> → <code class="docutils literal notranslate"><span class="pre">xrange1</span></code>: 非一様グリッドの領域サイズ</p></li>
+<li><p><img class="math" src="_images/math/96cec6fd6ad738bb7c1ad7cfeec46c441b48bb18.svg" alt="n_x"/> → <code class="docutils literal notranslate"><span class="pre">nxx</span></code> : 非一様グリッドの格子点数</p></li>
+</ul>
+<a class="reference internal image-reference" href="_images/ununiform_grid.png"><img alt="_images/ununiform_grid.png" src="_images/ununiform_grid.png" style="width: 700px;" /></a>
+<p>一様グリッドでのグリッド間隔は <img class="math" src="_images/math/c958aaff1051873d1b84513b02af139dbaf9b723.svg" alt="\Delta x_0"/> として、非一様グリッドでは <img class="math" src="_images/math/e04688ae36ecfa1b998a1d7f5cc85a8e7e262a2d.svg" alt="\delta x"/> ずつグリッド間隔が大きくなっていくとする。</p>
+<div class="math">
+<p><img src="_images/math/7a738981f8cb8b849bfa2d9e18fb34a879d206b3.svg" alt="x_\mathrm{tran}&amp;={\color{red} \frac{1}{2} \Delta x_0} + {\color{blue} \Delta x_0} + \Delta x_0
++ \left(\Delta x_0 + \delta x\right)
++ \left(\Delta x_0 + 2\delta x\right) + [...] \\
+&amp;+ \left[\Delta x_0 + \left(n_x - 4\right)\delta x\right]
++ {\color{blue}\left[\Delta x_0 + \left(n_x - 4\right)\delta x\right]}
++ {\color{red}\frac{1}{2}\left[\Delta x_0 + \left(n_x - 4\right)\delta x\right]} \\
+&amp;= {\color{red} \Delta x_0 + \frac{1}{2}\left(n_x-4\right)\delta x}
++{\color{blue} 2\Delta x_0 + \left(n_x - 4\right)\delta x}
++ \sum_{n=0}^{n_x - 4}\left(\Delta x_0 + n\delta x\right) \\
+&amp;= 3\Delta x_0 + \frac{3\left(n_x-4\right)\delta x}{2}
++ \frac{\left[2\Delta x_0 + \left(n_x-4\right)\delta x\right]\left(n_x - 3\right)}{2} \\
+&amp;= n_x \Delta x_0 + \frac{1}{2} n_x\left(n_x - 4\right)\delta x"/></p>
+</div><p>この関係式より、グリッド間隔の増分 <img class="math" src="_images/math/e04688ae36ecfa1b998a1d7f5cc85a8e7e262a2d.svg" alt="\delta x"/> を以下のように求めることができる。</p>
+<div class="math">
+<p><img src="_images/math/099456de676356676000d1ef0d768dcc3a98e8de.svg" alt="\delta x = \frac{2\left(x_\mathrm{tran} - n_x\Delta x_0\right)}{\left(n_x - 4\right)n_x}"/></p>
+</div><p>最終更新日：2020年01月08日</p>
 </div>
 </div>
 
@@ -143,7 +170,7 @@
         <li class="right" >
           <a href="parameter.html" title="パラメータ"
              >前へ</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">R2D2 1.1 ドキュメント</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">R2D2 1.2 ドキュメント</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

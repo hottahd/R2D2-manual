@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
   <head>
     <meta charset="utf-8" />
-    <title>R2D2 pythonでのキーワードの説明 &#8212; R2D2 1.1 ドキュメント</title>
+    <title>R2D2 pythonでのキーワードの説明 &#8212; R2D2 1.2 ドキュメント</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="io.html" title="出力と読込"
              accesskey="P">前へ</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">R2D2 1.1 ドキュメント</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">R2D2 1.2 ドキュメント</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -113,8 +113,8 @@
 <li><p>dtoui (float) --　光学的厚さ一定のデータの出力ケーデンス [s]</p></li>
 <li><p>ifac (int) -- dtout/dtoui</p></li>
 <li><p>tend (float) -- 計算終了時間。大きく取ってあるためにこの時間まで計算することはあまりない [s]</p></li>
-<li><p>swap (int) --　エンディアン指定。big endianは、little endianは</p></li>
-<li><p>endian (char) -- エンディアン指定。big endianは、little endianは</p></li>
+<li><p>swap (int) --　エンディアン指定。big endianは1、little endianは0。IDLの定義に従っている。</p></li>
+<li><p>endian (char) -- エンディアン指定。big endianは &gt; 、little endianは &lt; 。pythonの定義に従っている。</p></li>
 <li><p>m_in (int) -- 光学的厚さ一定のデータを出力する変数の数</p></li>
 <li><p>m_tu (int) -- 光学的厚さ一定のデータの層の数</p></li>
 </ul>
@@ -165,12 +165,12 @@
 <li><p>tu0 (float) [ix] -- 背景場の光学的厚さ</p></li>
 <li><p>dsedr0 (float) [ix] -- 背景場の鉛直エントロピー勾配 [erg g <sup>-1</sup> K <sup>-1</sup> cm <sup>-1</sup>]</p></li>
 <li><p>dtedr0 (float) [ix] -- 背景場の鉛直温度勾配 [K cm <sup>-1</sup>]</p></li>
-<li><p>dprdro (float) [ix] -- 背景場の <img class="math" src="_images/math/81c65d4c160fe4b63577bfde090102c24c52ef4c.svg" alt="(\partial p/\partial \rho)_s"/></p></li>
-<li><p>dprdse (float) [ix] -- 背景場の <img class="math" src="_images/math/d0fd372b4642ebd7d943cdabe2e5e51733b7283e.svg" alt="(\partial p/\partial s)_\rho"/></p></li>
-<li><p>dtedro (float) [ix] -- 背景場の <img class="math" src="_images/math/00d481b624d6922f06e35c7422059f8a721bbd76.svg" alt="(\partial T/\partial \rho)_s"/></p></li>
-<li><p>dtedse (float) [ix] -- 背景場の <img class="math" src="_images/math/5d6c951ef796b464dc7b6ea82e31d1e86a48353c.svg" alt="(\partial T/\partial s)_\rho"/></p></li>
-<li><p>dendro (float) [ix] -- 背景場の <img class="math" src="_images/math/58ed3db63bb34aee6535c73d8f57a08fa045aa4c.svg" alt="(\partial e/\partial \rho)_s"/></p></li>
-<li><p>dendse (float) [ix] -- 背景場の <img class="math" src="_images/math/dadb30cfb02a4f5f3ac915828750903429675815.svg" alt="(\partial e/\partial s)_\rho"/></p></li>
+<li><p>dprdro (float) [ix] -- 背景場の <img class="math" src="_images/math/a2101711d1093c7b19333054ea13aac07904bfee.svg" alt="(\partial p/\partial \rho)_s"/></p></li>
+<li><p>dprdse (float) [ix] -- 背景場の <img class="math" src="_images/math/dd6f7e957068b9829a0172783dbd9df215af0f95.svg" alt="(\partial p/\partial s)_\rho"/></p></li>
+<li><p>dtedro (float) [ix] -- 背景場の <img class="math" src="_images/math/f673047b1352603cb6e9462d3f09b876b50587a3.svg" alt="(\partial T/\partial \rho)_s"/></p></li>
+<li><p>dtedse (float) [ix] -- 背景場の <img class="math" src="_images/math/bb7ac328d856316fce053424d964732f0e3ce903.svg" alt="(\partial T/\partial s)_\rho"/></p></li>
+<li><p>dendro (float) [ix] -- 背景場の <img class="math" src="_images/math/f44676911fa612ecaec24e0e30a0404068cd7b74.svg" alt="(\partial e/\partial \rho)_s"/></p></li>
+<li><p>dendse (float) [ix] -- 背景場の <img class="math" src="_images/math/cdc4bddad8362c38a9cfd90d8124ca0d49bee280.svg" alt="(\partial e/\partial s)_\rho"/></p></li>
 <li><p>gx (float) [ix] -- 重力加速度 [cm s <sup>-2</sup>]</p></li>
 <li><p>kp (float) [ix] -- 放射拡散係数 [cm <sup>2</sup> s <sup>-1</sup>]</p></li>
 <li><p>cp (float) [ix] -- 定圧比熱　[erg g <sup>-1</sup> K <sup>-1</sup>]</p></li>
@@ -220,7 +220,7 @@
 </div>
 <div class="section" id="r2d2-vc">
 <h2>R2D2.vc<a class="headerlink" href="#r2d2-vc" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>最終更新日：2019年12月27日</p>
+<p>最終更新日：2020年01月08日</p>
 </div>
 </div>
 
@@ -245,7 +245,7 @@
         <li class="right" >
           <a href="io.html" title="出力と読込"
              >前へ</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">R2D2 1.1 ドキュメント</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">R2D2 1.2 ドキュメント</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

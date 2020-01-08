@@ -22,7 +22,7 @@ copyright = '2019, Hideyuki Hotta'
 author = 'Hideyuki Hotta'
 
 # The full version, including alpha/beta/rc tags
-release = '1.1'
+release = '1.2'
 
 
 # -- General configuration ---------------------------------------------------
@@ -66,7 +66,8 @@ extensions += ['sphinx.ext.imgmath']
 imgmath_image_format = 'svg'
 pngmath_latex='platex'
 imgmath_font_size = 14 # 数式のフォントサイズ
+imgmath_latex_preamble = r'\usepackage{color}'
 
 latex_elements = { \
-'extraclassoptions': 'report', \
+'extraclassoptions': 'report', 
 }

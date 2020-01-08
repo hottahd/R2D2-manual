@@ -37,8 +37,42 @@ R2D2では中央差分法を用いているが、そのほとんどは数値フ�
 非一様グリッド
 --------------------------------
 
-非一様グリッドを用いるときは、太陽光球付近は、輻射輸送のために一様なグリッド、ある程度の深さから格子間隔が線形に増加する非一様グリッドを使うことにしている。
+非一様グリッドを用いるときは、太陽光球付近は、輻射輸送のために一様なグリッド、ある程度の深さから格子間隔が線形に増加する非一様グリッドを使うことにしている。光球近くは、光球をちゃんと解像するために一様グリッド、光球からある程度進むと、非一様グリッドを採用することにしている。
+実際の構造は以下のようになっている。非一様グリッド領域の両端２つのグリッド間隔は一様グリッドをとるようにしている。
 
-よって、ある初期の格子間隔 :math:`\Delta x_0`
+fortranのコードの中では
+
+* :math:`\Delta x_0` → ``dx00`` : 一様グリッドでの格子点間隔
+* :math:`i_\mathrm{x\left(uni\right)}` → ``ix_ununi``: 一様グリッドの格子点数
+* :math:`x_\mathrm{ran}` → ``xrange``: 領域サイズ
+* :math:`x_\mathrm{ran0}` → ``xrange0``: 一様グリッドの領域サイズ
+* :math:`x_\mathrm{ran1}` → ``xrange1``: 非一様グリッドの領域サイズ
+* :math:`n_x` → ``nxx`` : 非一様グリッドの格子点数
+
+.. image:: source/figs/ununiform_grid.png
+   :width: 700 px
+
+一様グリッドでのグリッド間隔は :math:`\Delta x_0` として、非一様グリッドでは :math:`\delta x` ずつグリッド間隔が大きくなっていくとする。
+
+.. math::
+
+    x_\mathrm{tran}&={\color{red} \frac{1}{2} \Delta x_0} + {\color{blue} \Delta x_0} + \Delta x_0
+    + \left(\Delta x_0 + \delta x\right)
+    + \left(\Delta x_0 + 2\delta x\right) + [...] \\
+    &+ \left[\Delta x_0 + \left(n_x - 4\right)\delta x\right]
+    + {\color{blue}\left[\Delta x_0 + \left(n_x - 4\right)\delta x\right]}
+    + {\color{red}\frac{1}{2}\left[\Delta x_0 + \left(n_x - 4\right)\delta x\right]} \\
+    &= {\color{red} \Delta x_0 + \frac{1}{2}\left(n_x-4\right)\delta x}
+    +{\color{blue} 2\Delta x_0 + \left(n_x - 4\right)\delta x} 
+    + \sum_{n=0}^{n_x - 4}\left(\Delta x_0 + n\delta x\right) \\
+    &= 3\Delta x_0 + \frac{3\left(n_x-4\right)\delta x}{2}
+    + \frac{\left[2\Delta x_0 + \left(n_x-4\right)\delta x\right]\left(n_x - 3\right)}{2} \\
+    &= n_x \Delta x_0 + \frac{1}{2} n_x\left(n_x - 4\right)\delta x 
+
+この関係式より、グリッド間隔の増分 :math:`\delta x` を以下のように求めることができる。
+
+.. math::
+
+    \delta x = \frac{2\left(x_\mathrm{tran} - n_x\Delta x_0\right)}{\left(n_x - 4\right)n_x}
 
 最終更新日：|today|

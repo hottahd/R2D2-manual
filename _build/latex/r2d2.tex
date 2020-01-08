@@ -36,8 +36,8 @@
 
 
 \title{R2D2}
-\date{2019年12月27日}
-\release{1.1}
+\date{2020年01月08日}
+\release{1.2}
 \author{Hideyuki Hotta}
 \newcommand{\sphinxlogo}{\vbox{}}
 \renewcommand{\releasename}{リリース}
@@ -106,7 +106,12 @@ R2D2/
    │     │   ├─ ...
    │     │
    │     ├─ remap/
+   │     │      ├─ qq/
+   │     │      └─ vl/
+   │     │
    │     └─ time/
+   │           ├─ mhd/
+   │           └─ tau/
    │
    ├─ input\PYGZus{}data/
    ├─ make/
@@ -195,7 +200,7 @@ data/time/
 
 \section{初期条件データを受け取った場合}
 \label{\detokenize{start:id4}}
-最終更新日：2019年12月27日
+最終更新日：2020年01月08日
 
 
 \chapter{方程式}
@@ -235,12 +240,12 @@ T &= T_0 + T_1 \\\end{split}
 
 \section{輻射輸送}
 \label{\detokenize{equation:id3}}
-最終更新日：2019年12月27日
+最終更新日：2020年01月08日
 
 
 \chapter{コード構造}
 \label{\detokenize{code:id1}}\label{\detokenize{code::doc}}
-最終更新日：2019年12月27日
+最終更新日：2020年01月08日
 
 
 \chapter{数値スキーム}
@@ -262,12 +267,12 @@ R2D2では、4次の中央差分を用いている。格子間隔が一様な場
 \label{\detokenize{scheme:id3}}
 R2D2では、
 
-最終更新日：2019年12月27日
+最終更新日：2020年01月08日
 
 
 \chapter{パラメータ}
 \label{\detokenize{parameter:id1}}\label{\detokenize{parameter::doc}}
-最終更新日：2019年12月27日
+最終更新日：2020年01月08日
 
 
 \chapter{座標生成}
@@ -314,11 +319,53 @@ R2D2では中央差分法を用いているが、そのほとんどは数値フ�
 
 \section{非一様グリッド}
 \label{\detokenize{geometry:id3}}
-非一様グリッドを用いるときは、太陽光球付近は、輻射輸送のために一様なグリッド、ある程度の深さから格子間隔が線形に増加する非一様グリッドを使うことにしている。
+非一様グリッドを用いるときは、太陽光球付近は、輻射輸送のために一様なグリッド、ある程度の深さから格子間隔が線形に増加する非一様グリッドを使うことにしている。光球近くは、光球をちゃんと解像するために一様グリッド、光球からある程度進むと、非一様グリッドを採用することにしている。
+実際の構造は以下のようになっている。非一様グリッド領域の両端２つのグリッド間隔は一様グリッドをとるようにしている。
 
-よって、ある初期の格子間隔 \(\Delta x_0\)
+fortranのコードの中では
+\begin{itemize}
+\item {} 
+\(\Delta x_0\) \(\rightarrow\) \sphinxcode{\sphinxupquote{dx00}} : 一様グリッドでの格子点間隔
 
-最終更新日：2019年12月27日
+\item {} 
+\(i_\mathrm{x\left(uni\right)}\) \(\rightarrow\) \sphinxcode{\sphinxupquote{ix\_ununi}}: 一様グリッドの格子点数
+
+\item {} 
+\(x_\mathrm{ran}\) \(\rightarrow\) \sphinxcode{\sphinxupquote{xrange}}: 領域サイズ
+
+\item {} 
+\(x_\mathrm{ran0}\) \(\rightarrow\) \sphinxcode{\sphinxupquote{xrange0}}: 一様グリッドの領域サイズ
+
+\item {} 
+\(x_\mathrm{ran1}\) \(\rightarrow\) \sphinxcode{\sphinxupquote{xrange1}}: 非一様グリッドの領域サイズ
+
+\item {} 
+\(n_x\) \(\rightarrow\) \sphinxcode{\sphinxupquote{nxx}} : 非一様グリッドの格子点数
+
+\end{itemize}
+
+\noindent\sphinxincludegraphics[width=700\sphinxpxdimen]{{ununiform_grid}.png}
+
+一様グリッドでのグリッド間隔は \(\Delta x_0\) として、非一様グリッドでは \(\delta x\) ずつグリッド間隔が大きくなっていくとする。
+\begin{equation*}
+\begin{split}x_\mathrm{tran}&={\color{red} \frac{1}{2} \Delta x_0} + {\color{blue} \Delta x_0} + \Delta x_0
++ \left(\Delta x_0 + \delta x\right)
++ \left(\Delta x_0 + 2\delta x\right) + [...] \\
+&+ \left[\Delta x_0 + \left(n_x - 4\right)\delta x\right]
++ {\color{blue}\left[\Delta x_0 + \left(n_x - 4\right)\delta x\right]}
++ {\color{red}\frac{1}{2}\left[\Delta x_0 + \left(n_x - 4\right)\delta x\right]} \\
+&= {\color{red} \Delta x_0 + \frac{1}{2}\left(n_x-4\right)\delta x}
++{\color{blue} 2\Delta x_0 + \left(n_x - 4\right)\delta x}
++ \sum_{n=0}^{n_x - 4}\left(\Delta x_0 + n\delta x\right) \\
+&= 3\Delta x_0 + \frac{3\left(n_x-4\right)\delta x}{2}
++ \frac{\left[2\Delta x_0 + \left(n_x-4\right)\delta x\right]\left(n_x - 3\right)}{2} \\
+&= n_x \Delta x_0 + \frac{1}{2} n_x\left(n_x - 4\right)\delta x\end{split}
+\end{equation*}
+この関係式より、グリッド間隔の増分 \(\delta x\) を以下のように求めることができる。
+\begin{equation*}
+\begin{split}\delta x = \frac{2\left(x_\mathrm{tran} - n_x\Delta x_0\right)}{\left(n_x - 4\right)n_x}\end{split}
+\end{equation*}
+最終更新日：2020年01月08日
 
 
 \chapter{境界条件}
@@ -371,12 +418,12 @@ R2D2では中央差分法を用いているが、そのほとんどは数値フ�
 対称な境界条件を用いる。一方、上昇流は、計算している領域の外からの情報を持って計算領域に入ってくるので、
 反対称な境界条件を用いて擾乱をゼロにする。これは元々のModel Sでの量を上昇流のエントロピーに用いるということである。
 
-最終更新日：2019年12月27日
+最終更新日：2020年01月08日
 
 
 \chapter{人工粘性}
 \label{\detokenize{artdif:id1}}\label{\detokenize{artdif::doc}}
-最終更新日：2019年12月27日
+最終更新日：2020年01月08日
 
 
 \chapter{出力と読込}
@@ -579,9 +626,12 @@ ver. 1.0: バージョン制を導入
 \item {} 
 ver. 1.1: 光学的厚さが0.1, 0.01の部分も出力することにした。qq\_in, vcをconfigのグローバル変数として取扱うことにした。
 
+\item {} 
+ver. 1.2: データ構造を変更。
+
 \end{itemize}
 
-最終更新日：2019年12月27日
+最終更新日：2020年01月08日
 
 
 \chapter{R2D2 pythonでのキーワードの説明}
@@ -623,10 +673,10 @@ ifac (int) \sphinxhyphen{}\sphinxhyphen{} dtout/dtoui
 tend (float) \sphinxhyphen{}\sphinxhyphen{} 計算終了時間。大きく取ってあるためにこの時間まで計算することはあまりない {[}s{]}
 
 \item {} 
-swap (int) \sphinxhyphen{}\sphinxhyphen{}　エンディアン指定。big endianは、little endianは
+swap (int) \sphinxhyphen{}\sphinxhyphen{}　エンディアン指定。big endianは1、little endianは0。IDLの定義に従っている。
 
 \item {} 
-endian (char) \sphinxhyphen{}\sphinxhyphen{} エンディアン指定。big endianは、little endianは
+endian (char) \sphinxhyphen{}\sphinxhyphen{} エンディアン指定。big endianは \textgreater{} 、little endianは \textless{} 。pythonの定義に従っている。
 
 \item {} 
 m\_in (int) \sphinxhyphen{}\sphinxhyphen{} 光学的厚さ一定のデータを出力する変数の数
@@ -879,7 +929,7 @@ R2D2.q2と同様
 
 \section{R2D2.vc}
 \label{\detokenize{notation:r2d2-vc}}
-最終更新日：2019年12月27日
+最終更新日：2020年01月08日
 
 
 \chapter{Sphinx使用の覚書}
@@ -1083,7 +1133,7 @@ SphinxではLatexを用いて数式を記述することができる。
 
 と表示される。
 
-最終更新日：2019年12月27日
+最終更新日：2020年01月08日
 
 
 \chapter{ライセンス}
@@ -1120,7 +1170,7 @@ R2D2を用いた研究を発表するときは、\sphinxhref{https://hottahd.git
 
 \end{itemize}
 
-最終更新日：2019年12月27日
+最終更新日：2020年01月08日
 
 
 \renewcommand{\indexname}{Pythonモジュール索引}

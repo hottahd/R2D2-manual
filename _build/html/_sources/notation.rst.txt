@@ -20,8 +20,8 @@ R2D2.p
 * dtoui (float) --　光学的厚さ一定のデータの出力ケーデンス [s]
 * ifac (int) -- dtout/dtoui
 * tend (float) -- 計算終了時間。大きく取ってあるためにこの時間まで計算することはあまりない [s]
-* swap (int) --　エンディアン指定。big endianは、little endianは
-* endian (char) -- エンディアン指定。big endianは、little endianは
+* swap (int) --　エンディアン指定。big endianは1、little endianは0。IDLの定義に従っている。
+* endian (char) -- エンディアン指定。big endianは > 、little endianは < 。pythonの定義に従っている。
 * m_in (int) -- 光学的厚さ一定のデータを出力する変数の数
 * m_tu (int) -- 光学的厚さ一定のデータの層の数
 
