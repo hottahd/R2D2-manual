@@ -92,9 +92,9 @@ R2D2/
    ├─ README.md
    ├─ gen\PYGZus{}time.py
    ├─ data/
-   │     ├─ back.dac
    │     ├─ param/
    │     │      ├─ nd.dac
+   │     │      ├─ back.dac
    │     │      ├─ params.dac
    │     │      └─ xyz.dac
    │     │
@@ -105,13 +105,37 @@ R2D2/
    │     │   ├─ qq.dac.00000001
    │     │   ├─ ...
    │     │
+   │     ├─ tau/
+   │     │   ├─ qq.dac.e
+   │     │   ├─ qq.dac.o
+   │     │   ├─ qq.dac.00000000
+   │     │   ├─ qq.dac.00000001
+   │     │   ├─ ...
+   │     │
    │     ├─ remap/
+   │     │      ├─ remap\PYGZus{}info.dac
    │     │      ├─ qq/
+   │     │      │   ├─ qq.dac.00000000
+   │     │      │   ├─ qq.dac.00000001
+   │     │      │   ├─ ...
+   │     │      │
    │     │      └─ vl/
+   │     │          ├─ c.dac
+   │     │          ├─ vla.dac.00000000
+   │     │          ├─ vla.dac.00000001
+   │     │          ├─ vla.dac.00000002
+   │     │          ├─ ...
    │     │
    │     └─ time/
    │           ├─ mhd/
+   │           │    ├─ t.dac.00000000
+   │           │    ├─ t.dac.00000001
+   │           │    ├─ ...
+   │           │
    │           └─ tau/
+   │                ├─ t.dac.00000000
+   │                ├─ t.dac.00000001
+   │                ├─ ...
    │
    ├─ input\PYGZus{}data/
    ├─ make/
@@ -159,12 +183,6 @@ GitHubに表示する為の表示する為の説明ファイル。情報が古�
 fortranプログラムを実行した後に、データが保存されるディレクトリ。fortranプログラムを実行すると自動的に生成される。
 \begin{itemize}
 \item {} \begin{description}
-\item[{data/back.dac}] \leavevmode
-背景場の物理量を出力するファイル
-
-\end{description}
-
-\item {} \begin{description}
 \item[{data/param/}] \leavevmode
 基本的な計算設定パラメタを出力する為のディレクトリ
 
@@ -178,12 +196,15 @@ fortranプログラムを実行した後に、データが保存されるディ�
 
 \item {} \begin{description}
 \item[{data/remap}] \leavevmode
-解析のための
+解析のためのリマッピングをしたあとのデータを格納するディレクトリ
 
 \end{description}
 
-\item {} 
-data/time/
+\item {} \begin{description}
+\item[{data/time/}] \leavevmode
+出力した時間を記録したファイルを格納するディレクトリ。3次元データの出力の時間を記録する \sphinxcode{\sphinxupquote{mhd}} と光学的厚さ一定の場所の出力の時間を記録する \sphinxcode{\sphinxupquote{tau}} のディレクトリがある。
+
+\end{description}
 
 \end{itemize}
 
@@ -194,13 +215,114 @@ data/time/
 
 \section{コンパイル}
 \label{\detokenize{start:id2}}
+コンパイルは基本的にR2D2のディクレトリで
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+make
+\end{sphinxVerbatim}
+
+とするのみである。使う計算機によって設定が違うので \sphinxcode{\sphinxupquote{make/Makfile}} を編集する必要がある。
+このファイルの1行目に
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{SERVER}\PYG{o}{=}OFP
+\end{sphinxVerbatim}
+
+などと書いてある部分がある。計算機に応じてこの部分を書き換える。
+それぞれ以下のような対応になっている。すでに使用できない計算機については説明しない。
+\begin{itemize}
+\item {} 
+\sphinxcode{\sphinxupquote{XC}}: CfCA XC50
+
+\item {} 
+\sphinxcode{\sphinxupquote{OFP}}: Oakforest\sphinxhyphen{}PACS
+
+\item {} 
+\sphinxcode{\sphinxupquote{FX}}: 名大FX100
+
+\end{itemize}
+
+以下、堀田の個人環境なので、使用は推奨されない。どうしても個人の環境で使いたい時は堀田まで相談されたい。
+\begin{itemize}
+\item {} 
+\sphinxcode{\sphinxupquote{LOCAL}}: UbuntuのGCC
+
+\item {} 
+\sphinxcode{\sphinxupquote{LOXAL\_ifort}}: Ubuntuのifort
+
+\item {} 
+\sphinxcode{\sphinxupquote{MAC}}: MacのGCC
+
+\end{itemize}
+
 
 \section{基本的なパラメータ}
 \label{\detokenize{start:id3}}
+主に変更するパラメタは、\sphinxstylestrong{領域サイズ} と \sphinxstylestrong{格子点数} であろう。
+
+これらは、\sphinxcode{\sphinxupquote{src/all/geometry\_def.F90}} を編集することで変更できる。
+
+まずは領域サイズ
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{real}\PYG{p}{(}\PYG{n+nb}{KIND}\PYG{p}{(}\PYG{l+m+mf}{0.d0}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,} \PYG{k}{parameter} \PYG{k+kd}{::} \PYG{n}{xmin} \PYG{o}{=} \PYG{n}{rsun} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{2}\PYG{l+m+mf}{3.876d8}
+\PYG{k+kt}{real}\PYG{p}{(}\PYG{n+nb}{KIND}\PYG{p}{(}\PYG{l+m+mf}{0.d0}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,} \PYG{k}{parameter} \PYG{k+kd}{::} \PYG{n}{xmax} \PYG{o}{=} \PYG{n}{rsun} \PYG{o}{+} \PYG{l+m+mf}{0.7d8}
+\PYG{k+kt}{real}\PYG{p}{(}\PYG{n+nb}{KIND}\PYG{p}{(}\PYG{l+m+mf}{0.d0}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,} \PYG{k}{parameter} \PYG{k+kd}{::} \PYG{n}{ymin} \PYG{o}{=} \PYG{l+m+mf}{0.d0}
+\PYG{k+kt}{real}\PYG{p}{(}\PYG{n+nb}{KIND}\PYG{p}{(}\PYG{l+m+mf}{0.d0}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,} \PYG{k}{parameter} \PYG{k+kd}{::} \PYG{n}{ymax} \PYG{o}{=} \PYG{l+m+mf}{6.144d8}\PYG{o}{*}\PYG{l+m+mi}{1}\PYG{l+m+mf}{6.d0}
+\PYG{k+kt}{real}\PYG{p}{(}\PYG{n+nb}{KIND}\PYG{p}{(}\PYG{l+m+mf}{0.d0}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,} \PYG{k}{parameter} \PYG{k+kd}{::} \PYG{n}{zmin} \PYG{o}{=} \PYG{l+m+mf}{0.d0}
+\PYG{k+kt}{real}\PYG{p}{(}\PYG{n+nb}{KIND}\PYG{p}{(}\PYG{l+m+mf}{0.d0}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,} \PYG{k}{parameter} \PYG{k+kd}{::} \PYG{n}{zmax} \PYG{o}{=} \PYG{l+m+mf}{6.144d8}\PYG{o}{*}\PYG{l+m+mi}{1}\PYG{l+m+mf}{6.d0}
+\end{sphinxVerbatim}
+
+と書いてある箇所で領域サイズを決定している。{\color{red}\bfseries{}*}min, {\color{red}\bfseries{}*}maxはそれぞれ、{\color{red}\bfseries{}*}方向の領域の最小値、最大値である。x方向については、太陽中心からの距離で定義してあるので、 \sphinxcode{\sphinxupquote{rsun}} を使うのが推奨される。
+
+次に格子点数
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{integer}\PYG{p}{,} \PYG{k}{parameter}\PYG{p}{,} \PYG{k}{private} \PYG{k+kd}{::} \PYG{n}{nx0} \PYG{o}{=} \PYG{l+m+mi}{128}\PYG{p}{,} \PYG{n}{ny0} \PYG{o}{=} \PYG{l+m+mi}{64}\PYG{p}{,} \PYG{n}{nz0} \PYG{o}{=} \PYG{l+m+mi}{64}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{integer}\PYG{p}{,} \PYG{k}{parameter} \PYG{k+kd}{::} \PYG{n}{ix0} \PYG{o}{=} \PYG{l+m+mi}{4}
+\PYG{k+kt}{integer}\PYG{p}{,} \PYG{k}{parameter} \PYG{k+kd}{::} \PYG{n}{jx0} \PYG{o}{=} \PYG{l+m+mi}{16}
+\PYG{k+kt}{integer}\PYG{p}{,} \PYG{k}{parameter} \PYG{k+kd}{::} \PYG{n}{kx0} \PYG{o}{=} \PYG{l+m+mi}{16}
+\end{sphinxVerbatim}
+
+などと書いてある箇所がある。\sphinxcode{\sphinxupquote{nx0}} , \sphinxcode{\sphinxupquote{ny0}} , \sphinxcode{\sphinxupquote{nz0}} はそれぞれ一つのMPIプロセスでのx, y, z方向の格子点の数を定義している。
+一方、 \sphinxcode{\sphinxupquote{ix0}} , \sphinxcode{\sphinxupquote{jx0}} , \sphinxcode{\sphinxupquote{kx0}} はそれぞれx, y, z方向のMPIプロセスの数を定義している。全MPIプロセス数は \sphinxcode{\sphinxupquote{ix0*jx0*kx0}} となり、各方向の全体の格子点数はそれぞれ \sphinxcode{\sphinxupquote{nx*ix0}} , \sphinxcode{\sphinxupquote{ny*jx0}} , \sphinxcode{\sphinxupquote{nz*kx0}} となる。
+
+
+\section{初期条件・追加条件}
+\label{\detokenize{start:id10}}
+初期条件は、 \sphinxcode{\sphinxupquote{src/all/model.F90}} で設定している。基本的な光球計算などは、鉛直速度にランダムな値を入れて計算を始めている。
+
+\begin{sphinxadmonition}{note}{\label{\detokenize{start:id11}}課題:}
+続きの計算で追加条件を加える方法を書く
+\end{sphinxadmonition}
+
+
+\section{スーパーコンピュータでのシェルスクリプト}
+\label{\detokenize{start:id12}}
+いくつかのスーパーコンピュータでジョブを投入するためのシェルスクリプトも \sphinxcode{\sphinxupquote{sh}} ディレクトリに用意している。
+使用コア数などを変えたい時は、それぞれのスーパーコンピュータの使用説明書などを参照すること。
+今後使うことのできるものだけをあげる。
+\begin{itemize}
+\item {} 
+\sphinxcode{\sphinxupquote{fx.sh}} : 名大FX100
+
+\item {} 
+\sphinxcode{\sphinxupquote{ofp.sh}} : Oakforest\sphinxhyphen{}PACS
+
+\item {} 
+\sphinxcode{\sphinxupquote{xc.sh}} : CfCA XC50
+
+\end{itemize}
+
 
 \section{初期条件データを受け取った場合}
-\label{\detokenize{start:id4}}
-最終更新日：2020年01月08日
+\label{\detokenize{start:id13}}
+\begin{sphinxadmonition}{note}{\label{\detokenize{start:id14}}課題:}
+初期データを受け取った場合を書く
+\end{sphinxadmonition}
 
 
 \chapter{方程式}
@@ -365,8 +487,6 @@ fortranのコードの中では
 \begin{equation*}
 \begin{split}\delta x = \frac{2\left(x_\mathrm{tran} - n_x\Delta x_0\right)}{\left(n_x - 4\right)n_x}\end{split}
 \end{equation*}
-最終更新日：2020年01月08日
-
 
 \chapter{境界条件}
 \label{\detokenize{boundary:id1}}\label{\detokenize{boundary::doc}}
@@ -1158,6 +1278,21 @@ R2D2を用いた論文を出版するときは　\sphinxhref{https://ui.adsabs.h
 R2D2を用いた研究を発表するときは、\sphinxhref{https://hottahd.github.io/R2D2-manual/\_images/R2D2\_logo.png}{R2D2のロゴ} の使用が推奨される(強制ではない)。
 
 \end{itemize}
+
+
+\chapter{TODOリスト}
+\label{\detokenize{index:todo}}
+\begin{sphinxadmonition}{note}{課題:}
+続きの計算で追加条件を加える方法を書く
+\end{sphinxadmonition}
+
+({\hyperref[\detokenize{start:id11}]{\sphinxcrossref{\sphinxstyleemphasis{元のエントリ}}}} は、 /Users/hotta/Dropbox/work/R2D2/R2D2\sphinxhyphen{}manual/start.rst の 183 行目です)
+
+\begin{sphinxadmonition}{note}{課題:}
+初期データを受け取った場合を書く
+\end{sphinxadmonition}
+
+({\hyperref[\detokenize{start:id14}]{\sphinxcrossref{\sphinxstyleemphasis{元のエントリ}}}} は、 /Users/hotta/Dropbox/work/R2D2/R2D2\sphinxhyphen{}manual/start.rst の 198 行目です)
 
 
 \chapter{索引と検索ページ}

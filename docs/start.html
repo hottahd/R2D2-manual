@@ -51,7 +51,9 @@
 <li><a class="reference internal" href="#id1">ディレクトリ構造の準備</a></li>
 <li><a class="reference internal" href="#id2">コンパイル</a></li>
 <li><a class="reference internal" href="#id3">基本的なパラメータ</a></li>
-<li><a class="reference internal" href="#id4">初期条件データを受け取った場合</a></li>
+<li><a class="reference internal" href="#id10">初期条件・追加条件</a></li>
+<li><a class="reference internal" href="#id12">スーパーコンピュータでのシェルスクリプト</a></li>
+<li><a class="reference internal" href="#id13">初期条件データを受け取った場合</a></li>
 </ul>
 </li>
 </ul>
@@ -112,9 +114,9 @@
    ├─ README.md
    ├─ gen_time.py
    ├─ data/
-   │     ├─ back.dac
    │     ├─ param/
    │     │      ├─ nd.dac
+   │     │      ├─ back.dac
    │     │      ├─ params.dac
    │     │      └─ xyz.dac
    │     │
@@ -125,13 +127,37 @@
    │     │   ├─ qq.dac.00000001
    │     │   ├─ ...
    │     │
+   │     ├─ tau/
+   │     │   ├─ qq.dac.e
+   │     │   ├─ qq.dac.o
+   │     │   ├─ qq.dac.00000000
+   │     │   ├─ qq.dac.00000001
+   │     │   ├─ ...
+   │     │
    │     ├─ remap/
+   │     │      ├─ remap_info.dac
    │     │      ├─ qq/
+   │     │      │   ├─ qq.dac.00000000
+   │     │      │   ├─ qq.dac.00000001
+   │     │      │   ├─ ...
+   │     │      │
    │     │      └─ vl/
+   │     │          ├─ c.dac
+   │     │          ├─ vla.dac.00000000
+   │     │          ├─ vla.dac.00000001
+   │     │          ├─ vla.dac.00000002
+   │     │          ├─ ...
    │     │
    │     └─ time/
    │           ├─ mhd/
+   │           │    ├─ t.dac.00000000
+   │           │    ├─ t.dac.00000001
+   │           │    ├─ ...
+   │           │
    │           └─ tau/
+   │                ├─ t.dac.00000000
+   │                ├─ t.dac.00000001
+   │                ├─ ...
    │
    ├─ input_data/
    ├─ make/
@@ -172,11 +198,6 @@
 <dt>data/</dt><dd><p>fortranプログラムを実行した後に、データが保存されるディレクトリ。fortranプログラムを実行すると自動的に生成される。</p>
 <ul class="simple">
 <li><dl class="simple">
-<dt>data/back.dac</dt><dd><p>背景場の物理量を出力するファイル</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
 <dt>data/param/</dt><dd><p>基本的な計算設定パラメタを出力する為のディレクトリ</p>
 </dd>
 </dl>
@@ -187,11 +208,15 @@
 </dl>
 </li>
 <li><dl class="simple">
-<dt>data/remap</dt><dd><p>解析のための</p>
+<dt>data/remap</dt><dd><p>解析のためのリマッピングをしたあとのデータを格納するディレクトリ</p>
 </dd>
 </dl>
 </li>
-<li><p>data/time/</p></li>
+<li><dl class="simple">
+<dt>data/time/</dt><dd><p>出力した時間を記録したファイルを格納するディレクトリ。3次元データの出力の時間を記録する <code class="docutils literal notranslate"><span class="pre">mhd</span></code> と光学的厚さ一定の場所の出力の時間を記録する <code class="docutils literal notranslate"><span class="pre">tau</span></code> のディレクトリがある。</p>
+</dd>
+</dl>
+</li>
 </ul>
 </dd>
 </dl>
@@ -200,13 +225,80 @@
 </div>
 <div class="section" id="id2">
 <h2>コンパイル<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>コンパイルは基本的にR2D2のディクレトリで</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>make
+</pre></div>
+</div>
+<p>とするのみである。使う計算機によって設定が違うので <code class="docutils literal notranslate"><span class="pre">make/Makfile</span></code> を編集する必要がある。
+このファイルの1行目に</p>
+<div class="highlight-Makefile notranslate"><div class="highlight"><pre><span></span><span class="nv">SERVER</span><span class="o">=</span>OFP
+</pre></div>
+</div>
+<p>などと書いてある部分がある。計算機に応じてこの部分を書き換える。
+それぞれ以下のような対応になっている。すでに使用できない計算機については説明しない。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">XC</span></code>: CfCA XC50</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OFP</span></code>: Oakforest-PACS</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FX</span></code>: 名大FX100</p></li>
+</ul>
+<p>以下、堀田の個人環境なので、使用は推奨されない。どうしても個人の環境で使いたい時は堀田まで相談されたい。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">LOCAL</span></code>: UbuntuのGCC</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LOXAL_ifort</span></code>: Ubuntuのifort</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MAC</span></code>: MacのGCC</p></li>
+</ul>
 </div>
 <div class="section" id="id3">
 <h2>基本的なパラメータ<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>主に変更するパラメタは、<strong>領域サイズ</strong> と <strong>格子点数</strong> であろう。</p>
+<p>これらは、<code class="docutils literal notranslate"><span class="pre">src/all/geometry_def.F90</span></code> を編集することで変更できる。</p>
+<p>まずは領域サイズ</p>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="kt">real</span><span class="p">(</span><span class="nb">KIND</span><span class="p">(</span><span class="mf">0.d0</span><span class="p">)),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">xmin</span> <span class="o">=</span> <span class="n">rsun</span> <span class="o">-</span> <span class="mi">2</span><span class="mf">3.876d8</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">KIND</span><span class="p">(</span><span class="mf">0.d0</span><span class="p">)),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">xmax</span> <span class="o">=</span> <span class="n">rsun</span> <span class="o">+</span> <span class="mf">0.7d8</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">KIND</span><span class="p">(</span><span class="mf">0.d0</span><span class="p">)),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">ymin</span> <span class="o">=</span> <span class="mf">0.d0</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">KIND</span><span class="p">(</span><span class="mf">0.d0</span><span class="p">)),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">ymax</span> <span class="o">=</span> <span class="mf">6.144d8</span><span class="o">*</span><span class="mi">1</span><span class="mf">6.d0</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">KIND</span><span class="p">(</span><span class="mf">0.d0</span><span class="p">)),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">zmin</span> <span class="o">=</span> <span class="mf">0.d0</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">KIND</span><span class="p">(</span><span class="mf">0.d0</span><span class="p">)),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">zmax</span> <span class="o">=</span> <span class="mf">6.144d8</span><span class="o">*</span><span class="mi">1</span><span class="mf">6.d0</span>
+</pre></div>
 </div>
-<div class="section" id="id4">
-<h2>初期条件データを受け取った場合<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>最終更新日：2020年01月08日</p>
+<p>と書いてある箇所で領域サイズを決定している。<a href="#id4"><span class="problematic" id="id5">*</span></a>min, <a href="#id6"><span class="problematic" id="id7">*</span></a>maxはそれぞれ、<a href="#id8"><span class="problematic" id="id9">*</span></a>方向の領域の最小値、最大値である。x方向については、太陽中心からの距離で定義してあるので、 <code class="docutils literal notranslate"><span class="pre">rsun</span></code> を使うのが推奨される。</p>
+<p>次に格子点数</p>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="kt">integer</span><span class="p">,</span> <span class="k">parameter</span><span class="p">,</span> <span class="k">private</span> <span class="kd">::</span> <span class="n">nx0</span> <span class="o">=</span> <span class="mi">128</span><span class="p">,</span> <span class="n">ny0</span> <span class="o">=</span> <span class="mi">64</span><span class="p">,</span> <span class="n">nz0</span> <span class="o">=</span> <span class="mi">64</span>
+</pre></div>
+</div>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="kt">integer</span><span class="p">,</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">ix0</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="kt">integer</span><span class="p">,</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">jx0</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="kt">integer</span><span class="p">,</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">kx0</span> <span class="o">=</span> <span class="mi">16</span>
+</pre></div>
+</div>
+<p>などと書いてある箇所がある。<code class="docutils literal notranslate"><span class="pre">nx0</span></code> , <code class="docutils literal notranslate"><span class="pre">ny0</span></code> , <code class="docutils literal notranslate"><span class="pre">nz0</span></code> はそれぞれ一つのMPIプロセスでのx, y, z方向の格子点の数を定義している。
+一方、 <code class="docutils literal notranslate"><span class="pre">ix0</span></code> , <code class="docutils literal notranslate"><span class="pre">jx0</span></code> , <code class="docutils literal notranslate"><span class="pre">kx0</span></code> はそれぞれx, y, z方向のMPIプロセスの数を定義している。全MPIプロセス数は <code class="docutils literal notranslate"><span class="pre">ix0*jx0*kx0</span></code> となり、各方向の全体の格子点数はそれぞれ <code class="docutils literal notranslate"><span class="pre">nx*ix0</span></code> , <code class="docutils literal notranslate"><span class="pre">ny*jx0</span></code> , <code class="docutils literal notranslate"><span class="pre">nz*kx0</span></code> となる。</p>
+</div>
+<div class="section" id="id10">
+<h2>初期条件・追加条件<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>初期条件は、 <code class="docutils literal notranslate"><span class="pre">src/all/model.F90</span></code> で設定している。基本的な光球計算などは、鉛直速度にランダムな値を入れて計算を始めている。</p>
+<div class="admonition-todo admonition" id="id11">
+<p class="admonition-title">課題</p>
+<p>続きの計算で追加条件を加える方法を書く</p>
+</div>
+</div>
+<div class="section" id="id12">
+<h2>スーパーコンピュータでのシェルスクリプト<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>いくつかのスーパーコンピュータでジョブを投入するためのシェルスクリプトも <code class="docutils literal notranslate"><span class="pre">sh</span></code> ディレクトリに用意している。
+使用コア数などを変えたい時は、それぞれのスーパーコンピュータの使用説明書などを参照すること。
+今後使うことのできるものだけをあげる。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fx.sh</span></code> : 名大FX100</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ofp.sh</span></code> : Oakforest-PACS</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xc.sh</span></code> : CfCA XC50</p></li>
+</ul>
+</div>
+<div class="section" id="id13">
+<h2>初期条件データを受け取った場合<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="admonition-todo admonition" id="id14">
+<p class="admonition-title">課題</p>
+<p>初期データを受け取った場合を書く</p>
+</div>
 </div>
 </div>
 
