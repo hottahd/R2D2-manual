@@ -115,13 +115,13 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">R2D2</span>
 </pre></div>
 </div>
-<p>として、ライブラリを読み込む。R2D2にはグローバル変数、関数が定義してある。</p>
+<p>として、モジュールを読み込む。R2D2には <a class="reference internal" href="#R2D2.R2D2_data" title="R2D2.R2D2_data"><code class="xref py py-class docutils literal notranslate"><span class="pre">R2D2_data</span></code></a> クラスが定義してあり、これをオブジェクト指向的に用いてデータを取り扱う。</p>
 <p>以下にそれぞれの関数を示すが、docstringは記入してあるので</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">R2D2</span><span class="p">)</span>
-<span class="n">help</span><span class="p">(</span><span class="n">R2D2</span><span class="o">.</span><span class="n">init</span><span class="p">)</span>
+<span class="n">help</span><span class="p">(</span><span class="n">R2D2</span><span class="o">.</span><span class="n">R2D2_data</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>とすると実行環境で、モジュール全体や各関数の簡単な説明を見ることができる。</p>
+<p>などとすると実行環境で、モジュール全体や各関数の簡単な説明を見ることができる。</p>
 <div class="section" id="id4">
 <h4>クラス<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <dl class="class">
@@ -164,28 +164,30 @@
 <dd><p>2次元のnumpy array。ある光学的厚さの面でのデータ。現在は光学的厚さ1, 0.1, 0.01でのデータを出力している。 <a class="reference internal" href="#R2D2.R2D2_data.read_qq_tau" title="R2D2.R2D2_data.read_qq_tau"><code class="xref py py-meth docutils literal notranslate"><span class="pre">R2D2_data.read_qq_tau()</span></code></a> で読み込んだ結果。</p>
 </dd></dl>
 
-<dl class="data">
+<dl class="attribute">
 <dt id="R2D2.R2D2_data.vc">
 <code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">vc</code><a class="headerlink" href="#R2D2.R2D2_data.vc" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Fortranの計算の中で解析した結果。 <a class="reference internal" href="#R2D2.R2D2_data.read_vc" title="R2D2.R2D2_data.read_vc"><code class="xref py py-meth docutils literal notranslate"><span class="pre">R2D2_data.read_vc()</span></code></a> で読み込んだ結果。</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="R2D2.R2D2_Data.qc">
-<code class="sig-prename descclassname">R2D2_Data.</code><code class="sig-name descname">qc</code><a class="headerlink" href="#R2D2.R2D2_Data.qc" title="この定義へのパーマリンク">¶</a></dt>
+<dl class="attribute">
+<dt id="R2D2.R2D2_data.qc">
+<code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">qc</code><a class="headerlink" href="#R2D2.R2D2_data.qc" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>3次元のnumpy array。計算領域全体のデータ。Fortranの計算でチェックポイントのために出力しているデータを読み込む。主に解像度をあげたいときのために使う <a class="reference internal" href="#R2D2.R2D2_data.read_qq_check" title="R2D2.R2D2_data.read_qq_check"><code class="xref py py-meth docutils literal notranslate"><span class="pre">R2D2_data.read_qq_check()</span></code></a> で読み込んだ結果。</p>
 </dd></dl>
 
-<p><code class="docutils literal notranslate"><span class="pre">p</span></code> については、<code class="docutils literal notranslate"><span class="pre">init.py</span></code> などで</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">R2D2</span><span class="o">.</span><span class="n">p</span><span class="p">:</span>
+<p><a class="reference internal" href="#R2D2.R2D2_data.p" title="R2D2.R2D2_data.p"><code class="xref py py-attr docutils literal notranslate"><span class="pre">R2D2_data.p</span></code></a> については、<code class="docutils literal notranslate"><span class="pre">init.py</span></code> などで</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">R2D2</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">R2D2</span><span class="o">.</span><span class="n">R2D2_data</span><span class="p">(</span><span class="n">datadir</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">R2D2</span><span class="o">.</span><span class="n">p</span><span class="p">:</span>
     <span class="n">exec</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> = </span><span class="si">%s%s%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s1">&#39;R2D2.p[&quot;&#39;</span><span class="p">,</span><span class="n">key</span><span class="p">,</span><span class="s1">&#39;&quot;]&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>としているために、辞書型の <code class="docutils literal notranslate"><span class="pre">key</span></code> を名前にする変数に値が代入されている。例えば、 <code class="docutils literal notranslate"><span class="pre">R2D2.p['ix']</span></code> と <code class="docutils literal notranslate"><span class="pre">ix</span></code> には同じ値が入っている。</p>
+<p>などとしているために、辞書型の <code class="docutils literal notranslate"><span class="pre">key</span></code> を名前にする変数に値が代入されている。例えば、 <code class="docutils literal notranslate"><span class="pre">R2D2_data.p['ix']</span></code> と <code class="docutils literal notranslate"><span class="pre">ix</span></code> には同じ値が入っている。</p>
 </div>
 <div class="section" id="method">
 <h4>Method<a class="headerlink" href="#method" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<p>関数で指定する <code class="docutils literal notranslate"><span class="pre">dir</span></code> はデータの場所を示す変数。R2D2の計算を実行すると <code class="docutils literal notranslate"><span class="pre">data</span></code> ディレクトリが生成されて、その中にデータが保存される。この場所を指定すれば良い。</p>
+<p>メソッドで指定する <code class="docutils literal notranslate"><span class="pre">datadir</span></code> はデータの場所を示す変数。R2D2の計算を実行すると <code class="docutils literal notranslate"><span class="pre">data</span></code> ディレクトリが生成されて、その中にデータが保存される。この場所を指定すれば良い。</p>
 <dl class="method">
 <dt id="R2D2.R2D2_data.__init__">
 <code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">datadir</em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.__init__" title="この定義へのパーマリンク">¶</a></dt>
@@ -261,7 +263,7 @@
 <dl class="method">
 <dt id="R2D2.R2D2_data.read_qq_check">
 <code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">read_qq_check</code><span class="sig-paren">(</span><em class="sig-param">n</em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.read_qq_check" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>チェックポイントのためのデータを読み込む <code class="xref py py-attr docutils literal notranslate"><span class="pre">R2D2_data.qc</span></code> にデータが保存される。</p>
+<dd><p>チェックポイントのためのデータを読み込む <a class="reference internal" href="#R2D2.R2D2_data.qc" title="R2D2.R2D2_data.qc"><code class="xref py py-attr docutils literal notranslate"><span class="pre">R2D2_data.qc</span></code></a> にデータが保存される。</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ</dt>
 <dd class="field-odd"><p><strong>n</strong> (<em>int</em>) -- 読み込みたい時間ステップ</p>

@@ -13,6 +13,7 @@
 
   \indexspace
 
+  \item \spxentry{qc}\spxextra{R2D2.R2D2\_data の属性}, \hyperpage{19}
   \item \spxentry{qq}\spxextra{R2D2.R2D2\_data の属性}, \hyperpage{19}
   \item \spxentry{qs}\spxextra{R2D2.R2D2\_data の属性}, \hyperpage{19}
   \item \spxentry{qt}\spxextra{R2D2.R2D2\_data の属性}, \hyperpage{19}
@@ -21,13 +22,15 @@
 
   \item \spxentry{R2D2}\spxextra{モジュール}, \hyperpage{18}
   \item \spxentry{R2D2\_data}\spxextra{R2D2 のクラス}, \hyperpage{19}
-  \item \spxentry{R2D2\_Data.qc}\spxextra{R2D2 モジュール}, \hyperpage{19}
-  \item \spxentry{R2D2\_data.vc}\spxextra{R2D2 モジュール}, \hyperpage{19}
   \item \spxentry{read\_qq()}\spxextra{R2D2.R2D2\_data のメソッド}, \hyperpage{20}
   \item \spxentry{read\_qq\_check()}\spxextra{R2D2.R2D2\_data のメソッド}, \hyperpage{20}
   \item \spxentry{read\_qq\_select()}\spxextra{R2D2.R2D2\_data のメソッド}, \hyperpage{20}
   \item \spxentry{read\_qq\_tau()}\spxextra{R2D2.R2D2\_data のメソッド}, \hyperpage{20}
   \item \spxentry{read\_time()}\spxextra{R2D2.R2D2\_data のメソッド}, \hyperpage{20}
   \item \spxentry{read\_vc()}\spxextra{R2D2.R2D2\_data のメソッド}, \hyperpage{20}
+
+  \indexspace
+
+  \item \spxentry{vc}\spxextra{R2D2.R2D2\_data の属性}, \hyperpage{19}
 
 \end{sphinxtheindex}

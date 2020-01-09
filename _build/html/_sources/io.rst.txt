@@ -22,16 +22,16 @@ PythonでR2D2で定義された関数を使うには
 
     import R2D2
 
-として、ライブラリを読み込む。R2D2にはグローバル変数、関数が定義してある。
+として、モジュールを読み込む。R2D2には :py:class:`R2D2_data` クラスが定義してあり、これをオブジェクト指向的に用いてデータを取り扱う。
 
 以下にそれぞれの関数を示すが、docstringは記入してあるので
 
 .. code:: python
 
     help(R2D2)
-    help(R2D2.init)
+    help(R2D2.R2D2_data)
 
-とすると実行環境で、モジュール全体や各関数の簡単な説明を見ることができる。
+などとすると実行環境で、モジュール全体や各関数の簡単な説明を見ることができる。
 
 クラス
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -67,26 +67,28 @@ Attribute
 
     2次元のnumpy array。ある光学的厚さの面でのデータ。現在は光学的厚さ1, 0.1, 0.01でのデータを出力している。 :py:meth:`R2D2_data.read_qq_tau` で読み込んだ結果。
 
-.. py:data:: R2D2_data.vc
+.. py:attribute:: R2D2_data.vc
 
     Fortranの計算の中で解析した結果。 :py:meth:`R2D2_data.read_vc` で読み込んだ結果。
-.. py:data:: R2D2_Data.qc
+.. py:attribute:: R2D2_data.qc
 
     3次元のnumpy array。計算領域全体のデータ。Fortranの計算でチェックポイントのために出力しているデータを読み込む。主に解像度をあげたいときのために使う :py:meth:`R2D2_data.read_qq_check` で読み込んだ結果。
 
-``p`` については、``init.py`` などで
+:py:attr:`R2D2_data.p` については、``init.py`` などで
 
 .. code:: python
 
+    import R2D2
+    d = R2D2.R2D2_data(datadir)
     for key in R2D2.p:
         exec('%s = %s%s%s' % (key, 'R2D2.p["',key,'"]'))
 
-としているために、辞書型の ``key`` を名前にする変数に値が代入されている。例えば、 ``R2D2.p['ix']`` と ``ix`` には同じ値が入っている。
+などとしているために、辞書型の ``key`` を名前にする変数に値が代入されている。例えば、 ``R2D2_data.p['ix']`` と ``ix`` には同じ値が入っている。
 
 Method
 ^^^^^^^^^^^^^^^^^^^^^^
 
-関数で指定する ``dir`` はデータの場所を示す変数。R2D2の計算を実行すると ``data`` ディレクトリが生成されて、その中にデータが保存される。この場所を指定すれば良い。
+メソッドで指定する ``datadir`` はデータの場所を示す変数。R2D2の計算を実行すると ``data`` ディレクトリが生成されて、その中にデータが保存される。この場所を指定すれば良い。
 
 .. py:method:: R2D2_data.__init__(datadir)
     

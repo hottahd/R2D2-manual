@@ -568,16 +568,16 @@ PythonでR2D2で定義された関数を使うには
 \PYG{k+kn}{import} \PYG{n+nn}{R2D2}
 \end{sphinxVerbatim}
 
-として、ライブラリを読み込む。R2D2にはグローバル変数、関数が定義してある。
+として、モジュールを読み込む。R2D2には {\hyperref[\detokenize{io:R2D2.R2D2_data}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{R2D2\_data}}}}} クラスが定義してあり、これをオブジェクト指向的に用いてデータを取り扱う。
 
 以下にそれぞれの関数を示すが、docstringは記入してあるので
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{n}{help}\PYG{p}{(}\PYG{n}{R2D2}\PYG{p}{)}
-\PYG{n}{help}\PYG{p}{(}\PYG{n}{R2D2}\PYG{o}{.}\PYG{n}{init}\PYG{p}{)}
+\PYG{n}{help}\PYG{p}{(}\PYG{n}{R2D2}\PYG{o}{.}\PYG{n}{R2D2\PYGZus{}data}\PYG{p}{)}
 \end{sphinxVerbatim}
 
-とすると実行環境で、モジュール全体や各関数の簡単な説明を見ることができる。
+などとすると実行環境で、モジュール全体や各関数の簡単な説明を見ることができる。
 
 
 \subsubsection{クラス}
@@ -633,7 +633,7 @@ PythonでR2D2で定義された関数を使うには
 
 \end{fulllineitems}
 
-\index{R2D2\_data.vc (R2D2 モジュール)@\spxentry{R2D2\_data.vc}\spxextra{R2D2 モジュール}}
+\index{vc (R2D2.R2D2\_data の属性)@\spxentry{vc}\spxextra{R2D2.R2D2\_data の属性}}
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{io:R2D2.R2D2_data.vc}}\pysigline{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{vc}}}
@@ -641,28 +641,30 @@ Fortranの計算の中で解析した結果。 {\hyperref[\detokenize{io:R2D2.R2
 
 \end{fulllineitems}
 
-\index{R2D2\_Data.qc (R2D2 モジュール)@\spxentry{R2D2\_Data.qc}\spxextra{R2D2 モジュール}}
+\index{qc (R2D2.R2D2\_data の属性)@\spxentry{qc}\spxextra{R2D2.R2D2\_data の属性}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{io:R2D2.R2D2_Data.qc}}\pysigline{\sphinxcode{\sphinxupquote{R2D2\_Data.}}\sphinxbfcode{\sphinxupquote{qc}}}
+\phantomsection\label{\detokenize{io:R2D2.R2D2_data.qc}}\pysigline{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{qc}}}
 3次元のnumpy array。計算領域全体のデータ。Fortranの計算でチェックポイントのために出力しているデータを読み込む。主に解像度をあげたいときのために使う {\hyperref[\detokenize{io:R2D2.R2D2_data.read_qq_check}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{R2D2\_data.read\_qq\_check()}}}}} で読み込んだ結果。
 
 \end{fulllineitems}
 
 
-\sphinxcode{\sphinxupquote{p}} については、\sphinxcode{\sphinxupquote{init.py}} などで
+{\hyperref[\detokenize{io:R2D2.R2D2_data.p}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{R2D2\_data.p}}}}} については、\sphinxcode{\sphinxupquote{init.py}} などで
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{R2D2}
+\PYG{n}{d} \PYG{o}{=} \PYG{n}{R2D2}\PYG{o}{.}\PYG{n}{R2D2\PYGZus{}data}\PYG{p}{(}\PYG{n}{datadir}\PYG{p}{)}
 \PYG{k}{for} \PYG{n}{key} \PYG{o+ow}{in} \PYG{n}{R2D2}\PYG{o}{.}\PYG{n}{p}\PYG{p}{:}
     \PYG{n}{exec}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+si}{\PYGZpc{}s}\PYG{l+s+s1}{ = }\PYG{l+s+si}{\PYGZpc{}s}\PYG{l+s+si}{\PYGZpc{}s}\PYG{l+s+si}{\PYGZpc{}s}\PYG{l+s+s1}{\PYGZsq{}} \PYG{o}{\PYGZpc{}} \PYG{p}{(}\PYG{n}{key}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{R2D2.p[}\PYG{l+s+s1}{\PYGZdq{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{n}{key}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdq{}}\PYG{l+s+s1}{]}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{)}
 \end{sphinxVerbatim}
 
-としているために、辞書型の \sphinxcode{\sphinxupquote{key}} を名前にする変数に値が代入されている。例えば、 \sphinxcode{\sphinxupquote{R2D2.p{[}\textquotesingle{}ix\textquotesingle{}{]}}} と \sphinxcode{\sphinxupquote{ix}} には同じ値が入っている。
+などとしているために、辞書型の \sphinxcode{\sphinxupquote{key}} を名前にする変数に値が代入されている。例えば、 \sphinxcode{\sphinxupquote{R2D2\_data.p{[}\textquotesingle{}ix\textquotesingle{}{]}}} と \sphinxcode{\sphinxupquote{ix}} には同じ値が入っている。
 
 
 \subsubsection{Method}
 \label{\detokenize{io:method}}
-関数で指定する \sphinxcode{\sphinxupquote{dir}} はデータの場所を示す変数。R2D2の計算を実行すると \sphinxcode{\sphinxupquote{data}} ディレクトリが生成されて、その中にデータが保存される。この場所を指定すれば良い。
+メソッドで指定する \sphinxcode{\sphinxupquote{datadir}} はデータの場所を示す変数。R2D2の計算を実行すると \sphinxcode{\sphinxupquote{data}} ディレクトリが生成されて、その中にデータが保存される。この場所を指定すれば良い。
 \index{\_\_init\_\_() (R2D2.R2D2\_data のメソッド)@\spxentry{\_\_init\_\_()}\spxextra{R2D2.R2D2\_data のメソッド}}
 
 \begin{fulllineitems}
@@ -754,7 +756,7 @@ Fortranコードの中で解析した計算結果を読み込む。戻り値を�
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{io:R2D2.R2D2_data.read_qq_check}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{read\_qq\_check}}}{\emph{n}}{}
-チェックポイントのためのデータを読み込む \sphinxcode{\sphinxupquote{R2D2\_data.qc}} にデータが保存される。
+チェックポイントのためのデータを読み込む {\hyperref[\detokenize{io:R2D2.R2D2_data.qc}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{R2D2\_data.qc}}}}} にデータが保存される。
 \begin{quote}\begin{description}
 \item[{パラメータ}] \leavevmode
 \sphinxstyleliteralstrong{\sphinxupquote{n}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}) \sphinxhyphen{}\sphinxhyphen{} 読み込みたい時間ステップ

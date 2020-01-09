@@ -278,12 +278,12 @@ INPUT ununiform_grid.png
 INPUT bc_sym.png
 INPUT bc_sym.xbb
 INPUT bc_sym.png
-INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/courier/pcrb8t.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/times/ptmri8t.tfm
+INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/courier/pcrro8t.tfm
+INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/courier/pcrb8t.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/psnfss/ts1pcr.fd
 INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/psnfss/ts1pcr.fd
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/courier/pcrr8c.tfm
-INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/courier/pcrro8t.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/courier/pcrro8t.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/courier/pcrr8c.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/ptex-fonts/standard/tmin10.tfm
