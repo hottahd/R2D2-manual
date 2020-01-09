@@ -36,7 +36,7 @@
 
 
 \title{R2D2}
-\date{2020年01月08日}
+\date{2020年01月09日}
 \release{1.2}
 \author{Hideyuki Hotta}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -580,54 +580,72 @@ PythonでR2D2で定義された関数を使うには
 とすると実行環境で、モジュール全体や各関数の簡単な説明を見ることができる。
 
 
-\subsubsection{グローバル変数}
-\label{\detokenize{io:id4}}
-Pythonでは一般に推奨されないが、R2D2ではメモリ節約の目的のためにいくつかのグローバル変数を用意している。R2D2をインポートした後は、\sphinxcode{\sphinxupquote{R2D2.*}} とすることで変数にアクセスできる。
-\index{R2D2.p (R2D2 モジュール)@\spxentry{R2D2.p}\spxextra{R2D2 モジュール}}
+\subsubsection{クラス}
+\label{\detokenize{io:id4}}\index{R2D2\_data (R2D2 のクラス)@\spxentry{R2D2\_data}\spxextra{R2D2 のクラス}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{io:R2D2.R2D2.p}}\pysigline{\sphinxcode{\sphinxupquote{R2D2.}}\sphinxbfcode{\sphinxupquote{p}}}
-基本的なパラメタ。格子点数 \sphinxcode{\sphinxupquote{ix}} や領域サイズ \sphinxcode{\sphinxupquote{xmax}} など。 \sphinxcode{\sphinxupquote{init}} で読み込んだ結果。
+\phantomsection\label{\detokenize{io:R2D2.R2D2_data}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class }}\sphinxcode{\sphinxupquote{R2D2.}}\sphinxbfcode{\sphinxupquote{R2D2\_data}}}{\emph{datadir}}{}
+\end{fulllineitems}
+
+
+データの読み込みには \sphinxcode{\sphinxupquote{R2D2}} モジュールの中で定義されている \sphinxcode{\sphinxupquote{R2D2\_data}} クラスを使う必要がある。
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{R2D2}
+\PYG{n}{datadir} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{../run/d002/data}\PYG{l+s+s1}{\PYGZsq{}}
+\PYG{n}{d} \PYG{o}{=} \PYG{n}{R2D2}\PYG{o}{.}\PYG{n}{R2D2\PYGZus{}data}\PYG{p}{(}\PYG{n}{datadir}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+などとしてインスタンスを生成する。
+
+
+\subsubsection{Attribute}
+\label{\detokenize{io:attribute}}\index{p (R2D2.R2D2\_data の属性)@\spxentry{p}\spxextra{R2D2.R2D2\_data の属性}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{io:R2D2.R2D2_data.p}}\pysigline{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{p}}}
+基本的なパラメタ。格子点数 \sphinxcode{\sphinxupquote{ix}} や領域サイズ \sphinxcode{\sphinxupquote{xmax}} など。
+インスタンス生成時に同時に読み込まれる。
 
 \end{fulllineitems}
 
-\index{R2D2.q2 (R2D2 モジュール)@\spxentry{R2D2.q2}\spxextra{R2D2 モジュール}}
+\index{qs (R2D2.R2D2\_data の属性)@\spxentry{qs}\spxextra{R2D2.R2D2\_data の属性}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{io:R2D2.R2D2.q2}}\pysigline{\sphinxcode{\sphinxupquote{R2D2.}}\sphinxbfcode{\sphinxupquote{q2}}}
-2次元のnumpy array。ある高さのデータ。\sphinxcode{\sphinxupquote{read\_qq\_select}} で読み込んだ結果。
+\phantomsection\label{\detokenize{io:R2D2.R2D2_data.qs}}\pysigline{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{qs}}}
+ある高さの2次元のndarrayが含まれる辞書型。 {\hyperref[\detokenize{io:R2D2.R2D2_data.read_qq_select}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{R2D2\_data.read\_qq\_select()}}}}} で読み込んだ結果。
 
 \end{fulllineitems}
 
-\index{R2D2.q3 (R2D2 モジュール)@\spxentry{R2D2.q3}\spxextra{R2D2 モジュール}}
+\index{qq (R2D2.R2D2\_data の属性)@\spxentry{qq}\spxextra{R2D2.R2D2\_data の属性}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{io:R2D2.R2D2.q3}}\pysigline{\sphinxcode{\sphinxupquote{R2D2.}}\sphinxbfcode{\sphinxupquote{q3}}}
-3次元のnumpy array。計算領域全体のデータ。\sphinxcode{\sphinxupquote{read\_qq}} で読み込んだ結果。
+\phantomsection\label{\detokenize{io:R2D2.R2D2_data.qq}}\pysigline{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{qq}}}
+3次元のnumpy array。計算領域全体のデータ。{\hyperref[\detokenize{io:R2D2.R2D2_data.read_qq}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{R2D2\_data.read\_qq()}}}}} で読み込んだ結果。
 
 \end{fulllineitems}
 
-\index{R2D2.qi (R2D2 モジュール)@\spxentry{R2D2.qi}\spxextra{R2D2 モジュール}}
+\index{qt (R2D2.R2D2\_data の属性)@\spxentry{qt}\spxextra{R2D2.R2D2\_data の属性}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{io:R2D2.R2D2.qi}}\pysigline{\sphinxcode{\sphinxupquote{R2D2.}}\sphinxbfcode{\sphinxupquote{qi}}}
-2次元のnumpy array。ある光学的厚さの面でのデータ。現在は光学的厚さ1, 0.1, 0.01でのデータを出力している。 \sphinxcode{\sphinxupquote{read\_qq}} で読み込んだ結果。
+\phantomsection\label{\detokenize{io:R2D2.R2D2_data.qt}}\pysigline{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{qt}}}
+2次元のnumpy array。ある光学的厚さの面でのデータ。現在は光学的厚さ1, 0.1, 0.01でのデータを出力している。 {\hyperref[\detokenize{io:R2D2.R2D2_data.read_qq_tau}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{R2D2\_data.read\_qq\_tau()}}}}} で読み込んだ結果。
 
 \end{fulllineitems}
 
-\index{R2D2.vc (R2D2 モジュール)@\spxentry{R2D2.vc}\spxextra{R2D2 モジュール}}
+\index{R2D2\_data.vc (R2D2 モジュール)@\spxentry{R2D2\_data.vc}\spxextra{R2D2 モジュール}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{io:R2D2.R2D2.vc}}\pysigline{\sphinxcode{\sphinxupquote{R2D2.}}\sphinxbfcode{\sphinxupquote{vc}}}
-Fortranの計算の中で解析した結果。 \sphinxcode{\sphinxupquote{read\_vc}} で読み込んだ結果。
+\phantomsection\label{\detokenize{io:R2D2.R2D2_data.vc}}\pysigline{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{vc}}}
+Fortranの計算の中で解析した結果。 {\hyperref[\detokenize{io:R2D2.R2D2_data.read_vc}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{R2D2\_data.read\_vc()}}}}} で読み込んだ結果。
 
 \end{fulllineitems}
 
-\index{R2D2.qc (R2D2 モジュール)@\spxentry{R2D2.qc}\spxextra{R2D2 モジュール}}
+\index{R2D2\_Data.qc (R2D2 モジュール)@\spxentry{R2D2\_Data.qc}\spxextra{R2D2 モジュール}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{io:R2D2.R2D2.qc}}\pysigline{\sphinxcode{\sphinxupquote{R2D2.}}\sphinxbfcode{\sphinxupquote{qc}}}
-3次元のnumpy array。計算領域全体のデータ。Fortranの計算でチェックポイントのために出力しているデータを読み込む。主に解像度をあげたいときのために使う \sphinxcode{\sphinxupquote{read\_qq\_check}} で読み込んだ結果。
+\phantomsection\label{\detokenize{io:R2D2.R2D2_Data.qc}}\pysigline{\sphinxcode{\sphinxupquote{R2D2\_Data.}}\sphinxbfcode{\sphinxupquote{qc}}}
+3次元のnumpy array。計算領域全体のデータ。Fortranの計算でチェックポイントのために出力しているデータを読み込む。主に解像度をあげたいときのために使う {\hyperref[\detokenize{io:R2D2.R2D2_data.read_qq_check}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{R2D2\_data.read\_qq\_check()}}}}} で読み込んだ結果。
 
 \end{fulllineitems}
 
@@ -642,30 +660,27 @@ Fortranの計算の中で解析した結果。 \sphinxcode{\sphinxupquote{read\_
 としているために、辞書型の \sphinxcode{\sphinxupquote{key}} を名前にする変数に値が代入されている。例えば、 \sphinxcode{\sphinxupquote{R2D2.p{[}\textquotesingle{}ix\textquotesingle{}{]}}} と \sphinxcode{\sphinxupquote{ix}} には同じ値が入っている。
 
 
-\subsubsection{関数}
-\label{\detokenize{io:id5}}
+\subsubsection{Method}
+\label{\detokenize{io:method}}
 関数で指定する \sphinxcode{\sphinxupquote{dir}} はデータの場所を示す変数。R2D2の計算を実行すると \sphinxcode{\sphinxupquote{data}} ディレクトリが生成されて、その中にデータが保存される。この場所を指定すれば良い。
-\index{init() (R2D2 モジュール)@\spxentry{init()}\spxextra{R2D2 モジュール}}
+\index{\_\_init\_\_() (R2D2.R2D2\_data のメソッド)@\spxentry{\_\_init\_\_()}\spxextra{R2D2.R2D2\_data のメソッド}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{io:R2D2.init}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2.}}\sphinxbfcode{\sphinxupquote{init}}}{\emph{dir}}{}
-R2D2でデータを解析するときに、一番はじめに実行すべき関数。計算設定などのパラメタが読み込まれる。 \sphinxcode{\sphinxupquote{R2D2.p}} にデータが保存される。
+\phantomsection\label{\detokenize{io:R2D2.R2D2_data.__init__}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{\_\_init\_\_}}}{\emph{datadir}}{}
+インスタンス生成時に実行されるメソッド。計算設定などのパラメタが読み込まれる。 {\hyperref[\detokenize{io:R2D2.R2D2_data.p}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{R2D2\_data.p}}}}} にデータが保存される。
 \begin{quote}\begin{description}
 \item[{パラメータ}] \leavevmode
-\sphinxstyleliteralstrong{\sphinxupquote{dir}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \sphinxhyphen{}\sphinxhyphen{} データの場所
-
-\item[{戻り値}] \leavevmode
-None
+\sphinxstyleliteralstrong{\sphinxupquote{datadir}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \sphinxhyphen{}\sphinxhyphen{} データの場所
 
 \end{description}\end{quote}
 
 \end{fulllineitems}
 
-\index{read\_qq\_select() (R2D2 モジュール)@\spxentry{read\_qq\_select()}\spxextra{R2D2 モジュール}}
+\index{read\_qq\_select() (R2D2.R2D2\_data のメソッド)@\spxentry{read\_qq\_select()}\spxextra{R2D2.R2D2\_data のメソッド}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{io:R2D2.read_qq_select}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2.}}\sphinxbfcode{\sphinxupquote{read\_qq\_select}}}{\emph{xs}, \emph{n}, \emph{silent}, \emph{out}}{}
-ある高さのデータのスライスを読み込む。戻り値を返さない時も \sphinxcode{\sphinxupquote{R2D2.q2}} にデータが保存される。
+\phantomsection\label{\detokenize{io:R2D2.R2D2_data.read_qq_select}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{read\_qq\_select}}}{\emph{xs}, \emph{n}, \emph{silent}}{}
+ある高さのデータのスライスを読み込む。戻り値を返さない時も {\hyperref[\detokenize{io:R2D2.R2D2_data.qs}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{R2D2\_data.qs}}}}} にデータが保存される。
 \begin{quote}\begin{description}
 \item[{パラメータ}] \leavevmode\begin{itemize}
 \item {} 
@@ -676,56 +691,73 @@ None
 
 \end{itemize}
 
-\item[{戻り値}] \leavevmode
-\sphinxcode{\sphinxupquote{out=True}} が指定されているとデータが返される。
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+\index{read\_qq() (R2D2.R2D2\_data のメソッド)@\spxentry{read\_qq()}\spxextra{R2D2.R2D2\_data のメソッド}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{io:R2D2.R2D2_data.read_qq}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{read\_qq}}}{\emph{n}}{}
+3次元のデータを読み込む。戻り値を返さない時も {\hyperref[\detokenize{io:R2D2.R2D2_data.qq}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{R2D2\_data.qq}}}}} にデータが保存される。
+\begin{quote}\begin{description}
+\item[{パラメータ}] \leavevmode
+\sphinxstyleliteralstrong{\sphinxupquote{n}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}) \sphinxhyphen{}\sphinxhyphen{} 読み込みたい時間ステップ
 
 \end{description}\end{quote}
 
 \end{fulllineitems}
 
-\index{read\_qq() (R2D2 モジュール)@\spxentry{read\_qq()}\spxextra{R2D2 モジュール}}
+\index{read\_qq\_tau() (R2D2.R2D2\_data のメソッド)@\spxentry{read\_qq\_tau()}\spxextra{R2D2.R2D2\_data のメソッド}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{io:R2D2.read_qq}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2.}}\sphinxbfcode{\sphinxupquote{read\_qq}}}{\emph{n}}{}
-3次元のデータを読み込む。戻り値を返さない時も \sphinxcode{\sphinxupquote{R2D2.q3}} にデータが保存される。
+\phantomsection\label{\detokenize{io:R2D2.R2D2_data.read_qq_tau}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{read\_qq\_tau}}}{\emph{n}}{}
+光学的厚さが一定の2次元のデータを読み込む。{\hyperref[\detokenize{io:R2D2.R2D2_data.qt}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{R2D2\_data.qt}}}}} にデータが保存される。
 \begin{quote}\begin{description}
 \item[{パラメータ}] \leavevmode
 \sphinxstyleliteralstrong{\sphinxupquote{n}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}) \sphinxhyphen{}\sphinxhyphen{} 読み込みたい時間ステップ
-
-\item[{戻り値}] \leavevmode
-\sphinxcode{\sphinxupquote{out=True}} が指定されているとデータが返される。
 
 \end{description}\end{quote}
 
 \end{fulllineitems}
 
-\index{read\_time() (R2D2 モジュール)@\spxentry{read\_time()}\spxextra{R2D2 モジュール}}
+\index{read\_time() (R2D2.R2D2\_data のメソッド)@\spxentry{read\_time()}\spxextra{R2D2.R2D2\_data のメソッド}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{io:R2D2.read_time}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2.}}\sphinxbfcode{\sphinxupquote{read\_time}}}{\emph{n}}{}
-時間を読み込む
+\phantomsection\label{\detokenize{io:R2D2.R2D2_data.read_time}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{read\_time}}}{\emph{n}}{}
+時間を読み込む。
 \begin{quote}\begin{description}
 \item[{パラメータ}] \leavevmode
 \sphinxstyleliteralstrong{\sphinxupquote{n}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}) \sphinxhyphen{}\sphinxhyphen{} 読み込みたい時間ステップ
 
 \item[{戻り値}] \leavevmode
-時間ステップでの時間が返される
+時間ステップでの時間
 
 \end{description}\end{quote}
 
 \end{fulllineitems}
 
-\index{read\_vc() (R2D2 モジュール)@\spxentry{read\_vc()}\spxextra{R2D2 モジュール}}
+\index{read\_vc() (R2D2.R2D2\_data のメソッド)@\spxentry{read\_vc()}\spxextra{R2D2.R2D2\_data のメソッド}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{io:R2D2.read_vc}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2.}}\sphinxbfcode{\sphinxupquote{read\_vc}}}{\emph{n}}{}
-Fortranコードの中で解析した計算結果を読み込む。戻り値を返さない時も \sphinxcode{\sphinxupquote{R2D2.vc}} にデータが保存される。
+\phantomsection\label{\detokenize{io:R2D2.R2D2_data.read_vc}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{read\_vc}}}{\emph{n}}{}
+Fortranコードの中で解析した計算結果を読み込む。戻り値を返さない時も {\hyperref[\detokenize{io:R2D2.R2D2_data.vc}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{R2D2\_data.vc}}}}} にデータが保存される。
 \begin{quote}\begin{description}
 \item[{パラメータ}] \leavevmode
 \sphinxstyleliteralstrong{\sphinxupquote{n}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}) \sphinxhyphen{}\sphinxhyphen{} 読み込みたい時間ステップ
 
-\item[{戻り値}] \leavevmode
-\sphinxcode{\sphinxupquote{out=True}} が指定されているとデータが返される。
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+\index{read\_qq\_check() (R2D2.R2D2\_data のメソッド)@\spxentry{read\_qq\_check()}\spxextra{R2D2.R2D2\_data のメソッド}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{io:R2D2.R2D2_data.read_qq_check}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{read\_qq\_check}}}{\emph{n}}{}
+チェックポイントのためのデータを読み込む \sphinxcode{\sphinxupquote{R2D2\_data.qc}} にデータが保存される。
+\begin{quote}\begin{description}
+\item[{パラメータ}] \leavevmode
+\sphinxstyleliteralstrong{\sphinxupquote{n}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}) \sphinxhyphen{}\sphinxhyphen{} 読み込みたい時間ステップ
 
 \end{description}\end{quote}
 
@@ -739,7 +771,7 @@ Fortranコードの中で解析した計算結果を読み込む。戻り値を�
 
 
 \section{バージョン履歴}
-\label{\detokenize{io:id6}}\begin{itemize}
+\label{\detokenize{io:id5}}\begin{itemize}
 \item {} 
 ver. 1.0: バージョン制を導入
 
@@ -750,8 +782,6 @@ ver. 1.1: 光学的厚さが0.1, 0.01の部分も出力することにした。q
 ver. 1.2: データ構造を変更。
 
 \end{itemize}
-
-最終更新日：2020年01月08日
 
 
 \chapter{R2D2 pythonでのキーワードの説明}
@@ -1305,7 +1335,7 @@ R2D2を用いた研究を発表するときは、\sphinxhref{https://hottahd.git
 
 \end{itemize}
 
-最終更新日：2020年01月08日
+最終更新日：2020年01月09日
 
 
 \renewcommand{\indexname}{Pythonモジュール索引}

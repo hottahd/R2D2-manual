@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.2-190131-2.6 (utf8.euc) (TeX Live 2019) (preloaded format=platex 2019.6.4)  8 JAN 2020 23:35
+This is e-pTeX, Version 3.14159265-p3.8.2-190131-2.6 (utf8.euc) (TeX Live 2019) (preloaded format=platex 2019.6.4)  9 JAN 2020 20:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -858,15 +858,15 @@ LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
 (Font)              scaled to size 4.805pt on input line 2.
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 40.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 41.
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 40.
+(Font)              scaled to size 9.60999pt on input line 41.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 40.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 41.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 40.
+(Font)              scaled to size 9.60999pt on input line 41.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 40.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 41.
  [1
 
 
@@ -1006,78 +1006,78 @@ File: bc_sym.png Graphic file (type bmp)
 
 ]
 LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <10> not available
-(Font)              Font shape `T1/pcr/b/n' tried instead on input line 589.
-LaTeX Font Info:    Try loading font information for TS1+pcr on input line 639.
+(Font)              Font shape `T1/pcr/b/n' tried instead on input line 587.
+LaTeX Font Info:    Font shape `JT1/gt/m/it' in size <10> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 587.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 587.
+LaTeX Font Info:    Font shape `JY1/gt/m/it' in size <10> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 587.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 587.
+LaTeX Font Info:    Try loading font information for TS1+pcr on input line 595.
 
  (/usr/local/texlive/2019/texmf-dist/tex/latex/psnfss/ts1pcr.fd
 File: ts1pcr.fd 2001/06/04 font definitions for TS1/pcr.
 )
-LaTeX Font Info:    Font shape `JT1/gt/m/it' in size <9> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 639.
-LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 8.64899pt on input line 639.
-LaTeX Font Info:    Font shape `JY1/gt/m/it' in size <9> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 639.
-LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 8.64899pt on input line 639.
-LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <9> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 639.
-LaTeX Font Info:    Font shape `JT1/gt/m/it' in size <10> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 651.
-LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 651.
-LaTeX Font Info:    Font shape `JY1/gt/m/it' in size <10> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 651.
-LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 651.
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <10> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 655.
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 616.
+LaTeX Font Info:    Font shape `JT1/gt/m/it' in size <9> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 657.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 8.64899pt on input line 657.
+LaTeX Font Info:    Font shape `JY1/gt/m/it' in size <9> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 657.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 8.64899pt on input line 657.
+LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <9> not available
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 657.
  [19]
-[20]
+[20] [21]
 第10章
-[21
+[22
 
-] [22]
+] [23]
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 6.72699pt on input line 905.
+(Font)              scaled to size 6.72699pt on input line 935.
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 4.805pt on input line 905.
- [23] [24] [25]
+(Font)              scaled to size 4.805pt on input line 935.
+ [24] [25] [26]
 第11章
-[26
+[27
 
 ]
 File: restructuredtext_vs.png Graphic file (type bmp)
 <restructuredtext_vs.png>
- [27] [28]
+ [28] [29]
 File: R2D2_logo.png Graphic file (type bmp)
 <R2D2_logo.png>
- [29] [30]
+ [30] [31]
 第12章
-[31
+[32
 
 ]
 第13章
 LaTeX Font Info:    Font shape `JT1/mc/m/it' in size <10> not available
-(Font)              Font shape `JT1/mc/m/n' tried instead on input line 1289.
+(Font)              Font shape `JT1/mc/m/n' tried instead on input line 1319.
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 1289.
+(Font)              scaled to size 9.60999pt on input line 1319.
 LaTeX Font Info:    Font shape `JY1/mc/m/it' in size <10> not available
-(Font)              Font shape `JY1/mc/m/n' tried instead on input line 1289.
+(Font)              Font shape `JY1/mc/m/n' tried instead on input line 1319.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 1289.
-[32
-
-]
-第14章
+(Font)              scaled to size 9.60999pt on input line 1319.
 [33
 
 ]
+第14章
+[34
+
+]
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 7.68799pt on input line 1315.
+(Font)              scaled to size 7.68799pt on input line 1345.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 7.68799pt on input line 1315.
- [34
+(Font)              scaled to size 7.68799pt on input line 1345.
+ [35
 
 
 
@@ -1091,7 +1091,7 @@ LaTeX Font Info:    Font shape `JY1/gt/m/it' in size <8> not available
 (Font)              Font shape `JY1/gt/m/n' tried instead on input line 8.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
 (Font)              scaled to size 7.68799pt on input line 8.
- [35
+ [36
 
 
 
@@ -1099,27 +1099,27 @@ LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
 
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1320.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1320.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1350.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1350.
  (./r2d2.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1320.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1320.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1350.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1350.
 
 Package rerunfilecheck Info: File `r2d2.out' has not changed.
-(rerunfilecheck)             Checksum: B3FC5589779131F81411991D75A608BB;2621.
+(rerunfilecheck)             Checksum: 89D2948838288A66FA98BF23E6BF3E1A;2621.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1320.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1350.
  ) 
 Here is how much of TeX's memory you used:
- 9577 strings out of 493223
- 137453 string characters out of 6144416
- 379541 words of memory out of 5000000
- 13350 multiletter control sequences out of 15000+600000
+ 9581 strings out of 493223
+ 137637 string characters out of 6144416
+ 379723 words of memory out of 5000000
+ 13354 multiletter control sequences out of 15000+600000
  65097 words of font info for 135 fonts, out of 8000000 for 9000
  935 hyphenation exceptions out of 8191
- 37i,21n,45p,551b,536s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,21n,45p,495b,536s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on r2d2.dvi (38 pages, 121096 bytes).
+Output written on r2d2.dvi (39 pages, 125052 bytes).

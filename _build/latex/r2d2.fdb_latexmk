@@ -1,9 +1,9 @@
 # Fdb version 3
-["dvipdf"] 1578494114 "r2d2.dvi" "r2d2.pdf" "r2d2" 1578494116
-  "r2d2.dvi" 1578494114 121096 0a56e854e75737088ab88af3ee46a729 "latex"
+["dvipdf"] 1578570522 "r2d2.dvi" "r2d2.pdf" "r2d2" 1578570523
+  "r2d2.dvi" 1578570522 125052 10d738db8090b790024e1fa6dea81a85 "latex"
   (generated)
   "r2d2.pdf"
-["latex"] 1578494114 "r2d2.tex" "r2d2.dvi" "r2d2" 1578494116
+["latex"] 1578570521 "r2d2.tex" "r2d2.dvi" "r2d2" 1578570523
   "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/courier/pcrb8t.tfm" 1136768653 1384 87406e4336af44af883a035f17f319d9 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/courier/pcrr8c.tfm" 1136768653 1268 8bd405dc5751cfed76cb6fb2db78cb50 ""
@@ -119,33 +119,33 @@
   "/usr/local/texlive/2019/texmf-var/web2c/eptex/platex.fmt" 1559604719 4524394 773a089a8a818fd6e6be588320e50ae3 ""
   "/usr/local/texlive/2019/texmf.cnf" 1557341546 577 d150fef99ac436ad1156e86b0892f6ef ""
   "R2D2_logo.png" 1577331419 336548 36698ba662da259a78c63d8ea669c60c ""
-  "R2D2_logo.xbb" 1578494111 182 f17f0c3c8c3031e3bda146a6e14f2d6d ""
+  "R2D2_logo.xbb" 1578570519 182 1bd0e14b0a45f404e3954cf09aa455d3 ""
   "bc_sym.png" 1576826014 24571 8f8fe1d7a7980265fdee613336cefe68 ""
-  "bc_sym.xbb" 1578494111 179 ab1d1edb7718bd99e6d0f274497c79c3 ""
+  "bc_sym.xbb" 1578570519 179 5f75676c6c6a0e08bf124e9ac49148a0 ""
   "footnotehyper-sphinx.sty" 1576513146 8888 1bbd7bdeae8c8bed1d10d551bddb1cc9 ""
-  "r2d2.aux" 1578494114 14875 6d025969711f27cb372cb28a03a56191 "latex"
-  "r2d2.ind" 1578494114 1120 2e40a3d3470fcbb7528aacb0b809c22b "makeindex r2d2.idx"
-  "r2d2.out" 1578494114 2621 b3fc5589779131f81411991d75a608bb "latex"
-  "r2d2.tex" 1578494111 54381 e0e560bf1773d5afd91f7db3d9f04b34 ""
-  "r2d2.toc" 1578494114 4853 5e7e32b5ffa28dbb666886fa4a2516e9 "latex"
+  "r2d2.aux" 1578570522 15264 70aac59e3a1b7540b1c2cd32147e8fdd "latex"
+  "r2d2.ind" 1578570521 1489 cd193c95af80317a62c0c1df8fe261b5 "makeindex r2d2.idx"
+  "r2d2.out" 1578570522 2621 89d2948838288a66fa98bf23e6bf3e1a "latex"
+  "r2d2.tex" 1578570519 57193 bde115314642cbff0fe3965c1b502f6e ""
+  "r2d2.toc" 1578570522 4906 736287ac594f30c84c30fe65062b59b2 "latex"
   "restructuredtext_vs.png" 1576831775 230452 30d588fb86c328f930d97d31dd70892e ""
-  "restructuredtext_vs.xbb" 1578494111 192 aedc7e04fa0ff00174e906a1625d01ce ""
+  "restructuredtext_vs.xbb" 1578570519 192 3ca8866cf13bd353836d1f3306430de8 ""
   "sphinx.sty" 1576513146 81878 44d14f90f8cb22a202794c148df60b64 ""
-  "sphinxhighlight.sty" 1578494111 8137 38a433148fcb7611515a989ff1750dd5 ""
+  "sphinxhighlight.sty" 1578570518 8137 38a433148fcb7611515a989ff1750dd5 ""
   "sphinxmanual.cls" 1576513146 4236 124cd90deb92742b5d3922bfc2cd70c0 ""
-  "sphinxmessages.sty" 1578494111 696 5bb1165146ddbf027d24a235a3c6e53f ""
+  "sphinxmessages.sty" 1578570519 696 5bb1165146ddbf027d24a235a3c6e53f ""
   "sphinxmulticell.sty" 1576513146 14606 0b6edc2b1a83546ed92026d1f6a311b5 ""
   "ununiform_grid.png" 1578467563 79181 b9ee97ac3c16a3bdfe7778c7f2383739 ""
-  "ununiform_grid.xbb" 1578494112 187 97d780b3642443c954148e9ea698b077 ""
+  "ununiform_grid.xbb" 1578570519 187 da31a27b9216c520f1408eea97559c35 ""
   (generated)
-  "r2d2.idx"
   "r2d2.dvi"
-  "r2d2.out"
   "r2d2.aux"
+  "r2d2.idx"
   "r2d2.log"
   "r2d2.toc"
-["makeindex r2d2.idx"] 1578494113 "r2d2.idx" "r2d2.ind" "r2d2" 1578494116
-  "r2d2.idx" 1578494114 1320 1cab415c5ee8381d76d1f42594194362 "latex"
+  "r2d2.out"
+["makeindex r2d2.idx"] 1578570521 "r2d2.idx" "r2d2.ind" "r2d2" 1578570523
+  "r2d2.idx" 1578570522 1874 e34f6e93bce3446e4d8018ca396f2602 "latex"
   (generated)
   "r2d2.ind"
   "r2d2.ilg"

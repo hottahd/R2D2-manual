@@ -33,28 +33,46 @@ PythonでR2D2で定義された関数を使うには
 
 とすると実行環境で、モジュール全体や各関数の簡単な説明を見ることができる。
 
-グローバル変数
-^^^^^^^^^^^^^^^^^^^^^^
-Pythonでは一般に推奨されないが、R2D2ではメモリ節約の目的のためにいくつかのグローバル変数を用意している。R2D2をインポートした後は、``R2D2.*`` とすることで変数にアクセスできる。
+クラス
+^^^^^^^^^^^^^^^^^^^^^^^
+.. py:class:: R2D2_data(datadir)
 
-.. py:data:: R2D2.p
+データの読み込みには ``R2D2`` モジュールの中で定義されている ``R2D2_data`` クラスを使う必要がある。
 
-    基本的なパラメタ。格子点数 ``ix`` や領域サイズ ``xmax`` など。 ``init`` で読み込んだ結果。
-.. py:data:: R2D2.q2
+.. code:: python
 
-    2次元のnumpy array。ある高さのデータ。``read_qq_select`` で読み込んだ結果。
-.. py:data:: R2D2.q3
+    import R2D2
+    datadir = '../run/d002/data'
+    d = R2D2.R2D2_data(datadir)
+
+などとしてインスタンスを生成する。
+
+Attribute
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:attribute:: R2D2_data.p
+
+    基本的なパラメタ。格子点数 ``ix`` や領域サイズ ``xmax`` など。
+    インスタンス生成時に同時に読み込まれる。
+
+.. py:attribute:: R2D2_data.qs
+
+    ある高さの2次元のndarrayが含まれる辞書型。 :py:meth:`R2D2_data.read_qq_select` で読み込んだ結果。
+
+.. py:attribute:: R2D2_data.qq
     
-    3次元のnumpy array。計算領域全体のデータ。``read_qq`` で読み込んだ結果。
-.. py:data:: R2D2.qi
+    3次元のnumpy array。計算領域全体のデータ。:py:meth:`R2D2_data.read_qq` で読み込んだ結果。
 
-    2次元のnumpy array。ある光学的厚さの面でのデータ。現在は光学的厚さ1, 0.1, 0.01でのデータを出力している。 ``read_qq`` で読み込んだ結果。
-.. py:data:: R2D2.vc
+.. py:attribute:: R2D2_data.qt
 
-    Fortranの計算の中で解析した結果。 ``read_vc`` で読み込んだ結果。
-.. py:data:: R2D2.qc
+    2次元のnumpy array。ある光学的厚さの面でのデータ。現在は光学的厚さ1, 0.1, 0.01でのデータを出力している。 :py:meth:`R2D2_data.read_qq_tau` で読み込んだ結果。
 
-    3次元のnumpy array。計算領域全体のデータ。Fortranの計算でチェックポイントのために出力しているデータを読み込む。主に解像度をあげたいときのために使う ``read_qq_check`` で読み込んだ結果。
+.. py:data:: R2D2_data.vc
+
+    Fortranの計算の中で解析した結果。 :py:meth:`R2D2_data.read_vc` で読み込んだ結果。
+.. py:data:: R2D2_Data.qc
+
+    3次元のnumpy array。計算領域全体のデータ。Fortranの計算でチェックポイントのために出力しているデータを読み込む。主に解像度をあげたいときのために使う :py:meth:`R2D2_data.read_qq_check` で読み込んだ結果。
 
 ``p`` については、``init.py`` などで
 
@@ -65,43 +83,54 @@ Pythonでは一般に推奨されないが、R2D2ではメモリ節約の目的�
 
 としているために、辞書型の ``key`` を名前にする変数に値が代入されている。例えば、 ``R2D2.p['ix']`` と ``ix`` には同じ値が入っている。
 
-関数
+Method
 ^^^^^^^^^^^^^^^^^^^^^^
 
 関数で指定する ``dir`` はデータの場所を示す変数。R2D2の計算を実行すると ``data`` ディレクトリが生成されて、その中にデータが保存される。この場所を指定すれば良い。
 
-.. py:function:: init(dir)
+.. py:method:: R2D2_data.__init__(datadir)
     
-    R2D2でデータを解析するときに、一番はじめに実行すべき関数。計算設定などのパラメタが読み込まれる。 ``R2D2.p`` にデータが保存される。
+    インスタンス生成時に実行されるメソッド。計算設定などのパラメタが読み込まれる。 :py:attr:`R2D2_data.p` にデータが保存される。
     
-    :argument str dir: データの場所
-    :return: None
+    :argument str datadir: データの場所
 
-.. py:function:: read_qq_select(xs,n,silent,out)
+.. py:method:: R2D2_data.read_qq_select(xs,n,silent)
     
-    ある高さのデータのスライスを読み込む。戻り値を返さない時も ``R2D2.q2`` にデータが保存される。
+    ある高さのデータのスライスを読み込む。戻り値を返さない時も :py:attr:`R2D2_data.qs` にデータが保存される。
 
     :param float xs: 読み込みたいデータの高さ
     :param int n: 読み込みたい時間ステップ
-    :return: ``out=True`` が指定されているとデータが返される。
-.. py:function:: read_qq(n)
+
+.. py:method:: R2D2_data.read_qq(n)
     
-    3次元のデータを読み込む。戻り値を返さない時も ``R2D2.q3`` にデータが保存される。
+    3次元のデータを読み込む。戻り値を返さない時も :py:attr:`R2D2_data.qq` にデータが保存される。
 
     :param int n: 読み込みたい時間ステップ
-    :return: ``out=True`` が指定されているとデータが返される。
-.. py:function:: read_time(n)
+
+.. py:method:: R2D2_data.read_qq_tau(n)
     
-    時間を読み込む
+    光学的厚さが一定の2次元のデータを読み込む。:py:attr:`R2D2_data.qt` にデータが保存される。
 
     :param int n: 読み込みたい時間ステップ
-    :return: 時間ステップでの時間が返される
-.. py:function:: read_vc(n)
+
+.. py:method:: R2D2_data.read_time(n)
     
-    Fortranコードの中で解析した計算結果を読み込む。戻り値を返さない時も ``R2D2.vc`` にデータが保存される。
+    時間を読み込む。
 
     :param int n: 読み込みたい時間ステップ
-    :return: ``out=True`` が指定されているとデータが返される。
+    :return: 時間ステップでの時間
+
+.. py:method:: R2D2_data.read_vc(n)
+    
+    Fortranコードの中で解析した計算結果を読み込む。戻り値を返さない時も :py:attr:`R2D2_data.vc` にデータが保存される。
+
+    :param int n: 読み込みたい時間ステップ
+
+.. py:method:: R2D2_data.read_qq_check(n)
+    
+    チェックポイントのためのデータを読み込む :py:attr:`R2D2_data.qc` にデータが保存される。
+
+    :param int n: 読み込みたい時間ステップ
 
 IDLコード
 ::::::::::::::::::::::
@@ -115,4 +144,3 @@ IDLコード
 * ver. 1.1: 光学的厚さが0.1, 0.01の部分も出力することにした。qq_in, vcをconfigのグローバル変数として取扱うことにした。
 * ver. 1.2: データ構造を変更。
 
-最終更新日：|today|
