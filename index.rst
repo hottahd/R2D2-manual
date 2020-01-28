@@ -11,7 +11,7 @@ R2D2マニュアル
 
 `PDF版はこちら <https://github.com/hottahd/R2D2-manual/raw/master/_build/latex/r2d2.pdf>`_ 
 
-.. image:: source/figs/R2D2_logo.png
+.. image:: source/figs/R2D2_logo_red.png
    :width: 350 px
 
 .. toctree::
@@ -40,7 +40,7 @@ R2D2は現状、公開ソフトウェアではなく再配布も禁じている�
 * 改変は許されるが、その時の実行結果について堀田は責任を持たない
 * R2D2で実行する計算は、堀田と議論する必要がある。パラメタ変更などの細かい変更には相談する必要はないが、新しいプロジェクトを開始するときはその都度相談すること。堀田自身のプロジェクト、堀田の指導学生のプロジェクトとの重複を避けるためである。
 * R2D2を用いた論文を出版するときは　`Hotta et al., 2019 <https://ui.adsabs.harvard.edu/abs/2019SciA....5.2307H/abstract>`_　を引用すること。より詳しく説明した論文も出版予定である。
-* R2D2を用いた研究を発表するときは、`R2D2のロゴ <https://hottahd.github.io/R2D2-manual/_images/R2D2_logo.png>`_ の使用が推奨される(強制ではない)。
+* R2D2を用いた研究を発表するときは、`R2D2のロゴ <https://hottahd.github.io/R2D2-manual/_images/R2D2_logo_red.png>`_ の使用が推奨される(強制ではない)。
 
 
 TODOリスト

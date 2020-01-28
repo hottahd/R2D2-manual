@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.2-190131-2.6 (utf8.euc) (TeX Live 2019) (preloaded format=platex 2019.6.4)  9 JAN 2020 20:57
+This is e-pTeX, Version 3.14159265-p3.8.2-190131-2.6 (utf8.euc) (TeX Live 2019) (preloaded format=platex 2020.1.18)  28 JAN 2020 20:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -892,8 +892,8 @@ LaTeX Font Info:    Try loading font information for T1+pcr on input line 60.
 (/usr/local/texlive/2019/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
-File: R2D2_logo.png Graphic file (type bmp)
-<R2D2_logo.png>
+File: R2D2_logo_red.png Graphic file (type bmp)
+<R2D2_logo_red.png>
  [1
 
 ]
@@ -1114,12 +1114,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1352.
  ) 
 Here is how much of TeX's memory you used:
- 9581 strings out of 493223
- 137637 string characters out of 6144416
+ 9584 strings out of 493223
+ 137701 string characters out of 6144415
  379723 words of memory out of 5000000
- 13354 multiletter control sequences out of 15000+600000
+ 13356 multiletter control sequences out of 15000+600000
  65097 words of font info for 135 fonts, out of 8000000 for 9000
  935 hyphenation exceptions out of 8191
  37i,21n,45p,495b,536s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on r2d2.dvi (39 pages, 125888 bytes).
+Output written on r2d2.dvi (39 pages, 125896 bytes).

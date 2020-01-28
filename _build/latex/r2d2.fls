@@ -226,12 +226,12 @@ INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/times/ptmb8t.tfm
 OUTPUT r2d2.toc
-INPUT R2D2_logo.png
-INPUT R2D2_logo.xbb
+INPUT R2D2_logo_red.png
+INPUT R2D2_logo_red.xbb
 INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/psnfss/t1pcr.fd
 INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/psnfss/t1pcr.fd
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/courier/pcrr8t.tfm
-INPUT R2D2_logo.png
+INPUT R2D2_logo_red.png
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/ptex-fonts/standard/tmin10.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/ptex-fonts/jis/jis.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/times/ptmr8t.tfm
@@ -294,6 +294,7 @@ INPUT restructuredtext_vs.png
 INPUT restructuredtext_vs.xbb
 INPUT restructuredtext_vs.png
 INPUT R2D2_logo.png
+INPUT R2D2_logo.xbb
 INPUT R2D2_logo.png
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/ptex-fonts/standard/tgoth10.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/ptex-fonts/jis/jisg.tfm
