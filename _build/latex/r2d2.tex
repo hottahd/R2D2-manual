@@ -36,7 +36,7 @@
 
 
 \title{R2D2}
-\date{2020年01月28日}
+\date{2020年01月30日}
 \release{1.2}
 \author{Hideyuki Hotta}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -325,6 +325,218 @@ make
 \end{sphinxadmonition}
 
 
+\chapter{R2D2を使うための環境設定}
+\label{\detokenize{environment:r2d2}}\label{\detokenize{environment::doc}}
+R2D2コードを使って計算するだけならば任意のfortranコンパイラ, FFTW, MPIのみがあれば良い。
+Pythonコードを使って解析する場合は、いくつかのモジュールが必要なので、そのインストールの方法もここで説明する。
+
+
+\section{Fortranコードの環境設定}
+\label{\detokenize{environment:fortran}}
+
+\subsection{Mac}
+\label{\detokenize{environment:mac}}
+Homebrewを用いて、必要なコンパイラ・ライブラリをインストールすることを推奨している。
+コンパイラとFFTWのインクルードファイルとライブラリの位置だけ指定すれば良いので、
+任意の方法でインストールして構わない。Homebrew以外を用いる場合は、便宜make/Makefileを編集すること。
+
+Homebrewのインストール
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{o}{/}\PYG{n}{usr}\PYG{o}{/}\PYG{n+nb}{bin}\PYG{o}{/}\PYG{n}{ruby} \PYG{o}{\PYGZhy{}}\PYG{n}{e} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{\PYGZdl{}(curl \PYGZhy{}fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)}\PYG{l+s+s2}{\PYGZdq{}}
+\end{sphinxVerbatim}
+
+gfortranのインストール
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{brew} \PYG{n}{install} \PYG{n}{gcc}
+\end{sphinxVerbatim}
+
+OpenMPIのインストール
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{brew} \PYG{n}{install} \PYG{n}{openmpi}
+\end{sphinxVerbatim}
+
+FFTWのインストール
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{brew} \PYG{n}{install} \PYG{n}{fftw}
+\end{sphinxVerbatim}
+
+
+\subsection{Linux (Ubuntu 18.04)}
+\label{\detokenize{environment:linux-ubuntu-18-04}}
+ここでは、Ubuntu 18.04の場合のみを説明する。
+
+gfortranのインストール
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{sudo} \PYG{n}{apt}\PYG{o}{\PYGZhy{}}\PYG{n}{get} \PYG{n}{install} \PYG{n}{gfortran}
+\end{sphinxVerbatim}
+
+OpenMPIのインストール
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{sudo} \PYG{n}{apt}\PYG{o}{\PYGZhy{}}\PYG{n}{get} \PYG{n}{install} \PYG{n}{openmpi}\PYG{o}{\PYGZhy{}}\PYG{n}{doc} \PYG{n}{openmpi}\PYG{o}{\PYGZhy{}}\PYG{n+nb}{bin} \PYG{n}{libopenmpi}\PYG{o}{\PYGZhy{}}\PYG{n}{dev}
+\end{sphinxVerbatim}
+
+FFTWのインストール
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{sudo} \PYG{n}{apt}\PYG{o}{\PYGZhy{}}\PYG{n}{get} \PYG{n}{install} \PYG{n}{libfftw3}\PYG{o}{\PYGZhy{}}\PYG{n}{dev}
+\end{sphinxVerbatim}
+
+
+\section{Pythonコードの環境設定}
+\label{\detokenize{environment:python}}
+Anacondaをインストールし、以下に示すモジュール群をインストールする。
+MacとLinuxで共通する部分が多いのでまとめて説明を記す。
+
+\sphinxhref{https://www.anaconda.com/}{Anacondaのウェブサイト} から対応するインストーラーをダウンロードする。
+\begin{itemize}
+\item {} \begin{description}
+\item[{Mac}] \leavevmode
+dmgファイルをダウンロードして、インストール。インストールされるPATHが変わることが多いが、探してPATHを通す。 \sphinxcode{\sphinxupquote{/anaconda/bin}} や \sphinxcode{\sphinxupquote{\textasciitilde{}/opt/anaconda/bin}} など
+
+\end{description}
+
+\item {} \begin{description}
+\item[{Linux}] \leavevmode
+ダウンロードしてきたシェルスクリプトファイルのあるディレクトリで
+.. code:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{bash} \PYG{o}{\PYGZti{}}\PYG{o}{/}\PYG{n}{Anaconda}\PYG{o}{*}\PYG{o}{*}\PYG{o}{*}\PYG{o}{.}\PYG{n}{sh}
+\end{sphinxVerbatim}
+
+インストールするディレクトリは \sphinxcode{\sphinxupquote{/ホームディレクトリ/anaconda3}} とする。
+\sphinxcode{\sphinxupquote{/ホームディレクトリ/anaconda3}} にPATHを通す。
+スパコンのログインノードなどでもインストール方法は共通である。
+
+\end{description}
+
+\end{itemize}
+
+
+\subsection{ipythonの初期設定}
+\label{\detokenize{environment:ipython}}
+以下は必須ではないが、ipythonを使う時の初期設定ファイルである。
+\sphinxcode{\sphinxupquote{\textasciitilde{}/.ipython/profile\_default/startup/00\_first.py}}
+というファイルを作りそこに以下のように記す。
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{sys}\PYG{o}{,} \PYG{n+nn}{os}
+\PYG{k+kn}{import} \PYG{n+nn}{matplotlib}\PYG{n+nn}{.}\PYG{n+nn}{pyplot} \PYG{k}{as} \PYG{n+nn}{plt}
+\PYG{k+kn}{import} \PYG{n+nn}{scipy} \PYG{k}{as} \PYG{n+nn}{sp}
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k}{as} \PYG{n+nn}{np}
+\PYG{k+kn}{from} \PYG{n+nn}{matplotlib}\PYG{n+nn}{.}\PYG{n+nn}{pyplot} \PYG{k+kn}{import} \PYG{n}{pcolormesh}\PYG{p}{,}\PYG{n}{plot}\PYG{p}{,}\PYG{n}{clf}\PYG{p}{,}\PYG{n}{close}
+\PYG{k+kn}{from} \PYG{n+nn}{numpy} \PYG{k+kn}{import} \PYG{n}{sin}\PYG{p}{,}\PYG{n}{cos}\PYG{p}{,}\PYG{n}{tan}\PYG{p}{,}\PYG{n}{arcsin}\PYG{p}{,}\PYG{n}{arccos}\PYG{p}{,}\PYG{n}{arctan}\PYG{p}{,}\PYG{n}{exp}\PYG{p}{,}\PYG{n}{log}\PYG{p}{,}\PYG{n}{log2}\PYG{p}{,}\PYG{n}{log10}\PYG{p}{,}\PYG{n}{mod}\PYG{p}{,}\PYG{n}{sqrt}\PYG{p}{,}\PYG{n}{absolute}\PYG{p}{,}\PYG{n}{sinh}\PYG{p}{,}\PYG{n}{cosh}\PYG{p}{,}\PYG{n}{tanh}\PYG{p}{,}\PYG{n}{pi}\PYG{p}{,}\PYG{n}{arange}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{ion}\PYG{p}{(}\PYG{p}{)}
+\PYG{k+kn}{from} \PYG{n+nn}{IPython}\PYG{n+nn}{.}\PYG{n+nn}{core}\PYG{n+nn}{.}\PYG{n+nn}{magic} \PYG{k+kn}{import} \PYG{n}{register\PYGZus{}line\PYGZus{}magic}
+\PYG{n+nd}{@register\PYGZus{}line\PYGZus{}magic}
+\PYG{k}{def} \PYG{n+nf}{r}\PYG{p}{(}\PYG{n}{line}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{get\PYGZus{}ipython}\PYG{p}{(}\PYG{p}{)}\PYG{o}{.}\PYG{n}{run\PYGZus{}line\PYGZus{}magic}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{run}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{ \PYGZhy{}i }\PYG{l+s+s1}{\PYGZsq{}} \PYG{o}{+} \PYG{n}{line}\PYG{p}{)}
+\PYG{k}{del} \PYG{n}{r}
+\end{sphinxVerbatim}
+
+最後に記した設定によって、
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{r} \PYG{p}{(}\PYG{n}{Pythonスクリプト名}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+とするだけで、スクリプトを実行できるようになる。
+
+
+\subsection{Googleスプレッドシート利用}
+\label{\detokenize{environment:google}}
+計算設定などをGoogleスプレッドシートにまとめておくと便利である。
+R2D2では、Pythonから直接Googleスプレッドシートに送信する方法を提供しているので、利用したい方は検討されたい。
+
+手順については、 \sphinxhref{https://qiita.com/akabei/items/0eac37cb852ad476c6b9}{こちら} を参考にしたが、少し手順が違うのでこのページでも解説する。
+
+まずは関連するモジュールのインストール。
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+pip install gspread
+pip install oauth2client
+\end{sphinxVerbatim}
+
+
+\subsubsection{プロジェクト作成}
+\label{\detokenize{environment:id2}}
+ウェブブラウザで \sphinxurl{https://console.developers.google.com/cloud-resource-manager?pli=1} にアクセス。
+
+\noindent\sphinxincludegraphics[width=350\sphinxpxdimen]{{gen_project1}.png}
+
+「プロジェクトを作成」として、プロジェクトを作成
+
+\noindent\sphinxincludegraphics[width=400\sphinxpxdimen]{{gen_project2}.png}
+
+プロジェクト名はR2D2, 場所は組織なしとする。
+
+
+\subsubsection{API有効化}
+\label{\detokenize{environment:api}}
+\noindent\sphinxincludegraphics[width=400\sphinxpxdimen]{{google_drive1}.png}
+
+次に検索窓にGoogle Driveと打ち込んで、Google DriveのAPIを検索
+
+\noindent\sphinxincludegraphics[width=400\sphinxpxdimen]{{google_drive2}.png}
+
+Google Drive APIを有効にする。
+
+\noindent\sphinxincludegraphics[width=400\sphinxpxdimen]{{google_sheet1}.png}
+
+同様にGoogle Sheetsと検索
+
+\noindent\sphinxincludegraphics[width=400\sphinxpxdimen]{{google_sheet2}.png}
+
+Google Sheets APIを有効化
+
+
+\subsubsection{サービスアカウント作成}
+\label{\detokenize{environment:id3}}
+\noindent\sphinxincludegraphics[width=400\sphinxpxdimen]{{service_account1}.png}
+
+Google APIロゴ \(\rightarrow\) 認証情報 \(\rightarrow\) サービスアカウントとたどる。
+
+\noindent\sphinxincludegraphics[width=400\sphinxpxdimen]{{service_account2}.png}
+
+サービスアカウント名はR2D2とする
+
+\noindent\sphinxincludegraphics[width=400\sphinxpxdimen]{{service_account3}.png}
+
+役割は編集者を選択
+
+\noindent\sphinxincludegraphics[width=400\sphinxpxdimen]{{service_account4}.png}
+
+キーの生成ではJSONを選択し、キーを生成する。
+ダウンロードしたファイルは、使用する計算機のホームディレクトリにjsonというディレクトリを作成し、その下に配置する。そのディレクトリには、このjsonファイル以外には何も置かないこと。
+
+
+\subsubsection{スプレッドシート作成}
+\label{\detokenize{environment:id4}}
+以下のウェブサイトからGoogleスプレッドシートを作成
+\sphinxurl{https://docs.google.com/spreadsheets/create}
+
+名前はプロジェクト名とする。R2D2では、pyディレクトリの上のディレクトリ名を読みそれをスプレッドシートの名前として情報を送るので、ディレクトリと同じ名前にする。
+
+\noindent\sphinxincludegraphics[width=400\sphinxpxdimen]{{spread_sheet1}.png}
+
+講習会ではR2D2としておく。
+
+\noindent\sphinxincludegraphics[width=400\sphinxpxdimen]{{spread_sheet2}.png}
+
+共有をクリックし、ダウンロードしたjsonファイルの中のclient\_email行のEメールアドレスをコピーして、貼り付け。ここまでで、R2D2からGoogleスプレッドシートにアクセスできるようになる。
+
+
+\section{IDLコードの環境設定}
+\label{\detokenize{environment:idl}}
+システムにIDLをインストールすれば、それのみで使える。ここでは説明しない。
+
+
 \chapter{方程式}
 \label{\detokenize{equation:id1}}\label{\detokenize{equation::doc}}
 R2D2で解く方程式は以下である。現状では、デカルト座標 \((x,y,z)\)  のみを提供している。数値計算コードの中では、\(x\) を重力方向(鉛直方向)に取っているが、論文を書く際は各自適切に判断されたい。
@@ -367,8 +579,6 @@ T &= T_0 + T_1 \\\end{split}
 
 \chapter{コード構造}
 \label{\detokenize{code:id1}}\label{\detokenize{code::doc}}
-最終更新日：2020年01月08日
-
 
 \chapter{数値スキーム}
 \label{\detokenize{scheme:id1}}\label{\detokenize{scheme::doc}}
@@ -797,9 +1007,18 @@ ver. 1.2: データ構造を変更。
 
 というフォーマットを採用する。
 
+R2D2では、\sphinxcode{\sphinxupquote{R2D2\_data}} というクラスを用意している。
 
-\section{R2D2.p}
-\label{\detokenize{notation:r2d2-p}}
+
+\section{self.p {[}dictionary{]}}
+\label{\detokenize{notation:self-p-dictionary}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{R2D2}
+\PYG{n+nb+bp}{self} \PYG{o}{=} \PYG{n}{R2D2}\PYG{o}{.}\PYG{n}{R2D2\PYGZus{}data}\PYG{p}{(}\PYG{n}{datadir}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+とすると、初期設定が読み込まれる。 \sphinxcode{\sphinxupquote{self}} は \sphinxcode{\sphinxupquote{R2D2\_data}} のオブジェクトであり、名前は任意である。 \sphinxcode{\sphinxupquote{init.py}} や \sphinxcode{\sphinxupquote{mov.py}} では、オブジェクト名は \sphinxcode{\sphinxupquote{d}} としてある。
+
 
 \subsection{出力・時間に関する量}
 \label{\detokenize{notation:id1}}\begin{itemize}
@@ -810,16 +1029,16 @@ datadir (str) \sphinxhyphen{}\sphinxhyphen{} データの保存場所
 nd (int) \sphinxhyphen{}\sphinxhyphen{} 現在までのアウトプット時間ステップ数(3次元データ)
 
 \item {} 
-ni (int) \sphinxhyphen{}\sphinxhyphen{} 現在までのアウトプット時間ステップ数(光学的厚さ一定のデータ)
+nd\_tau (int) \sphinxhyphen{}\sphinxhyphen{} 現在までのアウトプット時間ステップ数(光学的厚さ一定のデータ)
 
 \item {} 
 dtout (float) \sphinxhyphen{}\sphinxhyphen{}　出力ケーデンス {[}s{]}
 
 \item {} 
-dtoui (float) \sphinxhyphen{}\sphinxhyphen{}　光学的厚さ一定のデータの出力ケーデンス {[}s{]}
+dtout\_tau (float) \sphinxhyphen{}\sphinxhyphen{}　光学的厚さ一定のデータの出力ケーデンス {[}s{]}
 
 \item {} 
-ifac (int) \sphinxhyphen{}\sphinxhyphen{} dtout/dtoui
+ifac (int) \sphinxhyphen{}\sphinxhyphen{} dtout/dtout\_tau
 
 \item {} 
 tend (float) \sphinxhyphen{}\sphinxhyphen{} 計算終了時間。大きく取ってあるためにこの時間まで計算することはあまりない {[}s{]}
@@ -949,7 +1168,7 @@ se0 (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場のエントロピ�
 en0 (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場の内部エネルギー {[}erg cm $^{\text{\sphinxhyphen{}3}}${]}
 
 \item {} 
-op0 (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場のオパシティー {[}{]}
+op0 (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場のオパシティー {[}g $^{\text{\sphinxhyphen{}1}}$ cm $^{\text{\sphinxhyphen{}2}}${]}
 
 \item {} 
 tu0 (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場の光学的厚さ
@@ -1014,7 +1233,7 @@ m2da (int) \sphinxhyphen{}\sphinxhyphen{} remapで出力した解析量の数
 cl (char) {[}m2da{]} \sphinxhyphen{}\sphinxhyphen{}　remapで出力した解析量の名前
 
 \item {} 
-jc (int) \sphinxhyphen{}\sphinxhyphen{} \sphinxcode{\sphinxupquote{R2D2.vc{[}\textquotesingle{}vxp\textquotesingle{}{]}}} などで出力するスライスのy方向の位置
+jc (int) \sphinxhyphen{}\sphinxhyphen{} \sphinxcode{\sphinxupquote{self.vc{[}\textquotesingle{}vxp\textquotesingle{}{]}}} などで出力するスライスのy方向の位置
 
 \item {} 
 kc (int) \sphinxhyphen{}\sphinxhyphen{} 浮上磁場の中心と思っている場所を出力(あまり使わない)
@@ -1061,28 +1280,64 @@ j2jr (int) {[}jx{]} \sphinxhyphen{}\sphinxhyphen{}
 \end{itemize}
 
 
-\section{R2D2.q2}
-\label{\detokenize{notation:r2d2-q2}}\begin{itemize}
+\section{self.qs {[}dictionary{]}}
+\label{\detokenize{notation:self-qs-dictionary}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{xs} \PYG{o}{=} \PYG{l+m+mf}{0.99}\PYG{o}{*}\PYG{n}{rsun}
+\PYG{n}{ns} \PYG{o}{=} \PYG{l+m+mi}{10}
+\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{read\PYGZus{}qq\PYGZus{}select}\PYG{p}{(}\PYG{n}{xs}\PYG{p}{,}\PYG{n}{ns}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+として高さ \sphinxcode{\sphinxupquote{xs}} での二次元スライスを読み込む
+\begin{itemize}
 \item {} 
-aaa
+ro (float) {[}jx,kx{]} \sphinxhyphen{}\sphinxhyphen{} 密度の擾乱 \(\rho_1\) {[}g cm $^{\text{\sphinxhyphen{}3}}${]}
+
+\item {} 
+vx (float) {[}jx,kx{]} \sphinxhyphen{}\sphinxhyphen{} x方向の速度 \(v_x\) {[}cm s $^{\text{\sphinxhyphen{}1}}${]}
+
+\item {} 
+vy (float) {[}jx,kx{]} \sphinxhyphen{}\sphinxhyphen{} y方向の速度 \(v_y\) {[}cm s $^{\text{\sphinxhyphen{}1}}${]}
+
+\item {} 
+vz (float) {[}jx,kx{]} \sphinxhyphen{}\sphinxhyphen{} z方向の速度 \(v_z\) {[}cm s $^{\text{\sphinxhyphen{}1}}${]}
+
+\item {} 
+bx (float) {[}jx,kx{]} \sphinxhyphen{}\sphinxhyphen{} x方向の磁場 \(B_x\) {[}G{]}
+
+\item {} 
+by (float) {[}jx,kx{]} \sphinxhyphen{}\sphinxhyphen{} y方向の磁場 \(B_y\) {[}G{]}
+
+\item {} 
+bz (float) {[}jx,kx{]} \sphinxhyphen{}\sphinxhyphen{} z方向の磁場 \(B_z\) {[}G{]}
+
+\item {} 
+se (float) {[}jx,kx{]} \sphinxhyphen{}\sphinxhyphen{} エントロピーの擾乱 \(s_1\) {[}erg g $^{\text{\sphinxhyphen{}1}}$ K $^{\text{\sphinxhyphen{}1}}${]}
+
+\item {} 
+pr (float) {[}jx,kx{]} \sphinxhyphen{}\sphinxhyphen{} 圧力の擾乱 \(p_1\) {[}dyn cm $^{\text{\sphinxhyphen{}2}}${]}
+
+\item {} 
+te (float) {[}jx,kx{]} \sphinxhyphen{}\sphinxhyphen{} 温度の擾乱 \(T_1\) {[}K{]}
+
+\item {} 
+op (float) {[}jx,kx{]} \sphinxhyphen{}\sphinxhyphen{} 不透明度(オパシティー) \(\kappa\) {[}g $^{\text{\sphinxhyphen{}1}}$ cm $^{\text{\sphinxhyphen{}2}}${]}
 
 \end{itemize}
 
 
-\section{R2D2.q3}
-\label{\detokenize{notation:r2d2-q3}}
-R2D2.q2と同様
+\section{self.qq {[}dictionary{]}}
+\label{\detokenize{notation:self-qq-dictionary}}
+\sphinxcode{\sphinxupquote{self.qs}} と同様
 
 
-\section{R2D2.qi}
-\label{\detokenize{notation:r2d2-qi}}
-ほぼR2D2.q2と同様だが、以下の追加量が保存してある。
+\section{self.qt {[}dictionary{]}}
+\label{\detokenize{notation:self-qt-dictionary}}
+ほぼself.qsと同様だが、以下の追加量が保存してある。
 
 
-\section{R2D2.vc}
-\label{\detokenize{notation:r2d2-vc}}
-最終更新日：2020年01月08日
-
+\section{R2D2.vc {[}dictionary{]}}
+\label{\detokenize{notation:r2d2-vc-dictionary}}
 
 \chapter{Sphinx使用の覚書}
 \label{\detokenize{sphinx:sphinx}}\label{\detokenize{sphinx::doc}}
@@ -1337,7 +1592,7 @@ R2D2を用いた研究を発表するときは、\sphinxhref{https://hottahd.git
 
 \end{itemize}
 
-最終更新日：2020年01月28日
+最終更新日：2020年01月30日
 
 
 \renewcommand{\indexname}{Pythonモジュール索引}

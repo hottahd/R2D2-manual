@@ -7,18 +7,27 @@ R2D2 pythonでのキーワードの説明
 
 というフォーマットを採用する。
 
-R2D2.p
+R2D2では、:code:`R2D2_data` というクラスを用意している。
+
+self.p [dictionary]
 --------------------------------
+
+.. code::
+
+    import R2D2
+    self = R2D2.R2D2_data(datadir)
+
+とすると、初期設定が読み込まれる。 :code:`self` は :code:`R2D2_data` のオブジェクトであり、名前は任意である。 :code:`init.py` や :code:`mov.py` では、オブジェクト名は :code:`d` としてある。
 
 出力・時間に関する量
 ::::::::::::::::::::::::::::::::
 
 * datadir (str) -- データの保存場所
 * nd (int) -- 現在までのアウトプット時間ステップ数(3次元データ)
-* ni (int) -- 現在までのアウトプット時間ステップ数(光学的厚さ一定のデータ)
+* nd_tau (int) -- 現在までのアウトプット時間ステップ数(光学的厚さ一定のデータ)
 * dtout (float) --　出力ケーデンス [s]
-* dtoui (float) --　光学的厚さ一定のデータの出力ケーデンス [s]
-* ifac (int) -- dtout/dtoui
+* dtout_tau (float) --　光学的厚さ一定のデータの出力ケーデンス [s]
+* ifac (int) -- dtout/dtout_tau
 * tend (float) -- 計算終了時間。大きく取ってあるためにこの時間まで計算することはあまりない [s]
 * swap (int) --　エンディアン指定。big endianは1、little endianは0。IDLの定義に従っている。
 * endian (char) -- エンディアン指定。big endianは > 、little endianは < 。pythonの定義に従っている。
@@ -65,7 +74,7 @@ R2D2.p
 * ro0 (float) [ix] -- 背景場の密度 [g cm `-3`:sup:]
 * se0 (float) [ix] -- 背景場のエントロピー [erg g `-1`:sup: K `-1`:sup:]
 * en0 (float) [ix] -- 背景場の内部エネルギー [erg cm `-3`:sup:]
-* op0 (float) [ix] -- 背景場のオパシティー []
+* op0 (float) [ix] -- 背景場のオパシティー [g `-1`:sup: cm `-2`:sup:]
 * tu0 (float) [ix] -- 背景場の光学的厚さ
 * dsedr0 (float) [ix] -- 背景場の鉛直エントロピー勾配 [erg g `-1`:sup: K `-1`:sup: cm `-1`:sup:]
 * dtedr0 (float) [ix] -- 背景場の鉛直温度勾配 [K cm `-1`:sup:]
@@ -89,7 +98,7 @@ R2D2.p
 
 * m2da (int) -- remapで出力した解析量の数
 * cl (char) [m2da] --　remapで出力した解析量の名前
-* jc (int) -- ``R2D2.vc['vxp']`` などで出力するスライスのy方向の位置
+* jc (int) -- ``self.vc['vxp']`` などで出力するスライスのy方向の位置
 * kc (int) -- 浮上磁場の中心と思っている場所を出力(あまり使わない)
 * ixr (int) -- remap後のx方向分割の数
 * jxr (int) -- remap後のy方向分割の数
@@ -105,22 +114,38 @@ R2D2.p
 * i2ir (int) [ix] --
 * j2jr (int) [jx] --
 
-R2D2.q2
+self.qs [dictionary]
 --------------------------------
 
-* aaa
+.. code::
+    
+    xs = 0.99*rsun
+    ns = 10
+    self.read_qq_select(xs,ns)
 
-R2D2.q3
+として高さ :code:`xs` での二次元スライスを読み込む
+
+* ro (float) [jx,kx] -- 密度の擾乱 :math:`\rho_1` [g cm `-3`:sup:]
+* vx (float) [jx,kx] -- x方向の速度 :math:`v_x` [cm s `-1`:sup:]
+* vy (float) [jx,kx] -- y方向の速度 :math:`v_y` [cm s `-1`:sup:]
+* vz (float) [jx,kx] -- z方向の速度 :math:`v_z` [cm s `-1`:sup:]
+* bx (float) [jx,kx] -- x方向の磁場 :math:`B_x` [G]
+* by (float) [jx,kx] -- y方向の磁場 :math:`B_y` [G]
+* bz (float) [jx,kx] -- z方向の磁場 :math:`B_z` [G]
+* se (float) [jx,kx] -- エントロピーの擾乱 :math:`s_1` [erg g `-1`:sup: K `-1`:sup:]
+* pr (float) [jx,kx] -- 圧力の擾乱 :math:`p_1` [dyn cm `-2`:sup:]
+* te (float) [jx,kx] -- 温度の擾乱 :math:`T_1` [K]
+* op (float) [jx,kx] -- 不透明度(オパシティー) :math:`\kappa` [g `-1`:sup: cm `-2`:sup:]
+
+self.qq [dictionary]
 --------------------------------
 
-R2D2.q2と同様
+:code:`self.qs` と同様
 
-R2D2.qi
+self.qt [dictionary]
 --------------------------------
 
-ほぼR2D2.q2と同様だが、以下の追加量が保存してある。
+ほぼself.qsと同様だが、以下の追加量が保存してある。
 
-R2D2.vc
+R2D2.vc [dictionary]
 --------------------------------
-
-最終更新日：|today|

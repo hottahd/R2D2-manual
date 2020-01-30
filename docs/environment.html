@@ -1,0 +1,285 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>R2D2を使うための環境設定 &#8212; R2D2 1.2 ドキュメント</title>
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="next" title="方程式" href="equation.html" />
+    <link rel="prev" title="R2D2を使い始めるには" href="start.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="equation.html" title="方程式"
+             accesskey="N">次へ</a> |</li>
+        <li class="right" >
+          <a href="start.html" title="R2D2を使い始めるには"
+             accesskey="P">前へ</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">R2D2 1.2 ドキュメント</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">目次</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">R2D2を使うための環境設定</a><ul>
+<li><a class="reference internal" href="#fortran">Fortranコードの環境設定</a><ul>
+<li><a class="reference internal" href="#mac">Mac</a></li>
+<li><a class="reference internal" href="#linux-ubuntu-18-04">Linux (Ubuntu 18.04)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#python">Pythonコードの環境設定</a><ul>
+<li><a class="reference internal" href="#ipython">ipythonの初期設定</a></li>
+<li><a class="reference internal" href="#google">Googleスプレッドシート利用</a><ul>
+<li><a class="reference internal" href="#id2">プロジェクト作成</a></li>
+<li><a class="reference internal" href="#api">API有効化</a></li>
+<li><a class="reference internal" href="#id3">サービスアカウント作成</a></li>
+<li><a class="reference internal" href="#id4">スプレッドシート作成</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#idl">IDLコードの環境設定</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>前のトピックへ</h4>
+  <p class="topless"><a href="start.html"
+                        title="前の章へ">R2D2を使い始めるには</a></p>
+  <h4>次のトピックへ</h4>
+  <p class="topless"><a href="equation.html"
+                        title="次の章へ">方程式</a></p>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/environment.rst.txt"
+            rel="nofollow">ソースコードを表示</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="検索" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="r2d2">
+<h1>R2D2を使うための環境設定<a class="headerlink" href="#r2d2" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>R2D2コードを使って計算するだけならば任意のfortranコンパイラ, FFTW, MPIのみがあれば良い。
+Pythonコードを使って解析する場合は、いくつかのモジュールが必要なので、そのインストールの方法もここで説明する。</p>
+<div class="section" id="fortran">
+<h2>Fortranコードの環境設定<a class="headerlink" href="#fortran" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="mac">
+<h3>Mac<a class="headerlink" href="#mac" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Homebrewを用いて、必要なコンパイラ・ライブラリをインストールすることを推奨している。
+コンパイラとFFTWのインクルードファイルとライブラリの位置だけ指定すれば良いので、
+任意の方法でインストールして構わない。Homebrew以外を用いる場合は、便宜make/Makefileを編集すること。</p>
+<p>Homebrewのインストール</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">ruby</span> <span class="o">-</span><span class="n">e</span> <span class="s2">&quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span>
+</pre></div>
+</div>
+<p>gfortranのインストール</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">brew</span> <span class="n">install</span> <span class="n">gcc</span>
+</pre></div>
+</div>
+<p>OpenMPIのインストール</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">brew</span> <span class="n">install</span> <span class="n">openmpi</span>
+</pre></div>
+</div>
+<p>FFTWのインストール</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">brew</span> <span class="n">install</span> <span class="n">fftw</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="linux-ubuntu-18-04">
+<h3>Linux (Ubuntu 18.04)<a class="headerlink" href="#linux-ubuntu-18-04" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ここでは、Ubuntu 18.04の場合のみを説明する。</p>
+<p>gfortranのインストール</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">gfortran</span>
+</pre></div>
+</div>
+<p>OpenMPIのインストール</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">openmpi</span><span class="o">-</span><span class="n">doc</span> <span class="n">openmpi</span><span class="o">-</span><span class="nb">bin</span> <span class="n">libopenmpi</span><span class="o">-</span><span class="n">dev</span>
+</pre></div>
+</div>
+<p>FFTWのインストール</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">libfftw3</span><span class="o">-</span><span class="n">dev</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="python">
+<h2>Pythonコードの環境設定<a class="headerlink" href="#python" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Anacondaをインストールし、以下に示すモジュール群をインストールする。
+MacとLinuxで共通する部分が多いのでまとめて説明を記す。</p>
+<p><a class="reference external" href="https://www.anaconda.com/">Anacondaのウェブサイト</a> から対応するインストーラーをダウンロードする。</p>
+<ul>
+<li><dl class="simple">
+<dt>Mac</dt><dd><p>dmgファイルをダウンロードして、インストール。インストールされるPATHが変わることが多いが、探してPATHを通す。 <code class="code docutils literal notranslate"><span class="pre">/anaconda/bin</span></code> や <code class="code docutils literal notranslate"><span class="pre">~/opt/anaconda/bin</span></code> など</p>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Linux</dt><dd><p>ダウンロードしてきたシェルスクリプトファイルのあるディレクトリで
+.. code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bash</span> <span class="o">~/</span><span class="n">Anaconda</span><span class="o">***.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>インストールするディレクトリは <code class="code docutils literal notranslate"><span class="pre">/ホームディレクトリ/anaconda3</span></code> とする。
+<code class="code docutils literal notranslate"><span class="pre">/ホームディレクトリ/anaconda3</span></code> にPATHを通す。
+スパコンのログインノードなどでもインストール方法は共通である。</p>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="section" id="ipython">
+<h3>ipythonの初期設定<a class="headerlink" href="#ipython" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>以下は必須ではないが、ipythonを使う時の初期設定ファイルである。
+<code class="code docutils literal notranslate"><span class="pre">~/.ipython/profile_default/startup/00_first.py</span></code>
+というファイルを作りそこに以下のように記す。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sp</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">import</span> <span class="n">pcolormesh</span><span class="p">,</span><span class="n">plot</span><span class="p">,</span><span class="n">clf</span><span class="p">,</span><span class="n">close</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">sin</span><span class="p">,</span><span class="n">cos</span><span class="p">,</span><span class="n">tan</span><span class="p">,</span><span class="n">arcsin</span><span class="p">,</span><span class="n">arccos</span><span class="p">,</span><span class="n">arctan</span><span class="p">,</span><span class="n">exp</span><span class="p">,</span><span class="n">log</span><span class="p">,</span><span class="n">log2</span><span class="p">,</span><span class="n">log10</span><span class="p">,</span><span class="n">mod</span><span class="p">,</span><span class="n">sqrt</span><span class="p">,</span><span class="n">absolute</span><span class="p">,</span><span class="n">sinh</span><span class="p">,</span><span class="n">cosh</span><span class="p">,</span><span class="n">tanh</span><span class="p">,</span><span class="n">pi</span><span class="p">,</span><span class="n">arange</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ion</span><span class="p">()</span>
+<span class="kn">from</span> <span class="nn">IPython.core.magic</span> <span class="kn">import</span> <span class="n">register_line_magic</span>
+<span class="nd">@register_line_magic</span>
+<span class="k">def</span> <span class="nf">r</span><span class="p">(</span><span class="n">line</span><span class="p">):</span>
+    <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;run&#39;</span><span class="p">,</span> <span class="s1">&#39; -i &#39;</span> <span class="o">+</span> <span class="n">line</span><span class="p">)</span>
+<span class="k">del</span> <span class="n">r</span>
+</pre></div>
+</div>
+<p>最後に記した設定によって、</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="p">(</span><span class="n">Pythonスクリプト名</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>とするだけで、スクリプトを実行できるようになる。</p>
+</div>
+<div class="section" id="google">
+<h3>Googleスプレッドシート利用<a class="headerlink" href="#google" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>計算設定などをGoogleスプレッドシートにまとめておくと便利である。
+R2D2では、Pythonから直接Googleスプレッドシートに送信する方法を提供しているので、利用したい方は検討されたい。</p>
+<p>手順については、 <a class="reference external" href="https://qiita.com/akabei/items/0eac37cb852ad476c6b9">こちら</a> を参考にしたが、少し手順が違うのでこのページでも解説する。</p>
+<p>まずは関連するモジュールのインストール。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install gspread
+pip install oauth2client
+</pre></div>
+</div>
+<div class="section" id="id2">
+<h4>プロジェクト作成<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>ウェブブラウザで <a class="reference external" href="https://console.developers.google.com/cloud-resource-manager?pli=1">https://console.developers.google.com/cloud-resource-manager?pli=1</a> にアクセス。</p>
+<a class="reference internal image-reference" href="_images/gen_project1.png"><img alt="_images/gen_project1.png" src="_images/gen_project1.png" style="width: 350px;" /></a>
+<p>「プロジェクトを作成」として、プロジェクトを作成</p>
+<a class="reference internal image-reference" href="_images/gen_project2.png"><img alt="_images/gen_project2.png" src="_images/gen_project2.png" style="width: 400px;" /></a>
+<p>プロジェクト名はR2D2, 場所は組織なしとする。</p>
+</div>
+<div class="section" id="api">
+<h4>API有効化<a class="headerlink" href="#api" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<a class="reference internal image-reference" href="_images/google_drive1.png"><img alt="_images/google_drive1.png" src="_images/google_drive1.png" style="width: 400px;" /></a>
+<p>次に検索窓にGoogle Driveと打ち込んで、Google DriveのAPIを検索</p>
+<a class="reference internal image-reference" href="_images/google_drive2.png"><img alt="_images/google_drive2.png" src="_images/google_drive2.png" style="width: 400px;" /></a>
+<p>Google Drive APIを有効にする。</p>
+<a class="reference internal image-reference" href="_images/google_sheet1.png"><img alt="_images/google_sheet1.png" src="_images/google_sheet1.png" style="width: 400px;" /></a>
+<p>同様にGoogle Sheetsと検索</p>
+<a class="reference internal image-reference" href="_images/google_sheet2.png"><img alt="_images/google_sheet2.png" src="_images/google_sheet2.png" style="width: 400px;" /></a>
+<p>Google Sheets APIを有効化</p>
+</div>
+<div class="section" id="id3">
+<h4>サービスアカウント作成<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<a class="reference internal image-reference" href="_images/service_account1.png"><img alt="_images/service_account1.png" src="_images/service_account1.png" style="width: 400px;" /></a>
+<p>Google APIロゴ → 認証情報 → サービスアカウントとたどる。</p>
+<a class="reference internal image-reference" href="_images/service_account2.png"><img alt="_images/service_account2.png" src="_images/service_account2.png" style="width: 400px;" /></a>
+<p>サービスアカウント名はR2D2とする</p>
+<a class="reference internal image-reference" href="_images/service_account3.png"><img alt="_images/service_account3.png" src="_images/service_account3.png" style="width: 400px;" /></a>
+<p>役割は編集者を選択</p>
+<a class="reference internal image-reference" href="_images/service_account4.png"><img alt="_images/service_account4.png" src="_images/service_account4.png" style="width: 400px;" /></a>
+<p>キーの生成ではJSONを選択し、キーを生成する。
+ダウンロードしたファイルは、使用する計算機のホームディレクトリにjsonというディレクトリを作成し、その下に配置する。そのディレクトリには、このjsonファイル以外には何も置かないこと。</p>
+</div>
+<div class="section" id="id4">
+<h4>スプレッドシート作成<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>以下のウェブサイトからGoogleスプレッドシートを作成
+<a class="reference external" href="https://docs.google.com/spreadsheets/create">https://docs.google.com/spreadsheets/create</a></p>
+<p>名前はプロジェクト名とする。R2D2では、pyディレクトリの上のディレクトリ名を読みそれをスプレッドシートの名前として情報を送るので、ディレクトリと同じ名前にする。</p>
+<a class="reference internal image-reference" href="_images/spread_sheet1.png"><img alt="_images/spread_sheet1.png" src="_images/spread_sheet1.png" style="width: 400px;" /></a>
+<p>講習会ではR2D2としておく。</p>
+<a class="reference internal image-reference" href="_images/spread_sheet2.png"><img alt="_images/spread_sheet2.png" src="_images/spread_sheet2.png" style="width: 400px;" /></a>
+<p>共有をクリックし、ダウンロードしたjsonファイルの中のclient_email行のEメールアドレスをコピーして、貼り付け。ここまでで、R2D2からGoogleスプレッドシートにアクセスできるようになる。</p>
+</div>
+</div>
+</div>
+<div class="section" id="idl">
+<h2>IDLコードの環境設定<a class="headerlink" href="#idl" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>システムにIDLをインストールすれば、それのみで使える。ここでは説明しない。</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="総合索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="equation.html" title="方程式"
+             >次へ</a> |</li>
+        <li class="right" >
+          <a href="start.html" title="R2D2を使い始めるには"
+             >前へ</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">R2D2 1.2 ドキュメント</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Hideyuki Hotta.
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1 で生成しました。
+    </div>
+  </body>
+</html>
