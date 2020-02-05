@@ -2,46 +2,47 @@
 \BOOKMARK [1][-]{section.1.1}{ディレクトリ構造の準備}{chapter.1}% 2
 \BOOKMARK [1][-]{section.1.2}{コンパイル}{chapter.1}% 3
 \BOOKMARK [1][-]{section.1.3}{基本的なパラメータ}{chapter.1}% 4
-\BOOKMARK [1][-]{section.1.4}{初期条件・追加条件}{chapter.1}% 5
-\BOOKMARK [1][-]{section.1.5}{スーパーコンピュータでのシェルスクリプト}{chapter.1}% 6
-\BOOKMARK [1][-]{section.1.6}{初期条件データを受け取った場合}{chapter.1}% 7
-\BOOKMARK [0][-]{chapter.2}{R2D2を使うための環境設定}{}% 8
-\BOOKMARK [1][-]{section.2.1}{Fortranコードの環境設定}{chapter.2}% 9
-\BOOKMARK [1][-]{section.2.2}{Pythonコードの環境設定}{chapter.2}% 10
-\BOOKMARK [1][-]{section.2.3}{IDLコードの環境設定}{chapter.2}% 11
-\BOOKMARK [0][-]{chapter.3}{方程式}{}% 12
-\BOOKMARK [1][-]{section.3.1}{磁気流体力学}{chapter.3}% 13
-\BOOKMARK [1][-]{section.3.2}{輻射輸送}{chapter.3}% 14
-\BOOKMARK [0][-]{chapter.4}{コード構造}{}% 15
-\BOOKMARK [0][-]{chapter.5}{数値スキーム}{}% 16
-\BOOKMARK [1][-]{section.5.1}{MHDスキーム}{chapter.5}% 17
-\BOOKMARK [0][-]{chapter.6}{パラメータ}{}% 18
-\BOOKMARK [0][-]{chapter.7}{座標生成}{}% 19
-\BOOKMARK [1][-]{section.7.1}{一様グリッド}{chapter.7}% 20
-\BOOKMARK [1][-]{section.7.2}{非一様グリッド}{chapter.7}% 21
-\BOOKMARK [0][-]{chapter.8}{境界条件}{}% 22
-\BOOKMARK [1][-]{section.8.1}{上部境界}{chapter.8}% 23
-\BOOKMARK [1][-]{section.8.2}{下部境界}{chapter.8}% 24
-\BOOKMARK [0][-]{chapter.9}{人工粘性}{}% 25
-\BOOKMARK [0][-]{chapter.10}{出力と読込}{}% 26
-\BOOKMARK [1][-]{section.10.1}{出力}{chapter.10}% 27
-\BOOKMARK [1][-]{section.10.2}{読込}{chapter.10}% 28
-\BOOKMARK [1][-]{section.10.3}{バージョン履歴}{chapter.10}% 29
-\BOOKMARK [0][-]{chapter.11}{R2D2 pythonでのキーワードの説明}{}% 30
-\BOOKMARK [1][-]{section.11.1}{self.p [dictionary]}{chapter.11}% 31
-\BOOKMARK [1][-]{section.11.2}{self.qs [dictionary]}{chapter.11}% 32
-\BOOKMARK [1][-]{section.11.3}{self.qq [dictionary]}{chapter.11}% 33
-\BOOKMARK [1][-]{section.11.4}{self.qt [dictionary]}{chapter.11}% 34
-\BOOKMARK [1][-]{section.11.5}{R2D2.vc [dictionary]}{chapter.11}% 35
-\BOOKMARK [0][-]{chapter.12}{Sphinx使用の覚書}{}% 36
-\BOOKMARK [1][-]{section.12.1}{はじめに}{chapter.12}% 37
-\BOOKMARK [1][-]{section.12.2}{インストール}{chapter.12}% 38
-\BOOKMARK [1][-]{section.12.3}{HTMLファイルの生成}{chapter.12}% 39
-\BOOKMARK [1][-]{section.12.4}{VS codeの利用}{chapter.12}% 40
-\BOOKMARK [1][-]{section.12.5}{環境設定}{chapter.12}% 41
-\BOOKMARK [1][-]{section.12.6}{記法}{chapter.12}% 42
-\BOOKMARK [0][-]{chapter.13}{ライセンス}{}% 43
-\BOOKMARK [0][-]{chapter.14}{TODOリスト}{}% 44
-\BOOKMARK [0][-]{chapter.15}{索引と検索ページ}{}% 45
-\BOOKMARK [0][-]{section*.24}{Pythonモジュール索引}{}% 46
-\BOOKMARK [0][-]{section*.25}{索引}{}% 47
+\BOOKMARK [1][-]{section.1.4}{初期条件}{chapter.1}% 5
+\BOOKMARK [1][-]{section.1.5}{追加条件}{chapter.1}% 6
+\BOOKMARK [1][-]{section.1.6}{スーパーコンピュータでのシェルスクリプト}{chapter.1}% 7
+\BOOKMARK [1][-]{section.1.7}{初期条件データを受け取った場合}{chapter.1}% 8
+\BOOKMARK [0][-]{chapter.2}{R2D2を使うための環境設定}{}% 9
+\BOOKMARK [1][-]{section.2.1}{Fortranコードの環境設定}{chapter.2}% 10
+\BOOKMARK [1][-]{section.2.2}{Pythonコードの環境設定}{chapter.2}% 11
+\BOOKMARK [1][-]{section.2.3}{IDLコードの環境設定}{chapter.2}% 12
+\BOOKMARK [0][-]{chapter.3}{方程式}{}% 13
+\BOOKMARK [1][-]{section.3.1}{磁気流体力学}{chapter.3}% 14
+\BOOKMARK [1][-]{section.3.2}{輻射輸送}{chapter.3}% 15
+\BOOKMARK [0][-]{chapter.4}{コード構造}{}% 16
+\BOOKMARK [0][-]{chapter.5}{数値スキーム}{}% 17
+\BOOKMARK [1][-]{section.5.1}{MHDスキーム}{chapter.5}% 18
+\BOOKMARK [0][-]{chapter.6}{パラメータ}{}% 19
+\BOOKMARK [0][-]{chapter.7}{座標生成}{}% 20
+\BOOKMARK [1][-]{section.7.1}{一様グリッド}{chapter.7}% 21
+\BOOKMARK [1][-]{section.7.2}{非一様グリッド}{chapter.7}% 22
+\BOOKMARK [0][-]{chapter.8}{境界条件}{}% 23
+\BOOKMARK [1][-]{section.8.1}{上部境界}{chapter.8}% 24
+\BOOKMARK [1][-]{section.8.2}{下部境界}{chapter.8}% 25
+\BOOKMARK [0][-]{chapter.9}{人工粘性}{}% 26
+\BOOKMARK [0][-]{chapter.10}{出力と読込}{}% 27
+\BOOKMARK [1][-]{section.10.1}{出力}{chapter.10}% 28
+\BOOKMARK [1][-]{section.10.2}{読込}{chapter.10}% 29
+\BOOKMARK [1][-]{section.10.3}{バージョン履歴}{chapter.10}% 30
+\BOOKMARK [0][-]{chapter.11}{R2D2 pythonでのキーワードの説明}{}% 31
+\BOOKMARK [1][-]{section.11.1}{self.p [dictionary]}{chapter.11}% 32
+\BOOKMARK [1][-]{section.11.2}{self.qs [dictionary]}{chapter.11}% 33
+\BOOKMARK [1][-]{section.11.3}{self.qq [dictionary]}{chapter.11}% 34
+\BOOKMARK [1][-]{section.11.4}{self.qt [dictionary]}{chapter.11}% 35
+\BOOKMARK [1][-]{section.11.5}{self.vc [dictionary]}{chapter.11}% 36
+\BOOKMARK [0][-]{chapter.12}{Sphinx使用の覚書}{}% 37
+\BOOKMARK [1][-]{section.12.1}{はじめに}{chapter.12}% 38
+\BOOKMARK [1][-]{section.12.2}{インストール}{chapter.12}% 39
+\BOOKMARK [1][-]{section.12.3}{HTMLファイルの生成}{chapter.12}% 40
+\BOOKMARK [1][-]{section.12.4}{VS codeの利用}{chapter.12}% 41
+\BOOKMARK [1][-]{section.12.5}{環境設定}{chapter.12}% 42
+\BOOKMARK [1][-]{section.12.6}{記法}{chapter.12}% 43
+\BOOKMARK [0][-]{chapter.13}{ライセンス}{}% 44
+\BOOKMARK [0][-]{chapter.14}{TODOリスト}{}% 45
+\BOOKMARK [0][-]{chapter.15}{索引と検索ページ}{}% 46
+\BOOKMARK [0][-]{section*.24}{Pythonモジュール索引}{}% 47
+\BOOKMARK [0][-]{section*.25}{索引}{}% 48

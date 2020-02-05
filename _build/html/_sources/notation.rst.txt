@@ -147,5 +147,5 @@ self.qt [dictionary]
 
 ほぼself.qsと同様だが、以下の追加量が保存してある。
 
-R2D2.vc [dictionary]
+self.vc [dictionary]
 --------------------------------

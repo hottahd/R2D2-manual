@@ -18,7 +18,7 @@
     <script type="text/javascript" src="_static/bizstyle.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
-    <link rel="next" title="方程式" href="equation.html" />
+    <link rel="next" title="R2D2を使うための環境設定" href="environment.html" />
     <link rel="prev" title="R2D2マニュアル" href="index.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
@@ -35,7 +35,7 @@
           <a href="py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="equation.html" title="方程式"
+          <a href="environment.html" title="R2D2を使うための環境設定"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="index.html" title="R2D2マニュアル"
@@ -51,7 +51,8 @@
 <li><a class="reference internal" href="#id1">ディレクトリ構造の準備</a></li>
 <li><a class="reference internal" href="#id2">コンパイル</a></li>
 <li><a class="reference internal" href="#id3">基本的なパラメータ</a></li>
-<li><a class="reference internal" href="#id10">初期条件・追加条件</a></li>
+<li><a class="reference internal" href="#id10">初期条件</a></li>
+<li><a class="reference internal" href="#id11">追加条件</a></li>
 <li><a class="reference internal" href="#id12">スーパーコンピュータでのシェルスクリプト</a></li>
 <li><a class="reference internal" href="#id13">初期条件データを受け取った場合</a></li>
 </ul>
@@ -62,8 +63,8 @@
   <p class="topless"><a href="index.html"
                         title="前の章へ">R2D2マニュアル</a></p>
   <h4>次のトピックへ</h4>
-  <p class="topless"><a href="equation.html"
-                        title="次の章へ">方程式</a></p>
+  <p class="topless"><a href="environment.html"
+                        title="次の章へ">R2D2を使うための環境設定</a></p>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -128,8 +129,6 @@
    │     │   ├─ ...
    │     │
    │     ├─ tau/
-   │     │   ├─ qq.dac.e
-   │     │   ├─ qq.dac.o
    │     │   ├─ qq.dac.00000000
    │     │   ├─ qq.dac.00000001
    │     │   ├─ ...
@@ -191,6 +190,11 @@
 </li>
 <li><dl class="simple">
 <dt>gen_time.py</dt><dd><p>他のモデルから計算結果をもらったときにdataディレクトリや時間のファイルを生成する為のpythonスクリプト</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>copy_caseid.py</dt><dd><p>続きの計算を行うためのスクリプト</p>
 </dd>
 </dl>
 </li>
@@ -275,12 +279,33 @@
 一方、 <code class="docutils literal notranslate"><span class="pre">ix0</span></code> , <code class="docutils literal notranslate"><span class="pre">jx0</span></code> , <code class="docutils literal notranslate"><span class="pre">kx0</span></code> はそれぞれx, y, z方向のMPIプロセスの数を定義している。全MPIプロセス数は <code class="docutils literal notranslate"><span class="pre">ix0*jx0*kx0</span></code> となり、各方向の全体の格子点数はそれぞれ <code class="docutils literal notranslate"><span class="pre">nx*ix0</span></code> , <code class="docutils literal notranslate"><span class="pre">ny*jx0</span></code> , <code class="docutils literal notranslate"><span class="pre">nz*kx0</span></code> となる。</p>
 </div>
 <div class="section" id="id10">
-<h2>初期条件・追加条件<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>初期条件<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>初期条件は、 <code class="docutils literal notranslate"><span class="pre">src/all/model.F90</span></code> で設定している。基本的な光球計算などは、鉛直速度にランダムな値を入れて計算を始めている。</p>
-<div class="admonition-todo admonition" id="id11">
-<p class="admonition-title">課題</p>
-<p>続きの計算で追加条件を加える方法を書く</p>
 </div>
+<div class="section" id="id11">
+<h2>追加条件<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ある程度計算を行った後に、続きの計算として少し設定を変えたい場合の手続きを示す。
+例えば、磁場なしの熱対流計算を行った後に、磁場を加える場合などに有効である。</p>
+<p><code class="code docutils literal notranslate"><span class="pre">run/d001</span></code> での計算を:code:<cite>run/d002</cite> に移す場合について説明する。
+<code class="code docutils literal notranslate"><span class="pre">run/d001</span></code> の下に <code class="code docutils literal notranslate"><span class="pre">copy_caseid.py</span></code> というスクリプトがあるのでそれを実行する(なければ堀田からもらう)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">copy_caseid</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>実行すると</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Q1</span><span class="o">.</span> <span class="n">Input</span> <span class="n">caseid</span> <span class="k">for</span> <span class="n">copy</span><span class="p">,</span> <span class="n">like</span> <span class="n">d001</span>
+</pre></div>
+</div>
+<p>と質問されるので、データを移す先のcaseidを <code class="code docutils literal notranslate"><span class="pre">d002</span></code> などと入力する。</p>
+<p>次に</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Q2</span><span class="o">.</span> <span class="n">Input</span> <span class="n">time</span> <span class="n">step</span> <span class="k">for</span> <span class="n">copy</span><span class="p">,</span> <span class="n">like</span> <span class="mi">10</span> <span class="ow">or</span> <span class="n">end</span>
+</pre></div>
+</div>
+<p>と質問されるので、移動したいデータの時間ステップを <code class="code docutils literal notranslate"><span class="pre">10</span></code> などと入力する。
+チェックポイントのデータはデフォルトでは、10回に一回しか出力していないので注意すること。</p>
+<p>また、現在行った計算の最後の時間ステップのデータを移動したい時は <code class="code docutils literal notranslate"><span class="pre">10</span></code> などの代わりに
+<code class="code docutils literal notranslate"><span class="pre">end</span></code> と入力する。
+するとプログラム・データのコピーが始まる。すでに移動先(今回場合は <code class="code docutils literal notranslate"><span class="pre">d002</span></code> に <code class="code docutils literal notranslate"><span class="pre">data</span></code> ディレクトリがある場合は、コピーが始まらないので、削除してからコピーすること)。</p>
+<p>また、コピーが終わると移動先の <code class="code docutils literal notranslate"><span class="pre">data/cont_log.txt</span></code> に元データの情報が記載してある。</p>
 </div>
 <div class="section" id="id12">
 <h2>スーパーコンピュータでのシェルスクリプト<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -318,7 +343,7 @@
           <a href="py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="equation.html" title="方程式"
+          <a href="environment.html" title="R2D2を使うための環境設定"
              >次へ</a> |</li>
         <li class="right" >
           <a href="index.html" title="R2D2マニュアル"
@@ -328,7 +353,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019, Hideyuki Hotta.
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0 で生成しました。
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 で生成しました。
     </div>
   </body>
 </html>

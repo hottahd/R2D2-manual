@@ -125,6 +125,25 @@ R2D2では、Pythonから直接Googleスプレッドシートに送信する方�
     pip install gspread
     pip install oauth2client
 
+プロキシなどの影響でpipが使えない時は以下のようにする
+
+gspreadのインストール
+
+.. code:: shell
+
+    git clone git@github.com:burnash/gspread.git
+    cd gspread
+    ipython setup.py install
+
+oauth2clientのインストール
+
+.. code:: shell
+
+    git clone git@github.com:googleapis/oauth2client.git
+    cd oauth2client
+    ipython setup.py install
+
+
 プロジェクト作成
 ||||||||||||||||||||||||||||||
 

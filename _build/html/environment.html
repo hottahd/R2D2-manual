@@ -204,6 +204,19 @@ R2D2では、Pythonから直接Googleスプレッドシートに送信する方�
 pip install oauth2client
 </pre></div>
 </div>
+<p>プロキシなどの影響でpipが使えない時は以下のようにする</p>
+<p>gspreadのインストール</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone git@github.com:burnash/gspread.git
+<span class="nb">cd</span> gspread
+ipython setup.py install
+</pre></div>
+</div>
+<p>oauth2clientのインストール</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone git@github.com:googleapis/oauth2client.git
+<span class="nb">cd</span> oauth2client
+ipython setup.py install
+</pre></div>
+</div>
 <div class="section" id="id2">
 <h4>プロジェクト作成<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>ウェブブラウザで <a class="reference external" href="https://console.developers.google.com/cloud-resource-manager?pli=1">https://console.developers.google.com/cloud-resource-manager?pli=1</a> にアクセス。</p>
