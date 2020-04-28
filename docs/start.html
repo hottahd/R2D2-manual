@@ -9,20 +9,20 @@
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <script type="text/javascript" src="_static/translations.js"></script>
-    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/translations.js"></script>
+    <script src="_static/bizstyle.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
     <link rel="next" title="R2D2を使うための環境設定" href="environment.html" />
     <link rel="prev" title="R2D2マニュアル" href="index.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
-    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <script src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -81,7 +81,7 @@
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
 
@@ -184,7 +184,7 @@
 </dl>
 </li>
 <li><dl class="simple">
-<dt>README.md</dt><dd><p>GitHubに表示する為の表示する為の説明ファイル。情報が古くなっている可能性があるので、README.mdを見るよりは、このウェブページの情報を参照されたい。</p>
+<dt>README.md</dt><dd><p>GitHubに表示する為の説明ファイル。情報が古くなっている可能性があるので、README.mdを見るよりは、このウェブページの情報を参照されたい。</p>
 </dd>
 </dl>
 </li>
@@ -212,12 +212,36 @@
 </dl>
 </li>
 <li><dl class="simple">
-<dt>data/remap</dt><dd><p>解析のためのリマッピングをしたあとのデータを格納するディレクトリ</p>
+<dt>data/remap/</dt><dd><p>解析のためのリマッピングをしたあとのデータを格納するディレクトリ</p>
+<ul>
+<li><dl class="simple">
+<dt>data/remap/qq/</dt><dd><p>計算データをリマッピングして扱いやすくした三次元データ。単精度で出力。解析には主にこのデータを使う。</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>data/remap/vl/</dt><dd><p>計算実行中の解析データ格納</p>
+</dd>
+</dl>
+</li>
+</ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
 <dt>data/time/</dt><dd><p>出力した時間を記録したファイルを格納するディレクトリ。3次元データの出力の時間を記録する <code class="docutils literal notranslate"><span class="pre">mhd</span></code> と光学的厚さ一定の場所の出力の時間を記録する <code class="docutils literal notranslate"><span class="pre">tau</span></code> のディレクトリがある。</p>
+<ul>
+<li><dl class="simple">
+<dt>data/time/mhd/</dt><dd><p>MHD量のアウトプットの時間データ</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>data/time/tau/</dt><dd><p>光学的厚さ一定の面アウトプットの時間データ</p>
+</dd>
+</dl>
+</li>
+</ul>
 </dd>
 </dl>
 </li>
@@ -320,10 +344,9 @@
 </div>
 <div class="section" id="id13">
 <h2>初期条件データを受け取った場合<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="admonition-todo admonition" id="id14">
-<p class="admonition-title">課題</p>
-<p>初期データを受け取った場合を書く</p>
-</div>
+<p>熱対流が統計的定常に達するまでは非常に時間がかかるために、この計算が非常に困難になる。そのため、堀田がデータを提供することがある。堀田は <code class="code docutils literal notranslate"><span class="pre">data</span></code> ディレクトリを丸ごと提供する。</p>
+<p>このディレクトリに <code class="code docutils literal notranslate"><span class="pre">cont_log.txt</span></code> というファイルがあるので、そこに示されている計算設定の情報を見て同じようになるように計算を設定する。</p>
+<p>このディレクトリを書く実行のディレクトリの配下におき、実行すると続きの計算が始まる。</p>
 </div>
 </div>
 
@@ -353,7 +376,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019, Hideyuki Hotta.
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 で生成しました。
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4 で生成しました。
     </div>
   </body>
 </html>

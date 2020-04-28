@@ -22,6 +22,7 @@
 \fvset{fontsize=\small}
 \usepackage[dvipdfm]{geometry}
 
+
 % Include hyperref last.
 \usepackage{hyperref}
 % Fix anchor placement for figures with captions.
@@ -35,7 +36,7 @@
 
 
 \title{R2D2}
-\date{2020年02月05日}
+\date{2020年04月28日}
 \release{1.2}
 \author{Hideyuki Hotta}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -165,7 +166,7 @@ makeをするときにmakeディクレクトリに移動する為のファイル
 
 \item {} \begin{description}
 \item[{README.md}] \leavevmode
-GitHubに表示する為の表示する為の説明ファイル。情報が古くなっている可能性があるので、README.mdを見るよりは、このウェブページの情報を参照されたい。
+GitHubに表示する為の説明ファイル。情報が古くなっている可能性があるので、README.mdを見るよりは、このウェブページの情報を参照されたい。
 
 \end{description}
 
@@ -198,14 +199,42 @@ fortranプログラムを実行した後に、データが保存されるディ�
 \end{description}
 
 \item {} \begin{description}
-\item[{data/remap}] \leavevmode
+\item[{data/remap/}] \leavevmode
 解析のためのリマッピングをしたあとのデータを格納するディレクトリ
+\begin{itemize}
+\item {} \begin{description}
+\item[{data/remap/qq/}] \leavevmode
+計算データをリマッピングして扱いやすくした三次元データ。単精度で出力。解析には主にこのデータを使う。
+
+\end{description}
+
+\item {} \begin{description}
+\item[{data/remap/vl/}] \leavevmode
+計算実行中の解析データ格納
+
+\end{description}
+
+\end{itemize}
 
 \end{description}
 
 \item {} \begin{description}
 \item[{data/time/}] \leavevmode
 出力した時間を記録したファイルを格納するディレクトリ。3次元データの出力の時間を記録する \sphinxcode{\sphinxupquote{mhd}} と光学的厚さ一定の場所の出力の時間を記録する \sphinxcode{\sphinxupquote{tau}} のディレクトリがある。
+\begin{itemize}
+\item {} \begin{description}
+\item[{data/time/mhd/}] \leavevmode
+MHD量のアウトプットの時間データ
+
+\end{description}
+
+\item {} \begin{description}
+\item[{data/time/tau/}] \leavevmode
+光学的厚さ一定の面アウトプットの時間データ
+
+\end{description}
+
+\end{itemize}
 
 \end{description}
 
@@ -238,7 +267,7 @@ make
 \sphinxcode{\sphinxupquote{XC}}: CfCA XC50
 
 \item {} 
-\sphinxcode{\sphinxupquote{OFP}}: Oakforest-PACS
+\sphinxcode{\sphinxupquote{OFP}}: Oakforest\sphinxhyphen{}PACS
 
 \item {} 
 \sphinxcode{\sphinxupquote{FX}}: 名大FX100
@@ -345,7 +374,7 @@ make
 \sphinxcode{\sphinxupquote{fx.sh}} : 名大FX100
 
 \item {} 
-\sphinxcode{\sphinxupquote{ofp.sh}} : Oakforest-PACS
+\sphinxcode{\sphinxupquote{ofp.sh}} : Oakforest\sphinxhyphen{}PACS
 
 \item {} 
 \sphinxcode{\sphinxupquote{xc.sh}} : CfCA XC50
@@ -355,9 +384,11 @@ make
 
 \section{初期条件データを受け取った場合}
 \label{\detokenize{start:id13}}
-\begin{sphinxadmonition}{note}{\label{\detokenize{start:id14}}課題:}
-初期データを受け取った場合を書く
-\end{sphinxadmonition}
+熱対流が統計的定常に達するまでは非常に時間がかかるために、この計算が非常に困難になる。そのため、堀田がデータを提供することがある。堀田は \sphinxcode{\sphinxupquote{data}} ディレクトリを丸ごと提供する。
+
+このディレクトリに \sphinxcode{\sphinxupquote{cont\_log.txt}} というファイルがあるので、そこに示されている計算設定の情報を見て同じようになるように計算を設定する。
+
+このディレクトリを書く実行のディレクトリの配下におき、実行すると続きの計算が始まる。
 
 
 \chapter{R2D2を使うための環境設定}
@@ -465,10 +496,10 @@ dmgファイルをダウンロードして、インストール。インスト�
 \PYG{k+kn}{import} \PYG{n+nn}{matplotlib}\PYG{n+nn}{.}\PYG{n+nn}{pyplot} \PYG{k}{as} \PYG{n+nn}{plt}
 \PYG{k+kn}{import} \PYG{n+nn}{scipy} \PYG{k}{as} \PYG{n+nn}{sp}
 \PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k}{as} \PYG{n+nn}{np}
-\PYG{k+kn}{from} \PYG{n+nn}{matplotlib}\PYG{n+nn}{.}\PYG{n+nn}{pyplot} \PYG{k}{import} \PYG{n}{pcolormesh}\PYG{p}{,}\PYG{n}{plot}\PYG{p}{,}\PYG{n}{clf}\PYG{p}{,}\PYG{n}{close}
-\PYG{k+kn}{from} \PYG{n+nn}{numpy} \PYG{k}{import} \PYG{n}{sin}\PYG{p}{,}\PYG{n}{cos}\PYG{p}{,}\PYG{n}{tan}\PYG{p}{,}\PYG{n}{arcsin}\PYG{p}{,}\PYG{n}{arccos}\PYG{p}{,}\PYG{n}{arctan}\PYG{p}{,}\PYG{n}{exp}\PYG{p}{,}\PYG{n}{log}\PYG{p}{,}\PYG{n}{log2}\PYG{p}{,}\PYG{n}{log10}\PYG{p}{,}\PYG{n}{mod}\PYG{p}{,}\PYG{n}{sqrt}\PYG{p}{,}\PYG{n}{absolute}\PYG{p}{,}\PYG{n}{sinh}\PYG{p}{,}\PYG{n}{cosh}\PYG{p}{,}\PYG{n}{tanh}\PYG{p}{,}\PYG{n}{pi}\PYG{p}{,}\PYG{n}{arange}
+\PYG{k+kn}{from} \PYG{n+nn}{matplotlib}\PYG{n+nn}{.}\PYG{n+nn}{pyplot} \PYG{k+kn}{import} \PYG{n}{pcolormesh}\PYG{p}{,}\PYG{n}{plot}\PYG{p}{,}\PYG{n}{clf}\PYG{p}{,}\PYG{n}{close}
+\PYG{k+kn}{from} \PYG{n+nn}{numpy} \PYG{k+kn}{import} \PYG{n}{sin}\PYG{p}{,}\PYG{n}{cos}\PYG{p}{,}\PYG{n}{tan}\PYG{p}{,}\PYG{n}{arcsin}\PYG{p}{,}\PYG{n}{arccos}\PYG{p}{,}\PYG{n}{arctan}\PYG{p}{,}\PYG{n}{exp}\PYG{p}{,}\PYG{n}{log}\PYG{p}{,}\PYG{n}{log2}\PYG{p}{,}\PYG{n}{log10}\PYG{p}{,}\PYG{n}{mod}\PYG{p}{,}\PYG{n}{sqrt}\PYG{p}{,}\PYG{n}{absolute}\PYG{p}{,}\PYG{n}{sinh}\PYG{p}{,}\PYG{n}{cosh}\PYG{p}{,}\PYG{n}{tanh}\PYG{p}{,}\PYG{n}{pi}\PYG{p}{,}\PYG{n}{arange}
 \PYG{n}{plt}\PYG{o}{.}\PYG{n}{ion}\PYG{p}{(}\PYG{p}{)}
-\PYG{k+kn}{from} \PYG{n+nn}{IPython}\PYG{n+nn}{.}\PYG{n+nn}{core}\PYG{n+nn}{.}\PYG{n+nn}{magic} \PYG{k}{import} \PYG{n}{register\PYGZus{}line\PYGZus{}magic}
+\PYG{k+kn}{from} \PYG{n+nn}{IPython}\PYG{n+nn}{.}\PYG{n+nn}{core}\PYG{n+nn}{.}\PYG{n+nn}{magic} \PYG{k+kn}{import} \PYG{n}{register\PYGZus{}line\PYGZus{}magic}
 \PYG{n+nd}{@register\PYGZus{}line\PYGZus{}magic}
 \PYG{k}{def} \PYG{n+nf}{r}\PYG{p}{(}\PYG{n}{line}\PYG{p}{)}\PYG{p}{:}
     \PYG{n}{get\PYGZus{}ipython}\PYG{p}{(}\PYG{p}{)}\PYG{o}{.}\PYG{n}{run\PYGZus{}line\PYGZus{}magic}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{run}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{ \PYGZhy{}i }\PYG{l+s+s1}{\PYGZsq{}} \PYG{o}{+} \PYG{n}{line}\PYG{p}{)}
@@ -590,6 +621,16 @@ Google APIロゴ \(\rightarrow\) 認証情報 \(\rightarrow\) サービスアカ
 システムにIDLをインストールすれば、それのみで使える。ここでは説明しない。
 
 
+\chapter{典型的計算例}
+\label{\detokenize{typical_case:id1}}\label{\detokenize{typical_case::doc}}
+ここでは、典型的計算設定について紹介する。
+
+
+\section{小規模局所光球計算}
+\label{\detokenize{typical_case:id2}}
+Vögler et al., 2005などで
+
+
 \chapter{方程式}
 \label{\detokenize{equation:id1}}\label{\detokenize{equation::doc}}
 R2D2で解く方程式は以下である。現状では、デカルト座標 \((x,y,z)\)  のみを提供している。数値計算コードの中では、\(x\) を重力方向(鉛直方向)に取っているが、論文を書く際は各自適切に判断されたい。
@@ -627,7 +668,7 @@ T &= T_0 + T_1 \\\end{split}
 
 \section{輻射輸送}
 \label{\detokenize{equation:id3}}
-最終更新日：2020年01月08日
+最終更新日：2020年04月28日
 
 
 \chapter{コード構造}
@@ -652,12 +693,12 @@ R2D2では、4次の中央差分を用いている。格子間隔が一様な場
 \label{\detokenize{scheme:id3}}
 R2D2では、
 
-最終更新日：2020年01月08日
+最終更新日：2020年04月28日
 
 
 \chapter{パラメータ}
 \label{\detokenize{parameter:id1}}\label{\detokenize{parameter::doc}}
-最終更新日：2020年01月08日
+最終更新日：2020年04月28日
 
 
 \chapter{座標生成}
@@ -801,12 +842,12 @@ fortranのコードの中では
 対称な境界条件を用いる。一方、上昇流は、計算している領域の外からの情報を持って計算領域に入ってくるので、
 反対称な境界条件を用いて擾乱をゼロにする。これは元々のModel Sでの量を上昇流のエントロピーに用いるということである。
 
-最終更新日：2020年01月08日
+最終更新日：2020年04月28日
 
 
 \chapter{人工粘性}
 \label{\detokenize{artdif:id1}}\label{\detokenize{artdif::doc}}
-最終更新日：2020年01月08日
+最終更新日：2020年04月28日
 
 
 \chapter{出力と読込}
@@ -919,10 +960,10 @@ Fortranの計算の中で解析した結果。 {\hyperref[\detokenize{io:R2D2.R2
 \PYG{k+kn}{import} \PYG{n+nn}{R2D2}
 \PYG{n}{d} \PYG{o}{=} \PYG{n}{R2D2}\PYG{o}{.}\PYG{n}{R2D2\PYGZus{}data}\PYG{p}{(}\PYG{n}{datadir}\PYG{p}{)}
 \PYG{k}{for} \PYG{n}{key} \PYG{o+ow}{in} \PYG{n}{R2D2}\PYG{o}{.}\PYG{n}{p}\PYG{p}{:}
-    \PYG{k}{exec}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+si}{\PYGZpc{}s}\PYG{l+s+s1}{ = }\PYG{l+s+si}{\PYGZpc{}s}\PYG{l+s+si}{\PYGZpc{}s}\PYG{l+s+si}{\PYGZpc{}s}\PYG{l+s+s1}{\PYGZsq{}} \PYG{o}{\PYGZpc{}} \PYG{p}{(}\PYG{n}{key}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{R2D2.p[}\PYG{l+s+s1}{\PYGZdq{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{n}{key}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdq{}}\PYG{l+s+s1}{]}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{)}
+    \PYG{n}{exec}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+si}{\PYGZpc{}s}\PYG{l+s+s1}{ = }\PYG{l+s+si}{\PYGZpc{}s}\PYG{l+s+si}{\PYGZpc{}s}\PYG{l+s+si}{\PYGZpc{}s}\PYG{l+s+s1}{\PYGZsq{}} \PYG{o}{\PYGZpc{}} \PYG{p}{(}\PYG{n}{key}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{R2D2.p[}\PYG{l+s+s1}{\PYGZdq{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{n}{key}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdq{}}\PYG{l+s+s1}{]}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{)}
 \end{sphinxVerbatim}
 
-などとしているために、辞書型の \sphinxcode{\sphinxupquote{key}} を名前にする変数に値が代入されている。例えば、 \sphinxcode{\sphinxupquote{R2D2\_data.p{[}'ix'{]}}} と \sphinxcode{\sphinxupquote{ix}} には同じ値が入っている。
+などとしているために、辞書型の \sphinxcode{\sphinxupquote{key}} を名前にする変数に値が代入されている。例えば、 \sphinxcode{\sphinxupquote{R2D2\_data.p{[}\textquotesingle{}ix\textquotesingle{}{]}}} と \sphinxcode{\sphinxupquote{ix}} には同じ値が入っている。
 
 
 \subsubsection{Method}
@@ -935,7 +976,7 @@ Fortranの計算の中で解析した結果。 {\hyperref[\detokenize{io:R2D2.R2
 インスタンス生成時に実行されるメソッド。計算設定などのパラメタが読み込まれる。 {\hyperref[\detokenize{io:R2D2.R2D2_data.p}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{R2D2\_data.p}}}}} にデータが保存される。
 \begin{quote}\begin{description}
 \item[{パラメータ}] \leavevmode
-\sphinxstyleliteralstrong{\sphinxupquote{datadir}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) -- データの場所
+\sphinxstyleliteralstrong{\sphinxupquote{datadir}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \sphinxhyphen{}\sphinxhyphen{} データの場所
 
 \end{description}\end{quote}
 
@@ -949,10 +990,10 @@ Fortranの計算の中で解析した結果。 {\hyperref[\detokenize{io:R2D2.R2
 \begin{quote}\begin{description}
 \item[{パラメータ}] \leavevmode\begin{itemize}
 \item {} 
-\sphinxstyleliteralstrong{\sphinxupquote{xs}} (\sphinxstyleliteralemphasis{\sphinxupquote{float}}) -- 読み込みたいデータの高さ
+\sphinxstyleliteralstrong{\sphinxupquote{xs}} (\sphinxstyleliteralemphasis{\sphinxupquote{float}}) \sphinxhyphen{}\sphinxhyphen{} 読み込みたいデータの高さ
 
 \item {} 
-\sphinxstyleliteralstrong{\sphinxupquote{n}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}) -- 読み込みたい時間ステップ
+\sphinxstyleliteralstrong{\sphinxupquote{n}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}) \sphinxhyphen{}\sphinxhyphen{} 読み込みたい時間ステップ
 
 \end{itemize}
 
@@ -967,7 +1008,7 @@ Fortranの計算の中で解析した結果。 {\hyperref[\detokenize{io:R2D2.R2
 3次元のデータを読み込む。戻り値を返さない時も {\hyperref[\detokenize{io:R2D2.R2D2_data.qq}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{R2D2\_data.qq}}}}} にデータが保存される。
 \begin{quote}\begin{description}
 \item[{パラメータ}] \leavevmode
-\sphinxstyleliteralstrong{\sphinxupquote{n}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}) -- 読み込みたい時間ステップ
+\sphinxstyleliteralstrong{\sphinxupquote{n}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}) \sphinxhyphen{}\sphinxhyphen{} 読み込みたい時間ステップ
 
 \end{description}\end{quote}
 
@@ -980,7 +1021,7 @@ Fortranの計算の中で解析した結果。 {\hyperref[\detokenize{io:R2D2.R2
 光学的厚さが一定の2次元のデータを読み込む。{\hyperref[\detokenize{io:R2D2.R2D2_data.qt}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{R2D2\_data.qt}}}}} にデータが保存される。
 \begin{quote}\begin{description}
 \item[{パラメータ}] \leavevmode
-\sphinxstyleliteralstrong{\sphinxupquote{n}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}) -- 読み込みたい時間ステップ
+\sphinxstyleliteralstrong{\sphinxupquote{n}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}) \sphinxhyphen{}\sphinxhyphen{} 読み込みたい時間ステップ
 
 \end{description}\end{quote}
 
@@ -993,7 +1034,7 @@ Fortranの計算の中で解析した結果。 {\hyperref[\detokenize{io:R2D2.R2
 時間を読み込む。
 \begin{quote}\begin{description}
 \item[{パラメータ}] \leavevmode
-\sphinxstyleliteralstrong{\sphinxupquote{n}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}) -- 読み込みたい時間ステップ
+\sphinxstyleliteralstrong{\sphinxupquote{n}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}) \sphinxhyphen{}\sphinxhyphen{} 読み込みたい時間ステップ
 
 \item[{戻り値}] \leavevmode
 時間ステップでの時間
@@ -1009,7 +1050,7 @@ Fortranの計算の中で解析した結果。 {\hyperref[\detokenize{io:R2D2.R2
 Fortranコードの中で解析した計算結果を読み込む。戻り値を返さない時も {\hyperref[\detokenize{io:R2D2.R2D2_data.vc}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{R2D2\_data.vc}}}}} にデータが保存される。
 \begin{quote}\begin{description}
 \item[{パラメータ}] \leavevmode
-\sphinxstyleliteralstrong{\sphinxupquote{n}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}) -- 読み込みたい時間ステップ
+\sphinxstyleliteralstrong{\sphinxupquote{n}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}) \sphinxhyphen{}\sphinxhyphen{} 読み込みたい時間ステップ
 
 \end{description}\end{quote}
 
@@ -1022,7 +1063,7 @@ Fortranコードの中で解析した計算結果を読み込む。戻り値を�
 チェックポイントのためのデータを読み込む {\hyperref[\detokenize{io:R2D2.R2D2_data.qc}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{R2D2\_data.qc}}}}} にデータが保存される。
 \begin{quote}\begin{description}
 \item[{パラメータ}] \leavevmode
-\sphinxstyleliteralstrong{\sphinxupquote{n}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}) -- 読み込みたい時間ステップ
+\sphinxstyleliteralstrong{\sphinxupquote{n}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}) \sphinxhyphen{}\sphinxhyphen{} 読み込みたい時間ステップ
 
 \end{description}\end{quote}
 
@@ -1033,6 +1074,17 @@ Fortranコードの中で解析した計算結果を読み込む。戻り値を�
 \subsection{IDLコード}
 \label{\detokenize{io:idl}}
 \sphinxhref{https://github.com/hottahd/R2D2\_idl}{GitHubの公開レポジトリ} に簡単な説明あり
+
+
+\subsection{Paraview 使用}
+\label{\detokenize{io:paraview}}
+Paraviewを使用するためにデータ出力の関数が用意してある。
+\index{R2D2.vtk.write\_3D() (R2D2 モジュール)@\spxentry{R2D2.vtk.write\_3D()}\spxextra{R2D2 モジュール}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{io:R2D2.R2D2.vtk.write_3D}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2.vtk.}}\sphinxbfcode{\sphinxupquote{write\_3D}}}{}{}
+\end{fulllineitems}
+
 
 
 \section{バージョン履歴}
@@ -1054,7 +1106,7 @@ ver. 1.2: データ構造を変更。
 以下では、R2D2 pythonで使われている辞書型に含まれるキーの説明を行う
 \begin{itemize}
 \item {} 
-キーの名前 (型) -- 説明 {[}単位{]}
+キーの名前 (型) \sphinxhyphen{}\sphinxhyphen{} 説明 {[}単位{]}
 
 \end{itemize}
 
@@ -1076,37 +1128,37 @@ R2D2では、\sphinxcode{\sphinxupquote{R2D2\_data}} というクラスを用意
 \subsection{出力・時間に関する量}
 \label{\detokenize{notation:id1}}\begin{itemize}
 \item {} 
-datadir (str) -- データの保存場所
+datadir (str) \sphinxhyphen{}\sphinxhyphen{} データの保存場所
 
 \item {} 
-nd (int) -- 現在までのアウトプット時間ステップ数(3次元データ)
+nd (int) \sphinxhyphen{}\sphinxhyphen{} 現在までのアウトプット時間ステップ数(3次元データ)
 
 \item {} 
-nd\_tau (int) -- 現在までのアウトプット時間ステップ数(光学的厚さ一定のデータ)
+nd\_tau (int) \sphinxhyphen{}\sphinxhyphen{} 現在までのアウトプット時間ステップ数(光学的厚さ一定のデータ)
 
 \item {} 
-dtout (float) --　出力ケーデンス {[}s{]}
+dtout (float) \sphinxhyphen{}\sphinxhyphen{}　出力ケーデンス {[}s{]}
 
 \item {} 
-dtout\_tau (float) --　光学的厚さ一定のデータの出力ケーデンス {[}s{]}
+dtout\_tau (float) \sphinxhyphen{}\sphinxhyphen{}　光学的厚さ一定のデータの出力ケーデンス {[}s{]}
 
 \item {} 
-ifac (int) -- dtout/dtout\_tau
+ifac (int) \sphinxhyphen{}\sphinxhyphen{} dtout/dtout\_tau
 
 \item {} 
-tend (float) -- 計算終了時間。大きく取ってあるためにこの時間まで計算することはあまりない {[}s{]}
+tend (float) \sphinxhyphen{}\sphinxhyphen{} 計算終了時間。大きく取ってあるためにこの時間まで計算することはあまりない {[}s{]}
 
 \item {} 
-swap (int) --　エンディアン指定。big endianは1、little endianは0。IDLの定義に従っている。
+swap (int) \sphinxhyphen{}\sphinxhyphen{}　エンディアン指定。big endianは1、little endianは0。IDLの定義に従っている。
 
 \item {} 
-endian (char) -- エンディアン指定。big endianは \textgreater{} 、little endianは \textless{} 。pythonの定義に従っている。
+endian (char) \sphinxhyphen{}\sphinxhyphen{} エンディアン指定。big endianは \textgreater{} 、little endianは \textless{} 。pythonの定義に従っている。
 
 \item {} 
-m\_in (int) -- 光学的厚さ一定のデータを出力する変数の数
+m\_in (int) \sphinxhyphen{}\sphinxhyphen{} 光学的厚さ一定のデータを出力する変数の数
 
 \item {} 
-m\_tu (int) -- 光学的厚さ一定のデータの層の数
+m\_tu (int) \sphinxhyphen{}\sphinxhyphen{} 光学的厚さ一定のデータの層の数
 
 \end{itemize}
 
@@ -1114,91 +1166,91 @@ m\_tu (int) -- 光学的厚さ一定のデータの層の数
 \subsection{座標に関する量}
 \label{\detokenize{notation:id2}}\begin{itemize}
 \item {} 
-xdcheck (int) -- x軸方向に解いているか。解いていたら2、解いていなかったら1
+xdcheck (int) \sphinxhyphen{}\sphinxhyphen{} x軸方向に解いているか。解いていたら2、解いていなかったら1
 
 \item {} 
-ydcheck (int) -- y軸方向に解いているか。解いていたら2、解いていなかったら1
+ydcheck (int) \sphinxhyphen{}\sphinxhyphen{} y軸方向に解いているか。解いていたら2、解いていなかったら1
 
 \item {} 
-zdcheck (int) -- z軸方向に解いているか。解いていたら2、解いていなかったら1
+zdcheck (int) \sphinxhyphen{}\sphinxhyphen{} z軸方向に解いているか。解いていたら2、解いていなかったら1
 
 \item {} 
-margin (int) -- マージン(ゴーストセル)の数
+margin (int) \sphinxhyphen{}\sphinxhyphen{} マージン(ゴーストセル)の数
 
 \item {} 
-nx (int) -- 1 MPIスレッドあたりのx方向の格子点の数
+nx (int) \sphinxhyphen{}\sphinxhyphen{} 1 MPIスレッドあたりのx方向の格子点の数
 
 \item {} 
-ny (int) -- 1 MPIスレッドあたりのy方向の格子点の数
+ny (int) \sphinxhyphen{}\sphinxhyphen{} 1 MPIスレッドあたりのy方向の格子点の数
 
 \item {} 
-nz (int) -- 1 MPIスレッドあたりのz方向の格子点の数
+nz (int) \sphinxhyphen{}\sphinxhyphen{} 1 MPIスレッドあたりのz方向の格子点の数
 
 \item {} 
-ix0 (int) -- x方向のMPI領域分割の数
+ix0 (int) \sphinxhyphen{}\sphinxhyphen{} x方向のMPI領域分割の数
 
 \item {} 
-jx0 (int) -- y方向のMPI領域分割の数
+jx0 (int) \sphinxhyphen{}\sphinxhyphen{} y方向のMPI領域分割の数
 
 \item {} 
-kx0 (int) -- z方向のMPI領域分割の数
+kx0 (int) \sphinxhyphen{}\sphinxhyphen{} z方向のMPI領域分割の数
 
 \item {} 
-ix (int) -- x方向の格子点数 ix0*nx
+ix (int) \sphinxhyphen{}\sphinxhyphen{} x方向の格子点数 ix0*nx
 
 \item {} 
-jx (int) -- y方向の格子点数 jx0*ny
+jx (int) \sphinxhyphen{}\sphinxhyphen{} y方向の格子点数 jx0*ny
 
 \item {} 
-kx (int) -- z方向の格子点数 kx0*nz
+kx (int) \sphinxhyphen{}\sphinxhyphen{} z方向の格子点数 kx0*nz
 
 \item {} 
-npe (int) -- 全MPIスレッドの数 \sphinxcode{\sphinxupquote{npe = ix0*jx0*kx0}}
+npe (int) \sphinxhyphen{}\sphinxhyphen{} 全MPIスレッドの数 \sphinxcode{\sphinxupquote{npe = ix0*jx0*kx0}}
 
 \item {} 
-mtype (int) -- 変数の数
+mtype (int) \sphinxhyphen{}\sphinxhyphen{} 変数の数
 
 \item {} 
-xmax (float) -- x方向境界の位置(上限値)　{[}cm{]}
+xmax (float) \sphinxhyphen{}\sphinxhyphen{} x方向境界の位置(上限値)　{[}cm{]}
 
 \item {} 
-xmin (float) -- x方向境界の位置(下限値)　{[}cm{]}
+xmin (float) \sphinxhyphen{}\sphinxhyphen{} x方向境界の位置(下限値)　{[}cm{]}
 
 \item {} 
-ymax (float) -- y方向境界の位置(上限値)　{[}cm{]}
+ymax (float) \sphinxhyphen{}\sphinxhyphen{} y方向境界の位置(上限値)　{[}cm{]}
 
 \item {} 
-ymin (float) -- y方向境界の位置(下限値)　{[}cm{]}
+ymin (float) \sphinxhyphen{}\sphinxhyphen{} y方向境界の位置(下限値)　{[}cm{]}
 
 \item {} 
-zmax (float) -- z方向境界の位置(上限値)　{[}cm{]}
+zmax (float) \sphinxhyphen{}\sphinxhyphen{} z方向境界の位置(上限値)　{[}cm{]}
 
 \item {} 
-zmin (float) -- z方向境界の位置(下限値)　{[}cm{]}
+zmin (float) \sphinxhyphen{}\sphinxhyphen{} z方向境界の位置(下限値)　{[}cm{]}
 
 \item {} 
-x (float) {[}ix{]} -- x方向の座標 {[}cm{]}
+x (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} x方向の座標 {[}cm{]}
 
 \item {} 
-y (float) {[}jx{]} -- y方向の座標 {[}cm{]}
+y (float) {[}jx{]} \sphinxhyphen{}\sphinxhyphen{} y方向の座標 {[}cm{]}
 
 \item {} 
-z (float) {[}kx{]} -- z方向の座標 {[}cm{]}
+z (float) {[}kx{]} \sphinxhyphen{}\sphinxhyphen{} z方向の座標 {[}cm{]}
 
 \item {} 
-xr (float) {[}ix{]} -- x/rsun
+xr (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} x/rsun
 
 \item {} 
-xn (float) {[}ix{]} -- \sphinxcode{\sphinxupquote{(x-rsun)*1.e-8}}
+xn (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} \sphinxcode{\sphinxupquote{(x\sphinxhyphen{}rsun)*1.e\sphinxhyphen{}8}}
 
 \item {} 
-deep\_top\_flag (int) --
+deep\_top\_flag (int) \sphinxhyphen{}\sphinxhyphen{}
 
 \item {} 
-ib\_excluded\_top (int) --
+ib\_excluded\_top (int) \sphinxhyphen{}\sphinxhyphen{}
 
 \item {} 
-rsun (float) {[}ix{]} -- 太陽半径 {[}cm{]}
+rsun (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 太陽半径 {[}cm{]}
 
 \end{itemize}
 
@@ -1206,73 +1258,73 @@ rsun (float) {[}ix{]} -- 太陽半径 {[}cm{]}
 \subsection{背景場に関する量}
 \label{\detokenize{notation:id3}}\begin{itemize}
 \item {} 
-pr0 (float) {[}ix{]} -- 背景場の圧力 {[}dyn cm $^{\text{-2}}${]}
+pr0 (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場の圧力 {[}dyn cm $^{\text{\sphinxhyphen{}2}}${]}
 
 \item {} 
-te0 (float) {[}ix{]} -- 背景場の温度 {[}K{]}
+te0 (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場の温度 {[}K{]}
 
 \item {} 
-ro0 (float) {[}ix{]} -- 背景場の密度 {[}g cm $^{\text{-3}}${]}
+ro0 (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場の密度 {[}g cm $^{\text{\sphinxhyphen{}3}}${]}
 
 \item {} 
-se0 (float) {[}ix{]} -- 背景場のエントロピー {[}erg g $^{\text{-1}}$ K $^{\text{-1}}${]}
+se0 (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場のエントロピー {[}erg g $^{\text{\sphinxhyphen{}1}}$ K $^{\text{\sphinxhyphen{}1}}${]}
 
 \item {} 
-en0 (float) {[}ix{]} -- 背景場の内部エネルギー {[}erg cm $^{\text{-3}}${]}
+en0 (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場の内部エネルギー {[}erg cm $^{\text{\sphinxhyphen{}3}}${]}
 
 \item {} 
-op0 (float) {[}ix{]} -- 背景場のオパシティー {[}g $^{\text{-1}}$ cm $^{\text{-2}}${]}
+op0 (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場のオパシティー {[}g $^{\text{\sphinxhyphen{}1}}$ cm $^{\text{\sphinxhyphen{}2}}${]}
 
 \item {} 
-tu0 (float) {[}ix{]} -- 背景場の光学的厚さ
+tu0 (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場の光学的厚さ
 
 \item {} 
-dsedr0 (float) {[}ix{]} -- 背景場の鉛直エントロピー勾配 {[}erg g $^{\text{-1}}$ K $^{\text{-1}}$ cm $^{\text{-1}}${]}
+dsedr0 (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場の鉛直エントロピー勾配 {[}erg g $^{\text{\sphinxhyphen{}1}}$ K $^{\text{\sphinxhyphen{}1}}$ cm $^{\text{\sphinxhyphen{}1}}${]}
 
 \item {} 
-dtedr0 (float) {[}ix{]} -- 背景場の鉛直温度勾配 {[}K cm $^{\text{-1}}${]}
+dtedr0 (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場の鉛直温度勾配 {[}K cm $^{\text{\sphinxhyphen{}1}}${]}
 
 \item {} 
-dprdro (float) {[}ix{]} -- 背景場の \((\partial p/\partial \rho)_s\)
+dprdro (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場の \((\partial p/\partial \rho)_s\)
 
 \item {} 
-dprdse (float) {[}ix{]} -- 背景場の \((\partial p/\partial s)_\rho\)
+dprdse (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場の \((\partial p/\partial s)_\rho\)
 
 \item {} 
-dtedro (float) {[}ix{]} -- 背景場の \((\partial T/\partial \rho)_s\)
+dtedro (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場の \((\partial T/\partial \rho)_s\)
 
 \item {} 
-dtedse (float) {[}ix{]} -- 背景場の \((\partial T/\partial s)_\rho\)
+dtedse (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場の \((\partial T/\partial s)_\rho\)
 
 \item {} 
-dendro (float) {[}ix{]} -- 背景場の \((\partial e/\partial \rho)_s\)
+dendro (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場の \((\partial e/\partial \rho)_s\)
 
 \item {} 
-dendse (float) {[}ix{]} -- 背景場の \((\partial e/\partial s)_\rho\)
+dendse (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 背景場の \((\partial e/\partial s)_\rho\)
 
 \item {} 
-gx (float) {[}ix{]} -- 重力加速度 {[}cm s $^{\text{-2}}${]}
+gx (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 重力加速度 {[}cm s $^{\text{\sphinxhyphen{}2}}${]}
 
 \item {} 
-kp (float) {[}ix{]} -- 放射拡散係数 {[}cm $^{\text{2}}$ s $^{\text{-1}}${]}
+kp (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 放射拡散係数 {[}cm $^{\text{2}}$ s $^{\text{\sphinxhyphen{}1}}${]}
 
 \item {} 
-cp (float) {[}ix{]} -- 定圧比熱　{[}erg g $^{\text{-1}}$ K $^{\text{-1}}${]}
+cp (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 定圧比熱　{[}erg g $^{\text{\sphinxhyphen{}1}}$ K $^{\text{\sphinxhyphen{}1}}${]}
 
 \item {} 
-fa (float) {[}ix{]} -- 対流層の底付近の輻射によるエネルギーフラックス。光球付近では輻射輸送を直に解くために含まれないが、上部境界が光球にない場合は、上部境界付近の人工的なエネルギーフラックス(冷却が含まれる) {[}erg cm $^{\text{-2}}${]}
+fa (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 対流層の底付近の輻射によるエネルギーフラックス。光球付近では輻射輸送を直に解くために含まれないが、上部境界が光球にない場合は、上部境界付近の人工的なエネルギーフラックス(冷却が含まれる) {[}erg cm $^{\text{\sphinxhyphen{}2}}${]}
 
 \item {} 
-sa (float) {[}ix{]} -- 上記faによる加熱率 {[}erg cm $^{\text{-3}}${]}
+sa (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 上記faによる加熱率 {[}erg cm $^{\text{\sphinxhyphen{}3}}${]}
 
 \item {} 
-xi (float) {[}ix{]} -- 音速抑制率
+xi (float) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} 音速抑制率
 
 \item {} 
-ix\_e (int) -- 状態方程式の密度の格子点数
+ix\_e (int) \sphinxhyphen{}\sphinxhyphen{} 状態方程式の密度の格子点数
 
 \item {} 
-jx\_e (int) -- 状態方程式のエントロピーの格子点数
+jx\_e (int) \sphinxhyphen{}\sphinxhyphen{} 状態方程式のエントロピーの格子点数
 
 \end{itemize}
 
@@ -1280,55 +1332,55 @@ jx\_e (int) -- 状態方程式のエントロピーの格子点数
 \subsection{解析のためのデータ再配置(remap)に関する量}
 \label{\detokenize{notation:remap}}\begin{itemize}
 \item {} 
-m2da (int) -- remapで出力した解析量の数
+m2da (int) \sphinxhyphen{}\sphinxhyphen{} remapで出力した解析量の数
 
 \item {} 
-cl (char) {[}m2da{]} --　remapで出力した解析量の名前
+cl (char) {[}m2da{]} \sphinxhyphen{}\sphinxhyphen{}　remapで出力した解析量の名前
 
 \item {} 
-jc (int) -- \sphinxcode{\sphinxupquote{self.vc{[}'vxp'{]}}} などで出力するスライスのy方向の位置
+jc (int) \sphinxhyphen{}\sphinxhyphen{} \sphinxcode{\sphinxupquote{self.vc{[}\textquotesingle{}vxp\textquotesingle{}{]}}} などで出力するスライスのy方向の位置
 
 \item {} 
-kc (int) -- 浮上磁場の中心と思っている場所を出力(あまり使わない)
+kc (int) \sphinxhyphen{}\sphinxhyphen{} 浮上磁場の中心と思っている場所を出力(あまり使わない)
 
 \item {} 
-ixr (int) -- remap後のx方向分割の数
+ixr (int) \sphinxhyphen{}\sphinxhyphen{} remap後のx方向分割の数
 
 \item {} 
-jxr (int) -- remap後のy方向分割の数
+jxr (int) \sphinxhyphen{}\sphinxhyphen{} remap後のy方向分割の数
 
 \item {} 
-iss (int) {[}npe{]} --
+iss (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{}
 
 \item {} 
-iee (int) {[}npe{]} --
+iee (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{}
 
 \item {} 
-jss (int) {[}npe{]} --
+jss (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{}
 
 \item {} 
-jee (int) {[}npe{]} --
+jee (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{}
 
 \item {} 
-iixl (int) {[}npe{]} --
+iixl (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{}
 
 \item {} 
-jjxl (int) {[}npe{]} --
+jjxl (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{}
 
 \item {} 
-np\_ijr (int) {[}npe{]} --
+np\_ijr (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{}
 
 \item {} 
-ir (int) {[}npe{]} --
+ir (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{}
 
 \item {} 
-jr (int) {[}npe{]} --
+jr (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{}
 
 \item {} 
-i2ir (int) {[}ix{]} --
+i2ir (int) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{}
 
 \item {} 
-j2jr (int) {[}jx{]} --
+j2jr (int) {[}jx{]} \sphinxhyphen{}\sphinxhyphen{}
 
 \end{itemize}
 
@@ -1344,37 +1396,37 @@ j2jr (int) {[}jx{]} --
 として高さ \sphinxcode{\sphinxupquote{xs}} での二次元スライスを読み込む
 \begin{itemize}
 \item {} 
-ro (float) {[}jx,kx{]} -- 密度の擾乱 \(\rho_1\) {[}g cm $^{\text{-3}}${]}
+ro (float) {[}jx,kx{]} \sphinxhyphen{}\sphinxhyphen{} 密度の擾乱 \(\rho_1\) {[}g cm $^{\text{\sphinxhyphen{}3}}${]}
 
 \item {} 
-vx (float) {[}jx,kx{]} -- x方向の速度 \(v_x\) {[}cm s $^{\text{-1}}${]}
+vx (float) {[}jx,kx{]} \sphinxhyphen{}\sphinxhyphen{} x方向の速度 \(v_x\) {[}cm s $^{\text{\sphinxhyphen{}1}}${]}
 
 \item {} 
-vy (float) {[}jx,kx{]} -- y方向の速度 \(v_y\) {[}cm s $^{\text{-1}}${]}
+vy (float) {[}jx,kx{]} \sphinxhyphen{}\sphinxhyphen{} y方向の速度 \(v_y\) {[}cm s $^{\text{\sphinxhyphen{}1}}${]}
 
 \item {} 
-vz (float) {[}jx,kx{]} -- z方向の速度 \(v_z\) {[}cm s $^{\text{-1}}${]}
+vz (float) {[}jx,kx{]} \sphinxhyphen{}\sphinxhyphen{} z方向の速度 \(v_z\) {[}cm s $^{\text{\sphinxhyphen{}1}}${]}
 
 \item {} 
-bx (float) {[}jx,kx{]} -- x方向の磁場 \(B_x\) {[}G{]}
+bx (float) {[}jx,kx{]} \sphinxhyphen{}\sphinxhyphen{} x方向の磁場 \(B_x\) {[}G{]}
 
 \item {} 
-by (float) {[}jx,kx{]} -- y方向の磁場 \(B_y\) {[}G{]}
+by (float) {[}jx,kx{]} \sphinxhyphen{}\sphinxhyphen{} y方向の磁場 \(B_y\) {[}G{]}
 
 \item {} 
-bz (float) {[}jx,kx{]} -- z方向の磁場 \(B_z\) {[}G{]}
+bz (float) {[}jx,kx{]} \sphinxhyphen{}\sphinxhyphen{} z方向の磁場 \(B_z\) {[}G{]}
 
 \item {} 
-se (float) {[}jx,kx{]} -- エントロピーの擾乱 \(s_1\) {[}erg g $^{\text{-1}}$ K $^{\text{-1}}${]}
+se (float) {[}jx,kx{]} \sphinxhyphen{}\sphinxhyphen{} エントロピーの擾乱 \(s_1\) {[}erg g $^{\text{\sphinxhyphen{}1}}$ K $^{\text{\sphinxhyphen{}1}}${]}
 
 \item {} 
-pr (float) {[}jx,kx{]} -- 圧力の擾乱 \(p_1\) {[}dyn cm $^{\text{-2}}${]}
+pr (float) {[}jx,kx{]} \sphinxhyphen{}\sphinxhyphen{} 圧力の擾乱 \(p_1\) {[}dyn cm $^{\text{\sphinxhyphen{}2}}${]}
 
 \item {} 
-te (float) {[}jx,kx{]} -- 温度の擾乱 \(T_1\) {[}K{]}
+te (float) {[}jx,kx{]} \sphinxhyphen{}\sphinxhyphen{} 温度の擾乱 \(T_1\) {[}K{]}
 
 \item {} 
-op (float) {[}jx,kx{]} -- 不透明度(オパシティー) \(\kappa\) {[}g $^{\text{-1}}$ cm $^{\text{-2}}${]}
+op (float) {[}jx,kx{]} \sphinxhyphen{}\sphinxhyphen{} 不透明度(オパシティー) \(\kappa\) {[}g $^{\text{\sphinxhyphen{}1}}$ cm $^{\text{\sphinxhyphen{}2}}${]}
 
 \end{itemize}
 
@@ -1423,7 +1475,7 @@ pip install commonmark recommonmark
 \section{HTMLファイルの生成}
 \label{\detokenize{sphinx:html}}
 適当なディレクトリを作成(ここでは \sphinxcode{\sphinxupquote{test}} )とする。
-そこで、 \sphinxcode{\sphinxupquote{sphinx-quickstart}} コマンドによりSphinxで作るドキュメントの
+そこで、 \sphinxcode{\sphinxupquote{sphinx\sphinxhyphen{}quickstart}} コマンドによりSphinxで作るドキュメントの
 初期設定を行う。
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
@@ -1489,7 +1541,7 @@ VS codeを利用すると快適にreStructuredTextを作成することができ
 \end{itemize}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{l+s}{{}`Twitter }\PYG{l+s+si}{\PYGZlt{}https://twitter.com\PYGZgt{}}\PYG{l+s}{{}`\PYGZus{}}
+\PYG{l+s}{`Twitter }\PYG{l+s+si}{\PYGZlt{}https://twitter.com\PYGZgt{}}\PYG{l+s}{`\PYGZus{}}
 \end{sphinxVerbatim}
 
 などとすると
@@ -1508,7 +1560,7 @@ VS codeを利用すると快適にreStructuredTextを作成することができ
 自分で作成しているドキュメントをリンクするには
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{n+na}{:doc:}\PYG{n+nv}{{}`index{}`}
+\PYG{n+na}{:doc:}\PYG{n+nv}{`index`}
 \end{sphinxVerbatim}
 
 などとすると
@@ -1554,7 +1606,7 @@ Sphinxでは、コードを直接記載することができる。また、言�
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{p}{..} \PYG{o+ow}{image}\PYG{p}{::} source/figs/R2D2\PYGZus{}logo.png
-    \PYG{n+nc}{:width:} \PYG{n+nf}{350 px}
+    \PYG{n+nc}{:width:} 350 px
 \end{sphinxVerbatim}
 
 とすると下記のように画像が挿入される。
@@ -1582,7 +1634,7 @@ SphinxではLatexを用いて数式を記述することができる。
 インラインの数式では
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-ここで \PYG{n+na}{:math:}\PYG{n+nv}{{}`\PYGZbs{}rho\PYGZus{}1=x\PYGZca{}2{}`} とする
+ここで \PYG{n+na}{:math:}\PYG{n+nv}{`\PYGZbs{}rho\PYGZus{}1=x\PYGZca{}2`} とする
 \end{sphinxVerbatim}
 
 とすると
@@ -1593,7 +1645,7 @@ SphinxではLatexを用いて数式を記述することができる。
 
 と表示される。
 
-最終更新日：2020年01月08日
+最終更新日：2020年04月28日
 
 
 \chapter{ライセンス}
@@ -1622,12 +1674,6 @@ R2D2を用いた研究を発表するときは、\sphinxhref{https://hottahd.git
 
 \chapter{TODOリスト}
 \label{\detokenize{index:todo}}
-\begin{sphinxadmonition}{note}{課題:}
-初期データを受け取った場合を書く
-\end{sphinxadmonition}
-
-({\hyperref[\detokenize{start:id14}]{\sphinxcrossref{\sphinxstyleemphasis{元のエントリ}}}} は、 /Users/hotta/Dropbox/work/R2D2/R2D2-manual/start.rst の 232 行目です)
-
 
 \chapter{索引と検索ページ}
 \label{\detokenize{index:id3}}\begin{itemize}
@@ -1639,7 +1685,7 @@ R2D2を用いた研究を発表するときは、\sphinxhref{https://hottahd.git
 
 \end{itemize}
 
-最終更新日：2020年01月30日
+最終更新日：2020年04月28日
 
 
 \renewcommand{\indexname}{Pythonモジュール索引}

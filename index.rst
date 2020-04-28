@@ -19,6 +19,7 @@ R2D2マニュアル
 
    start.rst
    environment.rst
+   typical_case.rst
    equation.rst
    code.rst
    scheme.rst

@@ -139,6 +139,13 @@ IDLコード
 
 `GitHubの公開レポジトリ <https://github.com/hottahd/R2D2_idl>`_ に簡単な説明あり
 
+Paraview 使用
+::::::::::::::::::::::
+
+Paraviewを使用するためにデータ出力の関数が用意してある。
+
+.. py:function:: R2D2.vtk.write_3D()
+
 バージョン履歴
 ----------------------
 
