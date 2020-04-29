@@ -36,7 +36,7 @@
 
 
 \title{R2D2}
-\date{2020年04月28日}
+\date{2020年04月29日}
 \release{1.2}
 \author{Hideyuki Hotta}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -628,8 +628,363 @@ Google APIロゴ \(\rightarrow\) 認証情報 \(\rightarrow\) サービスアカ
 
 \section{小規模局所光球計算}
 \label{\detokenize{typical_case:id2}}
-Vögler et al., 2005などで
+\sphinxhref{https://ui.adsabs.harvard.edu/abs/2005A\%26A...429..335V/abstract}{Vögler et al., 2005} などで行われている小規模局所光球計算の設定を説明する。
+\begin{itemize}
+\item {} \begin{description}
+\item[{Makefileのオプション}] \leavevmode
+光球のみ一様グリッドで計算するので, \sphinxcode{\sphinxupquote{PPC:= \sphinxhyphen{}Ddeep}} や　\sphinxcode{\sphinxupquote{PPC:= \sphinxhyphen{}Dununiform}} を設定していないかチェック。
 
+\end{description}
+
+\item {} \begin{description}
+\item[{計算領域・解像度}] \leavevmode
+計算領域は鉛直方向(R2D2ではx方向)にrsun から700 km上から5.444 Mm下までをとる。水平方向(R2D2ではyとz方向)には、6.144 Mmずつとる。
+
+太陽光球を計算するときは、鉛直方向には少なくとも48 km, 水平方向には少なくとも192 kmの格子間隔が必要である。ここでは各方向に48 kmの格子点間隔をとることにして、各方向に128グリッドづつ格子点を用意する。ここではMPIプロセスを2×2×2プロセス使う例を示す。これらの設定は \sphinxcode{\sphinxupquote{src/all/geometry\_def.F90}} を編集。
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}ifdef deep}
+    \PYG{p}{.}\PYG{p}{.}\PYG{p}{.} \PYG{p}{(}\PYG{n}{ignore} \PYG{n}{this}\PYG{p}{)}
+\PYG{c+cp}{\PYGZsh{}elif ideal}
+    \PYG{p}{.}\PYG{p}{.}\PYG{p}{.} \PYG{p}{(}\PYG{n}{ignore} \PYG{n}{this}\PYG{p}{)}
+\PYG{c+cp}{\PYGZsh{}else}
+    \PYG{k+kt}{real}\PYG{p}{(}\PYG{n+nb}{KIND}\PYG{p}{(}\PYG{l+m+mf}{0.d0}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,} \PYG{k}{parameter} \PYG{k+kd}{::} \PYG{n}{xmax} \PYG{o}{=} \PYG{n}{rsun} \PYG{o}{+} \PYG{l+m+mf}{0.7d8}
+    \PYG{k+kt}{real}\PYG{p}{(}\PYG{n+nb}{KIND}\PYG{p}{(}\PYG{l+m+mf}{0.d0}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,} \PYG{k}{parameter} \PYG{k+kd}{::} \PYG{n}{xmin} \PYG{o}{=} \PYG{n}{rsun} \PYG{o}{\PYGZhy{}} \PYG{l+m+mf}{5.444d8}
+\PYG{c+cp}{\PYGZsh{}endif}
+
+\PYG{c+cp}{\PYGZsh{}ifndef ideal}
+    \PYG{k+kt}{real}\PYG{p}{(}\PYG{n+nb}{KIND}\PYG{p}{(}\PYG{l+m+mf}{0.d0}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,} \PYG{k}{parameter} \PYG{k+kd}{::} \PYG{n}{ymin} \PYG{o}{=} \PYG{l+m+mf}{0.d0}
+    \PYG{k+kt}{real}\PYG{p}{(}\PYG{n+nb}{KIND}\PYG{p}{(}\PYG{l+m+mf}{0.d0}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,} \PYG{k}{parameter} \PYG{k+kd}{::} \PYG{n}{ymax} \PYG{o}{=} \PYG{l+m+mf}{6.144d0}
+    \PYG{k+kt}{real}\PYG{p}{(}\PYG{n+nb}{KIND}\PYG{p}{(}\PYG{l+m+mf}{0.d0}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,} \PYG{k}{parameter} \PYG{k+kd}{::} \PYG{n}{ymax} \PYG{o}{=} \PYG{l+m+mf}{0.d0}
+    \PYG{k+kt}{real}\PYG{p}{(}\PYG{n+nb}{KIND}\PYG{p}{(}\PYG{l+m+mf}{0.d0}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,} \PYG{k}{parameter} \PYG{k+kd}{::} \PYG{n}{ymax} \PYG{o}{=} \PYG{l+m+mf}{6.144d0}
+\PYG{c+cp}{\PYGZsh{}endif}
+
+\PYG{p}{.}\PYG{p}{.}\PYG{p}{.}
+\PYG{k+kt}{integer}\PYG{p}{,} \PYG{k}{parameter}\PYG{p}{,} \PYG{k}{private} \PYG{k+kd}{::} \PYG{n}{nx0} \PYG{o}{=} \PYG{l+m+mi}{64}\PYG{p}{,} \PYG{n}{ny0} \PYG{o}{=} \PYG{l+m+mi}{64}\PYG{p}{,} \PYG{n}{nz0} \PYG{o}{=} \PYG{l+m+mi}{64}
+
+\PYG{p}{.}\PYG{p}{.}\PYG{p}{.}
+\PYG{k+kt}{integer}\PYG{p}{,} \PYG{k}{parameter} \PYG{k+kd}{::} \PYG{n}{ix0} \PYG{o}{=} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{n}{jx0} \PYG{o}{=} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{n}{kx0} \PYG{o}{=} \PYG{l+m+mi}{2}
+\end{sphinxVerbatim}
+
+と設定する。念のために
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{integer}\PYG{p}{,} \PYG{k}{parameter} \PYG{k+kd}{::} \PYG{n}{xdcheck} \PYG{o}{=} \PYG{l+m+mi}{2}
+\PYG{k+kt}{integer}\PYG{p}{,} \PYG{k}{parameter} \PYG{k+kd}{::} \PYG{n}{ydcheck} \PYG{o}{=} \PYG{l+m+mi}{2}
+\PYG{k+kt}{integer}\PYG{p}{,} \PYG{k}{parameter} \PYG{k+kd}{::} \PYG{n}{zdcheck} \PYG{o}{=} \PYG{l+m+mi}{2}
+
+\PYG{p}{.}\PYG{p}{.}\PYG{p}{.}
+
+\PYG{k+kt}{integer}\PYG{p}{,} \PYG{k}{parameter} \PYG{k+kd}{::} \PYG{n}{iper} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{jper} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{kper} \PYG{o}{=} \PYG{l+m+mi}{1}
+\end{sphinxVerbatim}
+
+となっているかチェックする。全て \sphinxcode{\sphinxupquote{xdcheck}} などは2に設定してあると3次元計算となる。\sphinxcode{\sphinxupquote{iper}} はそれぞれの方向に周期境界条件を使うかのフラグである。
+
+\end{description}
+
+\item {} \begin{description}
+\item[{音速抑制法}] \leavevmode
+光球のみ計算の時は、音速抑制法を使う必要は無いので、音速抑制率を常に1に設定する。
+\sphinxcode{\sphinxupquote{src/all/background\_init.F90}} を編集。
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}ifdef ideal}
+    \PYG{p}{.}\PYG{p}{.}\PYG{p}{.} \PYG{p}{(}\PYG{n}{ignore} \PYG{n}{this}\PYG{p}{)}
+\PYG{c+cp}{\PYGZsh{}else}
+
+\PYG{p}{.}\PYG{p}{.}\PYG{p}{.}
+
+\PYG{k}{do }\PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{ix00}
+    \PYG{c}{!xi00(i) = max(1.d0,160.d0*(ro00(i)/rob))**(1.d0/3.d0)*sqrt(dprdro(i)/dprdrob)}
+    \PYG{n}{xi00}\PYG{p}{(}\PYG{n}{i}\PYG{p}{)} \PYG{o}{=} \PYG{l+m+mf}{1.d0}
+
+    \PYG{p}{.}\PYG{p}{.}\PYG{p}{.}
+\PYG{k}{end }\PYG{k}{do}
+
+\PYG{p}{.}\PYG{p}{.}\PYG{p}{.}
+
+\PYG{c+cp}{\PYGZsh{}endif}
+\end{sphinxVerbatim}
+
+と設定する。
+
+\end{description}
+
+\item {} \begin{description}
+\item[{境界条件}] \leavevmode
+水平方向は周期境界を用いるので、鉛直方向の境界条件のみを設定すれば良い。
+磁場の上部境界条件はポテンシャル磁場の境界条件を用いる。他の設定はVöglerの論文を参照。
+\sphinxcode{\sphinxupquote{src/all/bc\_all.F90}} で設定している。
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}ifdef ideal}
+\PYG{p}{.}\PYG{p}{.}\PYG{p}{.} \PYG{p}{(}\PYG{n}{ignore} \PYG{n}{this}\PYG{p}{)}
+\PYG{c+cp}{\PYGZsh{}else}
+
+\PYG{c+cp}{\PYGZsh{}ifdef deep}
+\PYG{p}{.}\PYG{p}{.}\PYG{p}{.} \PYG{p}{(}\PYG{n}{ignore} \PYG{n}{this}\PYG{p}{)}
+\PYG{c+cp}{\PYGZsh{}else}
+    \PYG{k}{call }\PYG{n}{bcx}\PYG{p}{(}\PYG{n}{qq}\PYG{p}{)}
+    \PYG{c}{!call bcx\PYGZus{}whole(qq)}
+\PYG{c+cp}{\PYGZsh{}endif}
+\end{sphinxVerbatim}
+
+とする。 \sphinxcode{\sphinxupquote{bcx(qq)}} が実行されるようにする。
+また、念のため
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{call }\PYG{n}{bc\PYGZus{}potential}\PYG{p}{(}\PYG{n}{qq}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+がコメントアウトされていないかチェックする。
+
+\end{description}
+
+\item {} \begin{description}
+\item[{輻射輸送}] \leavevmode
+輻射輸送は複数本の光線を解くのが良い。
+\sphinxcode{\sphinxupquote{rte\_def.F90}} を編集する。推奨される設定は
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{logical}\PYG{p}{,} \PYG{k}{parameter} \PYG{k+kd}{::} \PYG{n}{rte\PYGZus{}multiray\PYGZus{}flag} \PYG{o}{=} \PYG{p}{.}\PYG{n}{true}\PYG{p}{.}
+\PYG{k+kt}{logical}\PYG{p}{,} \PYG{k}{parameter} \PYG{k+kd}{::} \PYG{n}{rte\PYGZus{}linear\PYGZus{}flag} \PYG{o}{=} \PYG{p}{.}\PYG{n}{false}\PYG{p}{.}
+\PYG{k+kt}{integer}\PYG{p}{,} \PYG{k}{parameter} \PYG{k+kd}{::} \PYG{n}{mhd\PYGZus{}rte\PYGZus{}ratio} \PYG{o}{=} \PYG{l+m+mi}{1}
+\end{sphinxVerbatim}
+
+とするのが良い。
+
+\end{description}
+
+\item {} \begin{description}
+\item[{初期条件}] \leavevmode
+初期条件は、鉛直方向速度(vx)にランダムな微小速度を与えている。プラージュ領域を計算したい場合は
+\sphinxcode{\sphinxupquote{model\_init.F90}} で
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{bx} \PYG{o}{=} \PYG{l+m+mi}{10}\PYG{l+m+mf}{0.d0}
+\end{sphinxVerbatim}
+
+とすれば良い.
+
+\end{description}
+
+\item {} \begin{description}
+\item[{出力アウトプット}] \leavevmode
+ここは本当は完全に自由だが、データの出力の設定である。粒状斑の動きを詳しく見ようと思ったら30秒ほどの時間ケーデンスで出力するのが良い。
+\sphinxcode{\sphinxupquote{main.F90}} を編集。
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{dtout} \PYG{o}{=} \PYG{l+m+mi}{3}\PYG{l+m+mf}{0.d0}
+\PYG{n}{ifac} \PYG{o}{=} \PYG{l+m+mf}{1.d0}
+\end{sphinxVerbatim}
+
+\end{description}
+
+\item {} \begin{description}
+\item[{その他注意事項}] \leavevmode
+\sphinxcode{\sphinxupquote{model\_def.F90}} で \sphinxcode{\sphinxupquote{remap\_calc.F90}} で出力するスライスの位置を決定している。
+
+と領域の真ん中を出力することにしているが、状況によって違う場所が出力されている場合がある。もし変なことが起こったらここをチェックしてみると良い。
+
+\end{description}
+
+\end{itemize}
+
+
+\section{中規模黒点計算}
+\label{\detokenize{typical_case:id3}}
+\sphinxhref{https://ui.adsabs.harvard.edu/abs/2012ApJ...750...62R/abstract}{Rempel, 2012} で行われている中規模光球計算の設定を説明する。
+\begin{itemize}
+\item {} \begin{description}
+\item[{Makefileのオプション}] \leavevmode
+光球のみ一様グリッドで計算するので, \sphinxcode{\sphinxupquote{PPC:= \sphinxhyphen{}Ddeep}} や　\sphinxcode{\sphinxupquote{PPC:= \sphinxhyphen{}Dununiform}} を設定していないかチェック。
+
+\end{description}
+
+\item {} \begin{description}
+\item[{計算領域・解像度}] \leavevmode
+計算領域は鉛直方向(R2D2ではx方向)にrsun から700 km上から5.444 Mm下までをとる。水平方向(R2D2ではyとz方向)には、49.152 Mmずつとる。
+
+太陽光球を計算するときは、鉛直方向には少なくとも48 km, 水平方向には少なくとも192 kmの格子間隔が必要である。ここでは鉛直方向に48 km、水平方向に96 kmの格子点間隔をとることにして、鉛直方向に128グリッド、水平方向に512グリッドづつ格子点を用意する。ここではMPIプロセスを2×4×4プロセス使う例を示す。これらの設定は \sphinxcode{\sphinxupquote{src/all/geometry\_def.F90}} を編集。
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}ifdef deep}
+    \PYG{p}{.}\PYG{p}{.}\PYG{p}{.} \PYG{p}{(}\PYG{n}{ignore} \PYG{n}{this}\PYG{p}{)}
+\PYG{c+cp}{\PYGZsh{}elif ideal}
+    \PYG{p}{.}\PYG{p}{.}\PYG{p}{.} \PYG{p}{(}\PYG{n}{ignore} \PYG{n}{this}\PYG{p}{)}
+\PYG{c+cp}{\PYGZsh{}else}
+    \PYG{k+kt}{real}\PYG{p}{(}\PYG{n+nb}{KIND}\PYG{p}{(}\PYG{l+m+mf}{0.d0}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,} \PYG{k}{parameter} \PYG{k+kd}{::} \PYG{n}{xmax} \PYG{o}{=} \PYG{n}{rsun} \PYG{o}{+} \PYG{l+m+mf}{0.7d8}
+    \PYG{k+kt}{real}\PYG{p}{(}\PYG{n+nb}{KIND}\PYG{p}{(}\PYG{l+m+mf}{0.d0}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,} \PYG{k}{parameter} \PYG{k+kd}{::} \PYG{n}{xmin} \PYG{o}{=} \PYG{n}{rsun} \PYG{o}{\PYGZhy{}} \PYG{l+m+mf}{5.444d8}
+\PYG{c+cp}{\PYGZsh{}endif}
+
+\PYG{c+cp}{\PYGZsh{}ifndef ideal}
+    \PYG{k+kt}{real}\PYG{p}{(}\PYG{n+nb}{KIND}\PYG{p}{(}\PYG{l+m+mf}{0.d0}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,} \PYG{k}{parameter} \PYG{k+kd}{::} \PYG{n}{ymin} \PYG{o}{=} \PYG{l+m+mf}{0.d0}
+    \PYG{k+kt}{real}\PYG{p}{(}\PYG{n+nb}{KIND}\PYG{p}{(}\PYG{l+m+mf}{0.d0}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,} \PYG{k}{parameter} \PYG{k+kd}{::} \PYG{n}{ymax} \PYG{o}{=} \PYG{l+m+mi}{4}\PYG{l+m+mf}{9.152d8}
+    \PYG{k+kt}{real}\PYG{p}{(}\PYG{n+nb}{KIND}\PYG{p}{(}\PYG{l+m+mf}{0.d0}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,} \PYG{k}{parameter} \PYG{k+kd}{::} \PYG{n}{ymax} \PYG{o}{=} \PYG{l+m+mf}{0.d0}
+    \PYG{k+kt}{real}\PYG{p}{(}\PYG{n+nb}{KIND}\PYG{p}{(}\PYG{l+m+mf}{0.d0}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,} \PYG{k}{parameter} \PYG{k+kd}{::} \PYG{n}{ymax} \PYG{o}{=} \PYG{l+m+mi}{4}\PYG{l+m+mf}{9.152d8}
+\PYG{c+cp}{\PYGZsh{}endif}
+
+\PYG{p}{.}\PYG{p}{.}\PYG{p}{.}
+\PYG{k+kt}{integer}\PYG{p}{,} \PYG{k}{parameter}\PYG{p}{,} \PYG{k}{private} \PYG{k+kd}{::} \PYG{n}{nx0} \PYG{o}{=} \PYG{l+m+mi}{64}\PYG{p}{,} \PYG{n}{ny0} \PYG{o}{=} \PYG{l+m+mi}{128}\PYG{p}{,} \PYG{n}{nz0} \PYG{o}{=} \PYG{l+m+mi}{128}
+
+\PYG{p}{.}\PYG{p}{.}\PYG{p}{.}
+\PYG{k+kt}{integer}\PYG{p}{,} \PYG{k}{parameter} \PYG{k+kd}{::} \PYG{n}{ix0} \PYG{o}{=} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{n}{jx0} \PYG{o}{=} \PYG{l+m+mi}{4}\PYG{p}{,} \PYG{n}{kx0} \PYG{o}{=} \PYG{l+m+mi}{4}
+\end{sphinxVerbatim}
+
+と設定する。念のために
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{integer}\PYG{p}{,} \PYG{k}{parameter} \PYG{k+kd}{::} \PYG{n}{xdcheck} \PYG{o}{=} \PYG{l+m+mi}{2}
+\PYG{k+kt}{integer}\PYG{p}{,} \PYG{k}{parameter} \PYG{k+kd}{::} \PYG{n}{ydcheck} \PYG{o}{=} \PYG{l+m+mi}{2}
+\PYG{k+kt}{integer}\PYG{p}{,} \PYG{k}{parameter} \PYG{k+kd}{::} \PYG{n}{zdcheck} \PYG{o}{=} \PYG{l+m+mi}{2}
+
+\PYG{p}{.}\PYG{p}{.}\PYG{p}{.}
+
+\PYG{k+kt}{integer}\PYG{p}{,} \PYG{k}{parameter} \PYG{k+kd}{::} \PYG{n}{iper} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{jper} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{kper} \PYG{o}{=} \PYG{l+m+mi}{1}
+\end{sphinxVerbatim}
+
+となっているかチェックする。全て \sphinxcode{\sphinxupquote{xdcheck}} などは2に設定してあると3次元計算となる。\sphinxcode{\sphinxupquote{iper}} はそれぞれの方向に周期境界条件を使うかのフラグである。
+
+\end{description}
+
+\item {} \begin{description}
+\item[{音速抑制法}] \leavevmode
+光球のみ計算の時は、音速抑制法を使う必要は無いので、音速抑制率を常に1に設定する。
+\sphinxcode{\sphinxupquote{src/all/background\_init.F90}} を編集。
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}ifdef ideal}
+    \PYG{p}{.}\PYG{p}{.}\PYG{p}{.} \PYG{p}{(}\PYG{n}{ignore} \PYG{n}{this}\PYG{p}{)}
+\PYG{c+cp}{\PYGZsh{}else}
+
+\PYG{p}{.}\PYG{p}{.}\PYG{p}{.}
+
+\PYG{k}{do }\PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{ix00}
+    \PYG{c}{!xi00(i) = max(1.d0,160.d0*(ro00(i)/rob))**(1.d0/3.d0)*sqrt(dprdro(i)/dprdrob)}
+    \PYG{n}{xi00}\PYG{p}{(}\PYG{n}{i}\PYG{p}{)} \PYG{o}{=} \PYG{l+m+mf}{1.d0}
+
+    \PYG{p}{.}\PYG{p}{.}\PYG{p}{.}
+\PYG{k}{end }\PYG{k}{do}
+
+\PYG{p}{.}\PYG{p}{.}\PYG{p}{.}
+
+\PYG{c+cp}{\PYGZsh{}endif}
+\end{sphinxVerbatim}
+
+と設定する。
+
+\end{description}
+
+\item {} \begin{description}
+\item[{境界条件}] \leavevmode
+水平方向は周期境界を用いるので、鉛直方向の境界条件のみを設定すれば良い。
+磁場の上部境界条件はポテンシャル磁場の境界条件を用いる。他の設定はRempelの論文を参照。
+\sphinxcode{\sphinxupquote{src/all/bc\_all.F90}} で設定している。
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}ifdef ideal}
+\PYG{p}{.}\PYG{p}{.}\PYG{p}{.} \PYG{p}{(}\PYG{n}{ignore} \PYG{n}{this}\PYG{p}{)}
+\PYG{c+cp}{\PYGZsh{}else}
+
+\PYG{c+cp}{\PYGZsh{}ifdef deep}
+\PYG{p}{.}\PYG{p}{.}\PYG{p}{.} \PYG{p}{(}\PYG{n}{ignore} \PYG{n}{this}\PYG{p}{)}
+\PYG{c+cp}{\PYGZsh{}else}
+    \PYG{k}{call }\PYG{n}{bcx\PYGZus{}sunspot}\PYG{p}{(}\PYG{n}{qq}\PYG{p}{)}
+    \PYG{c}{!call bcx(qq)}
+    \PYG{c}{!call bcx\PYGZus{}whole(qq)}
+\PYG{c+cp}{\PYGZsh{}endif}
+\end{sphinxVerbatim}
+
+とする。 \sphinxcode{\sphinxupquote{bcx\_sunspot(qq)}} が実行されるようにする。
+また、念のため
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{call }\PYG{n}{bc\PYGZus{}potential}\PYG{p}{(}\PYG{n}{qq}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+がコメントアウトされていないかチェックする。
+
+ポテンシャル磁場から少しずらしたい時は、 \sphinxcode{\sphinxupquote{mhd\_def.F90}} の中でRempel, 2012で定義されている \(\alpha\) が定義されている。
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{real}\PYG{p}{(}\PYG{n+nb}{KIND}\PYG{p}{(}\PYG{l+m+mf}{0.d0}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,} \PYG{k}{parameter} \PYG{k+kd}{::} \PYG{n}{potential\PYGZus{}alpha} \PYG{o}{=} \PYG{l+m+mf}{2.5d0}
+\end{sphinxVerbatim}
+
+などとする。
+
+\end{description}
+
+\item {} \begin{description}
+\item[{輻射輸送}] \leavevmode
+輻射輸送は複数本の光線を解くのが良い。
+\sphinxcode{\sphinxupquote{rte\_def.F90}} を編集する。推奨される設定は
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{logical}\PYG{p}{,} \PYG{k}{parameter} \PYG{k+kd}{::} \PYG{n}{rte\PYGZus{}multiray\PYGZus{}flag} \PYG{o}{=} \PYG{p}{.}\PYG{n}{true}\PYG{p}{.}
+\PYG{k+kt}{logical}\PYG{p}{,} \PYG{k}{parameter} \PYG{k+kd}{::} \PYG{n}{rte\PYGZus{}linear\PYGZus{}flag} \PYG{o}{=} \PYG{p}{.}\PYG{n}{false}\PYG{p}{.}
+\PYG{k+kt}{integer}\PYG{p}{,} \PYG{k}{parameter} \PYG{k+kd}{::} \PYG{n}{mhd\PYGZus{}rte\PYGZus{}ratio} \PYG{o}{=} \PYG{l+m+mi}{1}
+\end{sphinxVerbatim}
+
+とするのが良い。
+
+\end{description}
+
+\item {} \begin{description}
+\item[{初期条件}] \leavevmode
+初期条件は、鉛直方向速度(vx)にランダムな微小速度を与えている。
+黒点以外は磁場をゼロにしておく。
+\sphinxcode{\sphinxupquote{model\_init.F90}} で
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{bx} \PYG{o}{=} \PYG{l+m+mf}{0.d0}
+\PYG{n}{by} \PYG{o}{=} \PYG{l+m+mf}{0.d0}
+\PYG{n}{bz} \PYG{o}{=} \PYG{l+m+mf}{0.d0}
+\end{sphinxVerbatim}
+
+とすれば良い.
+
+黒点設置のために \sphinxcode{\sphinxupquote{model\_sunspot.F90}} を編集。いくつかパラメタがあるが、変えたい時はプログラムのコメントを参照すること。 \sphinxcode{\sphinxupquote{io.F90}} を編集し、
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c}{!add something}
+\PYG{n}{time00} \PYG{o}{=} \PYG{l+m+mf}{0.d0}
+\PYG{k}{if}\PYG{p}{(}\PYG{n}{ns} \PYG{o}{==} \PYG{l+m+mi}{0} \PYG{p}{.}\PYG{n+nb}{and}\PYG{p}{.} \PYG{n}{nd} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{)} \PYG{k}{then}
+\PYG{k}{    }\PYG{k}{call }\PYG{n}{model\PYGZus{}sunspot}
+\PYG{n}{endif}
+\end{sphinxVerbatim}
+
+とする。デフォルトでは、 \sphinxcode{\sphinxupquote{call model\_sunspot}} がコメントアウトされていることが多いと思われる。
+
+\end{description}
+
+\item {} \begin{description}
+\item[{出力アウトプット}] \leavevmode
+ここは本当は完全に自由だが、データの出力の設定である。粒状斑の動きを詳しく見ようと思ったら30秒ほどの時間ケーデンスで出力するのが良い。
+\sphinxcode{\sphinxupquote{main.F90}} を編集。
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{dtout} \PYG{o}{=} \PYG{l+m+mi}{3}\PYG{l+m+mf}{0.d0}
+\PYG{n}{ifac} \PYG{o}{=} \PYG{l+m+mf}{1.d0}
+\end{sphinxVerbatim}
+
+\end{description}
+
+\item {} \begin{description}
+\item[{その他注意事項}] \leavevmode
+\sphinxcode{\sphinxupquote{model\_def.F90}} で \sphinxcode{\sphinxupquote{remap\_calc.F90}} で出力するスライスの位置を決定している。
+
+と領域の真ん中を出力することにしているが、状況によって違う場所が出力されている場合がある。もし変なことが起こったらここをチェックしてみると良い。
+
+\end{description}
+
+\end{itemize}
+
+
+\section{全対流層計算}
+\label{\detokenize{typical_case:id4}}
+
+\section{深い部分のみの計算}
+\label{\detokenize{typical_case:id5}}
 
 \chapter{方程式}
 \label{\detokenize{equation:id1}}\label{\detokenize{equation::doc}}
@@ -1099,6 +1454,154 @@ ver. 1.1: 光学的厚さが0.1, 0.01の部分も出力することにした。q
 ver. 1.2: データ構造を変更。
 
 \end{itemize}
+
+
+\chapter{Paraviewを用いた3Dデータ表示}
+\label{\detokenize{paraview:paraview3d}}\label{\detokenize{paraview::doc}}
+ここでは、Paraviewを用いてR2D2の計算結果を三次元表示する方法を説明する。
+
+
+\section{データ準備}
+\label{\detokenize{paraview:id1}}
+すでに計算を実行していて、何らかのデータが準備できている状況を想定する。
+データをParaviewで扱うためにVTKフォーマットに変換する。
+変換後に用意するべきデータは
+\begin{itemize}
+\item {} 
+ある物理量の三次元データ
+
+\item {} 
+ある物理量の :\(\tau=1\) でのデータ
+
+\end{itemize}
+
+それぞれのデータのためにR2D2 Pythonでは以下の関数が用意してある。
+\index{R2D2.vtk.write\_3D() (組み込み関数)@\spxentry{R2D2.vtk.write\_3D()}\spxextra{組み込み関数}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{paraview:R2D2.vtk.write_3D}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2.vtk.}}\sphinxbfcode{\sphinxupquote{write\_3D}}}{\emph{qq}, \emph{x}, \emph{y}, \emph{z}, \emph{file}, \emph{name}}{}
+3次元のVTKフォーマットを出力するための関数
+\begin{quote}\begin{description}
+\item[{パラメータ}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{\sphinxupquote{qq}} (\sphinxstyleliteralemphasis{\sphinxupquote{float}}) \sphinxhyphen{}\sphinxhyphen{} 出力したい物理量の3次元numpy配列
+
+\item {} 
+\sphinxstyleliteralstrong{\sphinxupquote{x}} (\sphinxstyleliteralemphasis{\sphinxupquote{float}}) \sphinxhyphen{}\sphinxhyphen{} x方向の座標
+
+\item {} 
+\sphinxstyleliteralstrong{\sphinxupquote{y}} (\sphinxstyleliteralemphasis{\sphinxupquote{float}}) \sphinxhyphen{}\sphinxhyphen{} y方向の座標
+
+\item {} 
+\sphinxstyleliteralstrong{\sphinxupquote{z}} (\sphinxstyleliteralemphasis{\sphinxupquote{float}}) \sphinxhyphen{}\sphinxhyphen{} z方向の座標
+
+\item {} 
+\sphinxstyleliteralstrong{\sphinxupquote{file}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \sphinxhyphen{}\sphinxhyphen{} 出力先のVTKフォーマットの名前
+
+\item {} 
+\sphinxstyleliteralstrong{\sphinxupquote{name}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \sphinxhyphen{}\sphinxhyphen{} Paraviewで管理するために用いる出力した物理量の名前
+
+\end{itemize}
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+\index{R2D2.vtk.write\_optical\_surface() (組み込み関数)@\spxentry{R2D2.vtk.write\_optical\_surface()}\spxextra{組み込み関数}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{paraview:R2D2.vtk.write_optical_surface}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2.vtk.}}\sphinxbfcode{\sphinxupquote{write\_optical\_surface}}}{\emph{qq}, \emph{height}, \emph{y}, \emph{z}, \emph{file}, \emph{name}}{}
+\(\tau=1\) での2次元データを出力するための関数
+\begin{quote}\begin{description}
+\item[{パラメータ}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{\sphinxupquote{qq}} (\sphinxstyleliteralemphasis{\sphinxupquote{float}}) \sphinxhyphen{}\sphinxhyphen{} 出力したい物理量の2次元配列
+
+\item {} 
+\sphinxstyleliteralstrong{\sphinxupquote{height}} (\sphinxstyleliteralemphasis{\sphinxupquote{float}}) \sphinxhyphen{}\sphinxhyphen{} \(\tau=1\) の高さの情報。\sphinxcode{\sphinxupquote{self.qt{[}\textquotesingle{}he\textquotesingle{}{]}}} を出力することが想定されている。
+
+\item {} 
+\sphinxstyleliteralstrong{\sphinxupquote{y}} (\sphinxstyleliteralemphasis{\sphinxupquote{float}}) \sphinxhyphen{}\sphinxhyphen{} y方向の座標
+
+\item {} 
+\sphinxstyleliteralstrong{\sphinxupquote{z}} (\sphinxstyleliteralemphasis{\sphinxupquote{float}}) \sphinxhyphen{}\sphinxhyphen{} z方向の座標
+
+\item {} 
+\sphinxstyleliteralstrong{\sphinxupquote{file}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \sphinxhyphen{}\sphinxhyphen{} 出力先VTKフォーマットの名前
+
+\item {} 
+\sphinxstyleliteralstrong{\sphinxupquote{name}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \sphinxhyphen{}\sphinxhyphen{} Paraviewで管理するために用いる出力した物理量の名前
+
+\end{itemize}
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+
+例えば、以下のようにして実行する
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{run} \PYG{n}{init} \PYG{c+c1}{\PYGZsh{}　初期設定}
+\PYG{n}{d}\PYG{o}{.}\PYG{n}{read\PYGZus{}qq}\PYG{p}{(}\PYG{l+m+mi}{100}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} 100番目の3次元データを読込}
+\PYG{n}{bb} \PYG{o}{=} \PYG{n}{sqrt}\PYG{p}{(}\PYG{n}{d}\PYG{o}{.}\PYG{n}{qq}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{bx}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{o}{*}\PYG{o}{*}\PYG{l+m+mi}{2} \PYG{o}{+} \PYG{n}{d}\PYG{o}{.}\PYG{n}{qq}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{by}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{o}{*}\PYG{o}{*}\PYG{l+m+mi}{2} \PYG{o}{+} \PYG{n}{d}\PYG{o}{.}\PYG{n}{qq}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{bz}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{o}{*}\PYG{o}{*}\PYG{l+m+mi}{2}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} 磁場の強さを計算}
+\PYG{n}{d}\PYG{o}{.}\PYG{n}{read\PYGZus{}tau}\PYG{p}{(}\PYG{l+m+mi}{100}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} 100番目のtau=1の2次元データを読込}
+
+\PYG{n}{R2D2}\PYG{o}{.}\PYG{n}{vtk}\PYG{o}{.}\PYG{n}{write\PYGZus{}3D}\PYG{p}{(}\PYG{n}{bb}\PYG{p}{,}\PYG{n}{x}\PYG{p}{,}\PYG{n}{y}\PYG{p}{,}\PYG{n}{z}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{bb.vtk}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{bb}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{} 変数名をbbとしてファイル名bb.vtkに3次元データを出力}
+\PYG{n}{R2D2}\PYG{o}{.}\PYG{n}{vtk}\PYG{o}{.}\PYG{n}{write\PYGZus{}optical\PYGZus{}surface}\PYG{p}{(}\PYG{n}{d}\PYG{o}{.}\PYG{n}{qt}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{in}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{,}\PYG{n}{d}\PYG{o}{.}\PYG{n}{qt}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{he}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{,}\PYG{n}{y}\PYG{p}{,}\PYG{n}{z}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{in.vtk}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{in}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{} 変数名をinとしてファイル名in.vtkに2次元データを出力}
+\end{sphinxVerbatim}
+
+
+\section{Paraviewを用いて3次元表示}
+\label{\detokenize{paraview:paraview3}}
+\sphinxhref{https://www.paraview.org/download/}{Paraviewのサイト} からParaviewをダウンロード。Windows, Linux, macOSのそれぞれのソフトウェアがあるのでインストール方法は各自確認すること。ここでは、macOSでの利用方法を示すが、確認している限りは、Linuxでもほとんど同じ。ここでは非常に簡単にParaviewの使い方を説明する。詳しくはParaviewの公式マニュアルなどを読むこと。
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+まず右上のファイルアイコンをクリック
+\begin{quote}
+
+\noindent\sphinxincludegraphics[width=600\sphinxpxdimen]{{paraview01}.png}
+\end{quote}
+
+\item {} 
+Pythonで生成したファイルを選択。2次元, ３次元ファイルどちらも選択する。一個一個選択しても良いし、一度に選択しても良い。時系列データの時は、すべてを一度に選択するとアニメーションを作りやすい。
+\begin{quote}
+
+\noindent\sphinxincludegraphics[width=600\sphinxpxdimen]{{paraview02}.png}
+\end{quote}
+
+\item {} 
+Applyをクリック。選択した二つのデータが表示される。
+\begin{quote}
+
+\noindent\sphinxincludegraphics[width=600\sphinxpxdimen]{{paraview03}.png}
+\end{quote}
+
+\item {} 
+2次元データの方は、すぐに面として表示されるが、三次元データは表示方法を選ぶ必要がある。
+\begin{quote}
+
+\noindent\sphinxincludegraphics[width=600\sphinxpxdimen]{{paraview04}.png}
+\end{quote}
+
+\item {} 
+三次元データのボリュームレンダリングが行いたいので、Volumeを選ぶ。
+\begin{quote}
+
+\noindent\sphinxincludegraphics[width=600\sphinxpxdimen]{{paraview05}.png}
+\end{quote}
+
+\item {} 
+三次元データのボリュームレンダリングが表示されるので、便宜描画を回転させるなどして、解析する。
+\begin{quote}
+
+\noindent\sphinxincludegraphics[width=600\sphinxpxdimen]{{paraview06}.png}
+\end{quote}
+
+\end{enumerate}
 
 
 \chapter{R2D2 pythonでのキーワードの説明}
@@ -1664,7 +2167,7 @@ R2D2は現状、公開ソフトウェアではなく再配布も禁じている�
 R2D2で実行する計算は、堀田と議論する必要がある。パラメタ変更などの細かい変更には相談する必要はないが、新しいプロジェクトを開始するときはその都度相談すること。堀田自身のプロジェクト、堀田の指導学生のプロジェクトとの重複を避けるためである。
 
 \item {} 
-R2D2を用いた論文を出版するときは　\sphinxhref{https://ui.adsabs.harvard.edu/abs/2019SciA....5.2307H/abstract}{Hotta et al., 2019}　を引用すること。より詳しく説明した論文も出版予定である。
+R2D2を用いた論文を出版するときは　\sphinxhref{https://ui.adsabs.harvard.edu/abs/2019SciA....5.2307H/abstract}{Hotta et al., 2019}, \sphinxhref{https://ui.adsabs.harvard.edu/abs/2020MNRAS.494.2523H/abstract}{Hotta and Iijima, 2020}　を引用すること。
 
 \item {} 
 R2D2を用いた研究を発表するときは、\sphinxhref{https://hottahd.github.io/R2D2-manual/\_images/R2D2\_logo\_red.png}{R2D2のロゴ} の使用が推奨される(強制ではない)。
@@ -1685,7 +2188,7 @@ R2D2を用いた研究を発表するときは、\sphinxhref{https://hottahd.git
 
 \end{itemize}
 
-最終更新日：2020年04月28日
+最終更新日：2020年04月29日
 
 
 \renewcommand{\indexname}{Pythonモジュール索引}

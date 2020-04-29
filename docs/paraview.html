@@ -1,0 +1,217 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>Paraviewを用いた3Dデータ表示 &#8212; R2D2 1.2 ドキュメント</title>
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/translations.js"></script>
+    <script src="_static/bizstyle.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="next" title="R2D2 pythonでのキーワードの説明" href="notation.html" />
+    <link rel="prev" title="出力と読込" href="io.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="notation.html" title="R2D2 pythonでのキーワードの説明"
+             accesskey="N">次へ</a> |</li>
+        <li class="right" >
+          <a href="io.html" title="出力と読込"
+             accesskey="P">前へ</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">R2D2 1.2 ドキュメント</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">目次</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Paraviewを用いた3Dデータ表示</a><ul>
+<li><a class="reference internal" href="#id1">データ準備</a></li>
+<li><a class="reference internal" href="#paraview3">Paraviewを用いて3次元表示</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>前のトピックへ</h4>
+  <p class="topless"><a href="io.html"
+                        title="前の章へ">出力と読込</a></p>
+  <h4>次のトピックへ</h4>
+  <p class="topless"><a href="notation.html"
+                        title="次の章へ">R2D2 pythonでのキーワードの説明</a></p>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/paraview.rst.txt"
+            rel="nofollow">ソースコードを表示</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="検索" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="paraview3d">
+<h1>Paraviewを用いた3Dデータ表示<a class="headerlink" href="#paraview3d" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>ここでは、Paraviewを用いてR2D2の計算結果を三次元表示する方法を説明する。</p>
+<div class="section" id="id1">
+<h2>データ準備<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>すでに計算を実行していて、何らかのデータが準備できている状況を想定する。
+データをParaviewで扱うためにVTKフォーマットに変換する。
+変換後に用意するべきデータは</p>
+<ul class="simple">
+<li><p>ある物理量の三次元データ</p></li>
+<li><p>ある物理量の :<img class="math" src="_images/math/b19774d4e57891d5afa14e54dbc161aa092b6154.svg" alt="\tau=1"/> でのデータ</p></li>
+</ul>
+<p>それぞれのデータのためにR2D2 Pythonでは以下の関数が用意してある。</p>
+<dl class="function">
+<dt id="R2D2.vtk.write_3D">
+<code class="sig-prename descclassname">R2D2.vtk.</code><code class="sig-name descname">write_3D</code><span class="sig-paren">(</span><em class="sig-param">qq</em>, <em class="sig-param">x</em>, <em class="sig-param">y</em>, <em class="sig-param">z</em>, <em class="sig-param">file</em>, <em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.vtk.write_3D" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>3次元のVTKフォーマットを出力するための関数</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qq</strong> (<em>float</em>) -- 出力したい物理量の3次元numpy配列</p></li>
+<li><p><strong>x</strong> (<em>float</em>) -- x方向の座標</p></li>
+<li><p><strong>y</strong> (<em>float</em>) -- y方向の座標</p></li>
+<li><p><strong>z</strong> (<em>float</em>) -- z方向の座標</p></li>
+<li><p><strong>file</strong> (<em>str</em>) -- 出力先のVTKフォーマットの名前</p></li>
+<li><p><strong>name</strong> (<em>str</em>) -- Paraviewで管理するために用いる出力した物理量の名前</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="R2D2.vtk.write_optical_surface">
+<code class="sig-prename descclassname">R2D2.vtk.</code><code class="sig-name descname">write_optical_surface</code><span class="sig-paren">(</span><em class="sig-param">qq</em>, <em class="sig-param">height</em>, <em class="sig-param">y</em>, <em class="sig-param">z</em>, <em class="sig-param">file</em>, <em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.vtk.write_optical_surface" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p><img class="math" src="_images/math/b19774d4e57891d5afa14e54dbc161aa092b6154.svg" alt="\tau=1"/> での2次元データを出力するための関数</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qq</strong> (<em>float</em>) -- 出力したい物理量の2次元配列</p></li>
+<li><p><strong>height</strong> (<em>float</em>) -- <img class="math" src="_images/math/b19774d4e57891d5afa14e54dbc161aa092b6154.svg" alt="\tau=1"/> の高さの情報。<code class="code docutils literal notranslate"><span class="pre">self.qt['he']</span></code> を出力することが想定されている。</p></li>
+<li><p><strong>y</strong> (<em>float</em>) -- y方向の座標</p></li>
+<li><p><strong>z</strong> (<em>float</em>) -- z方向の座標</p></li>
+<li><p><strong>file</strong> (<em>str</em>) -- 出力先VTKフォーマットの名前</p></li>
+<li><p><strong>name</strong> (<em>str</em>) -- Paraviewで管理するために用いる出力した物理量の名前</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p>例えば、以下のようにして実行する</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">run</span> <span class="n">init</span> <span class="c1">#　初期設定</span>
+<span class="n">d</span><span class="o">.</span><span class="n">read_qq</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># 100番目の3次元データを読込</span>
+<span class="n">bb</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">qq</span><span class="p">[</span><span class="s1">&#39;bx&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">d</span><span class="o">.</span><span class="n">qq</span><span class="p">[</span><span class="s1">&#39;by&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">d</span><span class="o">.</span><span class="n">qq</span><span class="p">[</span><span class="s1">&#39;bz&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># 磁場の強さを計算</span>
+<span class="n">d</span><span class="o">.</span><span class="n">read_tau</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># 100番目のtau=1の2次元データを読込</span>
+
+<span class="n">R2D2</span><span class="o">.</span><span class="n">vtk</span><span class="o">.</span><span class="n">write_3D</span><span class="p">(</span><span class="n">bb</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="s1">&#39;bb.vtk&#39;</span><span class="p">,</span><span class="s1">&#39;bb&#39;</span><span class="p">)</span>
+<span class="c1"># 変数名をbbとしてファイル名bb.vtkに3次元データを出力</span>
+<span class="n">R2D2</span><span class="o">.</span><span class="n">vtk</span><span class="o">.</span><span class="n">write_optical_surface</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">qt</span><span class="p">[</span><span class="s1">&#39;in&#39;</span><span class="p">],</span><span class="n">d</span><span class="o">.</span><span class="n">qt</span><span class="p">[</span><span class="s1">&#39;he&#39;</span><span class="p">],</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="s1">&#39;in.vtk&#39;</span><span class="p">,</span><span class="s1">&#39;in&#39;</span><span class="p">)</span>
+<span class="c1"># 変数名をinとしてファイル名in.vtkに2次元データを出力</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="paraview3">
+<h2>Paraviewを用いて3次元表示<a class="headerlink" href="#paraview3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="https://www.paraview.org/download/">Paraviewのサイト</a> からParaviewをダウンロード。Windows, Linux, macOSのそれぞれのソフトウェアがあるのでインストール方法は各自確認すること。ここでは、macOSでの利用方法を示すが、確認している限りは、Linuxでもほとんど同じ。ここでは非常に簡単にParaviewの使い方を説明する。詳しくはParaviewの公式マニュアルなどを読むこと。</p>
+<ol class="arabic">
+<li><p>まず右上のファイルアイコンをクリック</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="_images/paraview01.png"><img alt="_images/paraview01.png" src="_images/paraview01.png" style="width: 600px;" /></a>
+</div></blockquote>
+</li>
+<li><p>Pythonで生成したファイルを選択。2次元, ３次元ファイルどちらも選択する。一個一個選択しても良いし、一度に選択しても良い。時系列データの時は、すべてを一度に選択するとアニメーションを作りやすい。</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="_images/paraview02.png"><img alt="_images/paraview02.png" src="_images/paraview02.png" style="width: 600px;" /></a>
+</div></blockquote>
+</li>
+<li><p>Applyをクリック。選択した二つのデータが表示される。</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="_images/paraview03.png"><img alt="_images/paraview03.png" src="_images/paraview03.png" style="width: 600px;" /></a>
+</div></blockquote>
+</li>
+<li><p>2次元データの方は、すぐに面として表示されるが、三次元データは表示方法を選ぶ必要がある。</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="_images/paraview04.png"><img alt="_images/paraview04.png" src="_images/paraview04.png" style="width: 600px;" /></a>
+</div></blockquote>
+</li>
+<li><p>三次元データのボリュームレンダリングが行いたいので、Volumeを選ぶ。</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="_images/paraview05.png"><img alt="_images/paraview05.png" src="_images/paraview05.png" style="width: 600px;" /></a>
+</div></blockquote>
+</li>
+<li><p>三次元データのボリュームレンダリングが表示されるので、便宜描画を回転させるなどして、解析する。</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="_images/paraview06.png"><img alt="_images/paraview06.png" src="_images/paraview06.png" style="width: 600px;" /></a>
+</div></blockquote>
+</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="総合索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="notation.html" title="R2D2 pythonでのキーワードの説明"
+             >次へ</a> |</li>
+        <li class="right" >
+          <a href="io.html" title="出力と読込"
+             >前へ</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">R2D2 1.2 ドキュメント</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Hideyuki Hotta.
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4 で生成しました。
+    </div>
+  </body>
+</html>
