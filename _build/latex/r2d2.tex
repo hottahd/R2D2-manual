@@ -36,7 +36,7 @@
 
 
 \title{R2D2}
-\date{2020年04月29日}
+\date{2020年04月30日}
 \release{1.2}
 \author{Hideyuki Hotta}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -390,6 +390,8 @@ make
 
 このディレクトリを書く実行のディレクトリの配下におき、実行すると続きの計算が始まる。
 
+最終更新日：2020年04月30日
+
 
 \chapter{R2D2を使うための環境設定}
 \label{\detokenize{environment:r2d2}}\label{\detokenize{environment::doc}}
@@ -620,6 +622,8 @@ Google APIロゴ \(\rightarrow\) 認証情報 \(\rightarrow\) サービスアカ
 \label{\detokenize{environment:idl}}
 システムにIDLをインストールすれば、それのみで使える。ここでは説明しない。
 
+最終更新日：2020年04月30日
+
 
 \chapter{典型的計算例}
 \label{\detokenize{typical_case:id1}}\label{\detokenize{typical_case::doc}}
@@ -784,7 +788,14 @@ Google APIロゴ \(\rightarrow\) 認証情報 \(\rightarrow\) サービスアカ
 \item[{その他注意事項}] \leavevmode
 \sphinxcode{\sphinxupquote{model\_def.F90}} で \sphinxcode{\sphinxupquote{remap\_calc.F90}} で出力するスライスの位置を決定している。
 
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{integer}\PYG{p}{,} \PYG{k}{parameter} \PYG{k+kd}{::} \PYG{n}{jc} \PYG{o}{=} \PYG{n}{ny}\PYG{o}{*}\PYG{n}{jx0}\PYG{o}{/}\PYG{l+m+mi}{2}
+\PYG{k+kt}{integer}\PYG{p}{,} \PYG{k}{parameter} \PYG{k+kd}{::} \PYG{n}{kc} \PYG{o}{=} \PYG{n}{nz}\PYG{o}{*}\PYG{n}{kx0}\PYG{o}{/}\PYG{l+m+mi}{2}
+\end{sphinxVerbatim}
+
 と領域の真ん中を出力することにしているが、状況によって違う場所が出力されている場合がある。もし変なことが起こったらここをチェックしてみると良い。
+
+また、 \sphinxcode{\sphinxupquote{io.F90}} の中程に計算の途中に磁場などを追加する設定がある。ここに何か書いてあると初期条件に足してしまうので、add something で検索して \sphinxcode{\sphinxupquote{call model\_*}} ({\color{red}\bfseries{}*}は任意)のところはコメントアウトするように。
 
 \end{description}
 
@@ -792,7 +803,7 @@ Google APIロゴ \(\rightarrow\) 認証情報 \(\rightarrow\) サービスアカ
 
 
 \section{中規模黒点計算}
-\label{\detokenize{typical_case:id3}}
+\label{\detokenize{typical_case:id5}}
 \sphinxhref{https://ui.adsabs.harvard.edu/abs/2012ApJ...750...62R/abstract}{Rempel, 2012} で行われている中規模光球計算の設定を説明する。
 \begin{itemize}
 \item {} \begin{description}
@@ -981,10 +992,12 @@ Google APIロゴ \(\rightarrow\) 認証情報 \(\rightarrow\) サービスアカ
 
 
 \section{全対流層計算}
-\label{\detokenize{typical_case:id4}}
+\label{\detokenize{typical_case:id6}}
 
 \section{深い部分のみの計算}
-\label{\detokenize{typical_case:id5}}
+\label{\detokenize{typical_case:id7}}
+最終更新日：2020年04月30日
+
 
 \chapter{方程式}
 \label{\detokenize{equation:id1}}\label{\detokenize{equation::doc}}
@@ -1028,6 +1041,8 @@ T &= T_0 + T_1 \\\end{split}
 
 \chapter{コード構造}
 \label{\detokenize{code:id1}}\label{\detokenize{code::doc}}
+最終更新日：2020年04月30日
+
 
 \chapter{数値スキーム}
 \label{\detokenize{scheme:id1}}\label{\detokenize{scheme::doc}}
@@ -1146,6 +1161,8 @@ fortranのコードの中では
 \begin{equation*}
 \begin{split}\delta x = \frac{2\left(x_\mathrm{tran} - n_x\Delta x_0\right)}{\left(n_x - 4\right)n_x}\end{split}
 \end{equation*}
+最終更新日：2020年04月30日
+
 
 \chapter{境界条件}
 \label{\detokenize{boundary:id1}}\label{\detokenize{boundary::doc}}
@@ -1431,17 +1448,6 @@ Fortranコードの中で解析した計算結果を読み込む。戻り値を�
 \sphinxhref{https://github.com/hottahd/R2D2\_idl}{GitHubの公開レポジトリ} に簡単な説明あり
 
 
-\subsection{Paraview 使用}
-\label{\detokenize{io:paraview}}
-Paraviewを使用するためにデータ出力の関数が用意してある。
-\index{R2D2.vtk.write\_3D() (R2D2 モジュール)@\spxentry{R2D2.vtk.write\_3D()}\spxextra{R2D2 モジュール}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{io:R2D2.R2D2.vtk.write_3D}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2.vtk.}}\sphinxbfcode{\sphinxupquote{write\_3D}}}{}{}
-\end{fulllineitems}
-
-
-
 \section{バージョン履歴}
 \label{\detokenize{io:id5}}\begin{itemize}
 \item {} 
@@ -1454,6 +1460,8 @@ ver. 1.1: 光学的厚さが0.1, 0.01の部分も出力することにした。q
 ver. 1.2: データ構造を変更。
 
 \end{itemize}
+
+最終更新日：2020年04月30日
 
 
 \chapter{Paraviewを用いた3Dデータ表示}
@@ -1602,6 +1610,8 @@ Applyをクリック。選択した二つのデータが表示される。
 \end{quote}
 
 \end{enumerate}
+
+最終更新日：2020年04月30日
 
 
 \chapter{R2D2 pythonでのキーワードの説明}
@@ -1946,6 +1956,8 @@ op (float) {[}jx,kx{]} \sphinxhyphen{}\sphinxhyphen{} 不透明度(オパシテ�
 
 \section{self.vc {[}dictionary{]}}
 \label{\detokenize{notation:self-vc-dictionary}}
+最終更新日：2020年04月30日
+
 
 \chapter{Sphinx使用の覚書}
 \label{\detokenize{sphinx:sphinx}}\label{\detokenize{sphinx::doc}}

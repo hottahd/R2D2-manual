@@ -74,3 +74,5 @@ fortranのコードの中では
 .. math::
 
     \delta x = \frac{2\left(x_\mathrm{tran} - n_x\Delta x_0\right)}{\left(n_x - 4\right)n_x}
+
+最終更新日：|today|

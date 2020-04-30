@@ -49,9 +49,9 @@
   <ul>
 <li><a class="reference internal" href="#">典型的計算例</a><ul>
 <li><a class="reference internal" href="#id2">小規模局所光球計算</a></li>
-<li><a class="reference internal" href="#id3">中規模黒点計算</a></li>
-<li><a class="reference internal" href="#id4">全対流層計算</a></li>
-<li><a class="reference internal" href="#id5">深い部分のみの計算</a></li>
+<li><a class="reference internal" href="#id5">中規模黒点計算</a></li>
+<li><a class="reference internal" href="#id6">全対流層計算</a></li>
+<li><a class="reference internal" href="#id7">深い部分のみの計算</a></li>
 </ul>
 </li>
 </ul>
@@ -223,14 +223,19 @@
 </li>
 <li><dl>
 <dt>その他注意事項</dt><dd><p><code class="code docutils literal notranslate"><span class="pre">model_def.F90</span></code> で <code class="code docutils literal notranslate"><span class="pre">remap_calc.F90</span></code> で出力するスライスの位置を決定している。</p>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="kt">integer</span><span class="p">,</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">jc</span> <span class="o">=</span> <span class="n">ny</span><span class="o">*</span><span class="n">jx0</span><span class="o">/</span><span class="mi">2</span>
+<span class="kt">integer</span><span class="p">,</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">kc</span> <span class="o">=</span> <span class="n">nz</span><span class="o">*</span><span class="n">kx0</span><span class="o">/</span><span class="mi">2</span>
+</pre></div>
+</div>
 <p>と領域の真ん中を出力することにしているが、状況によって違う場所が出力されている場合がある。もし変なことが起こったらここをチェックしてみると良い。</p>
+<p>また、 <code class="code docutils literal notranslate"><span class="pre">io.F90</span></code> の中程に計算の途中に磁場などを追加する設定がある。ここに何か書いてあると初期条件に足してしまうので、add something で検索して <code class="code docutils literal notranslate"><span class="pre">call</span> <span class="pre">model_*</span></code> (<a href="#id3"><span class="problematic" id="id4">*</span></a>は任意)のところはコメントアウトするように。</p>
 </dd>
 </dl>
 </li>
 </ul>
 </div>
-<div class="section" id="id3">
-<h2>中規模黒点計算<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id5">
+<h2>中規模黒点計算<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2012ApJ...750...62R/abstract">Rempel, 2012</a> で行われている中規模光球計算の設定を説明する。</p>
 <ul>
 <li><dl class="simple">
@@ -386,11 +391,12 @@
 </li>
 </ul>
 </div>
-<div class="section" id="id4">
-<h2>全対流層計算<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id6">
+<h2>全対流層計算<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </div>
-<div class="section" id="id5">
-<h2>深い部分のみの計算<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id7">
+<h2>深い部分のみの計算<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>最終更新日：2020年04月30日</p>
 </div>
 </div>
 

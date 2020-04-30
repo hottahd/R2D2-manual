@@ -149,3 +149,5 @@ self.qt [dictionary]
 
 self.vc [dictionary]
 --------------------------------
+
+最終更新日：|today|
