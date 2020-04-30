@@ -53,6 +53,7 @@
 <li><a class="reference internal" href="#id2">座標に関する量</a></li>
 <li><a class="reference internal" href="#id3">背景場に関する量</a></li>
 <li><a class="reference internal" href="#remap">解析のためのデータ再配置(remap)に関する量</a></li>
+<li><a class="reference internal" href="#id4">スライスデータに関する量</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#self-qs-dictionary">self.qs [dictionary]</a></li>
@@ -196,17 +197,28 @@
 <li><p>kc (int) -- 浮上磁場の中心と思っている場所を出力(あまり使わない)</p></li>
 <li><p>ixr (int) -- remap後のx方向分割の数</p></li>
 <li><p>jxr (int) -- remap後のy方向分割の数</p></li>
-<li><p>iss (int) [npe] --</p></li>
-<li><p>iee (int) [npe] --</p></li>
-<li><p>jss (int) [npe] --</p></li>
-<li><p>jee (int) [npe] --</p></li>
-<li><p>iixl (int) [npe] --</p></li>
-<li><p>jjxl (int) [npe] --</p></li>
-<li><p>np_ijr (int) [npe] --</p></li>
-<li><p>ir (int) [npe] --</p></li>
-<li><p>jr (int) [npe] --</p></li>
-<li><p>i2ir (int) [ix] --</p></li>
-<li><p>j2jr (int) [jx] --</p></li>
+<li><p>iss (int) [npe] -- remap後配列のそれぞれのMPIプロセスのx方向の初めの位置</p></li>
+<li><p>iee (int) [npe] -- remap後配列のそれぞれのMPIプロセスのx方向の終わりの位置</p></li>
+<li><p>jss (int) [npe] -- remap後配列のそれぞれのMPIプロセスのy方向の初めの位置</p></li>
+<li><p>jee (int) [npe] -- remap後配列のそれぞれのMPIプロセスのy方向の終わりの位置</p></li>
+<li><p>iixl (int) [npe] -- remap後配列のそれぞれのMPIプロセスのx方向の格子点数</p></li>
+<li><p>jjxl (int) [npe] -- remap後配列のそれぞれのMPIプロセスのy方向の格子点数</p></li>
+<li><p>np_ijr (int) [npe] -- x, y方向のMPIプロセスの位置を入力するとMPIプロセス番号を返す配列</p></li>
+<li><p>ir (int) [npe] -- MPIプロセス番号を入れるとx方向のMPIプロセスの位置を返す配列</p></li>
+<li><p>jr (int) [npe] -- MPIプロセス番号を入れるとy方向のMPIプロセスの位置を返す配列</p></li>
+<li><p>i2ir (int) [ix] -- x方向の格子点の位置を入れるとx方向のMPIプロセスの位置を返す配列</p></li>
+<li><p>j2jr (int) [jx] -- y方向の格子点の位置を入れるとy方向のMPIプロセスの位置を返す配列</p></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h3>スライスデータに関する量<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li><p>nx_slice [int] -- x一定面のスライスの数</p></li>
+<li><p>ny_slice [int] -- y一定面のスライスの数</p></li>
+<li><p>nz_slice [int] -- z一定面のスライスの数</p></li>
+<li><p>x_slice [float] -- x一定面のスライスの位置 [cm]</p></li>
+<li><p>y_slice [float] -- y一定面のスライスの位置 [cm]</p></li>
+<li><p>z_slice [float] -- z一定面のスライスの位置 [cm]</p></li>
 </ul>
 </div>
 </div>

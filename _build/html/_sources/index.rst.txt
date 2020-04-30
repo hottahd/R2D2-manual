@@ -45,6 +45,9 @@ R2D2は現状、公開ソフトウェアではなく再配布も禁じている�
 * R2D2を用いた論文を出版するときは　`Hotta et al., 2019 <https://ui.adsabs.harvard.edu/abs/2019SciA....5.2307H/abstract>`_, `Hotta and Iijima, 2020 <https://ui.adsabs.harvard.edu/abs/2020MNRAS.494.2523H/abstract>`_　を引用すること。  
 * R2D2を用いた研究を発表するときは、`R2D2のロゴ <https://hottahd.github.io/R2D2-manual/_images/R2D2_logo_red.png>`_ の使用が推奨される(強制ではない)。
 
+改訂履歴
+
+2020年4月29日
 
 索引と検索ページ
 ----------------------------------

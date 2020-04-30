@@ -102,17 +102,27 @@ self.p [dictionary]
 * kc (int) -- 浮上磁場の中心と思っている場所を出力(あまり使わない)
 * ixr (int) -- remap後のx方向分割の数
 * jxr (int) -- remap後のy方向分割の数
-* iss (int) [npe] --
-* iee (int) [npe] --
-* jss (int) [npe] --
-* jee (int) [npe] --
-* iixl (int) [npe] --
-* jjxl (int) [npe] --
-* np_ijr (int) [npe] --
-* ir (int) [npe] --
-* jr (int) [npe] --
-* i2ir (int) [ix] --
-* j2jr (int) [jx] --
+* iss (int) [npe] -- remap後配列のそれぞれのMPIプロセスのx方向の初めの位置
+* iee (int) [npe] -- remap後配列のそれぞれのMPIプロセスのx方向の終わりの位置
+* jss (int) [npe] -- remap後配列のそれぞれのMPIプロセスのy方向の初めの位置
+* jee (int) [npe] -- remap後配列のそれぞれのMPIプロセスのy方向の終わりの位置
+* iixl (int) [npe] -- remap後配列のそれぞれのMPIプロセスのx方向の格子点数
+* jjxl (int) [npe] -- remap後配列のそれぞれのMPIプロセスのy方向の格子点数
+* np_ijr (int) [npe] -- x, y方向のMPIプロセスの位置を入力するとMPIプロセス番号を返す配列
+* ir (int) [npe] -- MPIプロセス番号を入れるとx方向のMPIプロセスの位置を返す配列
+* jr (int) [npe] -- MPIプロセス番号を入れるとy方向のMPIプロセスの位置を返す配列
+* i2ir (int) [ix] -- x方向の格子点の位置を入れるとx方向のMPIプロセスの位置を返す配列
+* j2jr (int) [jx] -- y方向の格子点の位置を入れるとy方向のMPIプロセスの位置を返す配列
+
+スライスデータに関する量
+::::::::::::::::::::::::::::::::::::::::::::
+
+* nx_slice [int] -- x一定面のスライスの数
+* ny_slice [int] -- y一定面のスライスの数
+* nz_slice [int] -- z一定面のスライスの数
+* x_slice [float] -- x一定面のスライスの位置 [cm]
+* y_slice [float] -- y一定面のスライスの位置 [cm]
+* z_slice [float] -- z一定面のスライスの位置 [cm]
 
 self.qs [dictionary]
 --------------------------------

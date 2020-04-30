@@ -1051,9 +1051,19 @@ T &= T_0 + T_1 \\\end{split}
 最終更新日：2020年04月30日
 
 
-\chapter{コード構造}
+\chapter{コード}
 \label{\detokenize{code:id1}}\label{\detokenize{code::doc}}
-\begin{sphinxadmonition}{note}{\label{\detokenize{code:id2}}課題:}
+
+\section{コーディングルール}
+\label{\detokenize{code:id2}}
+\begin{sphinxadmonition}{note}{\label{\detokenize{code:id3}}課題:}
+コーディングルール
+\end{sphinxadmonition}
+
+
+\section{コード構造}
+\label{\detokenize{code:id4}}
+\begin{sphinxadmonition}{note}{\label{\detokenize{code:id5}}課題:}
 コード構造
 \end{sphinxadmonition}
 
@@ -1898,37 +1908,60 @@ ixr (int) \sphinxhyphen{}\sphinxhyphen{} remap後のx方向分割の数
 jxr (int) \sphinxhyphen{}\sphinxhyphen{} remap後のy方向分割の数
 
 \item {} 
-iss (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{}
+iss (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{} remap後配列のそれぞれのMPIプロセスのx方向の初めの位置
 
 \item {} 
-iee (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{}
+iee (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{} remap後配列のそれぞれのMPIプロセスのx方向の終わりの位置
 
 \item {} 
-jss (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{}
+jss (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{} remap後配列のそれぞれのMPIプロセスのy方向の初めの位置
 
 \item {} 
-jee (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{}
+jee (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{} remap後配列のそれぞれのMPIプロセスのy方向の終わりの位置
 
 \item {} 
-iixl (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{}
+iixl (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{} remap後配列のそれぞれのMPIプロセスのx方向の格子点数
 
 \item {} 
-jjxl (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{}
+jjxl (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{} remap後配列のそれぞれのMPIプロセスのy方向の格子点数
 
 \item {} 
-np\_ijr (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{}
+np\_ijr (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{} x, y方向のMPIプロセスの位置を入力するとMPIプロセス番号を返す配列
 
 \item {} 
-ir (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{}
+ir (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{} MPIプロセス番号を入れるとx方向のMPIプロセスの位置を返す配列
 
 \item {} 
-jr (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{}
+jr (int) {[}npe{]} \sphinxhyphen{}\sphinxhyphen{} MPIプロセス番号を入れるとy方向のMPIプロセスの位置を返す配列
 
 \item {} 
-i2ir (int) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{}
+i2ir (int) {[}ix{]} \sphinxhyphen{}\sphinxhyphen{} x方向の格子点の位置を入れるとx方向のMPIプロセスの位置を返す配列
 
 \item {} 
-j2jr (int) {[}jx{]} \sphinxhyphen{}\sphinxhyphen{}
+j2jr (int) {[}jx{]} \sphinxhyphen{}\sphinxhyphen{} y方向の格子点の位置を入れるとy方向のMPIプロセスの位置を返す配列
+
+\end{itemize}
+
+
+\subsection{スライスデータに関する量}
+\label{\detokenize{notation:id4}}\begin{itemize}
+\item {} 
+nx\_slice {[}int{]} \sphinxhyphen{}\sphinxhyphen{} x一定面のスライスの数
+
+\item {} 
+ny\_slice {[}int{]} \sphinxhyphen{}\sphinxhyphen{} y一定面のスライスの数
+
+\item {} 
+nz\_slice {[}int{]} \sphinxhyphen{}\sphinxhyphen{} z一定面のスライスの数
+
+\item {} 
+x\_slice {[}float{]} \sphinxhyphen{}\sphinxhyphen{} x一定面のスライスの位置 {[}cm{]}
+
+\item {} 
+y\_slice {[}float{]} \sphinxhyphen{}\sphinxhyphen{} y一定面のスライスの位置 {[}cm{]}
+
+\item {} 
+z\_slice {[}float{]} \sphinxhyphen{}\sphinxhyphen{} z一定面のスライスの位置 {[}cm{]}
 
 \end{itemize}
 
@@ -2238,6 +2271,10 @@ R2D2を用いた研究を発表するときは、\sphinxhref{https://hottahd.git
 
 \end{itemize}
 
+改訂履歴
+
+2020年4月29日
+
 
 \chapter{索引と検索ページ}
 \label{\detokenize{index:id3}}\begin{itemize}
@@ -2257,12 +2294,6 @@ R2D2を用いた研究を発表するときは、\sphinxhref{https://hottahd.git
 \end{sphinxadmonition}
 
 ({\hyperref[\detokenize{artdif:id2}]{\sphinxcrossref{\sphinxstyleemphasis{元のエントリ}}}} は、 /Users/hotta/Dropbox/work/R2D2/R2D2\sphinxhyphen{}manual/artdif.rst の 4 行目です)
-
-\begin{sphinxadmonition}{note}{課題:}
-コード構造
-\end{sphinxadmonition}
-
-({\hyperref[\detokenize{code:id2}]{\sphinxcrossref{\sphinxstyleemphasis{元のエントリ}}}} は、 /Users/hotta/Dropbox/work/R2D2/R2D2\sphinxhyphen{}manual/code.rst の 4 行目です)
 
 \begin{sphinxadmonition}{note}{課題:}
 輻射輸送の方程式
@@ -2299,6 +2330,18 @@ R2D2を用いた研究を発表するときは、\sphinxhref{https://hottahd.git
 \end{sphinxadmonition}
 
 ({\hyperref[\detokenize{typical_case:id9}]{\sphinxcrossref{\sphinxstyleemphasis{元のエントリ}}}} は、 /Users/hotta/Dropbox/work/R2D2/R2D2\sphinxhyphen{}manual/typical\_case.rst の 332 行目です)
+
+\begin{sphinxadmonition}{note}{課題:}
+コーディングルール
+\end{sphinxadmonition}
+
+({\hyperref[\detokenize{code:id3}]{\sphinxcrossref{\sphinxstyleemphasis{元のエントリ}}}} は、 /Users/hotta/Dropbox/work/R2D2/R2D2\sphinxhyphen{}manual/code.rst の 6 行目です)
+
+\begin{sphinxadmonition}{note}{課題:}
+コード構造
+\end{sphinxadmonition}
+
+({\hyperref[\detokenize{code:id5}]{\sphinxcrossref{\sphinxstyleemphasis{元のエントリ}}}} は、 /Users/hotta/Dropbox/work/R2D2/R2D2\sphinxhyphen{}manual/code.rst の 10 行目です)
 
 最終更新日：2020年04月30日
 
