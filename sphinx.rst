@@ -188,4 +188,20 @@ SphinxではLatexを用いて数式を記述することができる。
 
 と表示される。
 
+To DO
+::::::::::::::::::::::::::::::::
+To Doを書いておきたい場所に
+
+.. code:: restructuredtext
+
+    .. todo:: 方程式を書く
+
+と書くと、To Doが示される。トップページに
+
+.. code:: restructuredtext
+
+    .. todolist:
+
+と書いてあるので、To Doのまとめが示されている。
+
 最終更新日：|today|

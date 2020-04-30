@@ -993,9 +993,17 @@ Google APIロゴ \(\rightarrow\) 認証情報 \(\rightarrow\) サービスアカ
 
 \section{全対流層計算}
 \label{\detokenize{typical_case:id6}}
+\begin{sphinxadmonition}{note}{\label{\detokenize{typical_case:id7}}課題:}
+全対流層計算の設定例
+\end{sphinxadmonition}
+
 
 \section{深い部分のみの計算}
-\label{\detokenize{typical_case:id7}}
+\label{\detokenize{typical_case:id8}}
+\begin{sphinxadmonition}{note}{\label{\detokenize{typical_case:id9}}課題:}
+深い部分のみの計算の設定例
+\end{sphinxadmonition}
+
 最終更新日：2020年04月30日
 
 
@@ -1036,11 +1044,19 @@ T &= T_0 + T_1 \\\end{split}
 
 \section{輻射輸送}
 \label{\detokenize{equation:id3}}
-最終更新日：2020年04月28日
+\begin{sphinxadmonition}{note}{\label{\detokenize{equation:id4}}課題:}
+輻射輸送の方程式
+\end{sphinxadmonition}
+
+最終更新日：2020年04月30日
 
 
 \chapter{コード構造}
 \label{\detokenize{code:id1}}\label{\detokenize{code::doc}}
+\begin{sphinxadmonition}{note}{\label{\detokenize{code:id2}}課題:}
+コード構造
+\end{sphinxadmonition}
+
 最終更新日：2020年04月30日
 
 
@@ -1063,12 +1079,27 @@ R2D2では、4次の中央差分を用いている。格子間隔が一様な場
 \label{\detokenize{scheme:id3}}
 R2D2では、
 
-最終更新日：2020年04月28日
+\begin{sphinxadmonition}{note}{\label{\detokenize{scheme:id4}}課題:}
+数値スキーム(時間積分)
+\end{sphinxadmonition}
+
+
+\subsection{輻射輸送}
+\label{\detokenize{scheme:id5}}
+\begin{sphinxadmonition}{note}{\label{\detokenize{scheme:id6}}課題:}
+数値スキーム(輻射輸送)
+\end{sphinxadmonition}
+
+最終更新日：2020年04月30日
 
 
 \chapter{パラメータ}
 \label{\detokenize{parameter:id1}}\label{\detokenize{parameter::doc}}
-最終更新日：2020年04月28日
+\begin{sphinxadmonition}{note}{\label{\detokenize{parameter:id2}}課題:}
+パラメータ。どのグローバル変数がどのモジュールで定義されているかを整理する。
+\end{sphinxadmonition}
+
+最終更新日：2020年04月30日
 
 
 \chapter{座標生成}
@@ -1219,7 +1250,11 @@ fortranのコードの中では
 
 \chapter{人工粘性}
 \label{\detokenize{artdif:id1}}\label{\detokenize{artdif::doc}}
-最終更新日：2020年04月28日
+\begin{sphinxadmonition}{note}{\label{\detokenize{artdif:id2}}課題:}
+人工粘性
+\end{sphinxadmonition}
+
+最終更新日：2020年04月30日
 
 
 \chapter{出力と読込}
@@ -2160,7 +2195,24 @@ SphinxではLatexを用いて数式を記述することができる。
 
 と表示される。
 
-最終更新日：2020年04月28日
+
+\subsection{To DO}
+\label{\detokenize{sphinx:to-do}}
+To Doを書いておきたい場所に
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{p}{..} \PYG{o+ow}{todo}\PYG{p}{::} 方程式を書く
+\end{sphinxVerbatim}
+
+と書くと、To Doが示される。トップページに
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{.. todolist:}
+\end{sphinxVerbatim}
+
+と書いてあるので、To Doのまとめが示されている。
+
+最終更新日：2020年04月30日
 
 
 \chapter{ライセンス}
@@ -2187,9 +2239,6 @@ R2D2を用いた研究を発表するときは、\sphinxhref{https://hottahd.git
 \end{itemize}
 
 
-\chapter{TODOリスト}
-\label{\detokenize{index:todo}}
-
 \chapter{索引と検索ページ}
 \label{\detokenize{index:id3}}\begin{itemize}
 \item {} 
@@ -2200,7 +2249,58 @@ R2D2を用いた研究を発表するときは、\sphinxhref{https://hottahd.git
 
 \end{itemize}
 
-最終更新日：2020年04月29日
+
+\chapter{TODOリスト}
+\label{\detokenize{index:todo}}
+\begin{sphinxadmonition}{note}{課題:}
+人工粘性
+\end{sphinxadmonition}
+
+({\hyperref[\detokenize{artdif:id2}]{\sphinxcrossref{\sphinxstyleemphasis{元のエントリ}}}} は、 /Users/hotta/Dropbox/work/R2D2/R2D2\sphinxhyphen{}manual/artdif.rst の 4 行目です)
+
+\begin{sphinxadmonition}{note}{課題:}
+コード構造
+\end{sphinxadmonition}
+
+({\hyperref[\detokenize{code:id2}]{\sphinxcrossref{\sphinxstyleemphasis{元のエントリ}}}} は、 /Users/hotta/Dropbox/work/R2D2/R2D2\sphinxhyphen{}manual/code.rst の 4 行目です)
+
+\begin{sphinxadmonition}{note}{課題:}
+輻射輸送の方程式
+\end{sphinxadmonition}
+
+({\hyperref[\detokenize{equation:id4}]{\sphinxcrossref{\sphinxstyleemphasis{元のエントリ}}}} は、 /Users/hotta/Dropbox/work/R2D2/R2D2\sphinxhyphen{}manual/equation.rst の 43 行目です)
+
+\begin{sphinxadmonition}{note}{課題:}
+パラメータ。どのグローバル変数がどのモジュールで定義されているかを整理する。
+\end{sphinxadmonition}
+
+({\hyperref[\detokenize{parameter:id2}]{\sphinxcrossref{\sphinxstyleemphasis{元のエントリ}}}} は、 /Users/hotta/Dropbox/work/R2D2/R2D2\sphinxhyphen{}manual/parameter.rst の 4 行目です)
+
+\begin{sphinxadmonition}{note}{課題:}
+数値スキーム(時間積分)
+\end{sphinxadmonition}
+
+({\hyperref[\detokenize{scheme:id4}]{\sphinxcrossref{\sphinxstyleemphasis{元のエントリ}}}} は、 /Users/hotta/Dropbox/work/R2D2/R2D2\sphinxhyphen{}manual/scheme.rst の 23 行目です)
+
+\begin{sphinxadmonition}{note}{課題:}
+数値スキーム(輻射輸送)
+\end{sphinxadmonition}
+
+({\hyperref[\detokenize{scheme:id6}]{\sphinxcrossref{\sphinxstyleemphasis{元のエントリ}}}} は、 /Users/hotta/Dropbox/work/R2D2/R2D2\sphinxhyphen{}manual/scheme.rst の 28 行目です)
+
+\begin{sphinxadmonition}{note}{課題:}
+全対流層計算の設定例
+\end{sphinxadmonition}
+
+({\hyperref[\detokenize{typical_case:id7}]{\sphinxcrossref{\sphinxstyleemphasis{元のエントリ}}}} は、 /Users/hotta/Dropbox/work/R2D2/R2D2\sphinxhyphen{}manual/typical\_case.rst の 327 行目です)
+
+\begin{sphinxadmonition}{note}{課題:}
+深い部分のみの計算の設定例
+\end{sphinxadmonition}
+
+({\hyperref[\detokenize{typical_case:id9}]{\sphinxcrossref{\sphinxstyleemphasis{元のエントリ}}}} は、 /Users/hotta/Dropbox/work/R2D2/R2D2\sphinxhyphen{}manual/typical\_case.rst の 332 行目です)
+
+最終更新日：2020年04月30日
 
 
 \renewcommand{\indexname}{Pythonモジュール索引}
