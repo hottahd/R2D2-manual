@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.3-191112-2.6 (utf8.euc) (TeX Live 2020) (preloaded format=platex 2020.4.28)  30 APR 2020 19:06
+This is e-pTeX, Version 3.14159265-p3.8.3-191112-2.6 (utf8.euc) (TeX Live 2020) (preloaded format=platex 2020.4.28)  3 MAY 2020 10:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1020,22 +1020,26 @@ Package textcomp Warning: Symbol \textasciigrave not provided by
 
 ]
 第17章
-LaTeX Font Info:    Font shape `JT1/mc/m/it' in size <10> not available
-(Font)              Font shape `JT1/mc/m/n' tried instead on input line 2296.
-LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 2296.
-LaTeX Font Info:    Font shape `JY1/mc/m/it' in size <10> not available
-(Font)              Font shape `JY1/mc/m/n' tried instead on input line 2296.
-LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 2296.
 [56
 
-] [57]
+]
+第18章
+LaTeX Font Info:    Font shape `JT1/mc/m/it' in size <10> not available
+(Font)              Font shape `JT1/mc/m/n' tried instead on input line 2312.
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 2312.
+LaTeX Font Info:    Font shape `JY1/mc/m/it' in size <10> not available
+(Font)              Font shape `JY1/mc/m/n' tried instead on input line 2312.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 2312.
+[57
+
+] [58]
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 7.68799pt on input line 2353.
+(Font)              scaled to size 7.68799pt on input line 2369.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 7.68799pt on input line 2353.
- [58
+(Font)              scaled to size 7.68799pt on input line 2369.
+ [59
 
 
 
@@ -1049,7 +1053,7 @@ LaTeX Font Info:    Font shape `JY1/gt/m/it' in size <8> not available
 (Font)              Font shape `JY1/gt/m/n' tried instead on input line 8.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
 (Font)              scaled to size 7.68799pt on input line 8.
- [59
+ [60
 
 
 
@@ -1057,27 +1061,27 @@ LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
 
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2358.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2358.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2374.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2374.
  (./r2d2.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 2358.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2358.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 2374.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2374.
 
 Package rerunfilecheck Info: File `r2d2.out' has not changed.
-(rerunfilecheck)             Checksum: 7A5AAA53677D1FA12E1013A82BA9DD94;3722.
+(rerunfilecheck)             Checksum: 59996C3B8F287C415A1FA1647582EB8A;3771.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2358.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2374.
  ) 
 Here is how much of TeX's memory you used:
- 9718 strings out of 481140
- 142635 string characters out of 5917417
- 558757 words of memory out of 5000000
- 25483 multiletter control sequences out of 15000+600000
+ 9719 strings out of 481140
+ 142646 string characters out of 5917417
+ 558844 words of memory out of 5000000
+ 25484 multiletter control sequences out of 15000+600000
  594405 words of font info for 147 fonts, out of 8000000 for 9000
  935 hyphenation exceptions out of 8191
  38i,21n,49p,594b,616s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on r2d2.dvi (62 pages, 224756 bytes).
+Output written on r2d2.dvi (63 pages, 226404 bytes).

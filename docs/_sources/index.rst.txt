@@ -47,7 +47,15 @@ R2D2は現状、公開ソフトウェアではなく再配布も禁じている�
 
 改訂履歴
 
-2020年4月29日
+2020年4月29日 Hotta and Iijima, 2020を加えた
+
+出版論文
+----------------------------------
+R2D2を用いた研究で出版された論文は以下です。
+
+- `Hotta, Iijima, and Kusano, 2019, Science Advances, 5, eaau2307 <https://ui.adsabs.harvard.edu/abs/2019SciA....5.2307H/abstract>`_
+- `Toriumi and Hotta, 2019, ApJ, 886, L21 <https://ui.adsabs.harvard.edu/abs/2019ApJ...886L..21T/abstract>`_
+- `Hotta and Iijima, 2020, MNRAS, 494, 2523 <https://ui.adsabs.harvard.edu/abs/2020MNRAS.494.2523H/abstract>`_
 
 索引と検索ページ
 ----------------------------------

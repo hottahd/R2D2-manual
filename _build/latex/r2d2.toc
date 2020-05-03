@@ -80,7 +80,8 @@
 \contentsline {subsection}{\numberline {14.6.4}数式}{52}{subsection.14.6.4}%
 \contentsline {subsection}{\numberline {14.6.5}To DO}{53}{subsection.14.6.5}%
 \contentsline {chapter}{\numberline {第15章}ライセンス}{54}{chapter.15}%
-\contentsline {chapter}{\numberline {第16章}索引と検索ページ}{55}{chapter.16}%
-\contentsline {chapter}{\numberline {第17章}TODOリスト}{56}{chapter.17}%
-\contentsline {chapter}{Pythonモジュール索引}{58}{section*.26}%
-\contentsline {chapter}{索引}{59}{section*.27}%
+\contentsline {chapter}{\numberline {第16章}出版論文}{55}{chapter.16}%
+\contentsline {chapter}{\numberline {第17章}索引と検索ページ}{56}{chapter.17}%
+\contentsline {chapter}{\numberline {第18章}TODOリスト}{57}{chapter.18}%
+\contentsline {chapter}{Pythonモジュール索引}{59}{section*.26}%
+\contentsline {chapter}{索引}{60}{section*.27}%
