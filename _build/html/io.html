@@ -2,7 +2,7 @@
 
 <!doctype html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<html lang="ja">
   <head>
     <meta charset="utf-8" />
     <title>出力と読込 &#8212; R2D2 1.2 ドキュメント</title>
@@ -124,9 +124,9 @@
 <p>などとすると実行環境で、モジュール全体や各関数の簡単な説明を見ることができる。</p>
 <div class="section" id="id4">
 <h4>クラス<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<dl class="class">
+<dl class="py class">
 <dt id="R2D2.R2D2_data">
-<em class="property">class </em><code class="sig-prename descclassname">R2D2.</code><code class="sig-name descname">R2D2_data</code><span class="sig-paren">(</span><em class="sig-param">datadir</em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data" title="この定義へのパーマリンク">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">R2D2.</code><code class="sig-name descname">R2D2_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">datadir</span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data" title="この定義へのパーマリンク">¶</a></dt>
 <dd></dd></dl>
 
 <p>データの読み込みには <code class="docutils literal notranslate"><span class="pre">R2D2</span></code> モジュールの中で定義されている <code class="docutils literal notranslate"><span class="pre">R2D2_data</span></code> クラスを使う必要がある。</p>
@@ -139,38 +139,38 @@
 </div>
 <div class="section" id="attribute">
 <h4>Attribute<a class="headerlink" href="#attribute" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="R2D2.R2D2_data.p">
 <code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">p</code><a class="headerlink" href="#R2D2.R2D2_data.p" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>基本的なパラメタ。格子点数 <code class="docutils literal notranslate"><span class="pre">ix</span></code> や領域サイズ <code class="docutils literal notranslate"><span class="pre">xmax</span></code> など。
 インスタンス生成時に同時に読み込まれる。</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="R2D2.R2D2_data.qs">
 <code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">qs</code><a class="headerlink" href="#R2D2.R2D2_data.qs" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>ある高さの2次元のndarrayが含まれる辞書型。 <a class="reference internal" href="#R2D2.R2D2_data.read_qq_select" title="R2D2.R2D2_data.read_qq_select"><code class="xref py py-meth docutils literal notranslate"><span class="pre">R2D2_data.read_qq_select()</span></code></a> で読み込んだ結果。</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="R2D2.R2D2_data.qq">
 <code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">qq</code><a class="headerlink" href="#R2D2.R2D2_data.qq" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>3次元のnumpy array。計算領域全体のデータ。<a class="reference internal" href="#R2D2.R2D2_data.read_qq" title="R2D2.R2D2_data.read_qq"><code class="xref py py-meth docutils literal notranslate"><span class="pre">R2D2_data.read_qq()</span></code></a> で読み込んだ結果。</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="R2D2.R2D2_data.qt">
 <code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">qt</code><a class="headerlink" href="#R2D2.R2D2_data.qt" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>2次元のnumpy array。ある光学的厚さの面でのデータ。現在は光学的厚さ1, 0.1, 0.01でのデータを出力している。 <a class="reference internal" href="#R2D2.R2D2_data.read_qq_tau" title="R2D2.R2D2_data.read_qq_tau"><code class="xref py py-meth docutils literal notranslate"><span class="pre">R2D2_data.read_qq_tau()</span></code></a> で読み込んだ結果。</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="R2D2.R2D2_data.vc">
 <code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">vc</code><a class="headerlink" href="#R2D2.R2D2_data.vc" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Fortranの計算の中で解析した結果。 <a class="reference internal" href="#R2D2.R2D2_data.read_vc" title="R2D2.R2D2_data.read_vc"><code class="xref py py-meth docutils literal notranslate"><span class="pre">R2D2_data.read_vc()</span></code></a> で読み込んだ結果。</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="R2D2.R2D2_data.qc">
 <code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">qc</code><a class="headerlink" href="#R2D2.R2D2_data.qc" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>3次元のnumpy array。計算領域全体のデータ。Fortranの計算でチェックポイントのために出力しているデータを読み込む。主に解像度をあげたいときのために使う <a class="reference internal" href="#R2D2.R2D2_data.read_qq_check" title="R2D2.R2D2_data.read_qq_check"><code class="xref py py-meth docutils literal notranslate"><span class="pre">R2D2_data.read_qq_check()</span></code></a> で読み込んだ結果。</p>
@@ -188,9 +188,9 @@
 <div class="section" id="method">
 <h4>Method<a class="headerlink" href="#method" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>メソッドで指定する <code class="docutils literal notranslate"><span class="pre">datadir</span></code> はデータの場所を示す変数。R2D2の計算を実行すると <code class="docutils literal notranslate"><span class="pre">data</span></code> ディレクトリが生成されて、その中にデータが保存される。この場所を指定すれば良い。</p>
-<dl class="method">
+<dl class="py method">
 <dt id="R2D2.R2D2_data.__init__">
-<code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">datadir</em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.__init__" title="この定義へのパーマリンク">¶</a></dt>
+<code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">datadir</span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.__init__" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>インスタンス生成時に実行されるメソッド。計算設定などのパラメタが読み込まれる。 <a class="reference internal" href="#R2D2.R2D2_data.p" title="R2D2.R2D2_data.p"><code class="xref py py-attr docutils literal notranslate"><span class="pre">R2D2_data.p</span></code></a> にデータが保存される。</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ</dt>
@@ -199,9 +199,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="R2D2.R2D2_data.read_qq_select">
-<code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">read_qq_select</code><span class="sig-paren">(</span><em class="sig-param">xs</em>, <em class="sig-param">n</em>, <em class="sig-param">silent</em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.read_qq_select" title="この定義へのパーマリンク">¶</a></dt>
+<code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">read_qq_select</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">xs</span></em>, <em class="sig-param"><span class="n">n</span></em>, <em class="sig-param"><span class="n">silent</span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.read_qq_select" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>ある高さのデータのスライスを読み込む。戻り値を返さない時も <a class="reference internal" href="#R2D2.R2D2_data.qs" title="R2D2.R2D2_data.qs"><code class="xref py py-attr docutils literal notranslate"><span class="pre">R2D2_data.qs</span></code></a> にデータが保存される。</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ</dt>
@@ -213,9 +213,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="R2D2.R2D2_data.read_qq">
-<code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">read_qq</code><span class="sig-paren">(</span><em class="sig-param">n</em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.read_qq" title="この定義へのパーマリンク">¶</a></dt>
+<code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">read_qq</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.read_qq" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>3次元のデータを読み込む。戻り値を返さない時も <a class="reference internal" href="#R2D2.R2D2_data.qq" title="R2D2.R2D2_data.qq"><code class="xref py py-attr docutils literal notranslate"><span class="pre">R2D2_data.qq</span></code></a> にデータが保存される。</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ</dt>
@@ -224,9 +224,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="R2D2.R2D2_data.read_qq_tau">
-<code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">read_qq_tau</code><span class="sig-paren">(</span><em class="sig-param">n</em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.read_qq_tau" title="この定義へのパーマリンク">¶</a></dt>
+<code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">read_qq_tau</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.read_qq_tau" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>光学的厚さが一定の2次元のデータを読み込む。<a class="reference internal" href="#R2D2.R2D2_data.qt" title="R2D2.R2D2_data.qt"><code class="xref py py-attr docutils literal notranslate"><span class="pre">R2D2_data.qt</span></code></a> にデータが保存される。</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ</dt>
@@ -235,9 +235,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="R2D2.R2D2_data.read_time">
-<code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">read_time</code><span class="sig-paren">(</span><em class="sig-param">n</em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.read_time" title="この定義へのパーマリンク">¶</a></dt>
+<code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">read_time</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.read_time" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>時間を読み込む。</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ</dt>
@@ -249,9 +249,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="R2D2.R2D2_data.read_vc">
-<code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">read_vc</code><span class="sig-paren">(</span><em class="sig-param">n</em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.read_vc" title="この定義へのパーマリンク">¶</a></dt>
+<code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">read_vc</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.read_vc" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Fortranコードの中で解析した計算結果を読み込む。戻り値を返さない時も <a class="reference internal" href="#R2D2.R2D2_data.vc" title="R2D2.R2D2_data.vc"><code class="xref py py-attr docutils literal notranslate"><span class="pre">R2D2_data.vc</span></code></a> にデータが保存される。</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ</dt>
@@ -260,9 +260,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="R2D2.R2D2_data.read_qq_check">
-<code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">read_qq_check</code><span class="sig-paren">(</span><em class="sig-param">n</em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.read_qq_check" title="この定義へのパーマリンク">¶</a></dt>
+<code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">read_qq_check</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.read_qq_check" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>チェックポイントのためのデータを読み込む <a class="reference internal" href="#R2D2.R2D2_data.qc" title="R2D2.R2D2_data.qc"><code class="xref py py-attr docutils literal notranslate"><span class="pre">R2D2_data.qc</span></code></a> にデータが保存される。</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ</dt>
@@ -285,7 +285,7 @@
 <li><p>ver. 1.1: 光学的厚さが0.1, 0.01の部分も出力することにした。qq_in, vcをconfigのグローバル変数として取扱うことにした。</p></li>
 <li><p>ver. 1.2: データ構造を変更。</p></li>
 </ul>
-<p>最終更新日：2020年04月30日</p>
+<p>最終更新日：2020年05月10日</p>
 </div>
 </div>
 
@@ -315,7 +315,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019, Hideyuki Hotta.
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4 で生成しました。
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.3 で生成しました。
     </div>
   </body>
 </html>

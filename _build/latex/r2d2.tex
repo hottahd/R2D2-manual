@@ -36,7 +36,7 @@
 
 
 \title{R2D2}
-\date{2020年05月03日}
+\date{2020年05月10日}
 \release{1.2}
 \author{Hideyuki Hotta}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -390,7 +390,7 @@ make
 
 このディレクトリを書く実行のディレクトリの配下におき、実行すると続きの計算が始まる。
 
-最終更新日：2020年04月30日
+最終更新日：2020年05月10日
 
 
 \chapter{R2D2を使うための環境設定}
@@ -622,7 +622,7 @@ Google APIロゴ \(\rightarrow\) 認証情報 \(\rightarrow\) サービスアカ
 \label{\detokenize{environment:idl}}
 システムにIDLをインストールすれば、それのみで使える。ここでは説明しない。
 
-最終更新日：2020年04月30日
+最終更新日：2020年05月10日
 
 
 \chapter{典型的計算例}
@@ -1004,7 +1004,7 @@ Google APIロゴ \(\rightarrow\) 認証情報 \(\rightarrow\) サービスアカ
 深い部分のみの計算の設定例
 \end{sphinxadmonition}
 
-最終更新日：2020年04月30日
+最終更新日：2020年05月10日
 
 
 \chapter{方程式}
@@ -1048,7 +1048,7 @@ T &= T_0 + T_1 \\\end{split}
 輻射輸送の方程式
 \end{sphinxadmonition}
 
-最終更新日：2020年04月30日
+最終更新日：2020年05月10日
 
 
 \chapter{コード}
@@ -1067,7 +1067,7 @@ T &= T_0 + T_1 \\\end{split}
 コード構造
 \end{sphinxadmonition}
 
-最終更新日：2020年04月30日
+最終更新日：2020年05月10日
 
 
 \chapter{数値スキーム}
@@ -1100,7 +1100,7 @@ R2D2では、
 数値スキーム(輻射輸送)
 \end{sphinxadmonition}
 
-最終更新日：2020年04月30日
+最終更新日：2020年05月10日
 
 
 \chapter{パラメータ}
@@ -1109,7 +1109,7 @@ R2D2では、
 パラメータ。どのグローバル変数がどのモジュールで定義されているかを整理する。
 \end{sphinxadmonition}
 
-最終更新日：2020年04月30日
+最終更新日：2020年05月10日
 
 
 \chapter{座標生成}
@@ -1202,7 +1202,7 @@ fortranのコードの中では
 \begin{equation*}
 \begin{split}\delta x = \frac{2\left(x_\mathrm{tran} - n_x\Delta x_0\right)}{\left(n_x - 4\right)n_x}\end{split}
 \end{equation*}
-最終更新日：2020年04月30日
+最終更新日：2020年05月10日
 
 
 \chapter{境界条件}
@@ -1255,7 +1255,7 @@ fortranのコードの中では
 対称な境界条件を用いる。一方、上昇流は、計算している領域の外からの情報を持って計算領域に入ってくるので、
 反対称な境界条件を用いて擾乱をゼロにする。これは元々のModel Sでの量を上昇流のエントロピーに用いるということである。
 
-最終更新日：2020年04月28日
+最終更新日：2020年05月10日
 
 
 \chapter{人工粘性}
@@ -1264,7 +1264,7 @@ fortranのコードの中では
 人工粘性
 \end{sphinxadmonition}
 
-最終更新日：2020年04月30日
+最終更新日：2020年05月10日
 
 
 \chapter{出力と読込}
@@ -1282,7 +1282,7 @@ fortranのコードの中では
 
 
 \subsection{Pythonコード}
-\label{\detokenize{io:module-R2D2}}\label{\detokenize{io:python}}\index{R2D2 (モジュール)@\spxentry{R2D2}\spxextra{モジュール}}
+\label{\detokenize{io:module-R2D2}}\label{\detokenize{io:python}}\index{モジュール@\spxentry{モジュール}!R2D2@\spxentry{R2D2}}\index{R2D2@\spxentry{R2D2}!モジュール@\spxentry{モジュール}}
 PythonでR2D2で定義された関数を使うには
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
@@ -1305,7 +1305,7 @@ PythonでR2D2で定義された関数を使うには
 \label{\detokenize{io:id4}}\index{R2D2\_data (R2D2 のクラス)@\spxentry{R2D2\_data}\spxextra{R2D2 のクラス}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{io:R2D2.R2D2_data}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class }}\sphinxcode{\sphinxupquote{R2D2.}}\sphinxbfcode{\sphinxupquote{R2D2\_data}}}{\emph{datadir}}{}
+\phantomsection\label{\detokenize{io:R2D2.R2D2_data}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class }}\sphinxcode{\sphinxupquote{R2D2.}}\sphinxbfcode{\sphinxupquote{R2D2\_data}}}{\emph{\DUrole{n}{datadir}}}{}
 \end{fulllineitems}
 
 
@@ -1389,7 +1389,7 @@ Fortranの計算の中で解析した結果。 {\hyperref[\detokenize{io:R2D2.R2
 \index{\_\_init\_\_() (R2D2.R2D2\_data のメソッド)@\spxentry{\_\_init\_\_()}\spxextra{R2D2.R2D2\_data のメソッド}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{io:R2D2.R2D2_data.__init__}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{\_\_init\_\_}}}{\emph{datadir}}{}
+\phantomsection\label{\detokenize{io:R2D2.R2D2_data.__init__}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{\_\_init\_\_}}}{\emph{\DUrole{n}{datadir}}}{}
 インスタンス生成時に実行されるメソッド。計算設定などのパラメタが読み込まれる。 {\hyperref[\detokenize{io:R2D2.R2D2_data.p}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{R2D2\_data.p}}}}} にデータが保存される。
 \begin{quote}\begin{description}
 \item[{パラメータ}] \leavevmode
@@ -1402,7 +1402,7 @@ Fortranの計算の中で解析した結果。 {\hyperref[\detokenize{io:R2D2.R2
 \index{read\_qq\_select() (R2D2.R2D2\_data のメソッド)@\spxentry{read\_qq\_select()}\spxextra{R2D2.R2D2\_data のメソッド}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{io:R2D2.R2D2_data.read_qq_select}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{read\_qq\_select}}}{\emph{xs}, \emph{n}, \emph{silent}}{}
+\phantomsection\label{\detokenize{io:R2D2.R2D2_data.read_qq_select}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{read\_qq\_select}}}{\emph{\DUrole{n}{xs}}, \emph{\DUrole{n}{n}}, \emph{\DUrole{n}{silent}}}{}
 ある高さのデータのスライスを読み込む。戻り値を返さない時も {\hyperref[\detokenize{io:R2D2.R2D2_data.qs}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{R2D2\_data.qs}}}}} にデータが保存される。
 \begin{quote}\begin{description}
 \item[{パラメータ}] \leavevmode\begin{itemize}
@@ -1421,7 +1421,7 @@ Fortranの計算の中で解析した結果。 {\hyperref[\detokenize{io:R2D2.R2
 \index{read\_qq() (R2D2.R2D2\_data のメソッド)@\spxentry{read\_qq()}\spxextra{R2D2.R2D2\_data のメソッド}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{io:R2D2.R2D2_data.read_qq}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{read\_qq}}}{\emph{n}}{}
+\phantomsection\label{\detokenize{io:R2D2.R2D2_data.read_qq}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{read\_qq}}}{\emph{\DUrole{n}{n}}}{}
 3次元のデータを読み込む。戻り値を返さない時も {\hyperref[\detokenize{io:R2D2.R2D2_data.qq}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{R2D2\_data.qq}}}}} にデータが保存される。
 \begin{quote}\begin{description}
 \item[{パラメータ}] \leavevmode
@@ -1434,7 +1434,7 @@ Fortranの計算の中で解析した結果。 {\hyperref[\detokenize{io:R2D2.R2
 \index{read\_qq\_tau() (R2D2.R2D2\_data のメソッド)@\spxentry{read\_qq\_tau()}\spxextra{R2D2.R2D2\_data のメソッド}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{io:R2D2.R2D2_data.read_qq_tau}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{read\_qq\_tau}}}{\emph{n}}{}
+\phantomsection\label{\detokenize{io:R2D2.R2D2_data.read_qq_tau}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{read\_qq\_tau}}}{\emph{\DUrole{n}{n}}}{}
 光学的厚さが一定の2次元のデータを読み込む。{\hyperref[\detokenize{io:R2D2.R2D2_data.qt}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{R2D2\_data.qt}}}}} にデータが保存される。
 \begin{quote}\begin{description}
 \item[{パラメータ}] \leavevmode
@@ -1447,7 +1447,7 @@ Fortranの計算の中で解析した結果。 {\hyperref[\detokenize{io:R2D2.R2
 \index{read\_time() (R2D2.R2D2\_data のメソッド)@\spxentry{read\_time()}\spxextra{R2D2.R2D2\_data のメソッド}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{io:R2D2.R2D2_data.read_time}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{read\_time}}}{\emph{n}}{}
+\phantomsection\label{\detokenize{io:R2D2.R2D2_data.read_time}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{read\_time}}}{\emph{\DUrole{n}{n}}}{}
 時間を読み込む。
 \begin{quote}\begin{description}
 \item[{パラメータ}] \leavevmode
@@ -1463,7 +1463,7 @@ Fortranの計算の中で解析した結果。 {\hyperref[\detokenize{io:R2D2.R2
 \index{read\_vc() (R2D2.R2D2\_data のメソッド)@\spxentry{read\_vc()}\spxextra{R2D2.R2D2\_data のメソッド}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{io:R2D2.R2D2_data.read_vc}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{read\_vc}}}{\emph{n}}{}
+\phantomsection\label{\detokenize{io:R2D2.R2D2_data.read_vc}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{read\_vc}}}{\emph{\DUrole{n}{n}}}{}
 Fortranコードの中で解析した計算結果を読み込む。戻り値を返さない時も {\hyperref[\detokenize{io:R2D2.R2D2_data.vc}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{R2D2\_data.vc}}}}} にデータが保存される。
 \begin{quote}\begin{description}
 \item[{パラメータ}] \leavevmode
@@ -1476,7 +1476,7 @@ Fortranコードの中で解析した計算結果を読み込む。戻り値を�
 \index{read\_qq\_check() (R2D2.R2D2\_data のメソッド)@\spxentry{read\_qq\_check()}\spxextra{R2D2.R2D2\_data のメソッド}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{io:R2D2.R2D2_data.read_qq_check}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{read\_qq\_check}}}{\emph{n}}{}
+\phantomsection\label{\detokenize{io:R2D2.R2D2_data.read_qq_check}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{read\_qq\_check}}}{\emph{\DUrole{n}{n}}}{}
 チェックポイントのためのデータを読み込む {\hyperref[\detokenize{io:R2D2.R2D2_data.qc}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{R2D2\_data.qc}}}}} にデータが保存される。
 \begin{quote}\begin{description}
 \item[{パラメータ}] \leavevmode
@@ -1506,7 +1506,7 @@ ver. 1.2: データ構造を変更。
 
 \end{itemize}
 
-最終更新日：2020年04月30日
+最終更新日：2020年05月10日
 
 
 \chapter{Paraviewを用いた3Dデータ表示}
@@ -1529,11 +1529,11 @@ ver. 1.2: データ構造を変更。
 \end{itemize}
 
 それぞれのデータのためにR2D2 Pythonでは以下の関数が用意してある。
-\index{R2D2.vtk.write\_3D() (組み込み関数)@\spxentry{R2D2.vtk.write\_3D()}\spxextra{組み込み関数}}
+\index{組み込み関数@\spxentry{組み込み関数}!R2D2.vtk.write\_3D()@\spxentry{R2D2.vtk.write\_3D()}}\index{R2D2.vtk.write\_3D()@\spxentry{R2D2.vtk.write\_3D()}!組み込み関数@\spxentry{組み込み関数}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{paraview:R2D2.vtk.write_3D}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2.vtk.}}\sphinxbfcode{\sphinxupquote{write\_3D}}}{\emph{qq}, \emph{x}, \emph{y}, \emph{z}, \emph{file}, \emph{name}}{}
-3次元のVTKフォーマットを出力するための関数
+\phantomsection\label{\detokenize{paraview:R2D2.vtk.write_3D}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2.vtk.}}\sphinxbfcode{\sphinxupquote{write\_3D}}}{\emph{\DUrole{n}{qq}}, \emph{\DUrole{n}{x}}, \emph{\DUrole{n}{y}}, \emph{\DUrole{n}{z}}, \emph{\DUrole{n}{file}}, \emph{\DUrole{n}{name}}}{}
+3次元のスカラー量をVTKフォーマットで出力するための関数
 \begin{quote}\begin{description}
 \item[{パラメータ}] \leavevmode\begin{itemize}
 \item {} 
@@ -1560,10 +1560,47 @@ ver. 1.2: データ構造を変更。
 
 \end{fulllineitems}
 
-\index{R2D2.vtk.write\_optical\_surface() (組み込み関数)@\spxentry{R2D2.vtk.write\_optical\_surface()}\spxextra{組み込み関数}}
+\index{組み込み関数@\spxentry{組み込み関数}!R2D2.vtk.write\_vtk.write\_3D\_vector()@\spxentry{R2D2.vtk.write\_vtk.write\_3D\_vector()}}\index{R2D2.vtk.write\_vtk.write\_3D\_vector()@\spxentry{R2D2.vtk.write\_vtk.write\_3D\_vector()}!組み込み関数@\spxentry{組み込み関数}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{paraview:R2D2.vtk.write_optical_surface}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2.vtk.}}\sphinxbfcode{\sphinxupquote{write\_optical\_surface}}}{\emph{qq}, \emph{height}, \emph{y}, \emph{z}, \emph{file}, \emph{name}}{}
+\phantomsection\label{\detokenize{paraview:R2D2.vtk.write_vtk.write_3D_vector}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2.vtk.write\_vtk.}}\sphinxbfcode{\sphinxupquote{write\_3D\_vector}}}{\emph{\DUrole{n}{qx}}, \emph{\DUrole{n}{qy}}, \emph{\DUrole{n}{qz}}, \emph{\DUrole{n}{x}}, \emph{\DUrole{n}{y}}, \emph{\DUrole{n}{z}}, \emph{\DUrole{n}{file}}, \emph{\DUrole{n}{name}}}{}
+３次元のベクトル量をVTKフォーマットで出力するための関数
+\begin{quote}\begin{description}
+\item[{パラメータ}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{\sphinxupquote{qx}} (\sphinxstyleliteralemphasis{\sphinxupquote{float}}) \sphinxhyphen{}\sphinxhyphen{} x方向のベクトルの3次元numpy配列
+
+\item {} 
+\sphinxstyleliteralstrong{\sphinxupquote{qy}} (\sphinxstyleliteralemphasis{\sphinxupquote{float}}) \sphinxhyphen{}\sphinxhyphen{} y方向のベクトルの3次元numpy配列
+
+\item {} 
+\sphinxstyleliteralstrong{\sphinxupquote{qz}} (\sphinxstyleliteralemphasis{\sphinxupquote{float}}) \sphinxhyphen{}\sphinxhyphen{} z方向のベクトルの3次元numpy配列
+
+\item {} 
+\sphinxstyleliteralstrong{\sphinxupquote{x}} (\sphinxstyleliteralemphasis{\sphinxupquote{float}}) \sphinxhyphen{}\sphinxhyphen{} x方向の座標
+
+\item {} 
+\sphinxstyleliteralstrong{\sphinxupquote{y}} (\sphinxstyleliteralemphasis{\sphinxupquote{float}}) \sphinxhyphen{}\sphinxhyphen{} y方向の座標
+
+\item {} 
+\sphinxstyleliteralstrong{\sphinxupquote{z}} (\sphinxstyleliteralemphasis{\sphinxupquote{float}}) \sphinxhyphen{}\sphinxhyphen{} z方向の座標
+
+\item {} 
+\sphinxstyleliteralstrong{\sphinxupquote{file}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \sphinxhyphen{}\sphinxhyphen{} 出力先のVTKフォーマットの名前
+
+\item {} 
+\sphinxstyleliteralstrong{\sphinxupquote{name}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \sphinxhyphen{}\sphinxhyphen{} Paraviewで管理するために用いる出力した物理量の名前
+
+\end{itemize}
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+\index{組み込み関数@\spxentry{組み込み関数}!R2D2.vtk.write\_optical\_surface()@\spxentry{R2D2.vtk.write\_optical\_surface()}}\index{R2D2.vtk.write\_optical\_surface()@\spxentry{R2D2.vtk.write\_optical\_surface()}!組み込み関数@\spxentry{組み込み関数}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{paraview:R2D2.vtk.write_optical_surface}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2.vtk.}}\sphinxbfcode{\sphinxupquote{write\_optical\_surface}}}{\emph{\DUrole{n}{qq}}, \emph{\DUrole{n}{height}}, \emph{\DUrole{n}{y}}, \emph{\DUrole{n}{z}}, \emph{\DUrole{n}{file}}, \emph{\DUrole{n}{name}}}{}
 \(\tau=1\) での2次元データを出力するための関数
 \begin{quote}\begin{description}
 \item[{パラメータ}] \leavevmode\begin{itemize}
@@ -1656,7 +1693,7 @@ Applyをクリック。選択した二つのデータが表示される。
 
 \end{enumerate}
 
-最終更新日：2020年04月30日
+最終更新日：2020年05月10日
 
 
 \chapter{R2D2 pythonでのキーワードの説明}
@@ -2024,7 +2061,7 @@ op (float) {[}jx,kx{]} \sphinxhyphen{}\sphinxhyphen{} 不透明度(オパシテ�
 
 \section{self.vc {[}dictionary{]}}
 \label{\detokenize{notation:self-vc-dictionary}}
-最終更新日：2020年04月30日
+最終更新日：2020年05月10日
 
 
 \chapter{Sphinx使用の覚書}
@@ -2245,7 +2282,7 @@ To Doを書いておきたい場所に
 
 と書いてあるので、To Doのまとめが示されている。
 
-最終更新日：2020年04月30日
+最終更新日：2020年05月10日
 
 
 \chapter{ライセンス}
@@ -2312,6 +2349,18 @@ R2D2を用いた研究で出版された論文は以下です。
 ({\hyperref[\detokenize{artdif:id2}]{\sphinxcrossref{\sphinxstyleemphasis{元のエントリ}}}} は、 /Users/hotta/Dropbox/work/R2D2/R2D2\sphinxhyphen{}manual/artdif.rst の 4 行目です)
 
 \begin{sphinxadmonition}{note}{課題:}
+コーディングルール
+\end{sphinxadmonition}
+
+({\hyperref[\detokenize{code:id3}]{\sphinxcrossref{\sphinxstyleemphasis{元のエントリ}}}} は、 /Users/hotta/Dropbox/work/R2D2/R2D2\sphinxhyphen{}manual/code.rst の 6 行目です)
+
+\begin{sphinxadmonition}{note}{課題:}
+コード構造
+\end{sphinxadmonition}
+
+({\hyperref[\detokenize{code:id5}]{\sphinxcrossref{\sphinxstyleemphasis{元のエントリ}}}} は、 /Users/hotta/Dropbox/work/R2D2/R2D2\sphinxhyphen{}manual/code.rst の 10 行目です)
+
+\begin{sphinxadmonition}{note}{課題:}
 輻射輸送の方程式
 \end{sphinxadmonition}
 
@@ -2347,19 +2396,7 @@ R2D2を用いた研究で出版された論文は以下です。
 
 ({\hyperref[\detokenize{typical_case:id9}]{\sphinxcrossref{\sphinxstyleemphasis{元のエントリ}}}} は、 /Users/hotta/Dropbox/work/R2D2/R2D2\sphinxhyphen{}manual/typical\_case.rst の 332 行目です)
 
-\begin{sphinxadmonition}{note}{課題:}
-コーディングルール
-\end{sphinxadmonition}
-
-({\hyperref[\detokenize{code:id3}]{\sphinxcrossref{\sphinxstyleemphasis{元のエントリ}}}} は、 /Users/hotta/Dropbox/work/R2D2/R2D2\sphinxhyphen{}manual/code.rst の 6 行目です)
-
-\begin{sphinxadmonition}{note}{課題:}
-コード構造
-\end{sphinxadmonition}
-
-({\hyperref[\detokenize{code:id5}]{\sphinxcrossref{\sphinxstyleemphasis{元のエントリ}}}} は、 /Users/hotta/Dropbox/work/R2D2/R2D2\sphinxhyphen{}manual/code.rst の 10 行目です)
-
-最終更新日：2020年05月03日
+最終更新日：2020年05月10日
 
 
 \renewcommand{\indexname}{Pythonモジュール索引}

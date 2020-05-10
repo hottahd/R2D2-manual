@@ -13,9 +13,6 @@ if "%1" == "" goto all-pdf
 
 if "%1" == "all-pdf" (
 	:all-pdf
-	for %%i in (*.png *.gif *.jpg *.jpeg *.pdf) do (
-		extractbb %%i
-	)
 	for %%i in (*.tex) do (
 		%PDFLATEX% %LATEXMKOPTS% %%i
 	)

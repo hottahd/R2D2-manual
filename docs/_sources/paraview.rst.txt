@@ -16,9 +16,22 @@ Paraviewを用いた3Dデータ表示
 
 .. py:function:: R2D2.vtk.write_3D(qq,x,y,z,file,name)
 
-    3次元のVTKフォーマットを出力するための関数
+    3次元のスカラー量をVTKフォーマットで出力するための関数
 
     :param float qq: 出力したい物理量の3次元numpy配列
+    :param float x: x方向の座標
+    :param float y: y方向の座標
+    :param float z: z方向の座標
+    :param str file: 出力先のVTKフォーマットの名前
+    :param str name: Paraviewで管理するために用いる出力した物理量の名前
+
+.. py:function:: R2D2.vtk.write_vtk.write_3D_vector(qx,qy,qz,x,y,z,file,name)
+
+    ３次元のベクトル量をVTKフォーマットで出力するための関数
+
+    :param float qx: x方向のベクトルの3次元numpy配列
+    :param float qy: y方向のベクトルの3次元numpy配列
+    :param float qz: z方向のベクトルの3次元numpy配列
     :param float x: x方向の座標
     :param float y: y方向の座標
     :param float z: z方向の座標
