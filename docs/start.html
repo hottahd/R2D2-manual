@@ -330,6 +330,30 @@
 <code class="code docutils literal notranslate"><span class="pre">end</span></code> と入力する。
 するとプログラム・データのコピーが始まる。すでに移動先(今回場合は <code class="code docutils literal notranslate"><span class="pre">d002</span></code> に <code class="code docutils literal notranslate"><span class="pre">data</span></code> ディレクトリがある場合は、コピーが始まらないので、削除してからコピーすること)。</p>
 <p>また、コピーが終わると移動先の <code class="code docutils literal notranslate"><span class="pre">data/cont_log.txt</span></code> に元データの情報が記載してある。</p>
+<p>データをコピーした後に、磁場などを付け加えたい時は <code class="code docutils literal notranslate"><span class="pre">src/all/model_add.F90</span></code> を編集する.</p>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">do </span><span class="n">k</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">nzg</span>
+<span class="k">do </span><span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">nyg</span>
+<span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">nxg</span>
+   <span class="n">qq</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span> <span class="o">=</span> <span class="n">qq</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span> <span class="o">+</span> <span class="mi">20</span><span class="mf">0.d0</span>
+   <span class="n">qq</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span> <span class="o">=</span> <span class="n">qq</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span>
+   <span class="n">qq</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span> <span class="o">=</span> <span class="n">qq</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span>
+<span class="n">enddo</span>
+<span class="n">enddo</span>
+<span class="n">enddo</span>
+</pre></div>
+</div>
+<p>などと書いてある。この例では鉛直磁場に200 Gが足されている。次に <code class="code docutils literal notranslate"><span class="pre">src/all/io.F90</span></code> を編集する。中ほどに</p>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="c">! add something</span>
+<span class="n">time00</span> <span class="o">=</span> <span class="mf">0.d0</span>
+<span class="k">if</span><span class="p">(</span><span class="n">ns</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">.</span><span class="nb">and</span><span class="p">.</span> <span class="n">nd</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">then</span>
+<span class="c">!if(ns == 0) then</span>
+   <span class="c">!call model_sunspot</span>
+   <span class="c">!call model_fe_pff</span>
+   <span class="c">!call model_add</span>
+<span class="n">endif</span>
+</pre></div>
+</div>
+<p>と書かれている部分があるので、 <code class="code docutils literal notranslate"><span class="pre">call</span> <span class="pre">model_add</span></code> の部分のコメントアウトを外す。 <code class="code docutils literal notranslate"><span class="pre">ns</span></code> は現在の計算のステップ数(続きの計算では引き継がれない)、 <code class="code docutils literal notranslate"><span class="pre">nd</span></code> は計算全体のデータアウトプット回数(続きの計算で引き継がれる)。この二つの変数が0の時は、計算の一番はじめもしくは、データを引き継いだ時のみなので、その時のみ追加条件が発動する。</p>
 </div>
 <div class="section" id="id12">
 <h2>スーパーコンピュータでのシェルスクリプト<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -347,7 +371,7 @@
 <p>熱対流が統計的定常に達するまでは非常に時間がかかるために、この計算が非常に困難になる。そのため、堀田がデータを提供することがある。堀田は <code class="code docutils literal notranslate"><span class="pre">data</span></code> ディレクトリを丸ごと提供する。</p>
 <p>このディレクトリに <code class="code docutils literal notranslate"><span class="pre">cont_log.txt</span></code> というファイルがあるので、そこに示されている計算設定の情報を見て同じようになるように計算を設定する。</p>
 <p>このディレクトリを書く実行のディレクトリの配下におき、実行すると続きの計算が始まる。</p>
-<p>最終更新日：2020年05月10日</p>
+<p>最終更新日：2020年05月21日</p>
 </div>
 </div>
 

@@ -265,6 +265,7 @@ INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/adobe/times/ptmr8c.tfm
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/adobe/courier/pcrb8t.tfm
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/adobe/times/ptmri8t.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/adobe/courier/pcrro8t.tfm
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/ptex-fonts/standard/tmin10.tfm
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/adobe/times/ptmr8t.tfm
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/adobe/helvetic/phvr8t.tfm
@@ -307,7 +308,6 @@ INPUT spread_sheet1.png
 INPUT spread_sheet2.png
 INPUT spread_sheet2.xbb
 INPUT spread_sheet2.png
-INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/adobe/courier/pcrro8t.tfm
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm

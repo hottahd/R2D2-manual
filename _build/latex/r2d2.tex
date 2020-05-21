@@ -36,7 +36,7 @@
 
 
 \title{R2D2}
-\date{2020年05月10日}
+\date{2020年05月21日}
 \release{1.2}
 \author{Hideyuki Hotta}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -363,6 +363,35 @@ make
 
 また、コピーが終わると移動先の \sphinxcode{\sphinxupquote{data/cont\_log.txt}} に元データの情報が記載してある。
 
+データをコピーした後に、磁場などを付け加えたい時は \sphinxcode{\sphinxupquote{src/all/model\_add.F90}} を編集する.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{do }\PYG{n}{k} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{nzg}
+\PYG{k}{do }\PYG{n}{j} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{nyg}
+\PYG{k}{do }\PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{nxg}
+   \PYG{n}{qq}\PYG{p}{(}\PYG{l+m+mi}{5}\PYG{p}{,}\PYG{n}{i}\PYG{p}{,}\PYG{n}{j}\PYG{p}{,}\PYG{n}{k}\PYG{p}{)} \PYG{o}{=} \PYG{n}{qq}\PYG{p}{(}\PYG{l+m+mi}{5}\PYG{p}{,}\PYG{n}{i}\PYG{p}{,}\PYG{n}{j}\PYG{p}{,}\PYG{n}{k}\PYG{p}{)} \PYG{o}{+} \PYG{l+m+mi}{20}\PYG{l+m+mf}{0.d0}
+   \PYG{n}{qq}\PYG{p}{(}\PYG{l+m+mi}{6}\PYG{p}{,}\PYG{n}{i}\PYG{p}{,}\PYG{n}{j}\PYG{p}{,}\PYG{n}{k}\PYG{p}{)} \PYG{o}{=} \PYG{n}{qq}\PYG{p}{(}\PYG{l+m+mi}{6}\PYG{p}{,}\PYG{n}{i}\PYG{p}{,}\PYG{n}{j}\PYG{p}{,}\PYG{n}{k}\PYG{p}{)}
+   \PYG{n}{qq}\PYG{p}{(}\PYG{l+m+mi}{7}\PYG{p}{,}\PYG{n}{i}\PYG{p}{,}\PYG{n}{j}\PYG{p}{,}\PYG{n}{k}\PYG{p}{)} \PYG{o}{=} \PYG{n}{qq}\PYG{p}{(}\PYG{l+m+mi}{7}\PYG{p}{,}\PYG{n}{i}\PYG{p}{,}\PYG{n}{j}\PYG{p}{,}\PYG{n}{k}\PYG{p}{)}
+\PYG{n}{enddo}
+\PYG{n}{enddo}
+\PYG{n}{enddo}
+\end{sphinxVerbatim}
+
+などと書いてある。この例では鉛直磁場に200 Gが足されている。次に \sphinxcode{\sphinxupquote{src/all/io.F90}} を編集する。中ほどに
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c}{! add something}
+\PYG{n}{time00} \PYG{o}{=} \PYG{l+m+mf}{0.d0}
+\PYG{k}{if}\PYG{p}{(}\PYG{n}{ns} \PYG{o}{==} \PYG{l+m+mi}{0} \PYG{p}{.}\PYG{n+nb}{and}\PYG{p}{.} \PYG{n}{nd} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{)} \PYG{k}{then}
+\PYG{c}{!if(ns == 0) then}
+   \PYG{c}{!call model\PYGZus{}sunspot}
+   \PYG{c}{!call model\PYGZus{}fe\PYGZus{}pff}
+   \PYG{c}{!call model\PYGZus{}add}
+\PYG{n}{endif}
+\end{sphinxVerbatim}
+
+と書かれている部分があるので、 \sphinxcode{\sphinxupquote{call model\_add}} の部分のコメントアウトを外す。 \sphinxcode{\sphinxupquote{ns}} は現在の計算のステップ数(続きの計算では引き継がれない)、 \sphinxcode{\sphinxupquote{nd}} は計算全体のデータアウトプット回数(続きの計算で引き継がれる)。この二つの変数が0の時は、計算の一番はじめもしくは、データを引き継いだ時のみなので、その時のみ追加条件が発動する。
+
 
 \section{スーパーコンピュータでのシェルスクリプト}
 \label{\detokenize{start:id12}}
@@ -390,7 +419,7 @@ make
 
 このディレクトリを書く実行のディレクトリの配下におき、実行すると続きの計算が始まる。
 
-最終更新日：2020年05月10日
+最終更新日：2020年05月21日
 
 
 \chapter{R2D2を使うための環境設定}

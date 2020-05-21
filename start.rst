@@ -226,6 +226,35 @@ R2D2ディレクトリの中は以下のようなディレクトリ構造にな�
 
 また、コピーが終わると移動先の :code:`data/cont_log.txt` に元データの情報が記載してある。
 
+データをコピーした後に、磁場などを付け加えたい時は :code:`src/all/model_add.F90` を編集する.
+
+.. code:: fortran
+
+     do k = 1,nzg
+     do j = 1,nyg
+     do i = 1,nxg
+        qq(5,i,j,k) = qq(5,i,j,k) + 200.d0
+        qq(6,i,j,k) = qq(6,i,j,k)
+        qq(7,i,j,k) = qq(7,i,j,k)
+     enddo
+     enddo
+     enddo
+
+などと書いてある。この例では鉛直磁場に200 Gが足されている。次に :code:`src/all/io.F90` を編集する。中ほどに
+
+.. code:: fortran
+
+    ! add something
+    time00 = 0.d0
+    if(ns == 0 .and. nd == 0) then
+    !if(ns == 0) then
+       !call model_sunspot
+       !call model_fe_pff
+       !call model_add
+    endif
+
+と書かれている部分があるので、 :code:`call model_add` の部分のコメントアウトを外す。 :code:`ns` は現在の計算のステップ数(続きの計算では引き継がれない)、 :code:`nd` は計算全体のデータアウトプット回数(続きの計算で引き継がれる)。この二つの変数が0の時は、計算の一番はじめもしくは、データを引き継いだ時のみなので、その時のみ追加条件が発動する。
+
 スーパーコンピュータでのシェルスクリプト
 --------------------------------
 いくつかのスーパーコンピュータでジョブを投入するためのシェルスクリプトも ``sh`` ディレクトリに用意している。
