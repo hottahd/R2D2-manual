@@ -36,7 +36,7 @@
 
 
 \title{R2D2}
-\date{2020年05月21日}
+\date{2020年06月02日}
 \release{1.2}
 \author{Hideyuki Hotta}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -1305,6 +1305,27 @@ fortranのコードの中では
 \subsection{Fortranコード}
 \label{\detokenize{io:fortran}}
 
+\subsubsection{Sliceデータ}
+\label{\detokenize{io:slice}}
+R2D2では、スライスデータも高いケーデンスで出力できるようになっている。多くのデータを出力するのには効率の悪い方法になっているので、3\sphinxhyphen{}4枚のスライスを出力するのに留めておくことが推奨される。 \sphinxcode{\sphinxupquote{slice\_def.F90}} 内でどの部分のスライスを出力するかを定義している。
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{integer}\PYG{p}{,} \PYG{k}{parameter} \PYG{k+kd}{::} \PYG{n}{nx\PYGZus{}slice} \PYG{o}{=} \PYG{l+m+mi}{3} \PYG{c}{! number of slice in x direction}
+\PYG{k+kt}{integer}\PYG{p}{,} \PYG{k}{parameter} \PYG{k+kd}{::} \PYG{n}{ny\PYGZus{}slice} \PYG{o}{=} \PYG{l+m+mi}{2} \PYG{c}{! number of slice in y direction}
+\PYG{k+kt}{integer}\PYG{p}{,} \PYG{k}{parameter} \PYG{k+kd}{::} \PYG{n}{nz\PYGZus{}slice} \PYG{o}{=} \PYG{l+m+mi}{2} \PYG{c}{! number of slice in z direction}
+\end{sphinxVerbatim}
+
+この部分で、それぞれの方向に何枚のスライスを出力するかを定義。例えば \sphinxcode{\sphinxupquote{nx\_slice}} はスライスするy\sphinxhyphen{}z平面の数となる。実際にどの部分を出力するかは続く部分で指定している。
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{real}\PYG{p}{(}\PYG{n+nb}{KIND}\PYG{p}{(}\PYG{l+m+mf}{0.d0}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,} \PYG{k}{dimension}\PYG{p}{(}\PYG{n}{nx\PYGZus{}slice}\PYG{p}{)}\PYG{p}{,} \PYG{k}{save} \PYG{k+kd}{::} \PYG{n}{x\PYGZus{}slice} \PYG{o}{=} \PYG{p}{(}\PYG{o}{/}\PYG{n}{xmin}\PYG{p}{,}\PYG{n}{rsun}\PYG{p}{,}\PYG{n}{xmax}\PYG{o}{/}\PYG{p}{)}
+\PYG{k+kt}{real}\PYG{p}{(}\PYG{n+nb}{KIND}\PYG{p}{(}\PYG{l+m+mf}{0.d0}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,} \PYG{k}{dimension}\PYG{p}{(}\PYG{n}{ny\PYGZus{}slice}\PYG{p}{)}\PYG{p}{,} \PYG{k}{save} \PYG{k+kd}{::} \PYG{n}{y\PYGZus{}slice} \PYG{o}{=} \PYG{p}{(}\PYG{o}{/}\PYG{n}{ymin}\PYG{p}{,}\PYG{l+m+mf}{0.5d0}\PYG{o}{*}\PYG{p}{(}\PYG{n}{ymin} \PYG{o}{+} \PYG{n}{ymax}\PYG{p}{)}\PYG{o}{/}\PYG{p}{)}
+\PYG{k+kt}{real}\PYG{p}{(}\PYG{n+nb}{KIND}\PYG{p}{(}\PYG{l+m+mf}{0.d0}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,} \PYG{k}{dimension}\PYG{p}{(}\PYG{n}{nz\PYGZus{}slice}\PYG{p}{)}\PYG{p}{,} \PYG{k}{save} \PYG{k+kd}{::} \PYG{n}{z\PYGZus{}slice} \PYG{o}{=} \PYG{p}{(}\PYG{o}{/}\PYG{n}{zmin}\PYG{p}{,}\PYG{l+m+mf}{0.5d0}\PYG{o}{*}\PYG{p}{(}\PYG{n}{zmin} \PYG{o}{+} \PYG{n}{zmax}\PYG{p}{)}\PYG{o}{/}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\sphinxcode{\sphinxupquote{nx\_slice}} で定義した数と合うように個数を指定しなければならない。
+
+
 \section{読込}
 \label{\detokenize{io:id3}}
 読み込みについては、PythonコードとIDLコードを用意しているが、開発の頻度が高いPythonコードの利用を推奨している。
@@ -1396,6 +1417,15 @@ Fortranの計算の中で解析した結果。 {\hyperref[\detokenize{io:R2D2.R2
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{io:R2D2.R2D2_data.qc}}\pysigline{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{qc}}}
 3次元のnumpy array。計算領域全体のデータ。Fortranの計算でチェックポイントのために出力しているデータを読み込む。主に解像度をあげたいときのために使う {\hyperref[\detokenize{io:R2D2.R2D2_data.read_qq_check}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{R2D2\_data.read\_qq\_check()}}}}} で読み込んだ結果。
+
+\end{fulllineitems}
+
+\index{ql (R2D2.R2D2\_data の属性)@\spxentry{ql}\spxextra{R2D2.R2D2\_data の属性}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{io:R2D2.R2D2_data.ql}}\pysigline{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{ql}}}
+2次元のnumpy array。Fortranで定義したスライスデータ {\hyperref[\detokenize{io:R2D2.R2D2_data.read_qq_slice}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{R2D2\_data.read\_qq\_slice()}}}}} で読み込んだ結果。
+実際にどの位置のスライスを読み込んでいるかは \sphinxcode{\sphinxupquote{R2D2.p{[}\textquotesingle{}x\_slice\textquotesingle{}{]}}}, \sphinxcode{\sphinxupquote{R2D2.p{[}\textquotesingle{}y\_slice\textquotesingle{}{]}}}, \sphinxcode{\sphinxupquote{R2D2.p{[}\textquotesingle{}z\_slice\textquotesingle{}{]}}} を参照すること。スライスの位置の配列が保存されている。
 
 \end{fulllineitems}
 
@@ -1515,6 +1545,28 @@ Fortranコードの中で解析した計算結果を読み込む。戻り値を�
 
 \end{fulllineitems}
 
+\index{read\_qq\_slice() (R2D2.R2D2\_data のメソッド)@\spxentry{read\_qq\_slice()}\spxextra{R2D2.R2D2\_data のメソッド}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{io:R2D2.R2D2_data.read_qq_slice}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{read\_qq\_slice}}}{\emph{\DUrole{n}{n}}, \emph{\DUrole{n}{n\_slice}}, \emph{\DUrole{n}{direc}}, \emph{\DUrole{n}{silent}}}{}
+\sphinxcode{\sphinxupquote{slice\_def.F90}} で指定したスライスデータを読み込む。{\hyperref[\detokenize{io:R2D2.R2D2_data.ql}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{R2D2\_data.ql}}}}} にデータが保存される。
+\begin{quote}\begin{description}
+\item[{パラメータ}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{\sphinxupquote{n}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}) \sphinxhyphen{}\sphinxhyphen{} 読み込みたい時間ステップ
+
+\item {} 
+\sphinxstyleliteralstrong{\sphinxupquote{n\_slice}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}) \sphinxhyphen{}\sphinxhyphen{} 何枚目のスライスを読み込むか
+
+\item {} 
+\sphinxstyleliteralstrong{\sphinxupquote{dirc}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \sphinxhyphen{}\sphinxhyphen{} スライスの方向 \textquotesingle{}x\textquotesingle{}, \textquotesingle{}y\textquotesingle{}, \textquotesingle{}z\textquotesingle{}のどれか
+
+\end{itemize}
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
 
 
 \subsection{IDLコード}
@@ -1535,7 +1587,7 @@ ver. 1.2: データ構造を変更。
 
 \end{itemize}
 
-最終更新日：2020年05月10日
+最終更新日：2020年06月02日
 
 
 \chapter{Paraviewを用いた3Dデータ表示}

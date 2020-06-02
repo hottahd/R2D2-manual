@@ -7,6 +7,26 @@
 Fortranコード
 ::::::::::::::::::::::
 
+Sliceデータ
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+R2D2では、スライスデータも高いケーデンスで出力できるようになっている。多くのデータを出力するのには効率の悪い方法になっているので、3-4枚のスライスを出力するのに留めておくことが推奨される。 ``slice_def.F90`` 内でどの部分のスライスを出力するかを定義している。
+
+.. code:: fortran
+
+    integer, parameter :: nx_slice = 3 ! number of slice in x direction
+    integer, parameter :: ny_slice = 2 ! number of slice in y direction
+    integer, parameter :: nz_slice = 2 ! number of slice in z direction
+
+この部分で、それぞれの方向に何枚のスライスを出力するかを定義。例えば ``nx_slice`` はスライスするy-z平面の数となる。実際にどの部分を出力するかは続く部分で指定している。
+
+.. code:: fortran
+
+    real(KIND(0.d0)), dimension(nx_slice), save :: x_slice = (/xmin,rsun,xmax/)
+    real(KIND(0.d0)), dimension(ny_slice), save :: y_slice = (/ymin,0.5d0*(ymin + ymax)/)
+    real(KIND(0.d0)), dimension(nz_slice), save :: z_slice = (/zmin,0.5d0*(zmin + zmax)/)
+
+``nx_slice`` で定義した数と合うように個数を指定しなければならない。
+
 読込
 ----------------------
 読み込みについては、PythonコードとIDLコードを用意しているが、開発の頻度が高いPythonコードの利用を推奨している。
@@ -74,6 +94,11 @@ Attribute
 
     3次元のnumpy array。計算領域全体のデータ。Fortranの計算でチェックポイントのために出力しているデータを読み込む。主に解像度をあげたいときのために使う :py:meth:`R2D2_data.read_qq_check` で読み込んだ結果。
 
+.. py:attribute:: R2D2_data.ql
+
+    2次元のnumpy array。Fortranで定義したスライスデータ :py:meth:`R2D2_data.read_qq_slice` で読み込んだ結果。
+    実際にどの位置のスライスを読み込んでいるかは ``R2D2.p['x_slice']``, ``R2D2.p['y_slice']``, ``R2D2.p['z_slice']`` を参照すること。スライスの位置の配列が保存されている。
+
 :py:attr:`R2D2_data.p` については、``init.py`` などで
 
 .. code:: python
@@ -133,6 +158,14 @@ Method
     チェックポイントのためのデータを読み込む :py:attr:`R2D2_data.qc` にデータが保存される。
 
     :param int n: 読み込みたい時間ステップ
+
+.. py:method:: R2D2_data.read_qq_slice(n,n_slice,direc,silent)
+    
+    ``slice_def.F90`` で指定したスライスデータを読み込む。:py:attr:`R2D2_data.ql` にデータが保存される。
+
+    :param int n: 読み込みたい時間ステップ
+    :param int n_slice: 何枚目のスライスを読み込むか
+    :param str dirc: スライスの方向 'x', 'y', 'z'のどれか
 
 IDLコード
 ::::::::::::::::::::::

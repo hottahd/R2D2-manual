@@ -49,7 +49,10 @@
   <ul>
 <li><a class="reference internal" href="#">出力と読込</a><ul>
 <li><a class="reference internal" href="#id2">出力</a><ul>
-<li><a class="reference internal" href="#fortran">Fortranコード</a></li>
+<li><a class="reference internal" href="#fortran">Fortranコード</a><ul>
+<li><a class="reference internal" href="#slice">Sliceデータ</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a class="reference internal" href="#id3">読込</a><ul>
@@ -104,6 +107,22 @@
 <h2>出力<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="fortran">
 <h3>Fortranコード<a class="headerlink" href="#fortran" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="slice">
+<h4>Sliceデータ<a class="headerlink" href="#slice" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>R2D2では、スライスデータも高いケーデンスで出力できるようになっている。多くのデータを出力するのには効率の悪い方法になっているので、3-4枚のスライスを出力するのに留めておくことが推奨される。 <code class="docutils literal notranslate"><span class="pre">slice_def.F90</span></code> 内でどの部分のスライスを出力するかを定義している。</p>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="kt">integer</span><span class="p">,</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">nx_slice</span> <span class="o">=</span> <span class="mi">3</span> <span class="c">! number of slice in x direction</span>
+<span class="kt">integer</span><span class="p">,</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">ny_slice</span> <span class="o">=</span> <span class="mi">2</span> <span class="c">! number of slice in y direction</span>
+<span class="kt">integer</span><span class="p">,</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">nz_slice</span> <span class="o">=</span> <span class="mi">2</span> <span class="c">! number of slice in z direction</span>
+</pre></div>
+</div>
+<p>この部分で、それぞれの方向に何枚のスライスを出力するかを定義。例えば <code class="docutils literal notranslate"><span class="pre">nx_slice</span></code> はスライスするy-z平面の数となる。実際にどの部分を出力するかは続く部分で指定している。</p>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="kt">real</span><span class="p">(</span><span class="nb">KIND</span><span class="p">(</span><span class="mf">0.d0</span><span class="p">)),</span> <span class="k">dimension</span><span class="p">(</span><span class="n">nx_slice</span><span class="p">),</span> <span class="k">save</span> <span class="kd">::</span> <span class="n">x_slice</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="n">xmin</span><span class="p">,</span><span class="n">rsun</span><span class="p">,</span><span class="n">xmax</span><span class="o">/</span><span class="p">)</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">KIND</span><span class="p">(</span><span class="mf">0.d0</span><span class="p">)),</span> <span class="k">dimension</span><span class="p">(</span><span class="n">ny_slice</span><span class="p">),</span> <span class="k">save</span> <span class="kd">::</span> <span class="n">y_slice</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="n">ymin</span><span class="p">,</span><span class="mf">0.5d0</span><span class="o">*</span><span class="p">(</span><span class="n">ymin</span> <span class="o">+</span> <span class="n">ymax</span><span class="p">)</span><span class="o">/</span><span class="p">)</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">KIND</span><span class="p">(</span><span class="mf">0.d0</span><span class="p">)),</span> <span class="k">dimension</span><span class="p">(</span><span class="n">nz_slice</span><span class="p">),</span> <span class="k">save</span> <span class="kd">::</span> <span class="n">z_slice</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="n">zmin</span><span class="p">,</span><span class="mf">0.5d0</span><span class="o">*</span><span class="p">(</span><span class="n">zmin</span> <span class="o">+</span> <span class="n">zmax</span><span class="p">)</span><span class="o">/</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">nx_slice</span></code> で定義した数と合うように個数を指定しなければならない。</p>
+</div>
 </div>
 </div>
 <div class="section" id="id3">
@@ -174,6 +193,13 @@
 <dt id="R2D2.R2D2_data.qc">
 <code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">qc</code><a class="headerlink" href="#R2D2.R2D2_data.qc" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>3次元のnumpy array。計算領域全体のデータ。Fortranの計算でチェックポイントのために出力しているデータを読み込む。主に解像度をあげたいときのために使う <a class="reference internal" href="#R2D2.R2D2_data.read_qq_check" title="R2D2.R2D2_data.read_qq_check"><code class="xref py py-meth docutils literal notranslate"><span class="pre">R2D2_data.read_qq_check()</span></code></a> で読み込んだ結果。</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="R2D2.R2D2_data.ql">
+<code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">ql</code><a class="headerlink" href="#R2D2.R2D2_data.ql" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>2次元のnumpy array。Fortranで定義したスライスデータ <a class="reference internal" href="#R2D2.R2D2_data.read_qq_slice" title="R2D2.R2D2_data.read_qq_slice"><code class="xref py py-meth docutils literal notranslate"><span class="pre">R2D2_data.read_qq_slice()</span></code></a> で読み込んだ結果。
+実際にどの位置のスライスを読み込んでいるかは <code class="docutils literal notranslate"><span class="pre">R2D2.p['x_slice']</span></code>, <code class="docutils literal notranslate"><span class="pre">R2D2.p['y_slice']</span></code>, <code class="docutils literal notranslate"><span class="pre">R2D2.p['z_slice']</span></code> を参照すること。スライスの位置の配列が保存されている。</p>
 </dd></dl>
 
 <p><a class="reference internal" href="#R2D2.R2D2_data.p" title="R2D2.R2D2_data.p"><code class="xref py py-attr docutils literal notranslate"><span class="pre">R2D2_data.p</span></code></a> については、<code class="docutils literal notranslate"><span class="pre">init.py</span></code> などで</p>
@@ -271,6 +297,21 @@
 </dl>
 </dd></dl>
 
+<dl class="py method">
+<dt id="R2D2.R2D2_data.read_qq_slice">
+<code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">read_qq_slice</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span></em>, <em class="sig-param"><span class="n">n_slice</span></em>, <em class="sig-param"><span class="n">direc</span></em>, <em class="sig-param"><span class="n">silent</span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.read_qq_slice" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">slice_def.F90</span></code> で指定したスライスデータを読み込む。<a class="reference internal" href="#R2D2.R2D2_data.ql" title="R2D2.R2D2_data.ql"><code class="xref py py-attr docutils literal notranslate"><span class="pre">R2D2_data.ql</span></code></a> にデータが保存される。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> (<em>int</em>) -- 読み込みたい時間ステップ</p></li>
+<li><p><strong>n_slice</strong> (<em>int</em>) -- 何枚目のスライスを読み込むか</p></li>
+<li><p><strong>dirc</strong> (<em>str</em>) -- スライスの方向 'x', 'y', 'z'のどれか</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 </div>
 <div class="section" id="idl">
@@ -285,7 +326,7 @@
 <li><p>ver. 1.1: 光学的厚さが0.1, 0.01の部分も出力することにした。qq_in, vcをconfigのグローバル変数として取扱うことにした。</p></li>
 <li><p>ver. 1.2: データ構造を変更。</p></li>
 </ul>
-<p>最終更新日：2020年05月10日</p>
+<p>最終更新日：2020年06月02日</p>
 </div>
 </div>
 
