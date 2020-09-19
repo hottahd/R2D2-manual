@@ -75,6 +75,10 @@ Attribute
     基本的なパラメタ。格子点数 ``ix`` や領域サイズ ``xmax`` など。
     インスタンス生成時に同時に読み込まれる。
 
+.. py:attribute:: R2D2_data.t
+
+    時間を格納するデータ。　:py:meth:`R2D2_data.read_time` では戻り値として同じ値を返すために :py:attr:`R2D2_Data.t` はあまり使われない。
+
 .. py:attribute:: R2D2_data.qs
 
     ある高さの2次元のndarrayが含まれる辞書型。 :py:meth:`R2D2_data.read_qq_select` で読み込んだ結果。
@@ -113,6 +117,9 @@ Attribute
 Method
 ^^^^^^^^^^^^^^^^^^^^^^
 
+データ読み込み
+||||||||||||||||||||||||
+
 メソッドで指定する ``datadir`` はデータの場所を示す変数。R2D2の計算を実行すると ``data`` ディレクトリが生成されて、その中にデータが保存される。この場所を指定すれば良い。
 
 .. py:method:: R2D2_data.__init__(datadir)
@@ -121,51 +128,153 @@ Method
     
     :argument str datadir: データの場所
 
-.. py:method:: R2D2_data.read_qq_select(xs,n,silent)
+.. py:method:: R2D2_data.read_qq_select(xs,n,silent=False)
     
     ある高さのデータのスライスを読み込む。戻り値を返さない時も :py:attr:`R2D2_data.qs` にデータが保存される。
 
     :param float xs: 読み込みたいデータの高さ
     :param int n: 読み込みたい時間ステップ
+    :param bool silent: 読み込み時にどの変数に格納されたかメッセージの表示を抑制するフラグ。デフォルトはFalseで、Trueだとメッセージは表示されない。
 
-.. py:method:: R2D2_data.read_qq(n)
+.. py:method:: R2D2_data.read_qq(n,silent=False)
     
     3次元のデータを読み込む。戻り値を返さない時も :py:attr:`R2D2_data.qq` にデータが保存される。
 
     :param int n: 読み込みたい時間ステップ
+    :param bool silent: 読み込み時にどの変数に格納されたかメッセージの表示を抑制するフラグ。デフォルトはFalseで、Trueだとメッセージは表示されない。
 
-.. py:method:: R2D2_data.read_qq_tau(n)
+.. py:method:: R2D2_data.read_qq_tau(n,silent=False)
     
     光学的厚さが一定の2次元のデータを読み込む。:py:attr:`R2D2_data.qt` にデータが保存される。
 
     :param int n: 読み込みたい時間ステップ
+    :param bool silent: 読み込み時にどの変数に格納されたかメッセージの表示を抑制するフラグ。デフォルトはFalseで、Trueだとメッセージは表示されない。
 
-.. py:method:: R2D2_data.read_time(n)
+.. py:method:: R2D2_data.read_time(n,tau=False,silent=False)
     
-    時間を読み込む。
+    時間を読み込む。 :py:attr:`R2D2.t` にもデータは格納されるが戻り値としても使うことができる。
 
     :param int n: 読み込みたい時間ステップ
+    :param bool tau: 光学的厚さ一定のデータ(高ケーデンス)に対する時間を読むかのフラグ。デフォルトはFalse。
+    :param bool silent: 読み込み時にどの変数に格納されたかメッセージの表示を抑制するフラグ。デフォルトはFalseで、Trueだとメッセージは表示されない。
     :return: 時間ステップでの時間
 
-.. py:method:: R2D2_data.read_vc(n)
+.. py:method:: R2D2_data.read_vc(n,silent=False)
     
     Fortranコードの中で解析した計算結果を読み込む。戻り値を返さない時も :py:attr:`R2D2_data.vc` にデータが保存される。
 
     :param int n: 読み込みたい時間ステップ
+    :param bool silent: 読み込み時にどの変数に格納されたかメッセージの表示を抑制するフラグ。デフォルトはFalseで、Trueだとメッセージは表示されない。
 
-.. py:method:: R2D2_data.read_qq_check(n)
+.. py:method:: R2D2_data.read_qq_check(n,silent=False,end_step=False)
     
-    チェックポイントのためのデータを読み込む :py:attr:`R2D2_data.qc` にデータが保存される。
+    チェックポイントのための3次元データを読み込む。主に解像度をあげるときに使う。 :py:attr:`R2D2_data.qc` にデータが保存される。
 
     :param int n: 読み込みたい時間ステップ
+    :param bool silent: 読み込み時にどの変数に格納されたかメッセージの表示を抑制するフラグ。デフォルトはFalseで、Trueだとメッセージは表示されない。
+    :param book end_step: Falseの時は、 ``n`` で指定された時間ステップのデータを読み込むが3次元データはそれほど高頻度ではな出力していない。Trueの時は、 ``qq.dac.e`` もしくは　``qq.dac.o`` という最後の1ステップの出力データを読み込む。こちらは常に上書きされてしまっているが、毎ステップ必ず書き込むので最後のステップのデータを読み込みたい時はこちらをTrueにする。
 
-.. py:method:: R2D2_data.read_qq_slice(n,n_slice,direc,silent)
+.. py:method:: R2D2_data.read_qq_slice(n,n_slice,direc,silent=False)
     
     ``slice_def.F90`` で指定したスライスデータを読み込む。:py:attr:`R2D2_data.ql` にデータが保存される。
 
     :param int n: 読み込みたい時間ステップ
     :param int n_slice: 何枚目のスライスを読み込むか
-    :param str dirc: スライスの方向 'x', 'y', 'z'のどれか
+    :param str direc: スライスの方向 'x', 'y', 'z'のどれか
+    :param bool silent: 読み込み時にどの変数に格納されたかメッセージの表示を抑制するフラグ。デフォルトはFalseで、Trueだとメッセージは表示されない。    
+
+データダウンロード
+||||||||||||||||||||||||
+
+スパコンなどで計算した後に、ローカルの環境にデータをダウンロードするメソッドも提供している。堀田と全く同じようにディレクトリ構造を作ってないといけないので注意。
+
+.. py:function:: R2D2.sync.set(server,caseid,project=os.getcwd().split('/')[-2],dist='../run/')
+
+    設定のみをダウンロードするメソッド。ひとまずGoogleスプレッドシートに書き込みたい時などに有用。
+
+    :param char server: ダウンロード先のサーバー名。sshで使うサーバー名を用いれば良い。
+    :param char server: ダウンロードしたいcaseid。'd001'などとする。
+    :param char project: プロジェクト名。'R2D2'など。何も入力しなければ一個上のディレクトリの名前をプロジェクト名と判断する。
+    :param char dist: データダウンロード先。特別な用途がなければデフォルトのままとする。
+    
+.. py:method:: R2D2_data.sync_tau(server,project=os.getcwd().split('/')[-2])
+
+    光学的厚さ一定の面上でのデータをダウンロードするメソッド。
+
+    :param char server: ダウンロード先のサーバー名。sshで使うサーバー名を用いれば良い。
+    :param char project: プロジェクト名。'R2D2'など。何も入力しなければ一個上のディレクトリの名前をプロジェクト名と判断する。
+
+.. py:method:: R2D2_data.sync_select(xs,server,project=os.getcwd().split('/')[-2])
+
+    ２次元データをダウンロードするメソッド
+
+    :param float xs: ダウンロードする高さ。
+    :param char server: ダウンロード先のサーバー名。sshで使うサーバー名を用いれば良い。
+    :param char project: プロジェクト名。'R2D2'など。何も入力しなければ一個上のディレクトリの名前をプロジェクト名と判断する。
+
+.. py:method:: R2D2_data.sync_vc(server,project=os.getcwd().split('/')[-2])
+
+    計算実行中に解析した物理量をダウンロードするメソッド
+
+    :param char server: ダウンロード先のサーバー名。sshで使うサーバー名を用いれば良い。
+    :param char project: プロジェクト名。'R2D2'など。何も入力しなければ一個上のディレクトリの名前をプロジェクト名と判断する。
+
+.. py:method:: R2D2_data.sync_check(n,server,project=os.getcwd().split('/')[-2],end_step=False)
+
+    チェックポイントデータをダウンロードするメソッド
+
+    :param int n: ダウンロードしたい時間ステップ。
+    :param char server: ダウンロード先のサーバー名。sshで使うサーバー名を用いれば良い。
+    :param char project: プロジェクト名。'R2D2'など。何も入力しなければ一個上のディレクトリの名前をプロジェクト名と判断する。
+
+解像度・計算領域変更
+::::::::::::::::::::::
+
+R2D2のPythonの機能を用いて, 解像度や計算領域を変更することができる.
+
+以下の手順に従う
+
+1. fortranコードで何らかの計算を実行
+2. pythonで読み込み。解像度変換を実行
+3. fortranで再度, 計算を実行
+
+pythonでの解像度変換には :py:meth:`R2D2_data.upgrade_resolution` メソッドを用いる.
+
+.. py:method:: R2D2_data.upgrade_resolution(caseid, n, xmin, xmax, ymin, ymax, zmin, zmax, ix, jx, kx, ix_ununi=32, dx00=48e5, x_ununif=False, endian='<', end_step=False, memory_saving=False)
+
+    データの解像度や計算領域を変更するためのメソッド
+
+    :param char caseid: 出力先のcaseid e.g. 'd002'
+    :param float xmax: max location in x direction
+    :param float xmin: min location in x direction
+    :param float ymax: max location in y direction
+    :param float ymin: min location in y direction
+    :param float zmax: max location in z direction
+    :param float zmin: min location in z direction
+    
+    :param char endian: endian, "<" もしくは, ">"
+    
+    :param int ix: updated grid point in x direction
+    :param int jx: updated grid point in y direction
+    :param int kx: updated grid point in z direction
+        
+    これより下のパラメタは `x_ununif=True` を用いたときのみ有効となる.    
+    
+    :param int ix_ununi: number of grid in uniform grid region
+    :param float dx00: grid spacing in uniform grid region
+    :param bool x_ununif: whethere ununiform grid is used
+    
+    :param bool memory_saving: If true, upgraded variables are saved in memory separately for saving memory
+
+
+例えば, `caseid='d001'` のデータの解像度を変更して `caseid='d002'` へと出力する時は
+
+.. code:: python
+
+    d = R2D2.R2D2_data('../run/d001')
+    d.upgrade_resolution('d002',...)
+
+として, 出力された結果を参考にd002のプログラムを変更する.
 
 IDLコード
 ::::::::::::::::::::::

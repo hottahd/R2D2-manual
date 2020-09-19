@@ -5,6 +5,7 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>数値スキーム &#8212; R2D2 1.2 ドキュメント</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -40,9 +41,51 @@
         <li class="right" >
           <a href="code.html" title="コード"
              accesskey="P">前へ</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">R2D2 1.2 ドキュメント</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">R2D2 1.2 ドキュメント</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">数値スキーム</a></li> 
       </ul>
-    </div>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="id1">
+<h1>数値スキーム<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="mhd">
+<h2>MHDスキーム<a class="headerlink" href="#mhd" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id2">
+<h3>空間微分<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>R2D2では、4次の中央差分を用いている。格子間隔が一様な場合には中央差分では微分は</p>
+<div class="math">
+<p><img src="_images/math/6daa51abfa49337cf3a2795855e3915ec5130476.svg" alt="\left(\frac{\partial q}{\partial x}\right)_i =\frac{-q_{i+2}+8q_{i+1}-8q_{i-1}+q_{i-2}}{12\Delta x_i}"/></p>
+</div><p>となる。R2D2では、非一様な格子間隔にも対応しており、</p>
+</div>
+<div class="section" id="id3">
+<h3>時間積分<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>R2D2では、</p>
+<div class="admonition-todo admonition" id="id4">
+<p class="admonition-title">課題</p>
+<p>数値スキーム(時間積分)</p>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>輻射輸送<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="admonition-todo admonition" id="id6">
+<p class="admonition-title">課題</p>
+<p>数値スキーム(輻射輸送)</p>
+</div>
+<p>最終更新日：2020年09月19日</p>
+</div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">目次</a></h3>
@@ -83,46 +126,6 @@
 <script>$('#searchbox').show(0);</script>
         </div>
       </div>
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
-  <div class="section" id="id1">
-<h1>数値スキーム<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="section" id="mhd">
-<h2>MHDスキーム<a class="headerlink" href="#mhd" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="section" id="id2">
-<h3>空間微分<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>R2D2では、4次の中央差分を用いている。格子間隔が一様な場合には中央差分では微分は</p>
-<div class="math">
-<p><img src="_images/math/6daa51abfa49337cf3a2795855e3915ec5130476.svg" alt="\left(\frac{\partial q}{\partial x}\right)_i =\frac{-q_{i+2}+8q_{i+1}-8q_{i-1}+q_{i-2}}{12\Delta x_i}"/></p>
-</div><p>となる。R2D2では、非一様な格子間隔にも対応しており、</p>
-</div>
-<div class="section" id="id3">
-<h3>時間積分<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>R2D2では、</p>
-<div class="admonition-todo admonition" id="id4">
-<p class="admonition-title">課題</p>
-<p>数値スキーム(時間積分)</p>
-</div>
-</div>
-<div class="section" id="id5">
-<h3>輻射輸送<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<div class="admonition-todo admonition" id="id6">
-<p class="admonition-title">課題</p>
-<p>数値スキーム(輻射輸送)</p>
-</div>
-<p>最終更新日：2020年06月02日</p>
-</div>
-</div>
-</div>
-
-
-          </div>
-        </div>
-      </div>
       <div class="clearer"></div>
     </div>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -140,12 +143,13 @@
         <li class="right" >
           <a href="code.html" title="コード"
              >前へ</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">R2D2 1.2 ドキュメント</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">R2D2 1.2 ドキュメント</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">数値スキーム</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019, Hideyuki Hotta.
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.3 で生成しました。
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.2.
     </div>
   </body>
 </html>

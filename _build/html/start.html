@@ -5,6 +5,7 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>R2D2を使い始めるには &#8212; R2D2 1.2 ドキュメント</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -40,50 +41,10 @@
         <li class="right" >
           <a href="index.html" title="R2D2マニュアル"
              accesskey="P">前へ</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">R2D2 1.2 ドキュメント</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">R2D2 1.2 ドキュメント</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">R2D2を使い始めるには</a></li> 
       </ul>
-    </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">目次</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">R2D2を使い始めるには</a><ul>
-<li><a class="reference internal" href="#id1">ディレクトリ構造の準備</a></li>
-<li><a class="reference internal" href="#id2">コンパイル</a></li>
-<li><a class="reference internal" href="#id3">基本的なパラメータ</a></li>
-<li><a class="reference internal" href="#id10">初期条件</a></li>
-<li><a class="reference internal" href="#id11">追加条件</a></li>
-<li><a class="reference internal" href="#id12">スーパーコンピュータでのシェルスクリプト</a></li>
-<li><a class="reference internal" href="#id13">初期条件データを受け取った場合</a></li>
-</ul>
-</li>
-</ul>
-
-  <h4>前のトピックへ</h4>
-  <p class="topless"><a href="index.html"
-                        title="前の章へ">R2D2マニュアル</a></p>
-  <h4>次のトピックへ</h4>
-  <p class="topless"><a href="environment.html"
-                        title="次の章へ">R2D2を使うための環境設定</a></p>
-  <div role="note" aria-label="source link">
-    <h3>このページ</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/start.rst.txt"
-            rel="nofollow">ソースコードを表示</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">クイック検索</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="検索" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
-        </div>
-      </div>
+    </div>  
 
     <div class="document">
       <div class="documentwrapper">
@@ -147,6 +108,14 @@
    │     │          ├─ vla.dac.00000002
    │     │          ├─ ...
    │     │
+   │     ├─ slice/
+   │     │   ├─ qqx.dac.00000000.000000000
+   │     │   ├─ ...
+   │     │   ├─ qqy.dac.00000000.000000000
+   │     │   ├─ ...
+   │     │   ├─ qqz.dac.00000000.000000000
+   │     │   ├─ ...
+   │     │
    │     └─ time/
    │           ├─ mhd/
    │           │    ├─ t.dac.00000000
@@ -194,7 +163,7 @@
 </dl>
 </li>
 <li><dl class="simple">
-<dt>copy_caseid.py</dt><dd><p>続きの計算を行うためのスクリプト</p>
+<dt>copy_caseid.py</dt><dd><p>ディレクトリを変えて続きの計算を行うためのスクリプト</p>
 </dd>
 </dl>
 </li>
@@ -215,16 +184,21 @@
 <dt>data/remap/</dt><dd><p>解析のためのリマッピングをしたあとのデータを格納するディレクトリ</p>
 <ul>
 <li><dl class="simple">
-<dt>data/remap/qq/</dt><dd><p>計算データをリマッピングして扱いやすくした三次元データ。単精度で出力。解析には主にこのデータを使う。</p>
+<dt>data/remap/qq/</dt><dd><p>計算データをリマッピングして扱いやすくした三次元データを格納するディレクトリ。単精度で出力。解析には主にこのデータを使う。</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>data/remap/vl/</dt><dd><p>計算実行中の解析データ格納</p>
+<dt>data/remap/vl/</dt><dd><p>計算実行中の解析データを格納するディレクトリ</p>
 </dd>
 </dl>
 </li>
 </ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>data/slice/</dt><dd><p><code class="docutils literal notranslate"><span class="pre">slice_def.F90</span></code> で定義したスライスデータを格納するディレクトリ</p>
 </dd>
 </dl>
 </li>
@@ -304,7 +278,7 @@
 </div>
 <div class="section" id="id10">
 <h2>初期条件<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>初期条件は、 <code class="docutils literal notranslate"><span class="pre">src/all/model.F90</span></code> で設定している。基本的な光球計算などは、鉛直速度にランダムな値を入れて計算を始めている。</p>
+<p>初期条件は、 <code class="docutils literal notranslate"><span class="pre">src/all/model_init.F90</span></code> で設定している。基本的な光球計算などは、鉛直速度にランダムな値を入れて計算を始めている。</p>
 </div>
 <div class="section" id="id11">
 <h2>追加条件<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -371,12 +345,54 @@
 <p>熱対流が統計的定常に達するまでは非常に時間がかかるために、この計算が非常に困難になる。そのため、堀田がデータを提供することがある。堀田は <code class="code docutils literal notranslate"><span class="pre">data</span></code> ディレクトリを丸ごと提供する。</p>
 <p>このディレクトリに <code class="code docutils literal notranslate"><span class="pre">cont_log.txt</span></code> というファイルがあるので、そこに示されている計算設定の情報を見て同じようになるように計算を設定する。</p>
 <p>このディレクトリを書く実行のディレクトリの配下におき、実行すると続きの計算が始まる。</p>
-<p>最終更新日：2020年06月02日</p>
+<p>最終更新日：2020年09月19日</p>
 </div>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">目次</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">R2D2を使い始めるには</a><ul>
+<li><a class="reference internal" href="#id1">ディレクトリ構造の準備</a></li>
+<li><a class="reference internal" href="#id2">コンパイル</a></li>
+<li><a class="reference internal" href="#id3">基本的なパラメータ</a></li>
+<li><a class="reference internal" href="#id10">初期条件</a></li>
+<li><a class="reference internal" href="#id11">追加条件</a></li>
+<li><a class="reference internal" href="#id12">スーパーコンピュータでのシェルスクリプト</a></li>
+<li><a class="reference internal" href="#id13">初期条件データを受け取った場合</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>前のトピックへ</h4>
+  <p class="topless"><a href="index.html"
+                        title="前の章へ">R2D2マニュアル</a></p>
+  <h4>次のトピックへ</h4>
+  <p class="topless"><a href="environment.html"
+                        title="次の章へ">R2D2を使うための環境設定</a></p>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/start.rst.txt"
+            rel="nofollow">ソースコードを表示</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="検索" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -396,12 +412,13 @@
         <li class="right" >
           <a href="index.html" title="R2D2マニュアル"
              >前へ</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">R2D2 1.2 ドキュメント</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">R2D2 1.2 ドキュメント</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">R2D2を使い始めるには</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019, Hideyuki Hotta.
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.3 で生成しました。
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.2.
     </div>
   </body>
 </html>

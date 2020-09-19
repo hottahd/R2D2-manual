@@ -5,6 +5,7 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>出力と読込 &#8212; R2D2 1.2 ドキュメント</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -40,61 +41,10 @@
         <li class="right" >
           <a href="artdif.html" title="人工粘性"
              accesskey="P">前へ</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">R2D2 1.2 ドキュメント</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">R2D2 1.2 ドキュメント</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">出力と読込</a></li> 
       </ul>
-    </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">目次</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">出力と読込</a><ul>
-<li><a class="reference internal" href="#id2">出力</a><ul>
-<li><a class="reference internal" href="#fortran">Fortranコード</a><ul>
-<li><a class="reference internal" href="#slice">Sliceデータ</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id3">読込</a><ul>
-<li><a class="reference internal" href="#module-R2D2">Pythonコード</a><ul>
-<li><a class="reference internal" href="#id4">クラス</a></li>
-<li><a class="reference internal" href="#attribute">Attribute</a></li>
-<li><a class="reference internal" href="#method">Method</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#idl">IDLコード</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id5">バージョン履歴</a></li>
-</ul>
-</li>
-</ul>
-
-  <h4>前のトピックへ</h4>
-  <p class="topless"><a href="artdif.html"
-                        title="前の章へ">人工粘性</a></p>
-  <h4>次のトピックへ</h4>
-  <p class="topless"><a href="paraview.html"
-                        title="次の章へ">Paraviewを用いた3Dデータ表示</a></p>
-  <div role="note" aria-label="source link">
-    <h3>このページ</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/io.rst.txt"
-            rel="nofollow">ソースコードを表示</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">クイック検索</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="検索" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
-        </div>
-      </div>
+    </div>  
 
     <div class="document">
       <div class="documentwrapper">
@@ -166,6 +116,12 @@
 </dd></dl>
 
 <dl class="py attribute">
+<dt id="R2D2.R2D2_data.t">
+<code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">t</code><a class="headerlink" href="#R2D2.R2D2_data.t" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>時間を格納するデータ。　<a class="reference internal" href="#R2D2.R2D2_data.read_time" title="R2D2.R2D2_data.read_time"><code class="xref py py-meth docutils literal notranslate"><span class="pre">R2D2_data.read_time()</span></code></a> では戻り値として同じ値を返すために <code class="xref py py-attr docutils literal notranslate"><span class="pre">R2D2_Data.t</span></code> はあまり使われない。</p>
+</dd></dl>
+
+<dl class="py attribute">
 <dt id="R2D2.R2D2_data.qs">
 <code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">qs</code><a class="headerlink" href="#R2D2.R2D2_data.qs" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>ある高さの2次元のndarrayが含まれる辞書型。 <a class="reference internal" href="#R2D2.R2D2_data.read_qq_select" title="R2D2.R2D2_data.read_qq_select"><code class="xref py py-meth docutils literal notranslate"><span class="pre">R2D2_data.read_qq_select()</span></code></a> で読み込んだ結果。</p>
@@ -213,6 +169,8 @@
 </div>
 <div class="section" id="method">
 <h4>Method<a class="headerlink" href="#method" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<div class="section" id="id5">
+<h5>データ読み込み<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h5>
 <p>メソッドで指定する <code class="docutils literal notranslate"><span class="pre">datadir</span></code> はデータの場所を示す変数。R2D2の計算を実行すると <code class="docutils literal notranslate"><span class="pre">data</span></code> ディレクトリが生成されて、その中にデータが保存される。この場所を指定すれば良い。</p>
 <dl class="py method">
 <dt id="R2D2.R2D2_data.__init__">
@@ -227,13 +185,14 @@
 
 <dl class="py method">
 <dt id="R2D2.R2D2_data.read_qq_select">
-<code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">read_qq_select</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">xs</span></em>, <em class="sig-param"><span class="n">n</span></em>, <em class="sig-param"><span class="n">silent</span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.read_qq_select" title="この定義へのパーマリンク">¶</a></dt>
+<code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">read_qq_select</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">xs</span></em>, <em class="sig-param"><span class="n">n</span></em>, <em class="sig-param"><span class="n">silent</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.read_qq_select" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>ある高さのデータのスライスを読み込む。戻り値を返さない時も <a class="reference internal" href="#R2D2.R2D2_data.qs" title="R2D2.R2D2_data.qs"><code class="xref py py-attr docutils literal notranslate"><span class="pre">R2D2_data.qs</span></code></a> にデータが保存される。</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>xs</strong> (<em>float</em>) -- 読み込みたいデータの高さ</p></li>
 <li><p><strong>n</strong> (<em>int</em>) -- 読み込みたい時間ステップ</p></li>
+<li><p><strong>silent</strong> (<em>bool</em>) -- 読み込み時にどの変数に格納されたかメッセージの表示を抑制するフラグ。デフォルトはFalseで、Trueだとメッセージは表示されない。</p></li>
 </ul>
 </dd>
 </dl>
@@ -241,33 +200,43 @@
 
 <dl class="py method">
 <dt id="R2D2.R2D2_data.read_qq">
-<code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">read_qq</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.read_qq" title="この定義へのパーマリンク">¶</a></dt>
+<code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">read_qq</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span></em>, <em class="sig-param"><span class="n">silent</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.read_qq" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>3次元のデータを読み込む。戻り値を返さない時も <a class="reference internal" href="#R2D2.R2D2_data.qq" title="R2D2.R2D2_data.qq"><code class="xref py py-attr docutils literal notranslate"><span class="pre">R2D2_data.qq</span></code></a> にデータが保存される。</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ</dt>
-<dd class="field-odd"><p><strong>n</strong> (<em>int</em>) -- 読み込みたい時間ステップ</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> (<em>int</em>) -- 読み込みたい時間ステップ</p></li>
+<li><p><strong>silent</strong> (<em>bool</em>) -- 読み込み時にどの変数に格納されたかメッセージの表示を抑制するフラグ。デフォルトはFalseで、Trueだとメッセージは表示されない。</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="R2D2.R2D2_data.read_qq_tau">
-<code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">read_qq_tau</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.read_qq_tau" title="この定義へのパーマリンク">¶</a></dt>
+<code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">read_qq_tau</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span></em>, <em class="sig-param"><span class="n">silent</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.read_qq_tau" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>光学的厚さが一定の2次元のデータを読み込む。<a class="reference internal" href="#R2D2.R2D2_data.qt" title="R2D2.R2D2_data.qt"><code class="xref py py-attr docutils literal notranslate"><span class="pre">R2D2_data.qt</span></code></a> にデータが保存される。</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ</dt>
-<dd class="field-odd"><p><strong>n</strong> (<em>int</em>) -- 読み込みたい時間ステップ</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> (<em>int</em>) -- 読み込みたい時間ステップ</p></li>
+<li><p><strong>silent</strong> (<em>bool</em>) -- 読み込み時にどの変数に格納されたかメッセージの表示を抑制するフラグ。デフォルトはFalseで、Trueだとメッセージは表示されない。</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="R2D2.R2D2_data.read_time">
-<code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">read_time</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.read_time" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>時間を読み込む。</p>
+<code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">read_time</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span></em>, <em class="sig-param"><span class="n">tau</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">silent</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.read_time" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>時間を読み込む。 <code class="xref py py-attr docutils literal notranslate"><span class="pre">R2D2.t</span></code> にもデータは格納されるが戻り値としても使うことができる。</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ</dt>
-<dd class="field-odd"><p><strong>n</strong> (<em>int</em>) -- 読み込みたい時間ステップ</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> (<em>int</em>) -- 読み込みたい時間ステップ</p></li>
+<li><p><strong>tau</strong> (<em>bool</em>) -- 光学的厚さ一定のデータ(高ケーデンス)に対する時間を読むかのフラグ。デフォルトはFalse。</p></li>
+<li><p><strong>silent</strong> (<em>bool</em>) -- 読み込み時にどの変数に格納されたかメッセージの表示を抑制するフラグ。デフォルトはFalseで、Trueだとメッセージは表示されない。</p></li>
+</ul>
 </dd>
 <dt class="field-even">戻り値</dt>
 <dd class="field-even"><p>時間ステップでの時間</p>
@@ -277,36 +246,122 @@
 
 <dl class="py method">
 <dt id="R2D2.R2D2_data.read_vc">
-<code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">read_vc</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.read_vc" title="この定義へのパーマリンク">¶</a></dt>
+<code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">read_vc</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span></em>, <em class="sig-param"><span class="n">silent</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.read_vc" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Fortranコードの中で解析した計算結果を読み込む。戻り値を返さない時も <a class="reference internal" href="#R2D2.R2D2_data.vc" title="R2D2.R2D2_data.vc"><code class="xref py py-attr docutils literal notranslate"><span class="pre">R2D2_data.vc</span></code></a> にデータが保存される。</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ</dt>
-<dd class="field-odd"><p><strong>n</strong> (<em>int</em>) -- 読み込みたい時間ステップ</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> (<em>int</em>) -- 読み込みたい時間ステップ</p></li>
+<li><p><strong>silent</strong> (<em>bool</em>) -- 読み込み時にどの変数に格納されたかメッセージの表示を抑制するフラグ。デフォルトはFalseで、Trueだとメッセージは表示されない。</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="R2D2.R2D2_data.read_qq_check">
-<code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">read_qq_check</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.read_qq_check" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>チェックポイントのためのデータを読み込む <a class="reference internal" href="#R2D2.R2D2_data.qc" title="R2D2.R2D2_data.qc"><code class="xref py py-attr docutils literal notranslate"><span class="pre">R2D2_data.qc</span></code></a> にデータが保存される。</p>
+<code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">read_qq_check</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span></em>, <em class="sig-param"><span class="n">silent</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">end_step</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.read_qq_check" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>チェックポイントのための3次元データを読み込む。主に解像度をあげるときに使う。 <a class="reference internal" href="#R2D2.R2D2_data.qc" title="R2D2.R2D2_data.qc"><code class="xref py py-attr docutils literal notranslate"><span class="pre">R2D2_data.qc</span></code></a> にデータが保存される。</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ</dt>
-<dd class="field-odd"><p><strong>n</strong> (<em>int</em>) -- 読み込みたい時間ステップ</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> (<em>int</em>) -- 読み込みたい時間ステップ</p></li>
+<li><p><strong>silent</strong> (<em>bool</em>) -- 読み込み時にどの変数に格納されたかメッセージの表示を抑制するフラグ。デフォルトはFalseで、Trueだとメッセージは表示されない。</p></li>
+<li><p><strong>end_step</strong> (<em>book</em>) -- Falseの時は、 <code class="docutils literal notranslate"><span class="pre">n</span></code> で指定された時間ステップのデータを読み込むが3次元データはそれほど高頻度ではな出力していない。Trueの時は、 <code class="docutils literal notranslate"><span class="pre">qq.dac.e</span></code> もしくは　<code class="docutils literal notranslate"><span class="pre">qq.dac.o</span></code> という最後の1ステップの出力データを読み込む。こちらは常に上書きされてしまっているが、毎ステップ必ず書き込むので最後のステップのデータを読み込みたい時はこちらをTrueにする。</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="R2D2.R2D2_data.read_qq_slice">
-<code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">read_qq_slice</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span></em>, <em class="sig-param"><span class="n">n_slice</span></em>, <em class="sig-param"><span class="n">direc</span></em>, <em class="sig-param"><span class="n">silent</span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.read_qq_slice" title="この定義へのパーマリンク">¶</a></dt>
+<code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">read_qq_slice</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span></em>, <em class="sig-param"><span class="n">n_slice</span></em>, <em class="sig-param"><span class="n">direc</span></em>, <em class="sig-param"><span class="n">silent</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.read_qq_slice" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p><code class="docutils literal notranslate"><span class="pre">slice_def.F90</span></code> で指定したスライスデータを読み込む。<a class="reference internal" href="#R2D2.R2D2_data.ql" title="R2D2.R2D2_data.ql"><code class="xref py py-attr docutils literal notranslate"><span class="pre">R2D2_data.ql</span></code></a> にデータが保存される。</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>n</strong> (<em>int</em>) -- 読み込みたい時間ステップ</p></li>
 <li><p><strong>n_slice</strong> (<em>int</em>) -- 何枚目のスライスを読み込むか</p></li>
-<li><p><strong>dirc</strong> (<em>str</em>) -- スライスの方向 'x', 'y', 'z'のどれか</p></li>
+<li><p><strong>direc</strong> (<em>str</em>) -- スライスの方向 'x', 'y', 'z'のどれか</p></li>
+<li><p><strong>silent</strong> (<em>bool</em>) -- 読み込み時にどの変数に格納されたかメッセージの表示を抑制するフラグ。デフォルトはFalseで、Trueだとメッセージは表示されない。</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id6">
+<h5>データダウンロード<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h5>
+<p>スパコンなどで計算した後に、ローカルの環境にデータをダウンロードするメソッドも提供している。堀田と全く同じようにディレクトリ構造を作ってないといけないので注意。</p>
+<dl class="py function">
+<dt id="R2D2.R2D2.sync.set">
+<code class="sig-prename descclassname">R2D2.sync.</code><code class="sig-name descname">set</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">server</span></em>, <em class="sig-param"><span class="n">caseid</span></em>, <em class="sig-param"><span class="n">project</span><span class="o">=</span><span class="default_value">os.getcwd().split('/')[- 2]</span></em>, <em class="sig-param"><span class="n">dist</span><span class="o">=</span><span class="default_value">'../run/'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2.sync.set" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>設定のみをダウンロードするメソッド。ひとまずGoogleスプレッドシートに書き込みたい時などに有用。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>server</strong> (<em>char</em>) -- ダウンロード先のサーバー名。sshで使うサーバー名を用いれば良い。</p></li>
+<li><p><strong>server</strong> -- ダウンロードしたいcaseid。'd001'などとする。</p></li>
+<li><p><strong>project</strong> (<em>char</em>) -- プロジェクト名。'R2D2'など。何も入力しなければ一個上のディレクトリの名前をプロジェクト名と判断する。</p></li>
+<li><p><strong>dist</strong> (<em>char</em>) -- データダウンロード先。特別な用途がなければデフォルトのままとする。</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="R2D2.R2D2_data.sync_tau">
+<code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">sync_tau</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">server</span></em>, <em class="sig-param"><span class="n">project</span><span class="o">=</span><span class="default_value">os.getcwd().split('/')[- 2]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.sync_tau" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>光学的厚さ一定の面上でのデータをダウンロードするメソッド。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>server</strong> (<em>char</em>) -- ダウンロード先のサーバー名。sshで使うサーバー名を用いれば良い。</p></li>
+<li><p><strong>project</strong> (<em>char</em>) -- プロジェクト名。'R2D2'など。何も入力しなければ一個上のディレクトリの名前をプロジェクト名と判断する。</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="R2D2.R2D2_data.sync_select">
+<code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">sync_select</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">xs</span></em>, <em class="sig-param"><span class="n">server</span></em>, <em class="sig-param"><span class="n">project</span><span class="o">=</span><span class="default_value">os.getcwd().split('/')[- 2]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.sync_select" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>２次元データをダウンロードするメソッド</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xs</strong> (<em>float</em>) -- ダウンロードする高さ。</p></li>
+<li><p><strong>server</strong> (<em>char</em>) -- ダウンロード先のサーバー名。sshで使うサーバー名を用いれば良い。</p></li>
+<li><p><strong>project</strong> (<em>char</em>) -- プロジェクト名。'R2D2'など。何も入力しなければ一個上のディレクトリの名前をプロジェクト名と判断する。</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="R2D2.R2D2_data.sync_vc">
+<code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">sync_vc</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">server</span></em>, <em class="sig-param"><span class="n">project</span><span class="o">=</span><span class="default_value">os.getcwd().split('/')[- 2]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.sync_vc" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>計算実行中に解析した物理量をダウンロードするメソッド</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>server</strong> (<em>char</em>) -- ダウンロード先のサーバー名。sshで使うサーバー名を用いれば良い。</p></li>
+<li><p><strong>project</strong> (<em>char</em>) -- プロジェクト名。'R2D2'など。何も入力しなければ一個上のディレクトリの名前をプロジェクト名と判断する。</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="R2D2.R2D2_data.sync_check">
+<code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">sync_check</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span></em>, <em class="sig-param"><span class="n">server</span></em>, <em class="sig-param"><span class="n">project</span><span class="o">=</span><span class="default_value">os.getcwd().split('/')[- 2]</span></em>, <em class="sig-param"><span class="n">end_step</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.sync_check" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>チェックポイントデータをダウンロードするメソッド</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> (<em>int</em>) -- ダウンロードしたい時間ステップ。</p></li>
+<li><p><strong>server</strong> (<em>char</em>) -- ダウンロード先のサーバー名。sshで使うサーバー名を用いれば良い。</p></li>
+<li><p><strong>project</strong> (<em>char</em>) -- プロジェクト名。'R2D2'など。何も入力しなければ一個上のディレクトリの名前をプロジェクト名と判断する。</p></li>
 </ul>
 </dd>
 </dl>
@@ -314,24 +369,134 @@
 
 </div>
 </div>
+</div>
+<div class="section" id="id7">
+<h3>解像度・計算領域変更<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>R2D2のPythonの機能を用いて, 解像度や計算領域を変更することができる.</p>
+<p>以下の手順に従う</p>
+<ol class="arabic simple">
+<li><p>fortranコードで何らかの計算を実行</p></li>
+<li><p>pythonで読み込み。解像度変換を実行</p></li>
+<li><p>fortranで再度, 計算を実行</p></li>
+</ol>
+<p>pythonでの解像度変換には <a class="reference internal" href="#R2D2.R2D2_data.upgrade_resolution" title="R2D2.R2D2_data.upgrade_resolution"><code class="xref py py-meth docutils literal notranslate"><span class="pre">R2D2_data.upgrade_resolution()</span></code></a> メソッドを用いる.</p>
+<dl class="py method">
+<dt id="R2D2.R2D2_data.upgrade_resolution">
+<code class="sig-prename descclassname">R2D2_data.</code><code class="sig-name descname">upgrade_resolution</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">caseid</span></em>, <em class="sig-param"><span class="n">n</span></em>, <em class="sig-param"><span class="n">xmin</span></em>, <em class="sig-param"><span class="n">xmax</span></em>, <em class="sig-param"><span class="n">ymin</span></em>, <em class="sig-param"><span class="n">ymax</span></em>, <em class="sig-param"><span class="n">zmin</span></em>, <em class="sig-param"><span class="n">zmax</span></em>, <em class="sig-param"><span class="n">ix</span></em>, <em class="sig-param"><span class="n">jx</span></em>, <em class="sig-param"><span class="n">kx</span></em>, <em class="sig-param"><span class="n">ix_ununi</span><span class="o">=</span><span class="default_value">32</span></em>, <em class="sig-param"><span class="n">dx00</span><span class="o">=</span><span class="default_value">4800000.0</span></em>, <em class="sig-param"><span class="n">x_ununif</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">endian</span><span class="o">=</span><span class="default_value">'&lt;'</span></em>, <em class="sig-param"><span class="n">end_step</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">memory_saving</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.upgrade_resolution" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>データの解像度や計算領域を変更するためのメソッド</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>caseid</strong> (<em>char</em>) -- 出力先のcaseid e.g. 'd002'</p></li>
+<li><p><strong>xmax</strong> (<em>float</em>) -- max location in x direction</p></li>
+<li><p><strong>xmin</strong> (<em>float</em>) -- min location in x direction</p></li>
+<li><p><strong>ymax</strong> (<em>float</em>) -- max location in y direction</p></li>
+<li><p><strong>ymin</strong> (<em>float</em>) -- min location in y direction</p></li>
+<li><p><strong>zmax</strong> (<em>float</em>) -- max location in z direction</p></li>
+<li><p><strong>zmin</strong> (<em>float</em>) -- min location in z direction</p></li>
+<li><p><strong>endian</strong> (<em>char</em>) -- endian, &quot;&lt;&quot; もしくは, &quot;&gt;&quot;</p></li>
+<li><p><strong>ix</strong> (<em>int</em>) -- updated grid point in x direction</p></li>
+<li><p><strong>jx</strong> (<em>int</em>) -- updated grid point in y direction</p></li>
+<li><p><strong>kx</strong> (<em>int</em>) -- updated grid point in z direction</p></li>
+</ul>
+</dd>
+</dl>
+<p>これより下のパラメタは <cite>x_ununif=True</cite> を用いたときのみ有効となる.</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ix_ununi</strong> (<em>int</em>) -- number of grid in uniform grid region</p></li>
+<li><p><strong>dx00</strong> (<em>float</em>) -- grid spacing in uniform grid region</p></li>
+<li><p><strong>x_ununif</strong> (<em>bool</em>) -- whethere ununiform grid is used</p></li>
+<li><p><strong>memory_saving</strong> (<em>bool</em>) -- If true, upgraded variables are saved in memory separately for saving memory</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p>例えば, <cite>caseid='d001'</cite> のデータの解像度を変更して <cite>caseid='d002'</cite> へと出力する時は</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">R2D2</span><span class="o">.</span><span class="n">R2D2_data</span><span class="p">(</span><span class="s1">&#39;../run/d001&#39;</span><span class="p">)</span>
+<span class="n">d</span><span class="o">.</span><span class="n">upgrade_resolution</span><span class="p">(</span><span class="s1">&#39;d002&#39;</span><span class="p">,</span><span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>として, 出力された結果を参考にd002のプログラムを変更する.</p>
+</div>
 <div class="section" id="idl">
 <h3>IDLコード<a class="headerlink" href="#idl" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><a class="reference external" href="https://github.com/hottahd/R2D2_idl">GitHubの公開レポジトリ</a> に簡単な説明あり</p>
 </div>
 </div>
-<div class="section" id="id5">
-<h2>バージョン履歴<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id8">
+<h2>バージョン履歴<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><p>ver. 1.0: バージョン制を導入</p></li>
 <li><p>ver. 1.1: 光学的厚さが0.1, 0.01の部分も出力することにした。qq_in, vcをconfigのグローバル変数として取扱うことにした。</p></li>
 <li><p>ver. 1.2: データ構造を変更。</p></li>
 </ul>
-<p>最終更新日：2020年06月02日</p>
+<p>最終更新日：2020年09月19日</p>
 </div>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">目次</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">出力と読込</a><ul>
+<li><a class="reference internal" href="#id2">出力</a><ul>
+<li><a class="reference internal" href="#fortran">Fortranコード</a><ul>
+<li><a class="reference internal" href="#slice">Sliceデータ</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id3">読込</a><ul>
+<li><a class="reference internal" href="#module-R2D2">Pythonコード</a><ul>
+<li><a class="reference internal" href="#id4">クラス</a></li>
+<li><a class="reference internal" href="#attribute">Attribute</a></li>
+<li><a class="reference internal" href="#method">Method</a><ul>
+<li><a class="reference internal" href="#id5">データ読み込み</a></li>
+<li><a class="reference internal" href="#id6">データダウンロード</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id7">解像度・計算領域変更</a></li>
+<li><a class="reference internal" href="#idl">IDLコード</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id8">バージョン履歴</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>前のトピックへ</h4>
+  <p class="topless"><a href="artdif.html"
+                        title="前の章へ">人工粘性</a></p>
+  <h4>次のトピックへ</h4>
+  <p class="topless"><a href="paraview.html"
+                        title="次の章へ">Paraviewを用いた3Dデータ表示</a></p>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/io.rst.txt"
+            rel="nofollow">ソースコードを表示</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="検索" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -351,12 +516,13 @@
         <li class="right" >
           <a href="artdif.html" title="人工粘性"
              >前へ</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">R2D2 1.2 ドキュメント</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">R2D2 1.2 ドキュメント</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">出力と読込</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019, Hideyuki Hotta.
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.3 で生成しました。
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.2.
     </div>
   </body>
 </html>
