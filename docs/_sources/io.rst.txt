@@ -245,6 +245,7 @@ pythonでの解像度変換には :py:meth:`R2D2_data.upgrade_resolution` メソ
     データの解像度や計算領域を変更するためのメソッド
 
     :param char caseid: 出力先のcaseid e.g. 'd002'
+    :param int n: 何番目のデータの解像度・計算領域を変換するか. データが必ずしもあるとは限らないので `end_step=True` が推奨される.
     :param float xmax: max location in x direction
     :param float xmin: min location in x direction
     :param float ymax: max location in y direction
@@ -257,6 +258,8 @@ pythonでの解像度変換には :py:meth:`R2D2_data.upgrade_resolution` メソ
     :param int ix: updated grid point in x direction
     :param int jx: updated grid point in y direction
     :param int kx: updated grid point in z direction
+    :param bool memory_saving: If true, upgraded variables are saved in memory separately for saving memory
+    :param bool end_step: `end_step=True` のときは, パラメータ `n` は無視されて持っている一番最後のステップのデータの解像度・計算領域変更がされる. `end_step=False` のときは　`n` ステップのデータが利用される.
         
     これより下のパラメタは `x_ununif=True` を用いたときのみ有効となる.    
     
@@ -264,7 +267,6 @@ pythonでの解像度変換には :py:meth:`R2D2_data.upgrade_resolution` メソ
     :param float dx00: grid spacing in uniform grid region
     :param bool x_ununif: whethere ununiform grid is used
     
-    :param bool memory_saving: If true, upgraded variables are saved in memory separately for saving memory
 
 
 例えば, `caseid='d001'` のデータの解像度を変更して `caseid='d002'` へと出力する時は

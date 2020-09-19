@@ -1780,6 +1780,9 @@ pythonでの解像度変換には {\hyperref[\detokenize{io:R2D2.R2D2_data.upgra
 \sphinxstyleliteralstrong{\sphinxupquote{caseid}} (\sphinxstyleliteralemphasis{\sphinxupquote{char}}) \sphinxhyphen{}\sphinxhyphen{} 出力先のcaseid e.g. \textquotesingle{}d002\textquotesingle{}
 
 \item {} 
+\sphinxstyleliteralstrong{\sphinxupquote{n}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}) \sphinxhyphen{}\sphinxhyphen{} 何番目のデータの解像度・計算領域を変換するか. データが必ずしもあるとは限らないので \sphinxtitleref{end\_step=True} が推奨される.
+
+\item {} 
 \sphinxstyleliteralstrong{\sphinxupquote{xmax}} (\sphinxstyleliteralemphasis{\sphinxupquote{float}}) \sphinxhyphen{}\sphinxhyphen{} max location in x direction
 
 \item {} 
@@ -1809,6 +1812,12 @@ pythonでの解像度変換には {\hyperref[\detokenize{io:R2D2.R2D2_data.upgra
 \item {} 
 \sphinxstyleliteralstrong{\sphinxupquote{kx}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}) \sphinxhyphen{}\sphinxhyphen{} updated grid point in z direction
 
+\item {} 
+\sphinxstyleliteralstrong{\sphinxupquote{memory\_saving}} (\sphinxstyleliteralemphasis{\sphinxupquote{bool}}) \sphinxhyphen{}\sphinxhyphen{} If true, upgraded variables are saved in memory separately for saving memory
+
+\item {} 
+\sphinxstyleliteralstrong{\sphinxupquote{end\_step}} (\sphinxstyleliteralemphasis{\sphinxupquote{bool}}) \sphinxhyphen{}\sphinxhyphen{} \sphinxtitleref{end\_step=True} のときは, パラメータ \sphinxtitleref{n} は無視されて持っている一番最後のステップのデータの解像度・計算領域変更がされる. \sphinxtitleref{end\_step=False} のときは　\sphinxtitleref{n} ステップのデータが利用される.
+
 \end{itemize}
 
 \end{description}\end{quote}
@@ -1824,9 +1833,6 @@ pythonでの解像度変換には {\hyperref[\detokenize{io:R2D2.R2D2_data.upgra
 
 \item {} 
 \sphinxstyleliteralstrong{\sphinxupquote{x\_ununif}} (\sphinxstyleliteralemphasis{\sphinxupquote{bool}}) \sphinxhyphen{}\sphinxhyphen{} whethere ununiform grid is used
-
-\item {} 
-\sphinxstyleliteralstrong{\sphinxupquote{memory\_saving}} (\sphinxstyleliteralemphasis{\sphinxupquote{bool}}) \sphinxhyphen{}\sphinxhyphen{} If true, upgraded variables are saved in memory separately for saving memory
 
 \end{itemize}
 

@@ -388,6 +388,7 @@
 <dt class="field-odd">パラメータ</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>caseid</strong> (<em>char</em>) -- 出力先のcaseid e.g. 'd002'</p></li>
+<li><p><strong>n</strong> (<em>int</em>) -- 何番目のデータの解像度・計算領域を変換するか. データが必ずしもあるとは限らないので <cite>end_step=True</cite> が推奨される.</p></li>
 <li><p><strong>xmax</strong> (<em>float</em>) -- max location in x direction</p></li>
 <li><p><strong>xmin</strong> (<em>float</em>) -- min location in x direction</p></li>
 <li><p><strong>ymax</strong> (<em>float</em>) -- max location in y direction</p></li>
@@ -398,6 +399,8 @@
 <li><p><strong>ix</strong> (<em>int</em>) -- updated grid point in x direction</p></li>
 <li><p><strong>jx</strong> (<em>int</em>) -- updated grid point in y direction</p></li>
 <li><p><strong>kx</strong> (<em>int</em>) -- updated grid point in z direction</p></li>
+<li><p><strong>memory_saving</strong> (<em>bool</em>) -- If true, upgraded variables are saved in memory separately for saving memory</p></li>
+<li><p><strong>end_step</strong> (<em>bool</em>) -- <cite>end_step=True</cite> のときは, パラメータ <cite>n</cite> は無視されて持っている一番最後のステップのデータの解像度・計算領域変更がされる. <cite>end_step=False</cite> のときは　<cite>n</cite> ステップのデータが利用される.</p></li>
 </ul>
 </dd>
 </dl>
@@ -408,7 +411,6 @@
 <li><p><strong>ix_ununi</strong> (<em>int</em>) -- number of grid in uniform grid region</p></li>
 <li><p><strong>dx00</strong> (<em>float</em>) -- grid spacing in uniform grid region</p></li>
 <li><p><strong>x_ununif</strong> (<em>bool</em>) -- whethere ununiform grid is used</p></li>
-<li><p><strong>memory_saving</strong> (<em>bool</em>) -- If true, upgraded variables are saved in memory separately for saving memory</p></li>
 </ul>
 </dd>
 </dl>
