@@ -259,7 +259,7 @@ pythonでの解像度変換には :py:meth:`R2D2_data.upgrade_resolution` メソ
     :param int jx: updated grid point in y direction
     :param int kx: updated grid point in z direction
     :param bool memory_saving: If true, upgraded variables are saved in memory separately for saving memory
-    :param bool end_step: `end_step=True` のときは, パラメータ `n` は無視されて持っている一番最後のステップのデータの解像度・計算領域変更がされる. `end_step=False` のときは　`n` ステップのデータが利用される.
+    :param bool end_step: `end_step=True` のときは, パラメータ `n` は無視されて持っている一番最後のステップのデータの解像度・計算領域変更がされる. `end_step=False` のときは　`n` ステップのデータが利用される.cd .
         
     これより下のパラメタは `x_ununif=True` を用いたときのみ有効となる.    
     
