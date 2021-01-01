@@ -4,7 +4,7 @@
 \contentsline {section}{\numberline {1.3}基本的なパラメータ}{5}{section.1.3}%
 \contentsline {section}{\numberline {1.4}初期条件}{6}{section.1.4}%
 \contentsline {section}{\numberline {1.5}追加条件}{6}{section.1.5}%
-\contentsline {section}{\numberline {1.6}スーパーコンピュータでのシェルスクリプト}{7}{section.1.6}%
+\contentsline {section}{\numberline {1.6}スーパーコンピュータでのシェルスクリプト}{8}{section.1.6}%
 \contentsline {section}{\numberline {1.7}初期条件データを受け取った場合}{8}{section.1.7}%
 \contentsline {chapter}{\numberline {第2章}R2D2を使うための環境設定}{9}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Fortranコードの環境設定}{9}{section.2.1}%
@@ -19,73 +19,78 @@
 \contentsline {subsubsection}{スプレッドシート作成}{15}{subsubsection*.6}%
 \contentsline {section}{\numberline {2.3}IDLコードの環境設定}{16}{section.2.3}%
 \contentsline {chapter}{\numberline {第3章}典型的計算例}{17}{chapter.3}%
-\contentsline {section}{\numberline {3.1}小規模局所光球計算}{17}{section.3.1}%
-\contentsline {section}{\numberline {3.2}中規模黒点計算}{20}{section.3.2}%
-\contentsline {section}{\numberline {3.3}全対流層計算}{23}{section.3.3}%
-\contentsline {section}{\numberline {3.4}深い部分のみの計算}{23}{section.3.4}%
-\contentsline {chapter}{\numberline {第4章}方程式}{24}{chapter.4}%
-\contentsline {section}{\numberline {4.1}磁気流体力学}{24}{section.4.1}%
-\contentsline {section}{\numberline {4.2}輻射輸送}{25}{section.4.2}%
-\contentsline {chapter}{\numberline {第5章}コード}{26}{chapter.5}%
-\contentsline {section}{\numberline {5.1}コーディングルール}{26}{section.5.1}%
-\contentsline {section}{\numberline {5.2}コード構造}{26}{section.5.2}%
-\contentsline {chapter}{\numberline {第6章}数値スキーム}{27}{chapter.6}%
-\contentsline {section}{\numberline {6.1}MHDスキーム}{27}{section.6.1}%
-\contentsline {subsection}{\numberline {6.1.1}空間微分}{27}{subsection.6.1.1}%
-\contentsline {subsection}{\numberline {6.1.2}時間積分}{27}{subsection.6.1.2}%
-\contentsline {subsection}{\numberline {6.1.3}輻射輸送}{27}{subsection.6.1.3}%
-\contentsline {chapter}{\numberline {第7章}パラメータ}{28}{chapter.7}%
-\contentsline {chapter}{\numberline {第8章}座標生成}{29}{chapter.8}%
-\contentsline {section}{\numberline {8.1}一様グリッド}{29}{section.8.1}%
-\contentsline {section}{\numberline {8.2}非一様グリッド}{30}{section.8.2}%
-\contentsline {chapter}{\numberline {第9章}境界条件}{32}{chapter.9}%
-\contentsline {section}{\numberline {9.1}上部境界}{33}{section.9.1}%
-\contentsline {subsection}{\numberline {9.1.1}ポテンシャル磁場}{33}{subsection.9.1.1}%
-\contentsline {section}{\numberline {9.2}下部境界}{33}{section.9.2}%
-\contentsline {chapter}{\numberline {第10章}人工粘性}{34}{chapter.10}%
-\contentsline {chapter}{\numberline {第11章}出力と読込}{35}{chapter.11}%
-\contentsline {section}{\numberline {11.1}出力}{35}{section.11.1}%
-\contentsline {subsection}{\numberline {11.1.1}Fortranコード}{35}{subsection.11.1.1}%
-\contentsline {subsubsection}{Sliceデータ}{35}{subsubsection*.7}%
-\contentsline {section}{\numberline {11.2}読込}{36}{section.11.2}%
-\contentsline {subsection}{\numberline {11.2.1}Pythonコード}{36}{subsection.11.2.1}%
-\contentsline {subsubsection}{クラス}{36}{subsubsection*.8}%
-\contentsline {subsubsection}{Attribute}{36}{subsubsection*.10}%
-\contentsline {subsubsection}{Method}{37}{subsubsection*.19}%
-\contentsline {paragraph}{データ読み込み}{37}{paragraph*.20}%
-\contentsline {paragraph}{データダウンロード}{39}{paragraph*.29}%
-\contentsline {subsection}{\numberline {11.2.2}解像度・計算領域変更}{41}{subsection.11.2.2}%
-\contentsline {subsection}{\numberline {11.2.3}IDLコード}{42}{subsection.11.2.3}%
-\contentsline {section}{\numberline {11.3}バージョン履歴}{42}{section.11.3}%
-\contentsline {chapter}{\numberline {第12章}Paraviewを用いた3Dデータ表示}{43}{chapter.12}%
-\contentsline {section}{\numberline {12.1}データ準備}{43}{section.12.1}%
-\contentsline {section}{\numberline {12.2}Paraviewを用いて3次元表示}{45}{section.12.2}%
-\contentsline {chapter}{\numberline {第13章}R2D2 pythonでのキーワードの説明}{49}{chapter.13}%
-\contentsline {section}{\numberline {13.1}self.p {[}dictionary{]}}{49}{section.13.1}%
-\contentsline {subsection}{\numberline {13.1.1}出力・時間に関する量}{49}{subsection.13.1.1}%
-\contentsline {subsection}{\numberline {13.1.2}座標に関する量}{50}{subsection.13.1.2}%
-\contentsline {subsection}{\numberline {13.1.3}背景場に関する量}{51}{subsection.13.1.3}%
-\contentsline {subsection}{\numberline {13.1.4}解析のためのデータ再配置(remap)に関する量}{52}{subsection.13.1.4}%
-\contentsline {subsection}{\numberline {13.1.5}スライスデータに関する量}{53}{subsection.13.1.5}%
-\contentsline {section}{\numberline {13.2}self.qs {[}dictionary{]}}{53}{section.13.2}%
-\contentsline {section}{\numberline {13.3}self.qq {[}dictionary{]}}{54}{section.13.3}%
-\contentsline {section}{\numberline {13.4}self.qt {[}dictionary{]}}{54}{section.13.4}%
-\contentsline {section}{\numberline {13.5}self.vc {[}dictionary{]}}{54}{section.13.5}%
-\contentsline {chapter}{\numberline {第14章}Sphinx使用の覚書}{55}{chapter.14}%
-\contentsline {section}{\numberline {14.1}はじめに}{55}{section.14.1}%
-\contentsline {section}{\numberline {14.2}インストール}{55}{section.14.2}%
-\contentsline {section}{\numberline {14.3}HTMLファイルの生成}{55}{section.14.3}%
-\contentsline {section}{\numberline {14.4}VS codeの利用}{56}{section.14.4}%
-\contentsline {section}{\numberline {14.5}環境設定}{56}{section.14.5}%
-\contentsline {section}{\numberline {14.6}記法}{57}{section.14.6}%
-\contentsline {subsection}{\numberline {14.6.1}リンク}{57}{subsection.14.6.1}%
-\contentsline {subsection}{\numberline {14.6.2}コード}{57}{subsection.14.6.2}%
-\contentsline {subsection}{\numberline {14.6.3}画像}{58}{subsection.14.6.3}%
-\contentsline {subsection}{\numberline {14.6.4}数式}{58}{subsection.14.6.4}%
-\contentsline {subsection}{\numberline {14.6.5}To DO}{59}{subsection.14.6.5}%
-\contentsline {chapter}{\numberline {第15章}ライセンス}{60}{chapter.15}%
-\contentsline {chapter}{\numberline {第16章}出版論文}{61}{chapter.16}%
-\contentsline {chapter}{\numberline {第17章}索引と検索ページ}{62}{chapter.17}%
-\contentsline {chapter}{\numberline {第18章}TODOリスト}{63}{chapter.18}%
-\contentsline {chapter}{Pythonモジュール索引}{65}{section*.39}%
-\contentsline {chapter}{索引}{66}{section*.40}%
+\contentsline {section}{\numberline {3.1}デカルト座標}{17}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}小規模局所光球計算}{17}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}中規模黒点計算}{20}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}全対流層計算}{23}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.1.4}深い部分のみの計算}{24}{subsection.3.1.4}%
+\contentsline {section}{\numberline {3.2}球座標(Yin\sphinxhyphen {}Yang格子含む)}{24}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Yin\sphinxhyphen {}Yangで深いところのみの計算}{24}{subsection.3.2.1}%
+\contentsline {section}{\numberline {3.3}2次元計算}{24}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}磁束管浮上}{24}{subsection.3.3.1}%
+\contentsline {chapter}{\numberline {第4章}方程式}{25}{chapter.4}%
+\contentsline {section}{\numberline {4.1}磁気流体力学}{25}{section.4.1}%
+\contentsline {section}{\numberline {4.2}輻射輸送}{26}{section.4.2}%
+\contentsline {chapter}{\numberline {第5章}コード}{27}{chapter.5}%
+\contentsline {section}{\numberline {5.1}コーディングルール}{27}{section.5.1}%
+\contentsline {section}{\numberline {5.2}コード構造}{27}{section.5.2}%
+\contentsline {chapter}{\numberline {第6章}数値スキーム}{28}{chapter.6}%
+\contentsline {section}{\numberline {6.1}MHDスキーム}{28}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}空間微分}{28}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}時間積分}{28}{subsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.1.3}輻射輸送}{28}{subsection.6.1.3}%
+\contentsline {chapter}{\numberline {第7章}パラメータ}{29}{chapter.7}%
+\contentsline {chapter}{\numberline {第8章}座標生成}{30}{chapter.8}%
+\contentsline {section}{\numberline {8.1}一様グリッド}{30}{section.8.1}%
+\contentsline {section}{\numberline {8.2}非一様グリッド}{31}{section.8.2}%
+\contentsline {chapter}{\numberline {第9章}境界条件}{33}{chapter.9}%
+\contentsline {section}{\numberline {9.1}上部境界}{34}{section.9.1}%
+\contentsline {subsection}{\numberline {9.1.1}ポテンシャル磁場}{34}{subsection.9.1.1}%
+\contentsline {section}{\numberline {9.2}下部境界}{34}{section.9.2}%
+\contentsline {chapter}{\numberline {第10章}人工粘性}{35}{chapter.10}%
+\contentsline {chapter}{\numberline {第11章}出力と読込}{36}{chapter.11}%
+\contentsline {section}{\numberline {11.1}出力}{36}{section.11.1}%
+\contentsline {subsection}{\numberline {11.1.1}Fortranコード}{36}{subsection.11.1.1}%
+\contentsline {subsubsection}{Sliceデータ}{36}{subsubsection*.7}%
+\contentsline {section}{\numberline {11.2}読込}{37}{section.11.2}%
+\contentsline {subsection}{\numberline {11.2.1}Pythonコード}{37}{subsection.11.2.1}%
+\contentsline {subsubsection}{クラス}{37}{subsubsection*.8}%
+\contentsline {subsubsection}{Attribute}{37}{subsubsection*.10}%
+\contentsline {subsubsection}{Method}{38}{subsubsection*.19}%
+\contentsline {paragraph}{データ読み込み}{38}{paragraph*.20}%
+\contentsline {paragraph}{データダウンロード}{40}{paragraph*.29}%
+\contentsline {subsection}{\numberline {11.2.2}解像度・計算領域変更}{42}{subsection.11.2.2}%
+\contentsline {subsection}{\numberline {11.2.3}IDLコード}{43}{subsection.11.2.3}%
+\contentsline {section}{\numberline {11.3}バージョン履歴}{43}{section.11.3}%
+\contentsline {chapter}{\numberline {第12章}Paraviewを用いた3Dデータ表示}{44}{chapter.12}%
+\contentsline {section}{\numberline {12.1}データ準備}{44}{section.12.1}%
+\contentsline {section}{\numberline {12.2}Paraviewを用いて3次元表示}{46}{section.12.2}%
+\contentsline {chapter}{\numberline {第13章}R2D2 pythonでのキーワードの説明}{50}{chapter.13}%
+\contentsline {section}{\numberline {13.1}self.p {[}dictionary{]}}{50}{section.13.1}%
+\contentsline {subsection}{\numberline {13.1.1}出力・時間に関する量}{50}{subsection.13.1.1}%
+\contentsline {subsection}{\numberline {13.1.2}座標に関する量}{51}{subsection.13.1.2}%
+\contentsline {subsection}{\numberline {13.1.3}背景場に関する量}{52}{subsection.13.1.3}%
+\contentsline {subsection}{\numberline {13.1.4}解析のためのデータ再配置(remap)に関する量}{53}{subsection.13.1.4}%
+\contentsline {subsection}{\numberline {13.1.5}スライスデータに関する量}{54}{subsection.13.1.5}%
+\contentsline {section}{\numberline {13.2}self.qs {[}dictionary{]}}{54}{section.13.2}%
+\contentsline {section}{\numberline {13.3}self.qq {[}dictionary{]}}{55}{section.13.3}%
+\contentsline {section}{\numberline {13.4}self.qt {[}dictionary{]}}{55}{section.13.4}%
+\contentsline {section}{\numberline {13.5}self.vc {[}dictionary{]}}{55}{section.13.5}%
+\contentsline {chapter}{\numberline {第14章}Sphinx使用の覚書}{56}{chapter.14}%
+\contentsline {section}{\numberline {14.1}はじめに}{56}{section.14.1}%
+\contentsline {section}{\numberline {14.2}インストール}{56}{section.14.2}%
+\contentsline {section}{\numberline {14.3}HTMLファイルの生成}{56}{section.14.3}%
+\contentsline {section}{\numberline {14.4}VS codeの利用}{57}{section.14.4}%
+\contentsline {section}{\numberline {14.5}環境設定}{57}{section.14.5}%
+\contentsline {section}{\numberline {14.6}記法}{58}{section.14.6}%
+\contentsline {subsection}{\numberline {14.6.1}リンク}{58}{subsection.14.6.1}%
+\contentsline {subsection}{\numberline {14.6.2}コード}{58}{subsection.14.6.2}%
+\contentsline {subsection}{\numberline {14.6.3}画像}{59}{subsection.14.6.3}%
+\contentsline {subsection}{\numberline {14.6.4}数式}{59}{subsection.14.6.4}%
+\contentsline {subsection}{\numberline {14.6.5}To DO}{60}{subsection.14.6.5}%
+\contentsline {chapter}{\numberline {第15章}ライセンス}{61}{chapter.15}%
+\contentsline {chapter}{\numberline {第16章}出版論文}{62}{chapter.16}%
+\contentsline {chapter}{\numberline {第17章}索引と検索ページ}{63}{chapter.17}%
+\contentsline {chapter}{\numberline {第18章}TODOリスト}{64}{chapter.18}%
+\contentsline {chapter}{Pythonモジュール索引}{66}{section*.39}%
+\contentsline {chapter}{索引}{67}{section*.40}%

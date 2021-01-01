@@ -313,6 +313,9 @@ INPUT spread_sheet1.png
 INPUT spread_sheet2.png
 INPUT spread_sheet2.xbb
 INPUT spread_sheet2.png
+INPUT photosphere.png
+INPUT extractbb -B cropbox -O photosphere.png
+INPUT photosphere.png
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm

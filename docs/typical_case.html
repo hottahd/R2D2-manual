@@ -55,11 +55,13 @@
 <h1>典型的計算例<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>ここでは、典型的計算設定について紹介する。</p>
 <div class="section" id="id2">
-<h2>小規模局所光球計算<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>デカルト座標<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id3">
+<h3>小規模局所光球計算<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2005A%26A...429..335V/abstract">Vögler et al., 2005</a> などで行われている小規模局所光球計算の設定を説明する。</p>
 <ul>
 <li><dl class="simple">
-<dt>Makefileのオプション</dt><dd><p>光球のみ一様グリッドで計算するので, <code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">-Ddeep</span></code> や　<code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">-Dununiform</span></code> を設定していないかチェック。</p>
+<dt>Makefileのオプション</dt><dd><p>光球のみ一様グリッドで計算するので, 複数方向輻射輸送で計算する <code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">-Ddeep</span></code> や　<code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">-Dununiform</span></code> , <code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">-Dspherical</span></code> を設定していないかチェック。複数方向の輻射輸送を計算するために <code class="code docutils literal notranslate"><span class="pre">PPC:</span> <span class="pre">=</span> <span class="pre">-Done_ray</span></code> を設定しないようにする</p>
 </dd>
 </dl>
 </li>
@@ -153,15 +155,8 @@
 </dd>
 </dl>
 </li>
-<li><dl>
-<dt>輻射輸送</dt><dd><p>輻射輸送は複数本の光線を解くのが良い。
-<code class="code docutils literal notranslate"><span class="pre">rte_def.F90</span></code> を編集する。推奨される設定は</p>
-<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="kt">logical</span><span class="p">,</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">rte_multiray_flag</span> <span class="o">=</span> <span class="p">.</span><span class="n">true</span><span class="p">.</span>
-<span class="kt">logical</span><span class="p">,</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">rte_linear_flag</span> <span class="o">=</span> <span class="p">.</span><span class="n">false</span><span class="p">.</span>
-<span class="kt">integer</span><span class="p">,</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">mhd_rte_ratio</span> <span class="o">=</span> <span class="mi">1</span>
-</pre></div>
-</div>
-<p>とするのが良い。</p>
+<li><dl class="simple">
+<dt>輻射輸送</dt><dd><p>輻射輸送は複数本の光線を解くのが良い。Makefileで <code class="code docutils literal notranslate"><span class="pre">PPC:</span> <span class="pre">=</span> <span class="pre">-Done_ray</span></code> を設定しないようにする。</p>
 </dd>
 </dl>
 </li>
@@ -192,14 +187,20 @@
 </pre></div>
 </div>
 <p>と領域の真ん中を出力することにしているが、状況によって違う場所が出力されている場合がある。もし変なことが起こったらここをチェックしてみると良い。</p>
-<p>また、 <code class="code docutils literal notranslate"><span class="pre">io.F90</span></code> の中程に計算の途中に磁場などを追加する設定がある。ここに何か書いてあると初期条件に足してしまうので、add something で検索して <code class="code docutils literal notranslate"><span class="pre">call</span> <span class="pre">model_*</span></code> (<a href="#id3"><span class="problematic" id="id4">*</span></a>は任意)のところはコメントアウトするように。</p>
+<p>また、 <code class="code docutils literal notranslate"><span class="pre">io.F90</span></code> の中程に計算の途中に磁場などを追加する設定がある。ここに何か書いてあると初期条件に足してしまうので、add something で検索して <code class="code docutils literal notranslate"><span class="pre">call</span> <span class="pre">model_*</span></code> (<a href="#id4"><span class="problematic" id="id5">*</span></a>は任意)のところはコメントアウトするように。</p>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>計算結果</dt><dd><p>以下のような計算が得られる。</p>
+<a class="reference internal image-reference" href="_images/photosphere.png"><img alt="_images/photosphere.png" src="_images/photosphere.png" style="width: 500px;" /></a>
 </dd>
 </dl>
 </li>
 </ul>
 </div>
-<div class="section" id="id5">
-<h2>中規模黒点計算<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id6">
+<h3>中規模黒点計算<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2012ApJ...750...62R/abstract">Rempel, 2012</a> で行われている中規模光球計算の設定を説明する。</p>
 <ul>
 <li><dl class="simple">
@@ -355,20 +356,56 @@
 </li>
 </ul>
 </div>
-<div class="section" id="id6">
-<h2>全対流層計算<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="admonition-todo admonition" id="id7">
+<div class="section" id="id7">
+<h3>全対流層計算<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="admonition-todo admonition" id="id8">
 <p class="admonition-title">課題</p>
 <p>全対流層計算の設定例</p>
 </div>
 </div>
-<div class="section" id="id8">
-<h2>深い部分のみの計算<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="admonition-todo admonition" id="id9">
+<div class="section" id="id9">
+<h3>深い部分のみの計算<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="admonition-todo admonition" id="id10">
 <p class="admonition-title">課題</p>
 <p>深い部分のみの計算の設定例</p>
 </div>
-<p>最終更新日：2020年09月19日</p>
+</div>
+</div>
+<div class="section" id="yin-yang">
+<h2>球座標(Yin-Yang格子含む)<a class="headerlink" href="#yin-yang" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id11">
+<h3>Yin-Yangで深いところのみの計算<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Makefileのオプション</dt><dd><ul>
+<li><p><code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">$(PPC)</span> <span class="pre">-Ddeep</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">$(PPC)</span> <span class="pre">-Done_ray</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">$(PPC)</span> <span class="pre">-Ddeep</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">$(PPC)</span> <span class="pre">-Done_ray</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">$(PPC)</span> <span class="pre">-Dspherical</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">$(PPC)</span> <span class="pre">-DYinYang</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">$(PPC)</span> <span class="pre">-DnoFFTW</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">$(PPC)</span> <span class="pre">-Dremap_2d_assign</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>格子点数</dt><dd><ul>
+<li><p>Yin-Yang gridを使うために <code class="code docutils literal notranslate"><span class="pre">ny0*jx0*3=nz0*kx0</span></code> となるようにする</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id12">
+<h2>2次元計算<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id13">
+<h3>磁束管浮上<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>最終更新日：2020年12月29日</p>
+</div>
 </div>
 </div>
 
@@ -382,10 +419,21 @@
   <h3><a href="index.html">目次</a></h3>
   <ul>
 <li><a class="reference internal" href="#">典型的計算例</a><ul>
-<li><a class="reference internal" href="#id2">小規模局所光球計算</a></li>
-<li><a class="reference internal" href="#id5">中規模黒点計算</a></li>
-<li><a class="reference internal" href="#id6">全対流層計算</a></li>
-<li><a class="reference internal" href="#id8">深い部分のみの計算</a></li>
+<li><a class="reference internal" href="#id2">デカルト座標</a><ul>
+<li><a class="reference internal" href="#id3">小規模局所光球計算</a></li>
+<li><a class="reference internal" href="#id6">中規模黒点計算</a></li>
+<li><a class="reference internal" href="#id7">全対流層計算</a></li>
+<li><a class="reference internal" href="#id9">深い部分のみの計算</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#yin-yang">球座標(Yin-Yang格子含む)</a><ul>
+<li><a class="reference internal" href="#id11">Yin-Yangで深いところのみの計算</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id12">2次元計算</a><ul>
+<li><a class="reference internal" href="#id13">磁束管浮上</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

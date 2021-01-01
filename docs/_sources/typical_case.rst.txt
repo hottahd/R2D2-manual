@@ -3,12 +3,15 @@
 
 ここでは、典型的計算設定について紹介する。
 
+デカルト座標
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 小規模局所光球計算
 --------------------------------
 `Vögler et al., 2005 <https://ui.adsabs.harvard.edu/abs/2005A%26A...429..335V/abstract>`_ などで行われている小規模局所光球計算の設定を説明する。
 
 - Makefileのオプション
-    光球のみ一様グリッドで計算するので, :code:`PPC:= -Ddeep` や　:code:`PPC:= -Dununiform` を設定していないかチェック。
+    光球のみ一様グリッドで計算するので, 複数方向輻射輸送で計算する :code:`PPC:= -Ddeep` や　:code:`PPC:= -Dununiform` , :code:`PPC:= -Dspherical` を設定していないかチェック。複数方向の輻射輸送を計算するために :code:`PPC: = -Done_ray` を設定しないようにする
 
 - 計算領域・解像度
     計算領域は鉛直方向(R2D2ではx方向)にrsun から700 km上から5.444 Mm下までをとる。水平方向(R2D2ではyとz方向)には、6.144 Mmずつとる。
@@ -107,16 +110,7 @@
     がコメントアウトされていないかチェックする。
 
 - 輻射輸送
-    輻射輸送は複数本の光線を解くのが良い。
-    :code:`rte_def.F90` を編集する。推奨される設定は
-
-    .. code:: fortran
-
-        logical, parameter :: rte_multiray_flag = .true.
-        logical, parameter :: rte_linear_flag = .false.
-        integer, parameter :: mhd_rte_ratio = 1
-
-    とするのが良い。
+    輻射輸送は複数本の光線を解くのが良い。Makefileで :code:`PPC: = -Done_ray` を設定しないようにする。
 
 - 初期条件
     初期条件は、鉛直方向速度(vx)にランダムな微小速度を与えている。プラージュ領域を計算したい場合は
@@ -148,6 +142,13 @@
     と領域の真ん中を出力することにしているが、状況によって違う場所が出力されている場合がある。もし変なことが起こったらここをチェックしてみると良い。
 
     また、 :code:`io.F90` の中程に計算の途中に磁場などを追加する設定がある。ここに何か書いてあると初期条件に足してしまうので、add something で検索して :code:`call model_*` (*は任意)のところはコメントアウトするように。
+
+
+- 計算結果
+    以下のような計算が得られる。
+
+    .. image:: source/figs/photosphere.png
+        :width: 500 px
 
 中規模黒点計算
 --------------------------------
@@ -330,5 +331,30 @@
 --------------------------------
 
 .. todo:: 深い部分のみの計算の設定例
+
+球座標(Yin-Yang格子含む)
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Yin-Yangで深いところのみの計算
+--------------------------------
+
+- Makefileのオプション
+    - :code:`PPC:= $(PPC) -Ddeep`
+    - :code:`PPC:= $(PPC) -Done_ray`
+    - :code:`PPC:= $(PPC) -Ddeep`
+    - :code:`PPC:= $(PPC) -Done_ray`
+    - :code:`PPC:= $(PPC) -Dspherical`
+    - :code:`PPC:= $(PPC) -DYinYang`
+    - :code:`PPC:= $(PPC) -DnoFFTW`
+    - :code:`PPC:= $(PPC) -Dremap_2d_assign`
+
+- 格子点数
+    - Yin-Yang gridを使うために :code:`ny0*jx0*3=nz0*kx0` となるようにする
+
+2次元計算
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+磁束管浮上
+--------------------------------
 
 最終更新日：|today|

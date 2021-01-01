@@ -38,7 +38,7 @@
 
 
 \title{R2D2}
-\date{2020年09月19日}
+\date{2021年01月01日}
 \release{1.2}
 \author{Hideyuki Hotta}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -288,6 +288,9 @@ make
 \item {} 
 \sphinxcode{\sphinxupquote{FX}}: 名大FX100
 
+\item {} 
+\sphinxcode{\sphinxupquote{FUGAKU}}: 富岳
+
 \end{itemize}
 
 以下、堀田の個人環境なので、使用は推奨されない。どうしても個人の環境で使いたい時は堀田まで相談されたい。
@@ -424,6 +427,9 @@ make
 \item {} 
 \sphinxcode{\sphinxupquote{xc.sh}} : CfCA XC50
 
+\item {} 
+\sphinxcode{\sphinxupquote{fg.sh}} : 富岳
+
 \end{itemize}
 
 
@@ -435,7 +441,7 @@ make
 
 このディレクトリを書く実行のディレクトリの配下におき、実行すると続きの計算が始まる。
 
-最終更新日：2020年09月19日
+最終更新日：2021年01月01日
 
 
 \chapter{R2D2を使うための環境設定}
@@ -675,13 +681,16 @@ Google APIロゴ \(\rightarrow\) 認証情報 \(\rightarrow\) サービスアカ
 ここでは、典型的計算設定について紹介する。
 
 
-\section{小規模局所光球計算}
+\section{デカルト座標}
 \label{\detokenize{typical_case:id2}}
+
+\subsection{小規模局所光球計算}
+\label{\detokenize{typical_case:id3}}
 \sphinxhref{https://ui.adsabs.harvard.edu/abs/2005A\%26A...429..335V/abstract}{Vögler et al., 2005} などで行われている小規模局所光球計算の設定を説明する。
 \begin{itemize}
 \item {} \begin{description}
 \item[{Makefileのオプション}] \leavevmode
-光球のみ一様グリッドで計算するので, \sphinxcode{\sphinxupquote{PPC:= \sphinxhyphen{}Ddeep}} や　\sphinxcode{\sphinxupquote{PPC:= \sphinxhyphen{}Dununiform}} を設定していないかチェック。
+光球のみ一様グリッドで計算するので, 複数方向輻射輸送で計算する \sphinxcode{\sphinxupquote{PPC:= \sphinxhyphen{}Ddeep}} や　\sphinxcode{\sphinxupquote{PPC:= \sphinxhyphen{}Dununiform}} , \sphinxcode{\sphinxupquote{PPC:= \sphinxhyphen{}Dspherical}} を設定していないかチェック。複数方向の輻射輸送を計算するために \sphinxcode{\sphinxupquote{PPC: = \sphinxhyphen{}Done\_ray}} を設定しないようにする
 
 \end{description}
 
@@ -791,16 +800,7 @@ Google APIロゴ \(\rightarrow\) 認証情報 \(\rightarrow\) サービスアカ
 
 \item {} \begin{description}
 \item[{輻射輸送}] \leavevmode
-輻射輸送は複数本の光線を解くのが良い。
-\sphinxcode{\sphinxupquote{rte\_def.F90}} を編集する。推奨される設定は
-
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{k+kt}{logical}\PYG{p}{,} \PYG{k}{parameter} \PYG{k+kd}{::} \PYG{n}{rte\PYGZus{}multiray\PYGZus{}flag} \PYG{o}{=} \PYG{p}{.}\PYG{n}{true}\PYG{p}{.}
-\PYG{k+kt}{logical}\PYG{p}{,} \PYG{k}{parameter} \PYG{k+kd}{::} \PYG{n}{rte\PYGZus{}linear\PYGZus{}flag} \PYG{o}{=} \PYG{p}{.}\PYG{n}{false}\PYG{p}{.}
-\PYG{k+kt}{integer}\PYG{p}{,} \PYG{k}{parameter} \PYG{k+kd}{::} \PYG{n}{mhd\PYGZus{}rte\PYGZus{}ratio} \PYG{o}{=} \PYG{l+m+mi}{1}
-\end{sphinxVerbatim}
-
-とするのが良い。
+輻射輸送は複数本の光線を解くのが良い。Makefileで \sphinxcode{\sphinxupquote{PPC: = \sphinxhyphen{}Done\_ray}} を設定しないようにする。
 
 \end{description}
 
@@ -844,11 +844,19 @@ Google APIロゴ \(\rightarrow\) 認証情報 \(\rightarrow\) サービスアカ
 
 \end{description}
 
+\item {} \begin{description}
+\item[{計算結果}] \leavevmode
+以下のような計算が得られる。
+
+\noindent\sphinxincludegraphics[width=500\sphinxpxdimen]{{photosphere}.png}
+
+\end{description}
+
 \end{itemize}
 
 
-\section{中規模黒点計算}
-\label{\detokenize{typical_case:id5}}
+\subsection{中規模黒点計算}
+\label{\detokenize{typical_case:id6}}
 \sphinxhref{https://ui.adsabs.harvard.edu/abs/2012ApJ...750...62R/abstract}{Rempel, 2012} で行われている中規模光球計算の設定を説明する。
 \begin{itemize}
 \item {} \begin{description}
@@ -1036,20 +1044,73 @@ Google APIロゴ \(\rightarrow\) 認証情報 \(\rightarrow\) サービスアカ
 \end{itemize}
 
 
-\section{全対流層計算}
-\label{\detokenize{typical_case:id6}}
-\begin{sphinxadmonition}{note}{\label{\detokenize{typical_case:id7}}課題:}
+\subsection{全対流層計算}
+\label{\detokenize{typical_case:id7}}
+\begin{sphinxadmonition}{note}{\label{\detokenize{typical_case:id8}}課題:}
 全対流層計算の設定例
 \end{sphinxadmonition}
 
 
-\section{深い部分のみの計算}
-\label{\detokenize{typical_case:id8}}
-\begin{sphinxadmonition}{note}{\label{\detokenize{typical_case:id9}}課題:}
+\subsection{深い部分のみの計算}
+\label{\detokenize{typical_case:id9}}
+\begin{sphinxadmonition}{note}{\label{\detokenize{typical_case:id10}}課題:}
 深い部分のみの計算の設定例
 \end{sphinxadmonition}
 
-最終更新日：2020年09月19日
+
+\section{球座標(Yin\sphinxhyphen{}Yang格子含む)}
+\label{\detokenize{typical_case:yin-yang}}
+
+\subsection{Yin\sphinxhyphen{}Yangで深いところのみの計算}
+\label{\detokenize{typical_case:id11}}\begin{itemize}
+\item {} \begin{description}
+\item[{Makefileのオプション}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxcode{\sphinxupquote{PPC:= \$(PPC) \sphinxhyphen{}Ddeep}}
+
+\item {} 
+\sphinxcode{\sphinxupquote{PPC:= \$(PPC) \sphinxhyphen{}Done\_ray}}
+
+\item {} 
+\sphinxcode{\sphinxupquote{PPC:= \$(PPC) \sphinxhyphen{}Ddeep}}
+
+\item {} 
+\sphinxcode{\sphinxupquote{PPC:= \$(PPC) \sphinxhyphen{}Done\_ray}}
+
+\item {} 
+\sphinxcode{\sphinxupquote{PPC:= \$(PPC) \sphinxhyphen{}Dspherical}}
+
+\item {} 
+\sphinxcode{\sphinxupquote{PPC:= \$(PPC) \sphinxhyphen{}DYinYang}}
+
+\item {} 
+\sphinxcode{\sphinxupquote{PPC:= \$(PPC) \sphinxhyphen{}DnoFFTW}}
+
+\item {} 
+\sphinxcode{\sphinxupquote{PPC:= \$(PPC) \sphinxhyphen{}Dremap\_2d\_assign}}
+
+\end{itemize}
+
+\end{description}
+
+\item {} \begin{description}
+\item[{格子点数}] \leavevmode\begin{itemize}
+\item {} 
+Yin\sphinxhyphen{}Yang gridを使うために \sphinxcode{\sphinxupquote{ny0*jx0*3=nz0*kx0}} となるようにする
+
+\end{itemize}
+
+\end{description}
+
+\end{itemize}
+
+
+\section{2次元計算}
+\label{\detokenize{typical_case:id12}}
+
+\subsection{磁束管浮上}
+\label{\detokenize{typical_case:id13}}
+最終更新日：2021年01月01日
 
 
 \chapter{方程式}
@@ -2751,15 +2812,15 @@ R2D2を用いた研究で出版された論文は以下です。
 全対流層計算の設定例
 \end{sphinxadmonition}
 
-({\hyperref[\detokenize{typical_case:id7}]{\sphinxcrossref{\sphinxstyleemphasis{元のエントリ}}}} は、 /Users/hotta/Dropbox/work/R2D2/R2D2\sphinxhyphen{}manual/typical\_case.rst の 327 行目です)
+({\hyperref[\detokenize{typical_case:id8}]{\sphinxcrossref{\sphinxstyleemphasis{元のエントリ}}}} は、 /Users/hotta/Dropbox/work/R2D2/R2D2\sphinxhyphen{}manual/typical\_case.rst の 328 行目です)
 
 \begin{sphinxadmonition}{note}{課題:}
 深い部分のみの計算の設定例
 \end{sphinxadmonition}
 
-({\hyperref[\detokenize{typical_case:id9}]{\sphinxcrossref{\sphinxstyleemphasis{元のエントリ}}}} は、 /Users/hotta/Dropbox/work/R2D2/R2D2\sphinxhyphen{}manual/typical\_case.rst の 332 行目です)
+({\hyperref[\detokenize{typical_case:id10}]{\sphinxcrossref{\sphinxstyleemphasis{元のエントリ}}}} は、 /Users/hotta/Dropbox/work/R2D2/R2D2\sphinxhyphen{}manual/typical\_case.rst の 333 行目です)
 
-最終更新日：2020年09月19日
+最終更新日：2021年01月01日
 
 
 \renewcommand{\indexname}{Pythonモジュール索引}
