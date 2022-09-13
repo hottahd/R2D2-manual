@@ -59,6 +59,8 @@ R2D2を用いた研究で出版された論文は以下です。
 3. `Hotta and Iijima, 2020, MNRAS, 494, 2523 <https://ui.adsabs.harvard.edu/abs/2020MNRAS.494.2523H/abstract>`_
 4. `Hotta and Toriumi, 2020, MNRAS, 498, 2925 <https://ui.adsabs.harvard.edu/abs/2020MNRAS.498.2925H/abstract>`_
 5. `Takahata, Hotta, Iida, and Oba, MNRAS, 503, 3610 <https://ui.adsabs.harvard.edu/abs/2021MNRAS.503.3610T/abstract>`_
+6. `Hotta and Kusano, 2021, Nature Astronomy, 5, 1100 <https://ui.adsabs.harvard.edu/abs/2021NatAs...5.1100H/abstract>`_
+7. `Hotta, Kusano, and Shimada, 2022, ApJ, 933, 2 <https://ui.adsabs.harvard.edu/abs/2022ApJ...933..199H/abstract>`_
 
 索引と検索ページ
 ----------------------------------

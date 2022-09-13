@@ -5,7 +5,7 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>R2D2を使うための環境設定 &#8212; R2D2 1.2 ドキュメント</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
@@ -14,6 +14,7 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/translations.js"></script>
     <script src="_static/bizstyle.js"></script>
@@ -52,13 +53,13 @@
           <div class="body" role="main">
             
   <section id="r2d2">
-<h1>R2D2を使うための環境設定<a class="headerlink" href="#r2d2" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1>R2D2を使うための環境設定<a class="headerlink" href="#r2d2" title="Permalink to this heading">¶</a></h1>
 <p>R2D2コードを使って計算するだけならば任意のfortranコンパイラ, FFTW, MPIのみがあれば良い。
 Pythonコードを使って解析する場合は、いくつかのモジュールが必要なので、そのインストールの方法もここで説明する。</p>
 <section id="fortran">
-<h2>Fortranコードの環境設定<a class="headerlink" href="#fortran" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>Fortranコードの環境設定<a class="headerlink" href="#fortran" title="Permalink to this heading">¶</a></h2>
 <section id="mac">
-<h3>Mac<a class="headerlink" href="#mac" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>Mac<a class="headerlink" href="#mac" title="Permalink to this heading">¶</a></h3>
 <p>Homebrewを用いて、必要なコンパイラ・ライブラリをインストールすることを推奨している。
 コンパイラとFFTWのインクルードファイルとライブラリの位置だけ指定すれば良いので、
 任意の方法でインストールして構わない。Homebrew以外を用いる場合は、便宜make/Makefileを編集すること。</p>
@@ -80,7 +81,7 @@ Pythonコードを使って解析する場合は、いくつかのモジュー�
 </div>
 </section>
 <section id="linux-ubuntu-18-04">
-<h3>Linux (Ubuntu 18.04)<a class="headerlink" href="#linux-ubuntu-18-04" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>Linux (Ubuntu 18.04)<a class="headerlink" href="#linux-ubuntu-18-04" title="Permalink to this heading">¶</a></h3>
 <p>ここでは、Ubuntu 18.04の場合のみを説明する。</p>
 <p>gfortranのインストール</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">gfortran</span>
@@ -97,7 +98,7 @@ Pythonコードを使って解析する場合は、いくつかのモジュー�
 </section>
 </section>
 <section id="python">
-<h2>Pythonコードの環境設定<a class="headerlink" href="#python" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>Pythonコードの環境設定<a class="headerlink" href="#python" title="Permalink to this heading">¶</a></h2>
 <p>Anacondaをインストールし、以下に示すモジュール群をインストールする。
 MacとLinuxで共通する部分が多いのでまとめて説明を記す。</p>
 <p><a class="reference external" href="https://www.anaconda.com/">Anacondaのウェブサイト</a> から対応するインストーラーをダウンロードする。</p>
@@ -121,7 +122,7 @@ MacとLinuxで共通する部分が多いのでまとめて説明を記す。</p
 </li>
 </ul>
 <section id="ipython">
-<h3>ipythonの初期設定<a class="headerlink" href="#ipython" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>ipythonの初期設定<a class="headerlink" href="#ipython" title="Permalink to this heading">¶</a></h3>
 <p>以下は必須ではないが、ipythonを使う時の初期設定ファイルである。
 <code class="code docutils literal notranslate"><span class="pre">~/.ipython/profile_default/startup/00_first.py</span></code>
 というファイルを作りそこに以下のように記す。</p>
@@ -146,7 +147,7 @@ MacとLinuxで共通する部分が多いのでまとめて説明を記す。</p
 <p>とするだけで、スクリプトを実行できるようになる。</p>
 </section>
 <section id="google">
-<h3>Googleスプレッドシート利用<a class="headerlink" href="#google" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>Googleスプレッドシート利用<a class="headerlink" href="#google" title="Permalink to this heading">¶</a></h3>
 <p>計算設定などをGoogleスプレッドシートにまとめておくと便利である。
 R2D2では、Pythonから直接Googleスプレッドシートに送信する方法を提供しているので、利用したい方は検討されたい。</p>
 <p>手順については、 <a class="reference external" href="https://qiita.com/akabei/items/0eac37cb852ad476c6b9">こちら</a> を参考にしたが、少し手順が違うのでこのページでも解説する。</p>
@@ -169,7 +170,7 @@ ipython setup.py install
 </pre></div>
 </div>
 <section id="id2">
-<h4>プロジェクト作成<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4>プロジェクト作成<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h4>
 <p>ウェブブラウザで <a class="reference external" href="https://console.developers.google.com/cloud-resource-manager?pli=1">https://console.developers.google.com/cloud-resource-manager?pli=1</a> にアクセス。</p>
 <a class="reference internal image-reference" href="_images/gen_project1.png"><img alt="_images/gen_project1.png" src="_images/gen_project1.png" style="width: 350px;" /></a>
 <p>「プロジェクトを作成」として、プロジェクトを作成</p>
@@ -177,7 +178,7 @@ ipython setup.py install
 <p>プロジェクト名はR2D2, 場所は組織なしとする。</p>
 </section>
 <section id="api">
-<h4>API有効化<a class="headerlink" href="#api" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4>API有効化<a class="headerlink" href="#api" title="Permalink to this heading">¶</a></h4>
 <a class="reference internal image-reference" href="_images/google_drive1.png"><img alt="_images/google_drive1.png" src="_images/google_drive1.png" style="width: 400px;" /></a>
 <p>次に検索窓にGoogle Driveと打ち込んで、Google DriveのAPIを検索</p>
 <a class="reference internal image-reference" href="_images/google_drive2.png"><img alt="_images/google_drive2.png" src="_images/google_drive2.png" style="width: 400px;" /></a>
@@ -188,7 +189,7 @@ ipython setup.py install
 <p>Google Sheets APIを有効化</p>
 </section>
 <section id="id3">
-<h4>サービスアカウント作成<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4>サービスアカウント作成<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h4>
 <a class="reference internal image-reference" href="_images/service_account1.png"><img alt="_images/service_account1.png" src="_images/service_account1.png" style="width: 400px;" /></a>
 <p>Google APIロゴ → 認証情報 → サービスアカウントとたどる。</p>
 <a class="reference internal image-reference" href="_images/service_account2.png"><img alt="_images/service_account2.png" src="_images/service_account2.png" style="width: 400px;" /></a>
@@ -200,7 +201,7 @@ ipython setup.py install
 ダウンロードしたファイルは、使用する計算機のホームディレクトリにjsonというディレクトリを作成し、その下に配置する。そのディレクトリには、このjsonファイル以外には何も置かないこと。</p>
 </section>
 <section id="id4">
-<h4>スプレッドシート作成<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4>スプレッドシート作成<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h4>
 <p>以下のウェブサイトからGoogleスプレッドシートを作成
 <a class="reference external" href="https://docs.google.com/spreadsheets/create">https://docs.google.com/spreadsheets/create</a></p>
 <p>名前はプロジェクト名とする。R2D2では、pyディレクトリの上のディレクトリ名を読みそれをスプレッドシートの名前として情報を送るので、ディレクトリと同じ名前にする。</p>
@@ -212,9 +213,9 @@ ipython setup.py install
 </section>
 </section>
 <section id="idl">
-<h2>IDLコードの環境設定<a class="headerlink" href="#idl" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>IDLコードの環境設定<a class="headerlink" href="#idl" title="Permalink to this heading">¶</a></h2>
 <p>システムにIDLをインストールすれば、それのみで使える。ここでは説明しない。</p>
-<p>最終更新日：2021年10月27日</p>
+<p>最終更新日：2022年09月13日</p>
 </section>
 </section>
 
@@ -225,8 +226,9 @@ ipython setup.py install
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">目次</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">目次</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">R2D2を使うための環境設定</a><ul>
 <li><a class="reference internal" href="#fortran">Fortranコードの環境設定</a><ul>
 <li><a class="reference internal" href="#mac">Mac</a></li>
@@ -249,12 +251,17 @@ ipython setup.py install
 </li>
 </ul>
 
-  <h4>前のトピックへ</h4>
-  <p class="topless"><a href="start.html"
-                        title="前の章へ">R2D2を使い始めるには</a></p>
-  <h4>次のトピックへ</h4>
-  <p class="topless"><a href="typical_case.html"
-                        title="次の章へ">典型的計算例</a></p>
+  </div>
+  <div>
+    <h4>前のトピックへ</h4>
+    <p class="topless"><a href="start.html"
+                          title="前の章へ">R2D2を使い始めるには</a></p>
+  </div>
+  <div>
+    <h4>次のトピックへ</h4>
+    <p class="topless"><a href="typical_case.html"
+                          title="次の章へ">典型的計算例</a></p>
+  </div>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -271,7 +278,7 @@ ipython setup.py install
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -297,7 +304,7 @@ ipython setup.py install
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2021, Hideyuki Hotta.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.0.2.
     </div>
   </body>
 </html>

@@ -5,7 +5,7 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>数値スキーム &#8212; R2D2 1.2 ドキュメント</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
@@ -14,6 +14,7 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/translations.js"></script>
     <script src="_static/bizstyle.js"></script>
@@ -52,18 +53,18 @@
           <div class="body" role="main">
             
   <section id="id1">
-<h1>数値スキーム<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1>数値スキーム<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h1>
 <section id="mhd">
-<h2>MHDスキーム<a class="headerlink" href="#mhd" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>MHDスキーム<a class="headerlink" href="#mhd" title="Permalink to this heading">¶</a></h2>
 <section id="id2">
-<h3>空間微分<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>空間微分<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
 <p>R2D2では、4次の中央差分を用いている。格子間隔が一様な場合には中央差分では微分は</p>
 <div class="math">
 <p><img src="_images/math/6daa51abfa49337cf3a2795855e3915ec5130476.svg" alt="\left(\frac{\partial q}{\partial x}\right)_i =\frac{-q_{i+2}+8q_{i+1}-8q_{i-1}+q_{i-2}}{12\Delta x_i}"/></p>
 </div><p>となる。R2D2では、非一様な格子間隔にも対応しており、</p>
 </section>
 <section id="id3">
-<h3>時間積分<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>時間積分<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h3>
 <p>R2D2では、</p>
 <div class="admonition-todo admonition" id="id4">
 <p class="admonition-title">課題</p>
@@ -71,12 +72,12 @@
 </div>
 </section>
 <section id="id5">
-<h3>輻射輸送<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>輻射輸送<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h3>
 <div class="admonition-todo admonition" id="id6">
 <p class="admonition-title">課題</p>
 <p>数値スキーム(輻射輸送)</p>
 </div>
-<p>最終更新日：2021年10月27日</p>
+<p>最終更新日：2022年09月13日</p>
 </section>
 </section>
 </section>
@@ -88,8 +89,9 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">目次</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">目次</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">数値スキーム</a><ul>
 <li><a class="reference internal" href="#mhd">MHDスキーム</a><ul>
 <li><a class="reference internal" href="#id2">空間微分</a></li>
@@ -101,12 +103,17 @@
 </li>
 </ul>
 
-  <h4>前のトピックへ</h4>
-  <p class="topless"><a href="code.html"
-                        title="前の章へ">コード</a></p>
-  <h4>次のトピックへ</h4>
-  <p class="topless"><a href="parameter.html"
-                        title="次の章へ">パラメータ</a></p>
+  </div>
+  <div>
+    <h4>前のトピックへ</h4>
+    <p class="topless"><a href="code.html"
+                          title="前の章へ">コード</a></p>
+  </div>
+  <div>
+    <h4>次のトピックへ</h4>
+    <p class="topless"><a href="parameter.html"
+                          title="次の章へ">パラメータ</a></p>
+  </div>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -123,7 +130,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -149,7 +156,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2021, Hideyuki Hotta.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.0.2.
     </div>
   </body>
 </html>

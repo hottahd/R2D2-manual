@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p3.9.0-u1.27-210218-2.6 (utf8.uptex) (TeX Live 2021) (preloaded format=uplatex 2022.1.27)  13 SEP 2022 16:59
+This is e-upTeX, Version 3.141592653-p3.9.0-u1.27-210218-2.6 (utf8.uptex) (TeX Live 2021) (preloaded format=uplatex 2022.1.27)  13 SEP 2022 17:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1872,22 +1872,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 ]
 第 16 章
-LaTeX Font Info:    Kanji font shape `JY2/gt/m/it' undefined
-(Font)              No change on input line 3423.
-
-Overfull \hbox (52.42093pt too wide) in paragraph at lines 3422--3424
-[]\T1/qtm/m/it/10 Hotta and Ku-sano, 2021, Na-ture As-tron-omy, 5, 1100 <https:
-//ui.adsabs.harvard.edu/abs/2021NatAs...5.1100H/abstract> 
- []
-
-LaTeX Font Info:    Kanji font shape `JY2/gt/m/it' undefined
-(Font)              No change on input line 3427.
-
-Overfull \hbox (31.92696pt too wide) in paragraph at lines 3426--3428
-[]\T1/qtm/m/it/10 Hotta, Ku-sano, and Shi-mada, 2022, ApJ, 933, 2 <https://ui.a
-dsabs.harvard.edu/abs/2022ApJ...933..199H/abstract> 
- []
-
 [67] [68
 
 ]
@@ -1995,4 +1979,4 @@ Here is how much of TeX's memory you used:
  930 hyphenation exceptions out of 8191
  83i,21n,88p,900b,647s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on r2d2.dvi (79 pages, 282944 bytes).
+Output written on r2d2.dvi (79 pages, 283168 bytes).

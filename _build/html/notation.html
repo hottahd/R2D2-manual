@@ -5,7 +5,7 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>R2D2 pythonでのキーワードの説明 &#8212; R2D2 1.2 ドキュメント</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
@@ -14,6 +14,7 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/translations.js"></script>
     <script src="_static/bizstyle.js"></script>
@@ -52,7 +53,7 @@
           <div class="body" role="main">
             
   <section id="r2d2-python">
-<h1>R2D2 pythonでのキーワードの説明<a class="headerlink" href="#r2d2-python" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1>R2D2 pythonでのキーワードの説明<a class="headerlink" href="#r2d2-python" title="Permalink to this heading">¶</a></h1>
 <p>以下では、R2D2 pythonで使われている辞書型に含まれるキーの説明を行う</p>
 <ul class="simple">
 <li><p>キーの名前 (型) -- 説明 [単位]</p></li>
@@ -60,14 +61,14 @@
 <p>というフォーマットを採用する。</p>
 <p>R2D2では、<code class="code docutils literal notranslate"><span class="pre">R2D2_data</span></code> というクラスを用意している。</p>
 <section id="self-p-dictionary">
-<h2>self.p [dictionary]<a class="headerlink" href="#self-p-dictionary" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>self.p [dictionary]<a class="headerlink" href="#self-p-dictionary" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">R2D2</span>
 <span class="bp">self</span> <span class="o">=</span> <span class="n">R2D2</span><span class="o">.</span><span class="n">R2D2_data</span><span class="p">(</span><span class="n">datadir</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>とすると、初期設定が読み込まれる。 <code class="code docutils literal notranslate"><span class="pre">self</span></code> は <code class="code docutils literal notranslate"><span class="pre">R2D2_data</span></code> のオブジェクトであり、名前は任意である。 <code class="code docutils literal notranslate"><span class="pre">init.py</span></code> や <code class="code docutils literal notranslate"><span class="pre">mov.py</span></code> では、オブジェクト名は <code class="code docutils literal notranslate"><span class="pre">d</span></code> としてある。</p>
 <section id="id1">
-<h3>出力・時間に関する量<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>出力・時間に関する量<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>datadir (str) -- データの保存場所</p></li>
 <li><p>nd (int) -- 現在までのアウトプット時間ステップ数(3次元データ)</p></li>
@@ -83,7 +84,7 @@
 </ul>
 </section>
 <section id="id2">
-<h3>座標に関する量<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>座標に関する量<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>xdcheck (int) -- x軸方向に解いているか。解いていたら2、解いていなかったら1</p></li>
 <li><p>ydcheck (int) -- y軸方向に解いているか。解いていたら2、解いていなかったら1</p></li>
@@ -117,7 +118,7 @@
 </ul>
 </section>
 <section id="id3">
-<h3>背景場に関する量<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>背景場に関する量<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>pr0 (float) [ix] -- 背景場の圧力 [dyn cm <sup>-2</sup>]</p></li>
 <li><p>te0 (float) [ix] -- 背景場の温度 [K]</p></li>
@@ -145,7 +146,7 @@
 </ul>
 </section>
 <section id="remap">
-<h3>解析のためのデータ再配置(remap)に関する量<a class="headerlink" href="#remap" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>解析のためのデータ再配置(remap)に関する量<a class="headerlink" href="#remap" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>m2da (int) -- remapで出力した解析量の数</p></li>
 <li><p>cl (char) [m2da] --　remapで出力した解析量の名前</p></li>
@@ -167,7 +168,7 @@
 </ul>
 </section>
 <section id="id4">
-<h3>スライスデータに関する量<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>スライスデータに関する量<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>nx_slice [int] -- x一定面のスライスの数</p></li>
 <li><p>ny_slice [int] -- y一定面のスライスの数</p></li>
@@ -179,7 +180,7 @@
 </section>
 </section>
 <section id="self-qs-dictionary">
-<h2>self.qs [dictionary]<a class="headerlink" href="#self-qs-dictionary" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>self.qs [dictionary]<a class="headerlink" href="#self-qs-dictionary" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xs</span> <span class="o">=</span> <span class="mf">0.99</span><span class="o">*</span><span class="n">rsun</span>
 <span class="n">ns</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="bp">self</span><span class="o">.</span><span class="n">read_qq_select</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span><span class="n">ns</span><span class="p">)</span>
@@ -201,15 +202,15 @@
 </ul>
 </section>
 <section id="self-qq-dictionary">
-<h2>self.qq [dictionary]<a class="headerlink" href="#self-qq-dictionary" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>self.qq [dictionary]<a class="headerlink" href="#self-qq-dictionary" title="Permalink to this heading">¶</a></h2>
 <p><code class="code docutils literal notranslate"><span class="pre">self.qs</span></code> と同様</p>
 </section>
 <section id="self-qt-dictionary">
-<h2>self.qt [dictionary]<a class="headerlink" href="#self-qt-dictionary" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>self.qt [dictionary]<a class="headerlink" href="#self-qt-dictionary" title="Permalink to this heading">¶</a></h2>
 <p>ほぼself.qsと同様だが、以下の追加量が保存してある。</p>
 </section>
 <section id="self-vc-dictionary">
-<h2>self.vc [dictionary]<a class="headerlink" href="#self-vc-dictionary" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>self.vc [dictionary]<a class="headerlink" href="#self-vc-dictionary" title="Permalink to this heading">¶</a></h2>
 <p>数値計算実行時に解析・出力している統計量。しばしばバグがあるので注意すること。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ns</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="bp">self</span><span class="o">.</span><span class="n">read_vc</span><span class="p">(</span><span class="n">ns</span><span class="p">)</span>
@@ -236,7 +237,7 @@
 </dl>
 </li>
 </ul>
-<p>最終更新日：2021年10月29日</p>
+<p>最終更新日：2022年09月13日</p>
 </section>
 </section>
 
@@ -247,8 +248,9 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">目次</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">目次</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">R2D2 pythonでのキーワードの説明</a><ul>
 <li><a class="reference internal" href="#self-p-dictionary">self.p [dictionary]</a><ul>
 <li><a class="reference internal" href="#id1">出力・時間に関する量</a></li>
@@ -266,12 +268,17 @@
 </li>
 </ul>
 
-  <h4>前のトピックへ</h4>
-  <p class="topless"><a href="paraview.html"
-                        title="前の章へ">Paraviewを用いた3Dデータ表示</a></p>
-  <h4>次のトピックへ</h4>
-  <p class="topless"><a href="sphinx.html"
-                        title="次の章へ">Sphinx使用の覚書</a></p>
+  </div>
+  <div>
+    <h4>前のトピックへ</h4>
+    <p class="topless"><a href="paraview.html"
+                          title="前の章へ">Paraviewを用いた3Dデータ表示</a></p>
+  </div>
+  <div>
+    <h4>次のトピックへ</h4>
+    <p class="topless"><a href="sphinx.html"
+                          title="次の章へ">Sphinx使用の覚書</a></p>
+  </div>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -288,7 +295,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -314,7 +321,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2021, Hideyuki Hotta.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.0.2.
     </div>
   </body>
 </html>

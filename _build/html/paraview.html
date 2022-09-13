@@ -5,7 +5,7 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Paraviewを用いた3Dデータ表示 &#8212; R2D2 1.2 ドキュメント</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
@@ -14,6 +14,7 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/translations.js"></script>
     <script src="_static/bizstyle.js"></script>
@@ -52,10 +53,10 @@
           <div class="body" role="main">
             
   <section id="paraview3d">
-<h1>Paraviewを用いた3Dデータ表示<a class="headerlink" href="#paraview3d" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1>Paraviewを用いた3Dデータ表示<a class="headerlink" href="#paraview3d" title="Permalink to this heading">¶</a></h1>
 <p>ここでは、Paraviewを用いてR2D2の計算結果を三次元表示する方法を説明する。</p>
 <section id="id1">
-<h2>データ準備<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>データ準備<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
 <p>すでに計算を実行していて、何らかのデータが準備できている状況を想定する。
 データをParaviewで扱うためにVTKフォーマットに変換する。
 変換後に用意するべきデータは</p>
@@ -69,7 +70,7 @@
 <span class="sig-prename descclassname"><span class="pre">R2D2.vtk.</span></span><span class="sig-name descname"><span class="pre">write_3D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.vtk.write_3D" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>3次元のスカラー量をVTKフォーマットで出力するための関数</p>
 <dl class="field-list simple">
-<dt class="field-odd">パラメータ</dt>
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>qq</strong> (<em>float</em>) -- 出力したい物理量の3次元numpy配列</p></li>
 <li><p><strong>x</strong> (<em>float</em>) -- x方向の座標</p></li>
@@ -87,7 +88,7 @@
 <span class="sig-prename descclassname"><span class="pre">R2D2.vtk.write_vtk.</span></span><span class="sig-name descname"><span class="pre">write_3D_vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.vtk.write_vtk.write_3D_vector" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>３次元のベクトル量をVTKフォーマットで出力するための関数</p>
 <dl class="field-list simple">
-<dt class="field-odd">パラメータ</dt>
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>qx</strong> (<em>float</em>) -- x方向のベクトルの3次元numpy配列</p></li>
 <li><p><strong>qy</strong> (<em>float</em>) -- y方向のベクトルの3次元numpy配列</p></li>
@@ -107,7 +108,7 @@
 <span class="sig-prename descclassname"><span class="pre">R2D2.vtk.</span></span><span class="sig-name descname"><span class="pre">write_optical_surface</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.vtk.write_optical_surface" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p><img class="math" src="_images/math/b19774d4e57891d5afa14e54dbc161aa092b6154.svg" alt="\tau=1"/> での2次元データを出力するための関数</p>
 <dl class="field-list simple">
-<dt class="field-odd">パラメータ</dt>
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>qq</strong> (<em>float</em>) -- 出力したい物理量の2次元配列</p></li>
 <li><p><strong>height</strong> (<em>float</em>) -- <img class="math" src="_images/math/b19774d4e57891d5afa14e54dbc161aa092b6154.svg" alt="\tau=1"/> の高さの情報。<code class="code docutils literal notranslate"><span class="pre">self.qt['he']</span></code> を出力することが想定されている。</p></li>
@@ -134,7 +135,7 @@
 </div>
 </section>
 <section id="paraview3">
-<h2>Paraviewを用いて3次元表示<a class="headerlink" href="#paraview3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>Paraviewを用いて3次元表示<a class="headerlink" href="#paraview3" title="Permalink to this heading">¶</a></h2>
 <p><a class="reference external" href="https://www.paraview.org/download/">Paraviewのサイト</a> からParaviewをダウンロード。Windows, Linux, macOSのそれぞれのソフトウェアがあるのでインストール方法は各自確認すること。ここでは、macOSでの利用方法を示すが、確認している限りは、Linuxでもほとんど同じ。ここでは非常に簡単にParaviewの使い方を説明する。詳しくはParaviewの公式マニュアルなどを読むこと。</p>
 <ol class="arabic">
 <li><p>まず右上のファイルアイコンをクリック</p>
@@ -168,7 +169,7 @@
 </div></blockquote>
 </li>
 </ol>
-<p>最終更新日：2021年10月27日</p>
+<p>最終更新日：2022年09月13日</p>
 </section>
 </section>
 
@@ -179,8 +180,9 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">目次</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">目次</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">Paraviewを用いた3Dデータ表示</a><ul>
 <li><a class="reference internal" href="#id1">データ準備</a></li>
 <li><a class="reference internal" href="#paraview3">Paraviewを用いて3次元表示</a></li>
@@ -188,12 +190,17 @@
 </li>
 </ul>
 
-  <h4>前のトピックへ</h4>
-  <p class="topless"><a href="io.html"
-                        title="前の章へ">出力と読込</a></p>
-  <h4>次のトピックへ</h4>
-  <p class="topless"><a href="notation.html"
-                        title="次の章へ">R2D2 pythonでのキーワードの説明</a></p>
+  </div>
+  <div>
+    <h4>前のトピックへ</h4>
+    <p class="topless"><a href="io.html"
+                          title="前の章へ">出力と読込</a></p>
+  </div>
+  <div>
+    <h4>次のトピックへ</h4>
+    <p class="topless"><a href="notation.html"
+                          title="次の章へ">R2D2 pythonでのキーワードの説明</a></p>
+  </div>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -210,7 +217,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -236,7 +243,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2021, Hideyuki Hotta.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.0.2.
     </div>
   </body>
 </html>

@@ -5,7 +5,7 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>R2D2を使い始めるには &#8212; R2D2 1.2 ドキュメント</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
@@ -14,6 +14,7 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/translations.js"></script>
     <script src="_static/bizstyle.js"></script>
@@ -52,9 +53,9 @@
           <div class="body" role="main">
             
   <section id="r2d2">
-<h1>R2D2を使い始めるには<a class="headerlink" href="#r2d2" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1>R2D2を使い始めるには<a class="headerlink" href="#r2d2" title="Permalink to this heading">¶</a></h1>
 <section id="id1">
-<h2>ディレクトリ構造の準備<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>ディレクトリ構造の準備<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
 <p>R2D2は現在公開していないので、R2D2のzipファイルを堀田から受け取ったと仮定する。コードをしっかり読めば従う必要はないが、基本的には以下のようなディレクトリ構造で計算することを想定している。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>project_name/
            ├─ run/
@@ -227,7 +228,7 @@
 </ul>
 </section>
 <section id="id2">
-<h2>コンパイル<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>コンパイル<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
 <p>コンパイルはR2D2のディクレトリで</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>make
 </pre></div>
@@ -253,11 +254,11 @@
 </ul>
 </section>
 <section id="id3">
-<h2>初期条件<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>初期条件<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
 <p>初期条件は、 <code class="docutils literal notranslate"><span class="pre">src/all/model_init.F90</span></code> で設定している。基本的な光球計算などは、鉛直速度にランダムな値を入れて計算を始めている。</p>
 </section>
 <section id="id4">
-<h2>追加条件<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>追加条件<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h2>
 <p>ある程度計算を行った後に、続きの計算として少し設定を変えたい場合の手続きを示す。
 例えば、磁場なしの熱対流計算を行った後に、磁場を加える場合などに有効である。</p>
 <p><code class="code docutils literal notranslate"><span class="pre">run/d001</span></code> での計算を:code:<cite>run/d002</cite> に移す場合について説明する。
@@ -281,32 +282,32 @@
 するとプログラム・データのコピーが始まる。すでに移動先(今回場合は <code class="code docutils literal notranslate"><span class="pre">d002</span></code> に <code class="code docutils literal notranslate"><span class="pre">data</span></code> ディレクトリがある場合は、コピーが始まらないので、削除してからコピーすること)。</p>
 <p>また、コピーが終わると移動先の <code class="code docutils literal notranslate"><span class="pre">data/cont_log.txt</span></code> に元データの情報が記載してある。</p>
 <p>データをコピーした後に、磁場などを付け加えたい時は <code class="code docutils literal notranslate"><span class="pre">src/all/model_add.F90</span></code> を編集する.</p>
-<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">do </span><span class="n">k</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">nzg</span>
-<span class="k">do </span><span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">nyg</span>
-<span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">nxg</span>
-   <span class="n">qq</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span> <span class="o">=</span> <span class="n">qq</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span> <span class="o">+</span> <span class="mi">20</span><span class="mf">0.d0</span>
-   <span class="n">qq</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span> <span class="o">=</span> <span class="n">qq</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span>
-   <span class="n">qq</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span> <span class="o">=</span> <span class="n">qq</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">do </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="n">nzg</span><span class="w"></span>
+<span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="n">nyg</span><span class="w"></span>
+<span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="n">nxg</span><span class="w"></span>
+<span class="w">   </span><span class="n">qq</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">qq</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">20</span><span class="mf">0.d0</span><span class="w"></span>
+<span class="w">   </span><span class="n">qq</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">qq</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="n">qq</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">qq</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"></span>
 <span class="k">enddo</span>
 <span class="k">enddo</span>
-<span class="k">enddo</span>
+<span class="k">enddo</span><span class="w"></span>
 </pre></div>
 </div>
 <p>などと書いてある。この例では鉛直磁場に200 Gが足されている。次に <code class="code docutils literal notranslate"><span class="pre">src/all/io.F90</span></code> を編集する。中ほどに</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="c">! add something</span>
-<span class="n">time00</span> <span class="o">=</span> <span class="mf">0.d0</span>
-<span class="k">if</span><span class="p">(</span><span class="n">ns</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">.</span><span class="nb">and</span><span class="p">.</span> <span class="n">nd</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">then</span>
+<span class="n">time00</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.d0</span><span class="w"></span>
+<span class="k">if</span><span class="p">(</span><span class="n">ns</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">nd</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span><span class="w"></span>
 <span class="c">!if(ns == 0) then</span>
-   <span class="c">!call model_sunspot</span>
-   <span class="c">!call model_fe_pff</span>
-   <span class="c">!call model_add</span>
-<span class="k">endif</span>
+<span class="w">   </span><span class="c">!call model_sunspot</span>
+<span class="w">   </span><span class="c">!call model_fe_pff</span>
+<span class="w">   </span><span class="c">!call model_add</span>
+<span class="k">endif</span><span class="w"></span>
 </pre></div>
 </div>
 <p>と書かれている部分があるので、 <code class="code docutils literal notranslate"><span class="pre">call</span> <span class="pre">model_add</span></code> の部分のコメントアウトを外す。 <code class="code docutils literal notranslate"><span class="pre">ns</span></code> は現在の計算のステップ数(続きの計算では引き継がれない)、 <code class="code docutils literal notranslate"><span class="pre">nd</span></code> は計算全体のデータアウトプット回数(続きの計算で引き継がれる)。この二つの変数が0の時は、計算の一番はじめもしくは、データを引き継いだ時のみなので、その時のみ追加条件が発動する。</p>
 </section>
 <section id="id5">
-<h2>スーパーコンピュータでのシェルスクリプト<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>スーパーコンピュータでのシェルスクリプト<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h2>
 <p>いくつかのスーパーコンピュータでジョブを投入するためのシェルスクリプトも <code class="docutils literal notranslate"><span class="pre">sh</span></code> ディレクトリに用意している。
 使用コア数などを変えたい時は、それぞれのスーパーコンピュータの使用説明書などを参照すること。
 今後使うことのできるものだけをあげる。</p>
@@ -318,11 +319,11 @@
 </ul>
 </section>
 <section id="id6">
-<h2>初期条件データを受け取った場合<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>初期条件データを受け取った場合<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h2>
 <p>熱対流が統計的定常に達するまでは非常に時間がかかるために、この計算が非常に困難になる。そのため、堀田がデータを提供することがある。堀田は <code class="code docutils literal notranslate"><span class="pre">data</span></code> ディレクトリを丸ごと提供する。</p>
 <p>このディレクトリに <code class="code docutils literal notranslate"><span class="pre">cont_log.txt</span></code> というファイルがあるので、そこに示されている計算設定の情報を見て同じようになるように計算を設定する。</p>
 <p>このディレクトリを書く実行のディレクトリの配下におき、実行すると続きの計算が始まる。</p>
-<p>最終更新日：2021年10月27日</p>
+<p>最終更新日：2022年09月13日</p>
 </section>
 </section>
 
@@ -333,8 +334,9 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">目次</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">目次</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">R2D2を使い始めるには</a><ul>
 <li><a class="reference internal" href="#id1">ディレクトリ構造の準備</a></li>
 <li><a class="reference internal" href="#id2">コンパイル</a></li>
@@ -346,12 +348,17 @@
 </li>
 </ul>
 
-  <h4>前のトピックへ</h4>
-  <p class="topless"><a href="index.html"
-                        title="前の章へ">R2D2マニュアル</a></p>
-  <h4>次のトピックへ</h4>
-  <p class="topless"><a href="environment.html"
-                        title="次の章へ">R2D2を使うための環境設定</a></p>
+  </div>
+  <div>
+    <h4>前のトピックへ</h4>
+    <p class="topless"><a href="index.html"
+                          title="前の章へ">R2D2マニュアル</a></p>
+  </div>
+  <div>
+    <h4>次のトピックへ</h4>
+    <p class="topless"><a href="environment.html"
+                          title="次の章へ">R2D2を使うための環境設定</a></p>
+  </div>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -368,7 +375,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -394,7 +401,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2021, Hideyuki Hotta.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.0.2.
     </div>
   </body>
 </html>
