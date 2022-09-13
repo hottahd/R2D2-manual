@@ -5,23 +5,23 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>座標生成 &#8212; R2D2 1.2 ドキュメント</title>
-    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
     
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <script src="_static/translations.js"></script>
     <script src="_static/bizstyle.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
     <link rel="next" title="境界条件" href="boundary.html" />
     <link rel="prev" title="パラメータ" href="parameter.html" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <!--[if lt IE 9]>
     <script src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
@@ -51,11 +51,11 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="id1">
+  <section id="id1">
 <h1>座標生成<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>R2D2では中央差分法を用いているが、そのほとんどは数値フラックスを用いて書き直すことでき、提供される <code class="docutils literal notranslate"><span class="pre">x</span></code> , <code class="docutils literal notranslate"><span class="pre">y</span></code>　, <code class="docutils literal notranslate"><span class="pre">z</span></code> などは <strong>セル中心</strong> で定義される。よって計算領域内の最初のグリッドは、計算境界から半グリッド進んだところにある。</p>
 <p>また、R2D2では一様グリッドと非一様グリッドどちらでも計算できるようにしている。</p>
-<div class="section" id="id2">
+<section id="id2">
 <h2>一様グリッド<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>一様グリッドを用いるときは</p>
 <ul class="simple">
@@ -75,12 +75,12 @@
 <span class="k">if</span><span class="p">(</span><span class="n">xdcheck</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="k">then</span>
 <span class="k">    do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">+</span><span class="n">i1</span><span class="p">,</span><span class="n">ix00</span>
         <span class="n">x00</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="n">x00</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="n">i1</span><span class="p">)</span> <span class="o">+</span> <span class="n">dx_unif</span>
-    <span class="n">enddo</span>
-<span class="n">endif</span>
+    <span class="k">enddo</span>
+<span class="k">endif</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id3">
+</section>
+<section id="id3">
 <h2>非一様グリッド<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>非一様グリッドを用いるときは、太陽光球付近は、輻射輸送のために一様なグリッド、ある程度の深さから格子間隔が線形に増加する非一様グリッドを使うことにしている。光球近くは、光球をちゃんと解像するために一様グリッド、光球からある程度進むと、非一様グリッドを採用することにしている。
 実際の構造は以下のようになっている。非一様グリッド領域の両端２つのグリッド間隔は一様グリッドをとるようにしている。</p>
@@ -111,9 +111,9 @@
 </div><p>この関係式より、グリッド間隔の増分 <img class="math" src="_images/math/e04688ae36ecfa1b998a1d7f5cc85a8e7e262a2d.svg" alt="\delta x"/> を以下のように求めることができる。</p>
 <div class="math">
 <p><img src="_images/math/099456de676356676000d1ef0d768dcc3a98e8de.svg" alt="\delta x = \frac{2\left(x_\mathrm{tran} - n_x\Delta x_0\right)}{\left(n_x - 4\right)n_x}"/></p>
-</div><p>最終更新日：2020年09月19日</p>
-</div>
-</div>
+</div><p>最終更新日：2021年10月27日</p>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -148,7 +148,7 @@
   <h3 id="searchlabel">クイック検索</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="検索" />
     </form>
     </div>
@@ -178,8 +178,8 @@
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2019, Hideyuki Hotta.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.2.
+        &#169; Copyright 2021, Hideyuki Hotta.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
     </div>
   </body>
 </html>

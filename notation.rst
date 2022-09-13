@@ -160,4 +160,27 @@ self.qt [dictionary]
 self.vc [dictionary]
 --------------------------------
 
+数値計算実行時に解析・出力している統計量。しばしばバグがあるので注意すること。
+
+.. code::
+
+    ns = 10
+    self.read_vc(ns)
+
+として統計量を読み込む.
+
+* su, sd (float) [ix,jx] -- ある動径位置 :math:`r`, 余緯度 :math:`\theta` における上昇流(su), 下降流(sd)の格子点数 [個]
+* :code:`**m` と表されるものは経度方向平均。以下の物理量がある
+    * rom (float) [ix,jx] -- 密度　[g cm `-3`:sup:]
+    * vxm (float) [ix,jx] -- x方向の速度 [cm s `-1`:sup:]
+    * vym (float) [ix,jx] -- y方向の速度 [cm s `-1`:sup:]
+    * vzm (float) [ix,jx] -- z方向の速度 [cm s `-1`:sup:]
+    * rxm (float) [ix,jx] -- x方向の運動量 ::math:`\rho v_x`  [g cm `-2`:sup: s `-1`:sup:]
+    * rym (float) [ix,jx] -- y方向の運動量 ::math:`\rho v_x`  [g cm `-2`:sup: s `-1`:sup:]
+    * rzm (float) [ix,jx] -- z方向の運動量 ::math:`\rho v_x`  [g cm `-2`:sup: s `-1`:sup:]
+    * bxm (float) [ix,jx] -- x方向の磁場 [G]
+    * bym (float) [ix,jx] -- y方向の磁場 [G]
+    * bzm (float) [ix,jx] -- z方向の磁場 [G]
+    * 
+
 最終更新日：|today|

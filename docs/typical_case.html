@@ -5,23 +5,23 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>典型的計算例 &#8212; R2D2 1.2 ドキュメント</title>
-    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
     
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <script src="_static/translations.js"></script>
     <script src="_static/bizstyle.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
     <link rel="next" title="方程式" href="equation.html" />
     <link rel="prev" title="R2D2を使うための環境設定" href="environment.html" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <!--[if lt IE 9]>
     <script src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
@@ -51,31 +51,40 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="id1">
+  <section id="id1">
 <h1>典型的計算例<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>ここでは、典型的計算設定について紹介する。</p>
-<div class="section" id="id2">
+<section id="id2">
 <h2>デカルト座標<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="section" id="id3">
+<section id="id3">
 <h3>小規模局所光球計算<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2005A%26A...429..335V/abstract">Vögler et al., 2005</a> などで行われている小規模局所光球計算の設定を説明する。</p>
 <ul>
 <li><dl class="simple">
-<dt>Makefileのオプション</dt><dd><p>光球のみ一様グリッドで計算するので, 複数方向輻射輸送で計算する <code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">-Ddeep</span></code> や　<code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">-Dununiform</span></code> , <code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">-Dspherical</span></code> を設定していないかチェック。複数方向の輻射輸送を計算するために <code class="code docutils literal notranslate"><span class="pre">PPC:</span> <span class="pre">=</span> <span class="pre">-Done_ray</span></code> を設定しないようにする</p>
+<dt>Makefileのオプション</dt><dd><p>指定するオプションは
+光球のみ一様グリッドで計算するので, 複数方向輻射輸送で計算する。指定するオプションは</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">PPC</span> <span class="pre">:=</span> <span class="pre">-Dremap_2d_assign</span></code></p></li>
+</ul>
 </dd>
 </dl>
 </li>
 <li><dl>
 <dt>計算領域・解像度</dt><dd><p>計算領域は鉛直方向(R2D2ではx方向)にrsun から700 km上から5.444 Mm下までをとる。水平方向(R2D2ではyとz方向)には、6.144 Mmずつとる。</p>
 <p>太陽光球を計算するときは、鉛直方向には少なくとも48 km, 水平方向には少なくとも192 kmの格子間隔が必要である。ここでは各方向に48 kmの格子点間隔をとることにして、各方向に128グリッドづつ格子点を用意する。ここではMPIプロセスを2×2×2プロセス使う例を示す。これらの設定は <code class="code docutils literal notranslate"><span class="pre">src/all/geometry_def.F90</span></code> を編集。</p>
-<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifdef deep</span>
-    <span class="p">...</span> <span class="p">(</span><span class="n">ignore</span> <span class="n">this</span><span class="p">)</span>
-<span class="cp">#elif ideal</span>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="kt">integer</span><span class="p">,</span> <span class="k">parameter</span><span class="p">,</span> <span class="k">private</span> <span class="kd">::</span> <span class="n">nx0</span> <span class="o">=</span> <span class="mi">64</span><span class="p">,</span> <span class="n">ny0</span> <span class="o">=</span> <span class="mi">64</span><span class="p">,</span> <span class="n">nz0</span> <span class="o">=</span> <span class="mi">64</span>
+<span class="kt">integer</span><span class="p">,</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">ix0</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">jx0</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">kx0</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="p">...</span>
+
+<span class="cp">#ifdef deep</span>
     <span class="p">...</span> <span class="p">(</span><span class="n">ignore</span> <span class="n">this</span><span class="p">)</span>
 <span class="cp">#else</span>
     <span class="kt">real</span><span class="p">(</span><span class="nb">KIND</span><span class="p">(</span><span class="mf">0.d0</span><span class="p">)),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">xmax</span> <span class="o">=</span> <span class="n">rsun</span> <span class="o">+</span> <span class="mf">0.7d8</span>
     <span class="kt">real</span><span class="p">(</span><span class="nb">KIND</span><span class="p">(</span><span class="mf">0.d0</span><span class="p">)),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">xmin</span> <span class="o">=</span> <span class="n">rsun</span> <span class="o">-</span> <span class="mf">5.444d8</span>
 <span class="cp">#endif</span>
+
+<span class="p">...</span>
 
 <span class="cp">#ifndef ideal</span>
     <span class="kt">real</span><span class="p">(</span><span class="nb">KIND</span><span class="p">(</span><span class="mf">0.d0</span><span class="p">)),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">ymin</span> <span class="o">=</span> <span class="mf">0.d0</span>
@@ -83,12 +92,6 @@
     <span class="kt">real</span><span class="p">(</span><span class="nb">KIND</span><span class="p">(</span><span class="mf">0.d0</span><span class="p">)),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">ymax</span> <span class="o">=</span> <span class="mf">0.d0</span>
     <span class="kt">real</span><span class="p">(</span><span class="nb">KIND</span><span class="p">(</span><span class="mf">0.d0</span><span class="p">)),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">ymax</span> <span class="o">=</span> <span class="mf">6.144d0</span>
 <span class="cp">#endif</span>
-
-<span class="p">...</span>
-<span class="kt">integer</span><span class="p">,</span> <span class="k">parameter</span><span class="p">,</span> <span class="k">private</span> <span class="kd">::</span> <span class="n">nx0</span> <span class="o">=</span> <span class="mi">64</span><span class="p">,</span> <span class="n">ny0</span> <span class="o">=</span> <span class="mi">64</span><span class="p">,</span> <span class="n">nz0</span> <span class="o">=</span> <span class="mi">64</span>
-
-<span class="p">...</span>
-<span class="kt">integer</span><span class="p">,</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">ix0</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">jx0</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">kx0</span> <span class="o">=</span> <span class="mi">2</span>
 </pre></div>
 </div>
 <p>と設定する。念のために</p>
@@ -198,13 +201,13 @@
 </dl>
 </li>
 </ul>
-</div>
-<div class="section" id="id6">
+</section>
+<section id="id6">
 <h3>中規模黒点計算<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2012ApJ...750...62R/abstract">Rempel, 2012</a> で行われている中規模光球計算の設定を説明する。</p>
 <ul>
 <li><dl class="simple">
-<dt>Makefileのオプション</dt><dd><p>光球のみ一様グリッドで計算するので, <code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">-Ddeep</span></code> や　<code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">-Dununiform</span></code> を設定していないかチェック。</p>
+<dt>Makefileのオプション</dt><dd><p>光球のみ一様グリッドで計算するので, :code:<a href="#id7"><span class="problematic" id="id8">`</span></a>PPC:= -Ddeep`を設定していないかチェック。</p>
 </dd>
 </dl>
 </li>
@@ -331,7 +334,7 @@
 <span class="n">time00</span> <span class="o">=</span> <span class="mf">0.d0</span>
 <span class="k">if</span><span class="p">(</span><span class="n">ns</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">.</span><span class="nb">and</span><span class="p">.</span> <span class="n">nd</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">then</span>
 <span class="k">    call </span><span class="n">model_sunspot</span>
-<span class="n">endif</span>
+<span class="k">endif</span>
 </pre></div>
 </div>
 <p>とする。デフォルトでは、 <code class="code docutils literal notranslate"><span class="pre">call</span> <span class="pre">model_sunspot</span></code> がコメントアウトされていることが多いと思われる。</p>
@@ -355,33 +358,44 @@
 </dl>
 </li>
 </ul>
-</div>
-<div class="section" id="id7">
-<h3>全対流層計算<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<div class="admonition-todo admonition" id="id8">
+</section>
+<section id="id9">
+<h3>全対流層計算<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="admonition-todo admonition" id="id10">
 <p class="admonition-title">課題</p>
 <p>全対流層計算の設定例</p>
 </div>
+</section>
+<section id="id11">
+<h3>深い部分のみの計算<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul>
+<li><p>Makefileのオプション</p>
+<blockquote>
+<div><div class="highlight-Makefile notranslate"><div class="highlight"><pre><span></span><span class="nf">PPC</span><span class="o">:</span> = -<span class="n">Ddeep</span> <span class="c"># 深い層のみ</span>
+<span class="nf">PPC</span><span class="o">:</span> = -<span class="n">Done_ray</span> <span class="c"># ここでは輻射輸送は解かないがone_rayとしておくことでメモリ節約</span>
+<span class="nf">PPC</span><span class="o">:</span> = -<span class="n">Dremap_</span>2<span class="n">d_assign</span> <span class="c"># remapで2次元的に出力する</span>
+</pre></div>
 </div>
-<div class="section" id="id9">
-<h3>深い部分のみの計算<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<div class="admonition-todo admonition" id="id10">
-<p class="admonition-title">課題</p>
-<p>深い部分のみの計算の設定例</p>
-</div>
-</div>
-</div>
-<div class="section" id="yin-yang">
+</div></blockquote>
+</li>
+<li><p>計算領域・解像度</p>
+<blockquote>
+<div><p>水平方向には98.304 Mm,</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+</section>
+<section id="yin-yang">
 <h2>球座標(Yin-Yang格子含む)<a class="headerlink" href="#yin-yang" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="section" id="id11">
-<h3>Yin-Yangで深いところのみの計算<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<section id="id12">
+<h3>Yin-Yangで深いところのみの計算<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li><dl class="simple">
 <dt>Makefileのオプション</dt><dd><ul>
 <li><p><code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">$(PPC)</span> <span class="pre">-Ddeep</span></code></p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">$(PPC)</span> <span class="pre">-Done_ray</span></code></p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">$(PPC)</span> <span class="pre">-Ddeep</span></code></p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">$(PPC)</span> <span class="pre">-Done_ray</span></code></p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">$(PPC)</span> <span class="pre">-Dspherical</span></code></p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">$(PPC)</span> <span class="pre">-DYinYang</span></code></p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">$(PPC)</span> <span class="pre">-DnoFFTW</span></code></p></li>
@@ -398,16 +412,16 @@
 </dl>
 </li>
 </ul>
-</div>
-</div>
-<div class="section" id="id12">
-<h2>2次元計算<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="section" id="id13">
-<h3>磁束管浮上<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>最終更新日：2020年12月29日</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+<section id="id13">
+<h2>2次元計算<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="id14">
+<h3>磁束管浮上<a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>最終更新日：2021年10月27日</p>
+</section>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -422,16 +436,16 @@
 <li><a class="reference internal" href="#id2">デカルト座標</a><ul>
 <li><a class="reference internal" href="#id3">小規模局所光球計算</a></li>
 <li><a class="reference internal" href="#id6">中規模黒点計算</a></li>
-<li><a class="reference internal" href="#id7">全対流層計算</a></li>
-<li><a class="reference internal" href="#id9">深い部分のみの計算</a></li>
+<li><a class="reference internal" href="#id9">全対流層計算</a></li>
+<li><a class="reference internal" href="#id11">深い部分のみの計算</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#yin-yang">球座標(Yin-Yang格子含む)</a><ul>
-<li><a class="reference internal" href="#id11">Yin-Yangで深いところのみの計算</a></li>
+<li><a class="reference internal" href="#id12">Yin-Yangで深いところのみの計算</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id12">2次元計算</a><ul>
-<li><a class="reference internal" href="#id13">磁束管浮上</a></li>
+<li><a class="reference internal" href="#id13">2次元計算</a><ul>
+<li><a class="reference internal" href="#id14">磁束管浮上</a></li>
 </ul>
 </li>
 </ul>
@@ -455,7 +469,7 @@
   <h3 id="searchlabel">クイック検索</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="検索" />
     </form>
     </div>
@@ -485,8 +499,8 @@
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2019, Hideyuki Hotta.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.2.
+        &#169; Copyright 2021, Hideyuki Hotta.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
     </div>
   </body>
 </html>

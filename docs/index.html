@@ -5,22 +5,22 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>R2D2マニュアル &#8212; R2D2 1.2 ドキュメント</title>
-    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
     
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <script src="_static/translations.js"></script>
     <script src="_static/bizstyle.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
     <link rel="next" title="R2D2を使い始めるには" href="start.html" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <!--[if lt IE 9]>
     <script src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
@@ -47,22 +47,22 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="r2d2">
+  <section id="r2d2">
 <h1>R2D2マニュアル<a class="headerlink" href="#r2d2" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>このページは太陽のための輻射磁気流体コードR2D2(RSST and Radiation for Deep Dynamics)
+<p>このページは太陽のための輻射磁気流体コードR2D2 (RSST and Radiation for Deep Dynamics)
 のマニュアルである。</p>
 <p><a class="reference external" href="https://github.com/hottahd/R2D2-manual/raw/master/_build/latex/r2d2.pdf">PDF版はこちら</a></p>
+<p>R2D2では、輻射磁気流体力学の方程式を中央差分と非線形の人工粘性を用いて高精度かつ安定に解く。R2D2では、太陽表面付近では現実的に輻射輸送を解き、太陽深部では微小擾乱を正確に解く手法を取ることで、太陽内部から表面までを一貫して解くことができる。</p>
 <a class="reference internal image-reference" href="_images/R2D2_logo_red.png"><img alt="_images/R2D2_logo_red.png" src="_images/R2D2_logo_red.png" style="width: 350px;" /></a>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="start.html">R2D2を使い始めるには</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="start.html#id1">ディレクトリ構造の準備</a></li>
 <li class="toctree-l2"><a class="reference internal" href="start.html#id2">コンパイル</a></li>
-<li class="toctree-l2"><a class="reference internal" href="start.html#id3">基本的なパラメータ</a></li>
-<li class="toctree-l2"><a class="reference internal" href="start.html#id10">初期条件</a></li>
-<li class="toctree-l2"><a class="reference internal" href="start.html#id11">追加条件</a></li>
-<li class="toctree-l2"><a class="reference internal" href="start.html#id12">スーパーコンピュータでのシェルスクリプト</a></li>
-<li class="toctree-l2"><a class="reference internal" href="start.html#id13">初期条件データを受け取った場合</a></li>
+<li class="toctree-l2"><a class="reference internal" href="start.html#id3">初期条件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="start.html#id4">追加条件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="start.html#id5">スーパーコンピュータでのシェルスクリプト</a></li>
+<li class="toctree-l2"><a class="reference internal" href="start.html#id6">初期条件データを受け取った場合</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="environment.html">R2D2を使うための環境設定</a><ul>
@@ -74,7 +74,7 @@
 <li class="toctree-l1"><a class="reference internal" href="typical_case.html">典型的計算例</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="typical_case.html#id2">デカルト座標</a></li>
 <li class="toctree-l2"><a class="reference internal" href="typical_case.html#yin-yang">球座標(Yin-Yang格子含む)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="typical_case.html#id12">2次元計算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typical_case.html#id13">2次元計算</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="equation.html">方程式</a><ul>
@@ -133,10 +133,10 @@
 </li>
 </ul>
 </div>
-<div class="section" id="id1">
+<section id="id1">
 <h2>ライセンス<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>R2D2は現状、公開ソフトウェアではなく再配布も禁じている。
-これは今後、変更される可能性はあるが、開発者(堀田)の利益を守るためである。
+これは今後変更される可能性はあるが、開発者(堀田)の利益を守るためである。
 共同研究者のみが使って良いというルールになっており、R2D2の使用には、以下の規約を守る必要がある。</p>
 <ul class="simple">
 <li><p>再配布しない</p></li>
@@ -146,25 +146,26 @@
 <li><p>R2D2を用いた研究を発表するときは、<a class="reference external" href="https://hottahd.github.io/R2D2-manual/_images/R2D2_logo_red.png">R2D2のロゴ</a> の使用が推奨される(強制ではない)。</p></li>
 </ul>
 <p>改訂履歴</p>
-<p>2020年4月29日 Hotta and Iijima, 2020を加えた</p>
-</div>
-<div class="section" id="id3">
+</section>
+<section id="id3">
 <h2>出版論文<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>R2D2を用いた研究で出版された論文は以下です。</p>
-<ul class="simple">
+<ol class="arabic simple">
 <li><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019SciA....5.2307H/abstract">Hotta, Iijima, and Kusano, 2019, Science Advances, 5, eaau2307</a></p></li>
 <li><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019ApJ...886L..21T/abstract">Toriumi and Hotta, 2019, ApJ, 886, L21</a></p></li>
 <li><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2020MNRAS.494.2523H/abstract">Hotta and Iijima, 2020, MNRAS, 494, 2523</a></p></li>
-</ul>
-</div>
-<div class="section" id="id4">
+<li><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2020MNRAS.498.2925H/abstract">Hotta and Toriumi, 2020, MNRAS, 498, 2925</a></p></li>
+<li><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2021MNRAS.503.3610T/abstract">Takahata, Hotta, Iida, and Oba, MNRAS, 503, 3610</a></p></li>
+</ol>
+</section>
+<section id="id4">
 <h2>索引と検索ページ<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">索引</span></a></p></li>
 <li><p><a class="reference internal" href="search.html"><span class="std std-ref">検索ページ</span></a></p></li>
 </ul>
-</div>
-<div class="section" id="todo">
+</section>
+<section id="todo">
 <h2>TODOリスト<a class="headerlink" href="#todo" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="admonition-todo admonition">
 <p class="admonition-title">課題</p>
@@ -205,15 +206,10 @@
 <p class="admonition-title">課題</p>
 <p>全対流層計算の設定例</p>
 </div>
-<p class="todo-source">(<a class="reference internal" href="typical_case.html#id8"><em>元のエントリ</em></a> は、 /Users/hotta/Dropbox/work/R2D2/R2D2-manual/typical_case.rst の 328 行目です)</p>
-<div class="admonition-todo admonition">
-<p class="admonition-title">課題</p>
-<p>深い部分のみの計算の設定例</p>
-</div>
-<p class="todo-source">(<a class="reference internal" href="typical_case.html#id10"><em>元のエントリ</em></a> は、 /Users/hotta/Dropbox/work/R2D2/R2D2-manual/typical_case.rst の 333 行目です)</p>
-<p>最終更新日：2020年12月28日</p>
-</div>
-</div>
+<p class="todo-source">(<a class="reference internal" href="typical_case.html#id10"><em>元のエントリ</em></a> は、 /Users/hotta/Dropbox/work/R2D2/R2D2-manual/typical_case.rst の 331 行目です)</p>
+<p>最終更新日：2021年10月27日</p>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -247,7 +243,7 @@
   <h3 id="searchlabel">クイック検索</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="検索" />
     </form>
     </div>
@@ -274,8 +270,8 @@
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2019, Hideyuki Hotta.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.2.
+        &#169; Copyright 2021, Hideyuki Hotta.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
     </div>
   </body>
 </html>

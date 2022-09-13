@@ -6,10 +6,13 @@
 R2D2マニュアル
 ================================
 
-このページは太陽のための輻射磁気流体コードR2D2(RSST and Radiation for Deep Dynamics)
+このページは太陽のための輻射磁気流体コードR2D2 (RSST and Radiation for Deep Dynamics)
 のマニュアルである。 
 
 `PDF版はこちら <https://github.com/hottahd/R2D2-manual/raw/master/_build/latex/r2d2.pdf>`_ 
+
+R2D2では、輻射磁気流体力学の方程式を中央差分と非線形の人工粘性を用いて高精度かつ安定に解く。R2D2では、太陽表面付近では現実的に輻射輸送を解き、太陽深部では微小擾乱を正確に解く手法を取ることで、太陽内部から表面までを一貫して解くことができる。
+
 
 .. image:: source/figs/R2D2_logo_red.png
    :width: 350 px
@@ -36,7 +39,7 @@ R2D2マニュアル
 ----------------------------------
 
 R2D2は現状、公開ソフトウェアではなく再配布も禁じている。
-これは今後、変更される可能性はあるが、開発者(堀田)の利益を守るためである。
+これは今後変更される可能性はあるが、開発者(堀田)の利益を守るためである。
 共同研究者のみが使って良いというルールになっており、R2D2の使用には、以下の規約を守る必要がある。
 
 * 再配布しない
@@ -47,15 +50,15 @@ R2D2は現状、公開ソフトウェアではなく再配布も禁じている�
 
 改訂履歴
 
-2020年4月29日 Hotta and Iijima, 2020を加えた
-
 出版論文
 ----------------------------------
 R2D2を用いた研究で出版された論文は以下です。
 
-- `Hotta, Iijima, and Kusano, 2019, Science Advances, 5, eaau2307 <https://ui.adsabs.harvard.edu/abs/2019SciA....5.2307H/abstract>`_
-- `Toriumi and Hotta, 2019, ApJ, 886, L21 <https://ui.adsabs.harvard.edu/abs/2019ApJ...886L..21T/abstract>`_
-- `Hotta and Iijima, 2020, MNRAS, 494, 2523 <https://ui.adsabs.harvard.edu/abs/2020MNRAS.494.2523H/abstract>`_
+1. `Hotta, Iijima, and Kusano, 2019, Science Advances, 5, eaau2307 <https://ui.adsabs.harvard.edu/abs/2019SciA....5.2307H/abstract>`_
+2. `Toriumi and Hotta, 2019, ApJ, 886, L21 <https://ui.adsabs.harvard.edu/abs/2019ApJ...886L..21T/abstract>`_
+3. `Hotta and Iijima, 2020, MNRAS, 494, 2523 <https://ui.adsabs.harvard.edu/abs/2020MNRAS.494.2523H/abstract>`_
+4. `Hotta and Toriumi, 2020, MNRAS, 498, 2925 <https://ui.adsabs.harvard.edu/abs/2020MNRAS.498.2925H/abstract>`_
+5. `Takahata, Hotta, Iida, and Oba, MNRAS, 503, 3610 <https://ui.adsabs.harvard.edu/abs/2021MNRAS.503.3610T/abstract>`_
 
 索引と検索ページ
 ----------------------------------

@@ -32,6 +32,7 @@ R2D2ディレクトリの中は以下のようなディレクトリ構造にな�
       ├─ Makefile
       ├─ README.md
       ├─ gen_time.py
+      ├─ copy_caseid.py      
       ├─ data/
       │     ├─ param/
       │     │      ├─ nd.dac
@@ -54,8 +55,8 @@ R2D2ディレクトリの中は以下のようなディレクトリ構造にな�
       │     ├─ remap/
       │     │      ├─ remap_info.dac
       │     │      ├─ qq/      
-      │     │      │   ├─ qq.dac.00000000
-      │     │      │   ├─ qq.dac.00000001
+      │     │      │   ├─ qq.dac.00000000.00000000
+      │     │      │   ├─ qq.dac.00000001.00000000
       │     │      │   ├─ ...              
       │     │      │
       │     │      └─ vl/
@@ -137,7 +138,7 @@ R2D2ディレクトリの中は以下のようなディレクトリ構造にな�
 
 コンパイル
 --------------------------------
-コンパイルは基本的にR2D2のディクレトリで
+コンパイルはR2D2のディクレトリで
 
 .. code:: shell
 
@@ -161,42 +162,8 @@ R2D2ディレクトリの中は以下のようなディレクトリ構造にな�
 以下、堀田の個人環境なので、使用は推奨されない。どうしても個人の環境で使いたい時は堀田まで相談されたい。
 
 * ``LOCAL``: UbuntuのGCC
-* ``LOXAL_ifort``: Ubuntuのifort
+* ``LOCAL_ifort``: Ubuntuのifort
 *  ``MAC``: MacのGCC
-
-基本的なパラメータ
---------------------------------
-主に変更するパラメタは、**領域サイズ** と **格子点数** であろう。
-
-これらは、``src/all/geometry_def.F90`` を編集することで変更できる。
-
-まずは領域サイズ
-
-.. code:: fortran
-
-    real(KIND(0.d0)), parameter :: xmin = rsun - 23.876d8
-    real(KIND(0.d0)), parameter :: xmax = rsun + 0.7d8
-    real(KIND(0.d0)), parameter :: ymin = 0.d0
-    real(KIND(0.d0)), parameter :: ymax = 6.144d8*16.d0
-    real(KIND(0.d0)), parameter :: zmin = 0.d0
-    real(KIND(0.d0)), parameter :: zmax = 6.144d8*16.d0
-
-と書いてある箇所で領域サイズを決定している。*min, *maxはそれぞれ、*方向の領域の最小値、最大値である。x方向については、太陽中心からの距離で定義してあるので、 ``rsun`` を使うのが推奨される。
-
-次に格子点数
-
-.. code:: fortran
-
-    integer, parameter, private :: nx0 = 128, ny0 = 64, nz0 = 64
-
-.. code:: fortran
-
-    integer, parameter :: ix0 = 4
-    integer, parameter :: jx0 = 16
-    integer, parameter :: kx0 = 16
-
-などと書いてある箇所がある。``nx0`` , ``ny0`` , ``nz0`` はそれぞれ一つのMPIプロセスでのx, y, z方向の格子点の数を定義している。
-一方、 ``ix0`` , ``jx0`` , ``kx0`` はそれぞれx, y, z方向のMPIプロセスの数を定義している。全MPIプロセス数は ``ix0*jx0*kx0`` となり、各方向の全体の格子点数はそれぞれ ``nx*ix0`` , ``ny*jx0`` , ``nz*kx0`` となる。
 
 初期条件
 --------------------------------

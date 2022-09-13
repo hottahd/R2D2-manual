@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'R2D2'
-copyright = '2019, Hideyuki Hotta'
+copyright = '2021, Hideyuki Hotta'
 author = 'Hideyuki Hotta'
 
 # The full version, including alpha/beta/rc tags

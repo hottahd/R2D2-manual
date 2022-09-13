@@ -1,4 +1,5 @@
 {
     "restructuredtext.confPath": "${workspaceFolder}",
-    "python.pythonPath": "/Users/hotta/opt/anaconda3/bin/python"
+    "python.pythonPath": "/Users/hotta/opt/anaconda3/bin/python",
+    "esbonio.sphinx.confDir": "${workspaceFolder}"
 }

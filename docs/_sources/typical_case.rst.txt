@@ -11,8 +11,11 @@
 `Vögler et al., 2005 <https://ui.adsabs.harvard.edu/abs/2005A%26A...429..335V/abstract>`_ などで行われている小規模局所光球計算の設定を説明する。
 
 - Makefileのオプション
-    光球のみ一様グリッドで計算するので, 複数方向輻射輸送で計算する :code:`PPC:= -Ddeep` や　:code:`PPC:= -Dununiform` , :code:`PPC:= -Dspherical` を設定していないかチェック。複数方向の輻射輸送を計算するために :code:`PPC: = -Done_ray` を設定しないようにする
+    指定するオプションは
+    光球のみ一様グリッドで計算するので, 複数方向輻射輸送で計算する。指定するオプションは
 
+    - :code:`PPC := -Dremap_2d_assign`
+    
 - 計算領域・解像度
     計算領域は鉛直方向(R2D2ではx方向)にrsun から700 km上から5.444 Mm下までをとる。水平方向(R2D2ではyとz方向)には、6.144 Mmずつとる。
     
@@ -20,14 +23,19 @@
 
     .. code:: fortran
 
+        integer, parameter, private :: nx0 = 64, ny0 = 64, nz0 = 64
+        integer, parameter :: ix0 = 2, jx0 = 2, kx0 = 2
+
+        ...
+
         #ifdef deep
-            ... (ignore this)
-        #elif ideal 
             ... (ignore this)
         #else
             real(KIND(0.d0)), parameter :: xmax = rsun + 0.7d8
             real(KIND(0.d0)), parameter :: xmin = rsun - 5.444d8
         #endif
+
+        ...
 
         #ifndef ideal
             real(KIND(0.d0)), parameter :: ymin = 0.d0
@@ -36,11 +44,6 @@
             real(KIND(0.d0)), parameter :: ymax = 6.144d0
         #endif
 
-        ...
-        integer, parameter, private :: nx0 = 64, ny0 = 64, nz0 = 64
-
-        ...
-        integer, parameter :: ix0 = 2, jx0 = 2, kx0 = 2
     
     と設定する。念のために
 
@@ -156,7 +159,7 @@
 `Rempel, 2012 <https://ui.adsabs.harvard.edu/abs/2012ApJ...750...62R/abstract>`_ で行われている中規模光球計算の設定を説明する。
 
 - Makefileのオプション
-    光球のみ一様グリッドで計算するので, :code:`PPC:= -Ddeep` や　:code:`PPC:= -Dununiform` を設定していないかチェック。
+    光球のみ一様グリッドで計算するので, :code:`PPC:= -Ddeep`を設定していないかチェック。
 
 - 計算領域・解像度
     計算領域は鉛直方向(R2D2ではx方向)にrsun から700 km上から5.444 Mm下までをとる。水平方向(R2D2ではyとz方向)には、49.152 Mmずつとる。
@@ -330,7 +333,18 @@
 深い部分のみの計算
 --------------------------------
 
-.. todo:: 深い部分のみの計算の設定例
+- Makefileのオプション
+
+    .. code-block:: Makefile
+
+        PPC: = -Ddeep # 深い層のみ
+        PPC: = -Done_ray # ここでは輻射輸送は解かないがone_rayとしておくことでメモリ節約
+        PPC: = -Dremap_2d_assign # remapで2次元的に出力する
+    
+
+- 計算領域・解像度
+
+    水平方向には98.304 Mm, 
 
 球座標(Yin-Yang格子含む)
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -342,7 +356,6 @@ Yin-Yangで深いところのみの計算
     - :code:`PPC:= $(PPC) -Ddeep`
     - :code:`PPC:= $(PPC) -Done_ray`
     - :code:`PPC:= $(PPC) -Ddeep`
-    - :code:`PPC:= $(PPC) -Done_ray`
     - :code:`PPC:= $(PPC) -Dspherical`
     - :code:`PPC:= $(PPC) -DYinYang`
     - :code:`PPC:= $(PPC) -DnoFFTW`
