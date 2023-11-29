@@ -29,7 +29,7 @@
 \contentsline {subsection}{\numberline {3.3.1}磁束管浮上}{25}{subsection.3.3.1}%
 \contentsline {chapter}{\numberline {第4章}方程式}{27}{chapter.4}%
 \contentsline {section}{\numberline {4.1}磁気流体力学}{27}{section.4.1}%
-\contentsline {section}{\numberline {4.2}輻射輸送}{27}{section.4.2}%
+\contentsline {section}{\numberline {4.2}輻射輸送}{28}{section.4.2}%
 \contentsline {chapter}{\numberline {第5章}コード}{29}{chapter.5}%
 \contentsline {section}{\numberline {5.1}コーディングルール}{29}{section.5.1}%
 \contentsline {section}{\numberline {5.2}コード構造}{29}{section.5.2}%
@@ -89,7 +89,8 @@
 \contentsline {subsection}{\numberline {14.6.5}To DO}{64}{subsection.14.6.5}%
 \contentsline {chapter}{\numberline {第15章}ライセンス}{65}{chapter.15}%
 \contentsline {chapter}{\numberline {第16章}出版論文}{67}{chapter.16}%
-\contentsline {chapter}{\numberline {第17章}索引と検索ページ}{69}{chapter.17}%
-\contentsline {chapter}{\numberline {第18章}TODOリスト}{71}{chapter.18}%
-\contentsline {chapter}{Pythonモジュール索引}{73}{section*.39}%
-\contentsline {chapter}{索引}{75}{section*.40}%
+\contentsline {chapter}{\numberline {第17章}賞}{69}{chapter.17}%
+\contentsline {chapter}{\numberline {第18章}索引と検索ページ}{71}{chapter.18}%
+\contentsline {chapter}{\numberline {第19章}TODOリスト}{73}{chapter.19}%
+\contentsline {chapter}{Pythonモジュール索引}{75}{section*.39}%
+\contentsline {chapter}{索引}{77}{section*.40}%

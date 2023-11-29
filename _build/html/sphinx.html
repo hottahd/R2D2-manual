@@ -2,21 +2,19 @@
 
 <!doctype html>
 
-<html lang="ja">
+<html lang="ja" data-content_root="./">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Sphinx使用の覚書 &#8212; R2D2 1.2 ドキュメント</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=649a27d8" />
+    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css?v=82e463d1" />
     
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/translations.js"></script>
+    <script src="_static/documentation_options.js?v=f83e867c"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/translations.js?v=4dbe4bdc"></script>
     <script src="_static/bizstyle.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
@@ -49,34 +47,34 @@
           <div class="body" role="main">
             
   <section id="sphinx">
-<h1>Sphinx使用の覚書<a class="headerlink" href="#sphinx" title="Permalink to this heading">¶</a></h1>
+<h1>Sphinx使用の覚書<a class="headerlink" href="#sphinx" title="Link to this heading">¶</a></h1>
 <section id="id1">
-<h2>はじめに<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<h2>はじめに<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
 <p>Sphinxは、reStructuredTextからHTMLやLatexなどの
 文章を生成するソフトウェアである。
 <a class="reference external" href="https://www.sphinx-doc.org/ja/master/index.html">Sphinxの公式サイト</a>
 最近ではMarkdownでも記述できるが、結局最後のところはreStructuredTextで記述することになるので、現状では、Markdownは使用していない。このウェブサイトもSphinxで生成しているので、覚書をここに記す。</p>
 </section>
 <section id="id3">
-<h2>インストール<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
+<h2>インストール<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
 <p>ここではAnacondaがすでにインストールしてあるMac
 にSphinxをインストールすることを考える。
 基本的には以下のコマンドを実行するのみである。</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install sphinx
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>sphinx
 </pre></div>
 </div>
 <p>Markdownを使いたい時は以下のようにする。</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install commonmark recommonmark
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>commonmark<span class="w"> </span>recommonmark
 </pre></div>
 </div>
 </section>
 <section id="html">
-<h2>HTMLファイルの生成<a class="headerlink" href="#html" title="Permalink to this heading">¶</a></h2>
+<h2>HTMLファイルの生成<a class="headerlink" href="#html" title="Link to this heading">¶</a></h2>
 <p>適当なディレクトリを作成(ここでは <code class="docutils literal notranslate"><span class="pre">test</span></code> )とする。
 そこで、 <code class="docutils literal notranslate"><span class="pre">sphinx-quickstart</span></code> コマンドによりSphinxで作るドキュメントの
 初期設定を行う。</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mkdir <span class="nb">test</span> <span class="c1"># ディレクトリ作成</span>
-<span class="nb">cd</span> <span class="nb">test</span>    <span class="c1"># ディレクトリに移動</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span><span class="nb">test</span><span class="w"> </span><span class="c1"># ディレクトリ作成</span>
+<span class="nb">cd</span><span class="w"> </span><span class="nb">test</span><span class="w">    </span><span class="c1"># ディレクトリに移動</span>
 sphinx-quickstart
 </pre></div>
 </div>
@@ -88,14 +86,14 @@ sphinx-quickstart
 </ul>
 </section>
 <section id="vs-code">
-<h2>VS codeの利用<a class="headerlink" href="#vs-code" title="Permalink to this heading">¶</a></h2>
+<h2>VS codeの利用<a class="headerlink" href="#vs-code" title="Link to this heading">¶</a></h2>
 <p>VS codeを利用すると快適にreStructuredTextを作成することができる。
 <code class="docutils literal notranslate"><span class="pre">*.rst</span></code> ファイルをVS codeで開くと自動で確認されるが、以下のプラグインをインストールする。</p>
 <a class="reference internal image-reference" href="_images/restructuredtext_vs.png"><img alt="_images/restructuredtext_vs.png" src="_images/restructuredtext_vs.png" style="width: 500px;" /></a>
 <p><code class="docutils literal notranslate"><span class="pre">Cmd+k</span> <span class="pre">Cmd+r</span></code> で画面を分割してプレビューできる。正しい <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> の場所を設定する必要がある。</p>
 </section>
 <section id="id4">
-<h2>環境設定<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h2>
+<h2>環境設定<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h2>
 <p>デフォルトの設定では、数式を書く時にMathjaxを使用するようで、数式の太字が意図するように表示されなかったのでsvgで出力することにした。
 以下のように　<code class="docutils literal notranslate"><span class="pre">conf.py</span></code> に追記する。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">+=</span> <span class="p">[</span><span class="s1">&#39;sphinx.ext.imgmath&#39;</span><span class="p">]</span>
@@ -114,9 +112,9 @@ sphinx-quickstart
 <p>今後変更の余地あり。</p>
 </section>
 <section id="id6">
-<h2>記法<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h2>
+<h2>記法<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h2>
 <section id="id7">
-<h3>リンク<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h3>
+<h3>リンク<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>外部ウェブサイト</p></li>
 </ul>
@@ -142,31 +140,31 @@ sphinx-quickstart
 <p>とリンクが生成される。</p>
 </section>
 <section id="id8">
-<h3>コード<a class="headerlink" href="#id8" title="Permalink to this heading">¶</a></h3>
+<h3>コード<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h3>
 <p>Sphinxでは、コードを直接記載することができる。また、言語に合わせてハイライトも可能。
 コードの表記に選択できる言語は <a class="reference external" href="https://pygments.org/docs/lexers/">Pygments</a> にまとめてある。</p>
 <div class="highlight-restructuredtext notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">code</span><span class="p">::</span> <span class="k">fortran</span>
 
     <span class="k">implicit none</span>
-    <span class="kt">real</span><span class="p">(</span><span class="nb">KIND</span><span class="o">=</span><span class="mf">0.d0</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="w"></span>
+    <span class="kt">real</span><span class="p">(</span><span class="nb">KIND</span><span class="o">=</span><span class="mf">0.d0</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span>
 
-    <span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.d0</span><span class="w"></span>
-    <span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.d0</span><span class="w"></span>
-    <span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w"></span>
+    <span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.d0</span>
+    <span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.d0</span>
+    <span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
 <p>このようにすると、以下のように表示される</p>
 <div class="highlight-Fortran notranslate"><div class="highlight"><pre><span></span><span class="k">implicit none</span>
-<span class="kt">real</span><span class="p">(</span><span class="nb">KIND</span><span class="o">=</span><span class="mf">0.d0</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">KIND</span><span class="o">=</span><span class="mf">0.d0</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span>
 
-<span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.d0</span><span class="w"></span>
-<span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.d0</span><span class="w"></span>
-<span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w"></span>
+<span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.d0</span>
+<span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.d0</span>
+<span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
 </section>
 <section id="id9">
-<h3>画像<a class="headerlink" href="#id9" title="Permalink to this heading">¶</a></h3>
+<h3>画像<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h3>
 <p>画像の挿入には <code class="docutils literal notranslate"><span class="pre">image</span></code> ディレクティブを使う。オプションで、画像サイズなどを調整できる。堀田はだいたいwidthで調整している。</p>
 <div class="highlight-restructuredtext notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">image</span><span class="p">::</span> source/figs/R2D2_logo.png
     <span class="nc">:width:</span> 350 px
@@ -176,7 +174,7 @@ sphinx-quickstart
 <a class="reference internal image-reference" href="_images/R2D2_logo.png"><img alt="_images/R2D2_logo.png" src="_images/R2D2_logo.png" style="width: 350px;" /></a>
 </section>
 <section id="id10">
-<h3>数式<a class="headerlink" href="#id10" title="Permalink to this heading">¶</a></h3>
+<h3>数式<a class="headerlink" href="#id10" title="Link to this heading">¶</a></h3>
 <p>SphinxではLatexを用いて数式を記述することができる。
 1行の独立した数式を取り扱うときは</p>
 <div class="highlight-restructuredtext notranslate"><div class="highlight"><pre><span></span><span class="p">..</span>  <span class="ow">math</span><span class="p">::</span>
@@ -187,7 +185,7 @@ sphinx-quickstart
 <p>とすると以下のように表示される。</p>
 <blockquote>
 <div><div class="math">
-<p><img src="_images/math/3616d5323be9eaf7e815a49b5f6a0de5f3b8735c.svg" alt="\frac{\partial \rho}{\partial t} = -\nabla\cdot \left(\rho {\boldsymbol v}\right)"/></p>
+<p><img src="_images/math/d9ebf416636cab6dc5eb24b70e65ec591915d884.svg" alt="\frac{\partial \rho}{\partial t} = -\nabla\cdot \left(\rho {\boldsymbol v}\right)"/></p>
 </div></div></blockquote>
 <p>インラインの数式では</p>
 <div class="highlight-restructuredtext notranslate"><div class="highlight"><pre><span></span>ここで <span class="na">:math:</span><span class="nv">`\rho_1=x^2`</span> とする
@@ -195,12 +193,12 @@ sphinx-quickstart
 </div>
 <p>とすると</p>
 <blockquote>
-<div><p>ここで <img class="math" src="_images/math/bef610c7ab8da94a48de5f0dafeac85eba9025da.svg" alt="\rho_1=x^2"/> とする</p>
+<div><p>ここで <img class="math" src="_images/math/289c51a5e1e5a2c9bc4bd7f63555f6bbe24d7844.svg" alt="\rho_1=x^2"/> とする</p>
 </div></blockquote>
 <p>と表示される。</p>
 </section>
 <section id="to-do">
-<h3>To DO<a class="headerlink" href="#to-do" title="Permalink to this heading">¶</a></h3>
+<h3>To DO<a class="headerlink" href="#to-do" title="Link to this heading">¶</a></h3>
 <p>To Doを書いておきたい場所に</p>
 <div class="highlight-restructuredtext notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">todo</span><span class="p">::</span> 方程式を書く
 </pre></div>
@@ -210,7 +208,7 @@ sphinx-quickstart
 </pre></div>
 </div>
 <p>と書いてあるので、To Doのまとめが示されている。</p>
-<p>最終更新日：2022年09月13日</p>
+<p>最終更新日：2023年11月29日</p>
 </section>
 </section>
 </section>
@@ -287,8 +285,8 @@ sphinx-quickstart
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2021, Hideyuki Hotta.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.0.2.
+    &#169; 著作権 2020-2023, Hideyuki Hotta.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
   </body>
 </html>

@@ -2,21 +2,19 @@
 
 <!doctype html>
 
-<html lang="ja">
+<html lang="ja" data-content_root="./">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>R2D2マニュアル &#8212; R2D2 1.2 ドキュメント</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=649a27d8" />
+    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css?v=82e463d1" />
     
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/translations.js"></script>
+    <script src="_static/documentation_options.js?v=f83e867c"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/translations.js?v=4dbe4bdc"></script>
     <script src="_static/bizstyle.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
@@ -49,11 +47,11 @@
           <div class="body" role="main">
             
   <section id="r2d2">
-<h1>R2D2マニュアル<a class="headerlink" href="#r2d2" title="Permalink to this heading">¶</a></h1>
-<p>このページは太陽のための輻射磁気流体コードR2D2 (RSST and Radiation for Deep Dynamics)
+<h1>R2D2マニュアル<a class="headerlink" href="#r2d2" title="Link to this heading">¶</a></h1>
+<p class="linemarker linemarker-9">このページは太陽のための輻射磁気流体コードR2D2 (RSST and Radiation for Deep Dynamics)
 のマニュアルである。</p>
-<p><a class="reference external" href="https://github.com/hottahd/R2D2-manual/raw/master/_build/latex/r2d2.pdf">PDF版はこちら</a></p>
-<p>R2D2では、輻射磁気流体力学の方程式を中央差分と非線形の人工粘性を用いて高精度かつ安定に解く。R2D2では、太陽表面付近では現実的に輻射輸送を解き、太陽深部では微小擾乱を正確に解く手法を取ることで、太陽内部から表面までを一貫して解くことができる。</p>
+<p class="linemarker linemarker-12"><a class="reference external" href="https://github.com/hottahd/R2D2-manual/raw/master/_build/latex/r2d2.pdf">PDF版はこちら</a></p>
+<p class="linemarker linemarker-14">R2D2では、輻射磁気流体力学の方程式を中央差分と非線形の人工粘性を用いて高精度かつ安定に解く。R2D2では、太陽表面付近では現実的に輻射輸送を解き、太陽深部では微小擾乱を正確に解く手法を取ることで、太陽内部から表面までを一貫して解くことができる。</p>
 <a class="reference internal image-reference" href="_images/R2D2_logo_red.png"><img alt="_images/R2D2_logo_red.png" src="_images/R2D2_logo_red.png" style="width: 350px;" /></a>
 <div class="toctree-wrapper compound">
 <ul>
@@ -135,82 +133,93 @@
 </ul>
 </div>
 <section id="id1">
-<h2>ライセンス<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
-<p>R2D2は現状、公開ソフトウェアではなく再配布も禁じている。
-これは今後変更される可能性はあるが、開発者(堀田)の利益を守るためである。
+<h2>ライセンス<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+<p class="linemarker linemarker-41">R2D2は公開ソフトウェアではなく、再配布も禁じている。
 共同研究者のみが使って良いというルールになっており、R2D2の使用には、以下の規約を守る必要がある。</p>
 <ul class="simple">
-<li><p>再配布しない</p></li>
-<li><p>改変は許されるが、その時の実行結果について堀田は責任を持たない</p></li>
-<li><p>R2D2で実行する計算は、堀田と議論する必要がある。パラメタ変更などの細かい変更には相談する必要はないが、新しいプロジェクトを開始するときはその都度相談すること。堀田自身のプロジェクト、堀田の指導学生のプロジェクトとの重複を避けるためである。</p></li>
-<li><p>R2D2を用いた論文を出版するときは　<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019SciA....5.2307H/abstract">Hotta et al., 2019</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2020MNRAS.494.2523H/abstract">Hotta and Iijima, 2020</a>　を引用すること。</p></li>
-<li><p>R2D2を用いた研究を発表するときは、<a class="reference external" href="https://hottahd.github.io/R2D2-manual/_images/R2D2_logo_red.png">R2D2のロゴ</a> の使用が推奨される(強制ではない)。</p></li>
+<li><p class="linemarker linemarker-44">再配布しない</p></li>
+<li><p class="linemarker linemarker-45">改変は許されるが、その時の実行結果について堀田は責任を持たない</p></li>
+<li><p class="linemarker linemarker-46">R2D2で実行する計算は、堀田と議論する必要がある。パラメタ変更などの細かい変更には相談する必要はないが、新しいプロジェクトを開始するときはその都度相談すること。堀田自身のプロジェクト、堀田の指導学生のプロジェクトとの重複を避けるためである。</p></li>
+<li><p class="linemarker linemarker-47">R2D2を用いた論文を出版するときは <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019SciA....5.2307H/abstract">Hotta et al., 2019</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2020MNRAS.494.2523H/abstract">Hotta and Iijima, 2020</a> を引用すること。</p></li>
+<li><p class="linemarker linemarker-48">R2D2を用いた研究を発表するときは、<a class="reference external" href="https://hottahd.github.io/R2D2-manual/_images/R2D2_logo_red.png">R2D2のロゴ</a> の使用が推奨される(強制ではない)。</p></li>
 </ul>
-<p>改訂履歴</p>
+<p class="linemarker linemarker-50">改訂履歴</p>
 </section>
 <section id="id3">
-<h2>出版論文<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
-<p>R2D2を用いた研究で出版された論文は以下です。</p>
+<h2>出版論文<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
+<p class="linemarker linemarker-54">R2D2を用いた研究で出版された論文は以下です。</p>
 <ol class="arabic simple">
-<li><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019SciA....5.2307H/abstract">Hotta, Iijima, and Kusano, 2019, Science Advances, 5, eaau2307</a></p></li>
-<li><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019ApJ...886L..21T/abstract">Toriumi and Hotta, 2019, ApJ, 886, L21</a></p></li>
-<li><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2020MNRAS.494.2523H/abstract">Hotta and Iijima, 2020, MNRAS, 494, 2523</a></p></li>
-<li><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2020MNRAS.498.2925H/abstract">Hotta and Toriumi, 2020, MNRAS, 498, 2925</a></p></li>
-<li><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2021MNRAS.503.3610T/abstract">Takahata, Hotta, Iida, and Oba, MNRAS, 503, 3610</a></p></li>
-<li><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2021NatAs...5.1100H/abstract">Hotta and Kusano, 2021, Nature Astronomy, 5, 1100</a></p></li>
-<li><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2022ApJ...933..199H/abstract">Hotta, Kusano, and Shimada, 2022, ApJ, 933, 2</a></p></li>
+<li><p class="linemarker linemarker-56"><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019SciA....5.2307H/abstract">Hotta, Iijima, and Kusano, 2019, Science Advances, 5, eaau2307</a></p></li>
+<li><p class="linemarker linemarker-57"><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019ApJ...886L..21T/abstract">Toriumi and Hotta, 2019, ApJ, 886, L21</a></p></li>
+<li><p class="linemarker linemarker-58"><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2020MNRAS.494.2523H/abstract">Hotta and Iijima, 2020, MNRAS, 494, 2523</a></p></li>
+<li><p class="linemarker linemarker-59"><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2020MNRAS.498.2925H/abstract">Hotta and Toriumi, 2020, MNRAS, 498, 2925</a></p></li>
+<li><p class="linemarker linemarker-60"><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2021MNRAS.503.3610T/abstract">Takahata, Hotta, Iida, and Oba, MNRAS, 503, 3610</a></p></li>
+<li><p class="linemarker linemarker-61"><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2021NatAs...5.1100H/abstract">Hotta and Kusano, 2021, Nature Astronomy, 5, 1100</a></p></li>
+<li><p class="linemarker linemarker-62"><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2022ApJ...933..199H/abstract">Hotta, Kusano, and Shimada, 2022, ApJ, 933, 2</a></p></li>
+<li><p class="linemarker linemarker-63"><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2023MNRAS.519.3091M/abstract">Mori and Hotta, 2023, MNRAS, 519, 3091</a></p></li>
+<li><p class="linemarker linemarker-64"><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2022MNRAS.517.2775K/abstract">Kaneko, Hotta, Toriumi and Kusano, 2022, MNRAS, 517, 2775</a></p></li>
+<li><p class="linemarker linemarker-65"><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2023MNRAS.524.4746M/abstract">Mori and Hotta, 2023, MNRAS, 524, 4746</a></p></li>
+<li><p class="linemarker linemarker-66"><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2023NatSR..13.8994T/abstract">Toriumi, Hotta and Kusano, 2023, Scientific Report, 13, 8994</a></p></li>
+<li><p class="linemarker linemarker-67"><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2023PASJ..tmp...76M/abstract">Masaki, Hotta, Katsukawa and Ishikawa, 2023, PASJ,</a></p></li>
+<li><p class="linemarker linemarker-68"><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2023ApJ...948L..24S/abstract">Silva et al., 2023, ApJ, 948, L24</a></p></li>
 </ol>
 </section>
 <section id="id4">
-<h2>索引と検索ページ<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h2>
+<h2>賞<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">索引</span></a></p></li>
-<li><p><a class="reference internal" href="search.html"><span class="std std-ref">検索ページ</span></a></p></li>
+<li><p class="linemarker linemarker-72"><a class="reference external" href="https://www.hpci-c.jp/hrdevelop/award.html">HPCI ソフトウェア賞</a></p></li>
+</ul>
+</section>
+<section id="id5">
+<h2>索引と検索ページ<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p class="linemarker linemarker-77"><a class="reference internal" href="genindex.html"><span class="std std-ref">索引</span></a></p></li>
+<li><p class="linemarker linemarker-78"><a class="reference internal" href="search.html"><span class="std std-ref">検索ページ</span></a></p></li>
 </ul>
 </section>
 <section id="todo">
-<h2>TODOリスト<a class="headerlink" href="#todo" title="Permalink to this heading">¶</a></h2>
+<h2>TODOリスト<a class="headerlink" href="#todo" title="Link to this heading">¶</a></h2>
 <div class="admonition-todo admonition">
 <p class="admonition-title">課題</p>
-<p>人工粘性</p>
+<p class="linemarker linemarker-4">人工粘性</p>
 </div>
-<p class="todo-source">(<a class="reference internal" href="artdif.html#id2"><em>元のエントリ</em></a> は、 /Users/hotta/Dropbox/work/R2D2/R2D2-manual/artdif.rst の 4 行目です)</p>
+<p class="todo-source">(<a class="reference internal" href="artdif.html#id2"><em>元のエントリ</em></a> は、 /Users/hotta/Library/CloudStorage/Dropbox/work/R2D2/R2D2-manual/artdif.rst の 4 行目です)</p>
 <div class="admonition-todo admonition">
 <p class="admonition-title">課題</p>
-<p>コーディングルール</p>
+<p class="linemarker linemarker-6">コーディングルール</p>
 </div>
-<p class="todo-source">(<a class="reference internal" href="code.html#id3"><em>元のエントリ</em></a> は、 /Users/hotta/Dropbox/work/R2D2/R2D2-manual/code.rst の 6 行目です)</p>
+<p class="todo-source">(<a class="reference internal" href="code.html#id3"><em>元のエントリ</em></a> は、 /Users/hotta/Library/CloudStorage/Dropbox/work/R2D2/R2D2-manual/code.rst の 6 行目です)</p>
 <div class="admonition-todo admonition">
 <p class="admonition-title">課題</p>
-<p>コード構造</p>
+<p class="linemarker linemarker-10">コード構造</p>
 </div>
-<p class="todo-source">(<a class="reference internal" href="code.html#id5"><em>元のエントリ</em></a> は、 /Users/hotta/Dropbox/work/R2D2/R2D2-manual/code.rst の 10 行目です)</p>
+<p class="todo-source">(<a class="reference internal" href="code.html#id5"><em>元のエントリ</em></a> は、 /Users/hotta/Library/CloudStorage/Dropbox/work/R2D2/R2D2-manual/code.rst の 10 行目です)</p>
 <div class="admonition-todo admonition">
 <p class="admonition-title">課題</p>
-<p>輻射輸送の方程式</p>
+<p class="linemarker linemarker-4">パラメータ。どのグローバル変数がどのモジュールで定義されているかを整理する。</p>
 </div>
-<p class="todo-source">(<a class="reference internal" href="equation.html#id4"><em>元のエントリ</em></a> は、 /Users/hotta/Dropbox/work/R2D2/R2D2-manual/equation.rst の 43 行目です)</p>
+<p class="todo-source">(<a class="reference internal" href="parameter.html#id2"><em>元のエントリ</em></a> は、 /Users/hotta/Library/CloudStorage/Dropbox/work/R2D2/R2D2-manual/parameter.rst の 4 行目です)</p>
 <div class="admonition-todo admonition">
 <p class="admonition-title">課題</p>
-<p>パラメータ。どのグローバル変数がどのモジュールで定義されているかを整理する。</p>
+<p class="linemarker linemarker-23">数値スキーム(時間積分)</p>
 </div>
-<p class="todo-source">(<a class="reference internal" href="parameter.html#id2"><em>元のエントリ</em></a> は、 /Users/hotta/Dropbox/work/R2D2/R2D2-manual/parameter.rst の 4 行目です)</p>
+<p class="todo-source">(<a class="reference internal" href="scheme.html#id4"><em>元のエントリ</em></a> は、 /Users/hotta/Library/CloudStorage/Dropbox/work/R2D2/R2D2-manual/scheme.rst の 23 行目です)</p>
 <div class="admonition-todo admonition">
 <p class="admonition-title">課題</p>
-<p>数値スキーム(時間積分)</p>
+<p class="linemarker linemarker-28">数値スキーム(輻射輸送)</p>
 </div>
-<p class="todo-source">(<a class="reference internal" href="scheme.html#id4"><em>元のエントリ</em></a> は、 /Users/hotta/Dropbox/work/R2D2/R2D2-manual/scheme.rst の 23 行目です)</p>
+<p class="todo-source">(<a class="reference internal" href="scheme.html#id6"><em>元のエントリ</em></a> は、 /Users/hotta/Library/CloudStorage/Dropbox/work/R2D2/R2D2-manual/scheme.rst の 28 行目です)</p>
 <div class="admonition-todo admonition">
 <p class="admonition-title">課題</p>
-<p>数値スキーム(輻射輸送)</p>
+<p class="linemarker linemarker-331">全対流層計算の設定例</p>
 </div>
-<p class="todo-source">(<a class="reference internal" href="scheme.html#id6"><em>元のエントリ</em></a> は、 /Users/hotta/Dropbox/work/R2D2/R2D2-manual/scheme.rst の 28 行目です)</p>
+<p class="todo-source">(<a class="reference internal" href="typical_case.html#id10"><em>元のエントリ</em></a> は、 /Users/hotta/Library/CloudStorage/Dropbox/work/R2D2/R2D2-manual/typical_case.rst の 331 行目です)</p>
 <div class="admonition-todo admonition">
 <p class="admonition-title">課題</p>
-<p>全対流層計算の設定例</p>
+<p class="linemarker linemarker-43">輻射輸送の方程式</p>
 </div>
-<p class="todo-source">(<a class="reference internal" href="typical_case.html#id10"><em>元のエントリ</em></a> は、 /Users/hotta/Dropbox/work/R2D2/R2D2-manual/typical_case.rst の 331 行目です)</p>
-<p>最終更新日：2022年09月13日</p>
+<p class="todo-source">(<a class="reference internal" href="equation.html#id4"><em>元のエントリ</em></a> は、 /Users/hotta/Library/CloudStorage/Dropbox/work/R2D2/R2D2-manual/equation.rst の 43 行目です)</p>
+<p class="linemarker linemarker-85">最終更新日：2023年11月29日</p>
 </section>
 </section>
 
@@ -227,7 +236,8 @@
 <li><a class="reference internal" href="#">R2D2マニュアル</a><ul>
 <li><a class="reference internal" href="#id1">ライセンス</a></li>
 <li><a class="reference internal" href="#id3">出版論文</a></li>
-<li><a class="reference internal" href="#id4">索引と検索ページ</a></li>
+<li><a class="reference internal" href="#id4">賞</a></li>
+<li><a class="reference internal" href="#id5">索引と検索ページ</a></li>
 <li><a class="reference internal" href="#todo">TODOリスト</a></li>
 </ul>
 </li>
@@ -277,8 +287,8 @@
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2021, Hideyuki Hotta.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.0.2.
+    &#169; 著作権 2020-2023, Hideyuki Hotta.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
   </body>
 </html>

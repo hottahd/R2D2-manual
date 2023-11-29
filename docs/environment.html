@@ -2,21 +2,19 @@
 
 <!doctype html>
 
-<html lang="ja">
+<html lang="ja" data-content_root="./">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>R2D2を使うための環境設定 &#8212; R2D2 1.2 ドキュメント</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=649a27d8" />
+    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css?v=82e463d1" />
     
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/translations.js"></script>
+    <script src="_static/documentation_options.js?v=f83e867c"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/translations.js?v=4dbe4bdc"></script>
     <script src="_static/bizstyle.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
@@ -53,13 +51,13 @@
           <div class="body" role="main">
             
   <section id="r2d2">
-<h1>R2D2を使うための環境設定<a class="headerlink" href="#r2d2" title="Permalink to this heading">¶</a></h1>
+<h1>R2D2を使うための環境設定<a class="headerlink" href="#r2d2" title="Link to this heading">¶</a></h1>
 <p>R2D2コードを使って計算するだけならば任意のfortranコンパイラ, FFTW, MPIのみがあれば良い。
 Pythonコードを使って解析する場合は、いくつかのモジュールが必要なので、そのインストールの方法もここで説明する。</p>
 <section id="fortran">
-<h2>Fortranコードの環境設定<a class="headerlink" href="#fortran" title="Permalink to this heading">¶</a></h2>
+<h2>Fortranコードの環境設定<a class="headerlink" href="#fortran" title="Link to this heading">¶</a></h2>
 <section id="mac">
-<h3>Mac<a class="headerlink" href="#mac" title="Permalink to this heading">¶</a></h3>
+<h3>Mac<a class="headerlink" href="#mac" title="Link to this heading">¶</a></h3>
 <p>Homebrewを用いて、必要なコンパイラ・ライブラリをインストールすることを推奨している。
 コンパイラとFFTWのインクルードファイルとライブラリの位置だけ指定すれば良いので、
 任意の方法でインストールして構わない。Homebrew以外を用いる場合は、便宜make/Makefileを編集すること。</p>
@@ -81,7 +79,7 @@ Pythonコードを使って解析する場合は、いくつかのモジュー�
 </div>
 </section>
 <section id="linux-ubuntu-18-04">
-<h3>Linux (Ubuntu 18.04)<a class="headerlink" href="#linux-ubuntu-18-04" title="Permalink to this heading">¶</a></h3>
+<h3>Linux (Ubuntu 18.04)<a class="headerlink" href="#linux-ubuntu-18-04" title="Link to this heading">¶</a></h3>
 <p>ここでは、Ubuntu 18.04の場合のみを説明する。</p>
 <p>gfortranのインストール</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">gfortran</span>
@@ -98,7 +96,7 @@ Pythonコードを使って解析する場合は、いくつかのモジュー�
 </section>
 </section>
 <section id="python">
-<h2>Pythonコードの環境設定<a class="headerlink" href="#python" title="Permalink to this heading">¶</a></h2>
+<h2>Pythonコードの環境設定<a class="headerlink" href="#python" title="Link to this heading">¶</a></h2>
 <p>Anacondaをインストールし、以下に示すモジュール群をインストールする。
 MacとLinuxで共通する部分が多いのでまとめて説明を記す。</p>
 <p><a class="reference external" href="https://www.anaconda.com/">Anacondaのウェブサイト</a> から対応するインストーラーをダウンロードする。</p>
@@ -122,7 +120,7 @@ MacとLinuxで共通する部分が多いのでまとめて説明を記す。</p
 </li>
 </ul>
 <section id="ipython">
-<h3>ipythonの初期設定<a class="headerlink" href="#ipython" title="Permalink to this heading">¶</a></h3>
+<h3>ipythonの初期設定<a class="headerlink" href="#ipython" title="Link to this heading">¶</a></h3>
 <p>以下は必須ではないが、ipythonを使う時の初期設定ファイルである。
 <code class="code docutils literal notranslate"><span class="pre">~/.ipython/profile_default/startup/00_first.py</span></code>
 というファイルを作りそこに以下のように記す。</p>
@@ -147,30 +145,30 @@ MacとLinuxで共通する部分が多いのでまとめて説明を記す。</p
 <p>とするだけで、スクリプトを実行できるようになる。</p>
 </section>
 <section id="google">
-<h3>Googleスプレッドシート利用<a class="headerlink" href="#google" title="Permalink to this heading">¶</a></h3>
+<h3>Googleスプレッドシート利用<a class="headerlink" href="#google" title="Link to this heading">¶</a></h3>
 <p>計算設定などをGoogleスプレッドシートにまとめておくと便利である。
 R2D2では、Pythonから直接Googleスプレッドシートに送信する方法を提供しているので、利用したい方は検討されたい。</p>
 <p>手順については、 <a class="reference external" href="https://qiita.com/akabei/items/0eac37cb852ad476c6b9">こちら</a> を参考にしたが、少し手順が違うのでこのページでも解説する。</p>
 <p>まずは関連するモジュールのインストール。</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install gspread
-pip install oauth2client
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>gspread
+pip<span class="w"> </span>install<span class="w"> </span>oauth2client
 </pre></div>
 </div>
 <p>プロキシなどの影響でpipが使えない時は以下のようにする</p>
 <p>gspreadのインストール</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone git@github.com:burnash/gspread.git
-<span class="nb">cd</span> gspread
-ipython setup.py install
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:burnash/gspread.git
+<span class="nb">cd</span><span class="w"> </span>gspread
+ipython<span class="w"> </span>setup.py<span class="w"> </span>install
 </pre></div>
 </div>
 <p>oauth2clientのインストール</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone git@github.com:googleapis/oauth2client.git
-<span class="nb">cd</span> oauth2client
-ipython setup.py install
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:googleapis/oauth2client.git
+<span class="nb">cd</span><span class="w"> </span>oauth2client
+ipython<span class="w"> </span>setup.py<span class="w"> </span>install
 </pre></div>
 </div>
 <section id="id2">
-<h4>プロジェクト作成<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h4>
+<h4>プロジェクト作成<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h4>
 <p>ウェブブラウザで <a class="reference external" href="https://console.developers.google.com/cloud-resource-manager?pli=1">https://console.developers.google.com/cloud-resource-manager?pli=1</a> にアクセス。</p>
 <a class="reference internal image-reference" href="_images/gen_project1.png"><img alt="_images/gen_project1.png" src="_images/gen_project1.png" style="width: 350px;" /></a>
 <p>「プロジェクトを作成」として、プロジェクトを作成</p>
@@ -178,7 +176,7 @@ ipython setup.py install
 <p>プロジェクト名はR2D2, 場所は組織なしとする。</p>
 </section>
 <section id="api">
-<h4>API有効化<a class="headerlink" href="#api" title="Permalink to this heading">¶</a></h4>
+<h4>API有効化<a class="headerlink" href="#api" title="Link to this heading">¶</a></h4>
 <a class="reference internal image-reference" href="_images/google_drive1.png"><img alt="_images/google_drive1.png" src="_images/google_drive1.png" style="width: 400px;" /></a>
 <p>次に検索窓にGoogle Driveと打ち込んで、Google DriveのAPIを検索</p>
 <a class="reference internal image-reference" href="_images/google_drive2.png"><img alt="_images/google_drive2.png" src="_images/google_drive2.png" style="width: 400px;" /></a>
@@ -189,7 +187,7 @@ ipython setup.py install
 <p>Google Sheets APIを有効化</p>
 </section>
 <section id="id3">
-<h4>サービスアカウント作成<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h4>
+<h4>サービスアカウント作成<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h4>
 <a class="reference internal image-reference" href="_images/service_account1.png"><img alt="_images/service_account1.png" src="_images/service_account1.png" style="width: 400px;" /></a>
 <p>Google APIロゴ → 認証情報 → サービスアカウントとたどる。</p>
 <a class="reference internal image-reference" href="_images/service_account2.png"><img alt="_images/service_account2.png" src="_images/service_account2.png" style="width: 400px;" /></a>
@@ -201,7 +199,7 @@ ipython setup.py install
 ダウンロードしたファイルは、使用する計算機のホームディレクトリにjsonというディレクトリを作成し、その下に配置する。そのディレクトリには、このjsonファイル以外には何も置かないこと。</p>
 </section>
 <section id="id4">
-<h4>スプレッドシート作成<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h4>
+<h4>スプレッドシート作成<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h4>
 <p>以下のウェブサイトからGoogleスプレッドシートを作成
 <a class="reference external" href="https://docs.google.com/spreadsheets/create">https://docs.google.com/spreadsheets/create</a></p>
 <p>名前はプロジェクト名とする。R2D2では、pyディレクトリの上のディレクトリ名を読みそれをスプレッドシートの名前として情報を送るので、ディレクトリと同じ名前にする。</p>
@@ -213,9 +211,9 @@ ipython setup.py install
 </section>
 </section>
 <section id="idl">
-<h2>IDLコードの環境設定<a class="headerlink" href="#idl" title="Permalink to this heading">¶</a></h2>
+<h2>IDLコードの環境設定<a class="headerlink" href="#idl" title="Link to this heading">¶</a></h2>
 <p>システムにIDLをインストールすれば、それのみで使える。ここでは説明しない。</p>
-<p>最終更新日：2022年09月13日</p>
+<p>最終更新日：2023年11月29日</p>
 </section>
 </section>
 
@@ -303,8 +301,8 @@ ipython setup.py install
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2021, Hideyuki Hotta.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.0.2.
+    &#169; 著作権 2020-2023, Hideyuki Hotta.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
   </body>
 </html>

@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'R2D2'
-copyright = '2021, Hideyuki Hotta'
+copyright = '2020-2023, Hideyuki Hotta'
 author = 'Hideyuki Hotta'
 
 # The full version, including alpha/beta/rc tags
@@ -67,7 +67,7 @@ todo_include_todos = True
 extensions += ['sphinx.ext.imgmath']
 imgmath_image_format = 'svg'
 pngmath_latex='platex'
-imgmath_font_size = 14 # 数式のフォントサイズ
+imgmath_font_size = 12 # 数式のフォントサイズ
 imgmath_latex_preamble = r'\usepackage{color}'
 
 latex_elements = { \

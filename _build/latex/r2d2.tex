@@ -10,6 +10,9 @@
 %% let collapsible pdf bookmarks panel have high depth per default
 \PassOptionsToPackage{bookmarksdepth=5}{hyperref}
 
+\PassOptionsToPackage{booktabs}{sphinx}
+\PassOptionsToPackage{colorrows}{sphinx}
+
 \PassOptionsToPackage{warn}{textcomp}
 
 
@@ -48,7 +51,7 @@
 
 
 \title{R2D2}
-\date{2022年09月13日}
+\date{2023年11月29日}
 \release{1.2}
 \author{Hideyuki Hotta}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -185,7 +188,7 @@ R2D2/
 make/Makefile生成のためのpythonスクリプト。fortranコードの依存性を調べて、make/R2D2.depsに出力する。新しいプログラムを作成したときは
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-python F90\PYGZus{}deps.py
+python\PYG{+w}{ }F90\PYGZus{}deps.py
 \end{sphinxVerbatim}
 
 \sphinxAtStartPar
@@ -477,7 +480,7 @@ make
 このディレクトリを書く実行のディレクトリの配下におき、実行すると続きの計算が始まる。
 
 \sphinxAtStartPar
-最終更新日：2022年09月13日
+最終更新日：2023年11月29日
 
 \sphinxstepscope
 
@@ -637,8 +640,8 @@ R2D2では、Pythonから直接Googleスプレッドシートに送信する方�
 まずは関連するモジュールのインストール。
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-pip install gspread
-pip install oauth2client
+pip\PYG{+w}{ }install\PYG{+w}{ }gspread
+pip\PYG{+w}{ }install\PYG{+w}{ }oauth2client
 \end{sphinxVerbatim}
 
 \sphinxAtStartPar
@@ -648,18 +651,18 @@ pip install oauth2client
 gspreadのインストール
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-git clone git@github.com:burnash/gspread.git
-\PYG{n+nb}{cd} gspread
-ipython setup.py install
+git\PYG{+w}{ }clone\PYG{+w}{ }git@github.com:burnash/gspread.git
+\PYG{n+nb}{cd}\PYG{+w}{ }gspread
+ipython\PYG{+w}{ }setup.py\PYG{+w}{ }install
 \end{sphinxVerbatim}
 
 \sphinxAtStartPar
 oauth2clientのインストール
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-git clone git@github.com:googleapis/oauth2client.git
-\PYG{n+nb}{cd} oauth2client
-ipython setup.py install
+git\PYG{+w}{ }clone\PYG{+w}{ }git@github.com:googleapis/oauth2client.git
+\PYG{n+nb}{cd}\PYG{+w}{ }oauth2client
+ipython\PYG{+w}{ }setup.py\PYG{+w}{ }install
 \end{sphinxVerbatim}
 
 
@@ -752,7 +755,7 @@ Google APIロゴ \(\rightarrow\) 認証情報 \(\rightarrow\) サービスアカ
 システムにIDLをインストールすれば、それのみで使える。ここでは説明しない。
 
 \sphinxAtStartPar
-最終更新日：2022年09月13日
+最終更新日：2023年11月29日
 
 \sphinxstepscope
 
@@ -1189,9 +1192,9 @@ Makefileのオプション
 \begin{quote}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{n+nf}{PPC}\PYG{o}{:} = \PYGZhy{}\PYG{n}{Ddeep} \PYG{c}{\PYGZsh{} 深い層のみ}
-\PYG{n+nf}{PPC}\PYG{o}{:} = \PYGZhy{}\PYG{n}{Done\PYGZus{}ray} \PYG{c}{\PYGZsh{} ここでは輻射輸送は解かないがone\PYGZus{}rayとしておくことでメモリ節約}
-\PYG{n+nf}{PPC}\PYG{o}{:} = \PYGZhy{}\PYG{n}{Dremap\PYGZus{}}2\PYG{n}{d\PYGZus{}assign} \PYG{c}{\PYGZsh{} remapで2次元的に出力する}
+\PYG{n+nf}{PPC}\PYG{o}{:}\PYG{+w}{ }= \PYGZhy{}\PYG{n}{Ddeep} \PYG{c}{\PYGZsh{} 深い層のみ}
+\PYG{n+nf}{PPC}\PYG{o}{:}\PYG{+w}{ }= \PYGZhy{}\PYG{n}{Done\PYGZus{}ray} \PYG{c}{\PYGZsh{} ここでは輻射輸送は解かないがone\PYGZus{}rayとしておくことでメモリ節約}
+\PYG{n+nf}{PPC}\PYG{o}{:}\PYG{+w}{ }= \PYGZhy{}\PYG{n}{Dremap\PYGZus{}}2\PYG{n}{d\PYGZus{}assign} \PYG{c}{\PYGZsh{} remapで2次元的に出力する}
 \end{sphinxVerbatim}
 \end{quote}
 
@@ -1265,7 +1268,7 @@ Yin\sphinxhyphen{}Yang gridを使うために \sphinxcode{\sphinxupquote{ny0*jx0
 \subsection{磁束管浮上}
 \label{\detokenize{typical_case:id14}}
 \sphinxAtStartPar
-最終更新日：2022年09月13日
+最終更新日：2023年11月29日
 
 \sphinxstepscope
 
@@ -1273,13 +1276,13 @@ Yin\sphinxhyphen{}Yang gridを使うために \sphinxcode{\sphinxupquote{ny0*jx0
 \chapter{方程式}
 \label{\detokenize{equation:id1}}\label{\detokenize{equation::doc}}
 \sphinxAtStartPar
-R2D2で解く方程式は以下である。現状では、デカルト座標 \((x,y,z)\)  のみを提供している。数値計算コードの中では、\(x\) を重力方向(鉛直方向)に取っているが、論文を書く際は各自適切に判断されたい。
+R2D2で解く方程式は以下である。現状では、デカルト座標 \((x,y,z)\)  と球座標 \((r,\theta,\phi)\) を提供している。球座標を使う場合は、Yin\sphinxhyphen{}Yang格子を用いることもできる。数値計算コードの中では、\(x\) を重力方向(鉛直方向、動径方向)に取っているが、論文を書く際は各自適切に判断されたい。
 
 
 \section{磁気流体力学}
 \label{\detokenize{equation:id2}}
 \sphinxAtStartPar
-磁気流体力学の方程式は以下を解いている。
+R2D2で解いている磁気流体力学の方程式は以下である。
 \begin{equation*}
 \begin{split}\frac{\partial \rho_1}{\partial t} &= - \frac{1}{\xi^2}\nabla\cdot
 \left(\rho \boldsymbol{v}\right) \\
@@ -1307,7 +1310,7 @@ s &= s_0 + s_1 \\
 T &= T_0 + T_1 \\\end{split}
 \end{equation*}
 \sphinxAtStartPar
-太陽内部では、\(\rho_1 << \rho_0\) などが成り立っているが、太陽表面では熱対流による擾乱と背景場は同程度となるので、R2D2の中では \(\rho_1 << \rho_0\) などは仮定しない。0次の量はModel Sを参考にして計算をしている。詳細は出版予定の論文Hotta \& Iijima, in prep (2020?)を参照されたい。
+太陽内部では、\(\rho_1 << \rho_0\) などが成り立っているが、太陽表面では熱対流による擾乱と背景場は同程度となるので、R2D2の中では \(\rho_1 << \rho_0\) などは仮定しない。0次の量はModel Sを参考にして計算をしている。\sphinxhref{https://ui.adsabs.harvard.edu/abs/2020MNRAS.494.2523H/abstract}{Hotta \& Iijima2020} や \sphinxhref{https://ui.adsabs.harvard.edu/abs/2022ApJ...933..199H/abstract}{Hotta, Kusano and Shimada, 2022} を参照されたい。
 
 
 \section{輻射輸送}
@@ -1318,7 +1321,7 @@ T &= T_0 + T_1 \\\end{split}
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
-最終更新日：2022年09月13日
+最終更新日：2023年11月29日
 
 \sphinxstepscope
 
@@ -1342,7 +1345,7 @@ T &= T_0 + T_1 \\\end{split}
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
-最終更新日：2022年09月13日
+最終更新日：2023年11月29日
 
 \sphinxstepscope
 
@@ -1383,7 +1386,7 @@ R2D2では、
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
-最終更新日：2022年09月13日
+最終更新日：2023年11月29日
 
 \sphinxstepscope
 
@@ -1396,7 +1399,7 @@ R2D2では、
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
-最終更新日：2022年09月13日
+最終更新日：2023年11月29日
 
 \sphinxstepscope
 
@@ -1510,7 +1513,7 @@ fortranのコードの中では
 \begin{split}\delta x = \frac{2\left(x_\mathrm{tran} - n_x\Delta x_0\right)}{\left(n_x - 4\right)n_x}\end{split}
 \end{equation*}
 \sphinxAtStartPar
-最終更新日：2022年09月13日
+最終更新日：2023年11月29日
 
 \sphinxstepscope
 
@@ -1577,7 +1580,7 @@ fortranのコードの中では
 反対称な境界条件を用いて擾乱をゼロにする。これは元々のModel Sでの量を上昇流のエントロピーに用いるということである。
 
 \sphinxAtStartPar
-最終更新日：2022年09月13日
+最終更新日：2023年11月29日
 
 \sphinxstepscope
 
@@ -1590,7 +1593,7 @@ fortranのコードの中では
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
-最終更新日：2022年09月13日
+最終更新日：2023年11月29日
 
 \sphinxstepscope
 
@@ -1635,7 +1638,7 @@ R2D2では、スライスデータも高いケーデンスで出力できるよ�
 
 
 \subsection{Pythonコード}
-\label{\detokenize{io:module-R2D2}}\label{\detokenize{io:python}}\index{モジュール@\spxentry{モジュール}!R2D2@\spxentry{R2D2}}\index{R2D2@\spxentry{R2D2}!モジュール@\spxentry{モジュール}}
+\label{\detokenize{io:module-R2D2}}\label{\detokenize{io:python}}\index{module@\spxentry{module}!R2D2@\spxentry{R2D2}}\index{R2D2@\spxentry{R2D2}!module@\spxentry{module}}
 \sphinxAtStartPar
 PythonでR2D2で定義された関数を使うには
 
@@ -1664,7 +1667,7 @@ PythonでR2D2で定義された関数を使うには
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{io:R2D2.R2D2_data}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w}{  }}}\sphinxcode{\sphinxupquote{R2D2.}}\sphinxbfcode{\sphinxupquote{R2D2\_data}}}{\emph{\DUrole{n}{datadir}}}{}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w}{ }}}\sphinxcode{\sphinxupquote{R2D2.}}\sphinxbfcode{\sphinxupquote{R2D2\_data}}}{\sphinxparam{\DUrole{n}{datadir}}}{}
 \pysigstopsignatures
 \end{fulllineitems}
 
@@ -1808,7 +1811,7 @@ Fortranの計算の中で解析した結果。 {\hyperref[\detokenize{io:R2D2.R2
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{io:R2D2.R2D2_data.__init__}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{\_\_init\_\_}}}{\emph{\DUrole{n}{datadir}}}{}
+\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{\_\_init\_\_}}}{\sphinxparam{\DUrole{n}{datadir}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
 インスタンス生成時に実行されるメソッド。計算設定などのパラメタが読み込まれる。 {\hyperref[\detokenize{io:R2D2.R2D2_data.p}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{R2D2\_data.p}}}}} にデータが保存される。
@@ -1826,7 +1829,7 @@ Fortranの計算の中で解析した結果。 {\hyperref[\detokenize{io:R2D2.R2
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{io:R2D2.R2D2_data.read_qq_select}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{read\_qq\_select}}}{\emph{\DUrole{n}{xs}}, \emph{\DUrole{n}{n}}, \emph{\DUrole{n}{silent}\DUrole{o}{=}\DUrole{default_value}{False}}}{}
+\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{read\_qq\_select}}}{\sphinxparam{\DUrole{n}{xs}}\sphinxparamcomma \sphinxparam{\DUrole{n}{n}}\sphinxparamcomma \sphinxparam{\DUrole{n}{silent}\DUrole{o}{=}\DUrole{default_value}{False}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
 ある高さのデータのスライスを読み込む。戻り値を返さない時も {\hyperref[\detokenize{io:R2D2.R2D2_data.qs}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{R2D2\_data.qs}}}}} にデータが保存される。
@@ -1855,7 +1858,7 @@ Fortranの計算の中で解析した結果。 {\hyperref[\detokenize{io:R2D2.R2
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{io:R2D2.R2D2_data.read_qq}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{read\_qq}}}{\emph{\DUrole{n}{n}}, \emph{\DUrole{n}{silent}\DUrole{o}{=}\DUrole{default_value}{False}}}{}
+\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{read\_qq}}}{\sphinxparam{\DUrole{n}{n}}\sphinxparamcomma \sphinxparam{\DUrole{n}{silent}\DUrole{o}{=}\DUrole{default_value}{False}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
 3次元のデータを読み込む。戻り値を返さない時も {\hyperref[\detokenize{io:R2D2.R2D2_data.qq}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{R2D2\_data.qq}}}}} にデータが保存される。
@@ -1880,7 +1883,7 @@ Fortranの計算の中で解析した結果。 {\hyperref[\detokenize{io:R2D2.R2
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{io:R2D2.R2D2_data.read_qq_tau}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{read\_qq\_tau}}}{\emph{\DUrole{n}{n}}, \emph{\DUrole{n}{silent}\DUrole{o}{=}\DUrole{default_value}{False}}}{}
+\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{read\_qq\_tau}}}{\sphinxparam{\DUrole{n}{n}}\sphinxparamcomma \sphinxparam{\DUrole{n}{silent}\DUrole{o}{=}\DUrole{default_value}{False}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
 光学的厚さが一定の2次元のデータを読み込む。{\hyperref[\detokenize{io:R2D2.R2D2_data.qt}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{R2D2\_data.qt}}}}} にデータが保存される。
@@ -1905,7 +1908,7 @@ Fortranの計算の中で解析した結果。 {\hyperref[\detokenize{io:R2D2.R2
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{io:R2D2.R2D2_data.read_time}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{read\_time}}}{\emph{\DUrole{n}{n}}, \emph{\DUrole{n}{tau}\DUrole{o}{=}\DUrole{default_value}{False}}, \emph{\DUrole{n}{silent}\DUrole{o}{=}\DUrole{default_value}{False}}}{}
+\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{read\_time}}}{\sphinxparam{\DUrole{n}{n}}\sphinxparamcomma \sphinxparam{\DUrole{n}{tau}\DUrole{o}{=}\DUrole{default_value}{False}}\sphinxparamcomma \sphinxparam{\DUrole{n}{silent}\DUrole{o}{=}\DUrole{default_value}{False}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
 時間を読み込む。 \sphinxcode{\sphinxupquote{R2D2.t}} にもデータは格納されるが戻り値としても使うことができる。
@@ -1938,7 +1941,7 @@ Fortranの計算の中で解析した結果。 {\hyperref[\detokenize{io:R2D2.R2
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{io:R2D2.R2D2_data.read_vc}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{read\_vc}}}{\emph{\DUrole{n}{n}}, \emph{\DUrole{n}{silent}\DUrole{o}{=}\DUrole{default_value}{False}}}{}
+\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{read\_vc}}}{\sphinxparam{\DUrole{n}{n}}\sphinxparamcomma \sphinxparam{\DUrole{n}{silent}\DUrole{o}{=}\DUrole{default_value}{False}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
 Fortranコードの中で解析した計算結果を読み込む。戻り値を返さない時も {\hyperref[\detokenize{io:R2D2.R2D2_data.vc}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{R2D2\_data.vc}}}}} にデータが保存される。
@@ -1963,7 +1966,7 @@ Fortranコードの中で解析した計算結果を読み込む。戻り値を�
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{io:R2D2.R2D2_data.read_qq_check}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{read\_qq\_check}}}{\emph{\DUrole{n}{n}}, \emph{\DUrole{n}{silent}\DUrole{o}{=}\DUrole{default_value}{False}}, \emph{\DUrole{n}{end\_step}\DUrole{o}{=}\DUrole{default_value}{False}}}{}
+\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{read\_qq\_check}}}{\sphinxparam{\DUrole{n}{n}}\sphinxparamcomma \sphinxparam{\DUrole{n}{silent}\DUrole{o}{=}\DUrole{default_value}{False}}\sphinxparamcomma \sphinxparam{\DUrole{n}{end\_step}\DUrole{o}{=}\DUrole{default_value}{False}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
 チェックポイントのための3次元データを読み込む。主に解像度をあげるときに使う。 {\hyperref[\detokenize{io:R2D2.R2D2_data.qc}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{R2D2\_data.qc}}}}} にデータが保存される。
@@ -1992,7 +1995,7 @@ Fortranコードの中で解析した計算結果を読み込む。戻り値を�
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{io:R2D2.R2D2_data.read_qq_slice}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{read\_qq\_slice}}}{\emph{\DUrole{n}{n}}, \emph{\DUrole{n}{n\_slice}}, \emph{\DUrole{n}{direc}}, \emph{\DUrole{n}{silent}\DUrole{o}{=}\DUrole{default_value}{False}}}{}
+\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{read\_qq\_slice}}}{\sphinxparam{\DUrole{n}{n}}\sphinxparamcomma \sphinxparam{\DUrole{n}{n\_slice}}\sphinxparamcomma \sphinxparam{\DUrole{n}{direc}}\sphinxparamcomma \sphinxparam{\DUrole{n}{silent}\DUrole{o}{=}\DUrole{default_value}{False}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
 \sphinxcode{\sphinxupquote{slice\_def.F90}} で指定したスライスデータを読み込む。{\hyperref[\detokenize{io:R2D2.R2D2_data.ql}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{R2D2\_data.ql}}}}} にデータが保存される。
@@ -2031,7 +2034,7 @@ Fortranコードの中で解析した計算結果を読み込む。戻り値を�
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{io:R2D2.R2D2.sync.set}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2.sync.}}\sphinxbfcode{\sphinxupquote{set}}}{\emph{\DUrole{n}{server}}, \emph{\DUrole{n}{caseid}}, \emph{\DUrole{n}{project}\DUrole{o}{=}\DUrole{default_value}{os.getcwd().split(\textquotesingle{}/\textquotesingle{}){[}\sphinxhyphen{} 2{]}}}, \emph{\DUrole{n}{dist}\DUrole{o}{=}\DUrole{default_value}{\textquotesingle{}../run/\textquotesingle{}}}}{}
+\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2.sync.}}\sphinxbfcode{\sphinxupquote{set}}}{\sphinxparam{\DUrole{n}{server}}\sphinxparamcomma \sphinxparam{\DUrole{n}{caseid}}\sphinxparamcomma \sphinxparam{\DUrole{n}{project}\DUrole{o}{=}\DUrole{default_value}{os.getcwd().split(\textquotesingle{}/\textquotesingle{}){[}\sphinxhyphen{}2{]}}}\sphinxparamcomma \sphinxparam{\DUrole{n}{dist}\DUrole{o}{=}\DUrole{default_value}{\textquotesingle{}../run/\textquotesingle{}}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
 設定のみをダウンロードするメソッド。ひとまずGoogleスプレッドシートに書き込みたい時などに有用。
@@ -2064,7 +2067,7 @@ Fortranコードの中で解析した計算結果を読み込む。戻り値を�
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{io:R2D2.R2D2_data.sync_tau}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{sync\_tau}}}{\emph{\DUrole{n}{server}}, \emph{\DUrole{n}{project}\DUrole{o}{=}\DUrole{default_value}{os.getcwd().split(\textquotesingle{}/\textquotesingle{}){[}\sphinxhyphen{} 2{]}}}}{}
+\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{sync\_tau}}}{\sphinxparam{\DUrole{n}{server}}\sphinxparamcomma \sphinxparam{\DUrole{n}{project}\DUrole{o}{=}\DUrole{default_value}{os.getcwd().split(\textquotesingle{}/\textquotesingle{}){[}\sphinxhyphen{}2{]}}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
 光学的厚さ一定の面上でのデータをダウンロードするメソッド。
@@ -2089,7 +2092,7 @@ Fortranコードの中で解析した計算結果を読み込む。戻り値を�
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{io:R2D2.R2D2_data.sync_select}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{sync\_select}}}{\emph{\DUrole{n}{xs}}, \emph{\DUrole{n}{server}}, \emph{\DUrole{n}{project}\DUrole{o}{=}\DUrole{default_value}{os.getcwd().split(\textquotesingle{}/\textquotesingle{}){[}\sphinxhyphen{} 2{]}}}}{}
+\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{sync\_select}}}{\sphinxparam{\DUrole{n}{xs}}\sphinxparamcomma \sphinxparam{\DUrole{n}{server}}\sphinxparamcomma \sphinxparam{\DUrole{n}{project}\DUrole{o}{=}\DUrole{default_value}{os.getcwd().split(\textquotesingle{}/\textquotesingle{}){[}\sphinxhyphen{}2{]}}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
 ２次元データをダウンロードするメソッド
@@ -2118,7 +2121,7 @@ Fortranコードの中で解析した計算結果を読み込む。戻り値を�
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{io:R2D2.R2D2_data.sync_vc}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{sync\_vc}}}{\emph{\DUrole{n}{server}}, \emph{\DUrole{n}{project}\DUrole{o}{=}\DUrole{default_value}{os.getcwd().split(\textquotesingle{}/\textquotesingle{}){[}\sphinxhyphen{} 2{]}}}}{}
+\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{sync\_vc}}}{\sphinxparam{\DUrole{n}{server}}\sphinxparamcomma \sphinxparam{\DUrole{n}{project}\DUrole{o}{=}\DUrole{default_value}{os.getcwd().split(\textquotesingle{}/\textquotesingle{}){[}\sphinxhyphen{}2{]}}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
 計算実行中に解析した物理量をダウンロードするメソッド
@@ -2143,7 +2146,7 @@ Fortranコードの中で解析した計算結果を読み込む。戻り値を�
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{io:R2D2.R2D2_data.sync_check}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{sync\_check}}}{\emph{\DUrole{n}{n}}, \emph{\DUrole{n}{server}}, \emph{\DUrole{n}{project}\DUrole{o}{=}\DUrole{default_value}{os.getcwd().split(\textquotesingle{}/\textquotesingle{}){[}\sphinxhyphen{} 2{]}}}, \emph{\DUrole{n}{end\_step}\DUrole{o}{=}\DUrole{default_value}{False}}}{}
+\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{sync\_check}}}{\sphinxparam{\DUrole{n}{n}}\sphinxparamcomma \sphinxparam{\DUrole{n}{server}}\sphinxparamcomma \sphinxparam{\DUrole{n}{project}\DUrole{o}{=}\DUrole{default_value}{os.getcwd().split(\textquotesingle{}/\textquotesingle{}){[}\sphinxhyphen{}2{]}}}\sphinxparamcomma \sphinxparam{\DUrole{n}{end\_step}\DUrole{o}{=}\DUrole{default_value}{False}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
 チェックポイントデータをダウンロードするメソッド
@@ -2199,7 +2202,7 @@ pythonでの解像度変換には {\hyperref[\detokenize{io:R2D2.R2D2_data.upgra
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{io:R2D2.R2D2_data.upgrade_resolution}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{upgrade\_resolution}}}{\emph{\DUrole{n}{caseid}}, \emph{\DUrole{n}{n}}, \emph{\DUrole{n}{xmin}}, \emph{\DUrole{n}{xmax}}, \emph{\DUrole{n}{ymin}}, \emph{\DUrole{n}{ymax}}, \emph{\DUrole{n}{zmin}}, \emph{\DUrole{n}{zmax}}, \emph{\DUrole{n}{ix}}, \emph{\DUrole{n}{jx}}, \emph{\DUrole{n}{kx}}, \emph{\DUrole{n}{ix\_ununi}\DUrole{o}{=}\DUrole{default_value}{32}}, \emph{\DUrole{n}{dx00}\DUrole{o}{=}\DUrole{default_value}{48e5}}, \emph{\DUrole{n}{x\_ununif}\DUrole{o}{=}\DUrole{default_value}{False}}, \emph{\DUrole{n}{endian}\DUrole{o}{=}\DUrole{default_value}{\textquotesingle{}\textless{}\textquotesingle{}}}, \emph{\DUrole{n}{end\_step}\DUrole{o}{=}\DUrole{default_value}{False}}, \emph{\DUrole{n}{memory\_saving}\DUrole{o}{=}\DUrole{default_value}{False}}}{}
+\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2\_data.}}\sphinxbfcode{\sphinxupquote{upgrade\_resolution}}}{\sphinxparam{\DUrole{n}{caseid}}\sphinxparamcomma \sphinxparam{\DUrole{n}{n}}\sphinxparamcomma \sphinxparam{\DUrole{n}{xmin}}\sphinxparamcomma \sphinxparam{\DUrole{n}{xmax}}\sphinxparamcomma \sphinxparam{\DUrole{n}{ymin}}\sphinxparamcomma \sphinxparam{\DUrole{n}{ymax}}\sphinxparamcomma \sphinxparam{\DUrole{n}{zmin}}\sphinxparamcomma \sphinxparam{\DUrole{n}{zmax}}\sphinxparamcomma \sphinxparam{\DUrole{n}{ix}}\sphinxparamcomma \sphinxparam{\DUrole{n}{jx}}\sphinxparamcomma \sphinxparam{\DUrole{n}{kx}}\sphinxparamcomma \sphinxparam{\DUrole{n}{ix\_ununi}\DUrole{o}{=}\DUrole{default_value}{32}}\sphinxparamcomma \sphinxparam{\DUrole{n}{dx00}\DUrole{o}{=}\DUrole{default_value}{48e5}}\sphinxparamcomma \sphinxparam{\DUrole{n}{x\_ununif}\DUrole{o}{=}\DUrole{default_value}{False}}\sphinxparamcomma \sphinxparam{\DUrole{n}{endian}\DUrole{o}{=}\DUrole{default_value}{\textquotesingle{}\textless{}\textquotesingle{}}}\sphinxparamcomma \sphinxparam{\DUrole{n}{end\_step}\DUrole{o}{=}\DUrole{default_value}{False}}\sphinxparamcomma \sphinxparam{\DUrole{n}{memory\_saving}\DUrole{o}{=}\DUrole{default_value}{False}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
 データの解像度や計算領域を変更するためのメソッド
@@ -2323,7 +2326,7 @@ ver. 1.2: データ構造を変更。
 \end{itemize}
 
 \sphinxAtStartPar
-最終更新日：2022年09月13日
+最終更新日：2023年11月29日
 
 \sphinxstepscope
 
@@ -2353,12 +2356,12 @@ ver. 1.2: データ構造を変更。
 
 \sphinxAtStartPar
 それぞれのデータのためにR2D2 Pythonでは以下の関数が用意してある。
-\index{組み込み関数@\spxentry{組み込み関数}!R2D2.vtk.write\_3D()@\spxentry{R2D2.vtk.write\_3D()}}\index{R2D2.vtk.write\_3D()@\spxentry{R2D2.vtk.write\_3D()}!組み込み関数@\spxentry{組み込み関数}}
+\index{built\sphinxhyphen{}in function@\spxentry{built\sphinxhyphen{}in function}!R2D2.vtk.write\_3D()@\spxentry{R2D2.vtk.write\_3D()}}\index{R2D2.vtk.write\_3D()@\spxentry{R2D2.vtk.write\_3D()}!built\sphinxhyphen{}in function@\spxentry{built\sphinxhyphen{}in function}}
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{paraview:R2D2.vtk.write_3D}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2.vtk.}}\sphinxbfcode{\sphinxupquote{write\_3D}}}{\emph{\DUrole{n}{qq}}, \emph{\DUrole{n}{x}}, \emph{\DUrole{n}{y}}, \emph{\DUrole{n}{z}}, \emph{\DUrole{n}{file}}, \emph{\DUrole{n}{name}}}{}
+\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2.vtk.}}\sphinxbfcode{\sphinxupquote{write\_3D}}}{\sphinxparam{\DUrole{n}{qq}}\sphinxparamcomma \sphinxparam{\DUrole{n}{x}}\sphinxparamcomma \sphinxparam{\DUrole{n}{y}}\sphinxparamcomma \sphinxparam{\DUrole{n}{z}}\sphinxparamcomma \sphinxparam{\DUrole{n}{file}}\sphinxparamcomma \sphinxparam{\DUrole{n}{name}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
 3次元のスカラー量をVTKフォーマットで出力するための関数
@@ -2394,12 +2397,12 @@ ver. 1.2: データ構造を変更。
 
 \end{fulllineitems}
 
-\index{組み込み関数@\spxentry{組み込み関数}!R2D2.vtk.write\_vtk.write\_3D\_vector()@\spxentry{R2D2.vtk.write\_vtk.write\_3D\_vector()}}\index{R2D2.vtk.write\_vtk.write\_3D\_vector()@\spxentry{R2D2.vtk.write\_vtk.write\_3D\_vector()}!組み込み関数@\spxentry{組み込み関数}}
+\index{built\sphinxhyphen{}in function@\spxentry{built\sphinxhyphen{}in function}!R2D2.vtk.write\_vtk.write\_3D\_vector()@\spxentry{R2D2.vtk.write\_vtk.write\_3D\_vector()}}\index{R2D2.vtk.write\_vtk.write\_3D\_vector()@\spxentry{R2D2.vtk.write\_vtk.write\_3D\_vector()}!built\sphinxhyphen{}in function@\spxentry{built\sphinxhyphen{}in function}}
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{paraview:R2D2.vtk.write_vtk.write_3D_vector}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2.vtk.write\_vtk.}}\sphinxbfcode{\sphinxupquote{write\_3D\_vector}}}{\emph{\DUrole{n}{qx}}, \emph{\DUrole{n}{qy}}, \emph{\DUrole{n}{qz}}, \emph{\DUrole{n}{x}}, \emph{\DUrole{n}{y}}, \emph{\DUrole{n}{z}}, \emph{\DUrole{n}{file}}, \emph{\DUrole{n}{name}}}{}
+\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2.vtk.write\_vtk.}}\sphinxbfcode{\sphinxupquote{write\_3D\_vector}}}{\sphinxparam{\DUrole{n}{qx}}\sphinxparamcomma \sphinxparam{\DUrole{n}{qy}}\sphinxparamcomma \sphinxparam{\DUrole{n}{qz}}\sphinxparamcomma \sphinxparam{\DUrole{n}{x}}\sphinxparamcomma \sphinxparam{\DUrole{n}{y}}\sphinxparamcomma \sphinxparam{\DUrole{n}{z}}\sphinxparamcomma \sphinxparam{\DUrole{n}{file}}\sphinxparamcomma \sphinxparam{\DUrole{n}{name}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
 ３次元のベクトル量をVTKフォーマットで出力するための関数
@@ -2443,12 +2446,12 @@ ver. 1.2: データ構造を変更。
 
 \end{fulllineitems}
 
-\index{組み込み関数@\spxentry{組み込み関数}!R2D2.vtk.write\_optical\_surface()@\spxentry{R2D2.vtk.write\_optical\_surface()}}\index{R2D2.vtk.write\_optical\_surface()@\spxentry{R2D2.vtk.write\_optical\_surface()}!組み込み関数@\spxentry{組み込み関数}}
+\index{built\sphinxhyphen{}in function@\spxentry{built\sphinxhyphen{}in function}!R2D2.vtk.write\_optical\_surface()@\spxentry{R2D2.vtk.write\_optical\_surface()}}\index{R2D2.vtk.write\_optical\_surface()@\spxentry{R2D2.vtk.write\_optical\_surface()}!built\sphinxhyphen{}in function@\spxentry{built\sphinxhyphen{}in function}}
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{paraview:R2D2.vtk.write_optical_surface}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2.vtk.}}\sphinxbfcode{\sphinxupquote{write\_optical\_surface}}}{\emph{\DUrole{n}{qq}}, \emph{\DUrole{n}{height}}, \emph{\DUrole{n}{y}}, \emph{\DUrole{n}{z}}, \emph{\DUrole{n}{file}}, \emph{\DUrole{n}{name}}}{}
+\pysiglinewithargsret{\sphinxcode{\sphinxupquote{R2D2.vtk.}}\sphinxbfcode{\sphinxupquote{write\_optical\_surface}}}{\sphinxparam{\DUrole{n}{qq}}\sphinxparamcomma \sphinxparam{\DUrole{n}{height}}\sphinxparamcomma \sphinxparam{\DUrole{n}{y}}\sphinxparamcomma \sphinxparam{\DUrole{n}{z}}\sphinxparamcomma \sphinxparam{\DUrole{n}{file}}\sphinxparamcomma \sphinxparam{\DUrole{n}{name}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
 \(\tau=1\) での2次元データを出力するための関数
@@ -2558,7 +2561,7 @@ Applyをクリック。選択した二つのデータが表示される。
 \end{enumerate}
 
 \sphinxAtStartPar
-最終更新日：2022年09月13日
+最終更新日：2023年11月29日
 
 \sphinxstepscope
 
@@ -3098,7 +3101,7 @@ bzm (float) {[}ix,jx{]} \sphinxhyphen{}\sphinxhyphen{} z方向の磁場 {[}G{]}
 \end{itemize}
 
 \sphinxAtStartPar
-最終更新日：2022年09月13日
+最終更新日：2023年11月29日
 
 \sphinxstepscope
 
@@ -3123,14 +3126,14 @@ Sphinxは、reStructuredTextからHTMLやLatexなどの
 基本的には以下のコマンドを実行するのみである。
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-pip install sphinx
+pip\PYG{+w}{ }install\PYG{+w}{ }sphinx
 \end{sphinxVerbatim}
 
 \sphinxAtStartPar
 Markdownを使いたい時は以下のようにする。
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-pip install commonmark recommonmark
+pip\PYG{+w}{ }install\PYG{+w}{ }commonmark\PYG{+w}{ }recommonmark
 \end{sphinxVerbatim}
 
 
@@ -3142,8 +3145,8 @@ pip install commonmark recommonmark
 初期設定を行う。
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-mkdir \PYG{n+nb}{test} \PYG{c+c1}{\PYGZsh{} ディレクトリ作成}
-\PYG{n+nb}{cd} \PYG{n+nb}{test}    \PYG{c+c1}{\PYGZsh{} ディレクトリに移動}
+mkdir\PYG{+w}{ }\PYG{n+nb}{test}\PYG{+w}{ }\PYG{c+c1}{\PYGZsh{} ディレクトリ作成}
+\PYG{n+nb}{cd}\PYG{+w}{ }\PYG{n+nb}{test}\PYG{+w}{    }\PYG{c+c1}{\PYGZsh{} ディレクトリに移動}
 sphinx\PYGZhy{}quickstart
 \end{sphinxVerbatim}
 
@@ -3356,14 +3359,13 @@ To Doを書いておきたい場所に
 と書いてあるので、To Doのまとめが示されている。
 
 \sphinxAtStartPar
-最終更新日：2022年09月13日
+最終更新日：2023年11月29日
 
 
 \chapter{ライセンス}
 \label{\detokenize{index:id1}}
 \sphinxAtStartPar
-R2D2は現状、公開ソフトウェアではなく再配布も禁じている。
-これは今後変更される可能性はあるが、開発者(堀田)の利益を守るためである。
+R2D2は公開ソフトウェアではなく、再配布も禁じている。
 共同研究者のみが使って良いというルールになっており、R2D2の使用には、以下の規約を守る必要がある。
 \begin{itemize}
 \item {} 
@@ -3380,7 +3382,7 @@ R2D2で実行する計算は、堀田と議論する必要がある。パラメ�
 
 \item {} 
 \sphinxAtStartPar
-R2D2を用いた論文を出版するときは　\sphinxhref{https://ui.adsabs.harvard.edu/abs/2019SciA....5.2307H/abstract}{Hotta et al., 2019}, \sphinxhref{https://ui.adsabs.harvard.edu/abs/2020MNRAS.494.2523H/abstract}{Hotta and Iijima, 2020}　を引用すること。
+R2D2を用いた論文を出版するときは \sphinxhref{https://ui.adsabs.harvard.edu/abs/2019SciA....5.2307H/abstract}{Hotta et al., 2019}, \sphinxhref{https://ui.adsabs.harvard.edu/abs/2020MNRAS.494.2523H/abstract}{Hotta and Iijima, 2020} を引用すること。
 
 \item {} 
 \sphinxAtStartPar
@@ -3426,11 +3428,44 @@ R2D2を用いた研究で出版された論文は以下です。
 \sphinxAtStartPar
 \sphinxhref{https://ui.adsabs.harvard.edu/abs/2022ApJ...933..199H/abstract}{Hotta, Kusano, and Shimada, 2022, ApJ, 933, 2}
 
+\item {} 
+\sphinxAtStartPar
+\sphinxhref{https://ui.adsabs.harvard.edu/abs/2023MNRAS.519.3091M/abstract}{Mori and Hotta, 2023, MNRAS, 519, 3091}
+
+\item {} 
+\sphinxAtStartPar
+\sphinxhref{https://ui.adsabs.harvard.edu/abs/2022MNRAS.517.2775K/abstract}{Kaneko, Hotta, Toriumi and Kusano, 2022, MNRAS, 517, 2775}
+
+\item {} 
+\sphinxAtStartPar
+\sphinxhref{https://ui.adsabs.harvard.edu/abs/2023MNRAS.524.4746M/abstract}{Mori and Hotta, 2023, MNRAS, 524, 4746}
+
+\item {} 
+\sphinxAtStartPar
+\sphinxhref{https://ui.adsabs.harvard.edu/abs/2023NatSR..13.8994T/abstract}{Toriumi, Hotta and Kusano, 2023, Scientific Report, 13, 8994}
+
+\item {} 
+\sphinxAtStartPar
+\sphinxhref{https://ui.adsabs.harvard.edu/abs/2023PASJ..tmp...76M/abstract}{Masaki, Hotta, Katsukawa and Ishikawa, 2023, PASJ,}
+
+\item {} 
+\sphinxAtStartPar
+\sphinxhref{https://ui.adsabs.harvard.edu/abs/2023ApJ...948L..24S/abstract}{Silva et al., 2023, ApJ, 948, L24}
+
 \end{enumerate}
 
 
-\chapter{索引と検索ページ}
+\chapter{賞}
 \label{\detokenize{index:id4}}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxhref{https://www.hpci-c.jp/hrdevelop/award.html}{HPCI ソフトウェア賞}
+
+\end{itemize}
+
+
+\chapter{索引と検索ページ}
+\label{\detokenize{index:id5}}\begin{itemize}
 \item {} 
 \sphinxAtStartPar
 \DUrole{xref,std,std-ref}{genindex}
@@ -3450,7 +3485,7 @@ R2D2を用いた研究で出版された論文は以下です。
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
-({\hyperref[\detokenize{artdif:id2}]{\sphinxcrossref{\sphinxstyleemphasis{元のエントリ}}}} は、 /Users/hotta/Dropbox/work/R2D2/R2D2\sphinxhyphen{}manual/artdif.rst の 4 行目です)
+({\hyperref[\detokenize{artdif:id2}]{\sphinxcrossref{\sphinxstyleemphasis{元のエントリ}}}} は、 /Users/hotta/Library/CloudStorage/Dropbox/work/R2D2/R2D2\sphinxhyphen{}manual/artdif.rst の 4 行目です)
 
 \begin{sphinxadmonition}{note}{課題:}
 \sphinxAtStartPar
@@ -3458,7 +3493,7 @@ R2D2を用いた研究で出版された論文は以下です。
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
-({\hyperref[\detokenize{code:id3}]{\sphinxcrossref{\sphinxstyleemphasis{元のエントリ}}}} は、 /Users/hotta/Dropbox/work/R2D2/R2D2\sphinxhyphen{}manual/code.rst の 6 行目です)
+({\hyperref[\detokenize{code:id3}]{\sphinxcrossref{\sphinxstyleemphasis{元のエントリ}}}} は、 /Users/hotta/Library/CloudStorage/Dropbox/work/R2D2/R2D2\sphinxhyphen{}manual/code.rst の 6 行目です)
 
 \begin{sphinxadmonition}{note}{課題:}
 \sphinxAtStartPar
@@ -3466,15 +3501,7 @@ R2D2を用いた研究で出版された論文は以下です。
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
-({\hyperref[\detokenize{code:id5}]{\sphinxcrossref{\sphinxstyleemphasis{元のエントリ}}}} は、 /Users/hotta/Dropbox/work/R2D2/R2D2\sphinxhyphen{}manual/code.rst の 10 行目です)
-
-\begin{sphinxadmonition}{note}{課題:}
-\sphinxAtStartPar
-輻射輸送の方程式
-\end{sphinxadmonition}
-
-\sphinxAtStartPar
-({\hyperref[\detokenize{equation:id4}]{\sphinxcrossref{\sphinxstyleemphasis{元のエントリ}}}} は、 /Users/hotta/Dropbox/work/R2D2/R2D2\sphinxhyphen{}manual/equation.rst の 43 行目です)
+({\hyperref[\detokenize{code:id5}]{\sphinxcrossref{\sphinxstyleemphasis{元のエントリ}}}} は、 /Users/hotta/Library/CloudStorage/Dropbox/work/R2D2/R2D2\sphinxhyphen{}manual/code.rst の 10 行目です)
 
 \begin{sphinxadmonition}{note}{課題:}
 \sphinxAtStartPar
@@ -3482,7 +3509,7 @@ R2D2を用いた研究で出版された論文は以下です。
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
-({\hyperref[\detokenize{parameter:id2}]{\sphinxcrossref{\sphinxstyleemphasis{元のエントリ}}}} は、 /Users/hotta/Dropbox/work/R2D2/R2D2\sphinxhyphen{}manual/parameter.rst の 4 行目です)
+({\hyperref[\detokenize{parameter:id2}]{\sphinxcrossref{\sphinxstyleemphasis{元のエントリ}}}} は、 /Users/hotta/Library/CloudStorage/Dropbox/work/R2D2/R2D2\sphinxhyphen{}manual/parameter.rst の 4 行目です)
 
 \begin{sphinxadmonition}{note}{課題:}
 \sphinxAtStartPar
@@ -3490,7 +3517,7 @@ R2D2を用いた研究で出版された論文は以下です。
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
-({\hyperref[\detokenize{scheme:id4}]{\sphinxcrossref{\sphinxstyleemphasis{元のエントリ}}}} は、 /Users/hotta/Dropbox/work/R2D2/R2D2\sphinxhyphen{}manual/scheme.rst の 23 行目です)
+({\hyperref[\detokenize{scheme:id4}]{\sphinxcrossref{\sphinxstyleemphasis{元のエントリ}}}} は、 /Users/hotta/Library/CloudStorage/Dropbox/work/R2D2/R2D2\sphinxhyphen{}manual/scheme.rst の 23 行目です)
 
 \begin{sphinxadmonition}{note}{課題:}
 \sphinxAtStartPar
@@ -3498,7 +3525,7 @@ R2D2を用いた研究で出版された論文は以下です。
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
-({\hyperref[\detokenize{scheme:id6}]{\sphinxcrossref{\sphinxstyleemphasis{元のエントリ}}}} は、 /Users/hotta/Dropbox/work/R2D2/R2D2\sphinxhyphen{}manual/scheme.rst の 28 行目です)
+({\hyperref[\detokenize{scheme:id6}]{\sphinxcrossref{\sphinxstyleemphasis{元のエントリ}}}} は、 /Users/hotta/Library/CloudStorage/Dropbox/work/R2D2/R2D2\sphinxhyphen{}manual/scheme.rst の 28 行目です)
 
 \begin{sphinxadmonition}{note}{課題:}
 \sphinxAtStartPar
@@ -3506,10 +3533,18 @@ R2D2を用いた研究で出版された論文は以下です。
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
-({\hyperref[\detokenize{typical_case:id10}]{\sphinxcrossref{\sphinxstyleemphasis{元のエントリ}}}} は、 /Users/hotta/Dropbox/work/R2D2/R2D2\sphinxhyphen{}manual/typical\_case.rst の 331 行目です)
+({\hyperref[\detokenize{typical_case:id10}]{\sphinxcrossref{\sphinxstyleemphasis{元のエントリ}}}} は、 /Users/hotta/Library/CloudStorage/Dropbox/work/R2D2/R2D2\sphinxhyphen{}manual/typical\_case.rst の 331 行目です)
+
+\begin{sphinxadmonition}{note}{課題:}
+\sphinxAtStartPar
+輻射輸送の方程式
+\end{sphinxadmonition}
 
 \sphinxAtStartPar
-最終更新日：2022年09月13日
+({\hyperref[\detokenize{equation:id4}]{\sphinxcrossref{\sphinxstyleemphasis{元のエントリ}}}} は、 /Users/hotta/Library/CloudStorage/Dropbox/work/R2D2/R2D2\sphinxhyphen{}manual/equation.rst の 43 行目です)
+
+\sphinxAtStartPar
+最終更新日：2023年11月29日
 
 
 \renewcommand{\indexname}{Pythonモジュール索引}

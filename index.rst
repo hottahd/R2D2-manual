@@ -38,14 +38,13 @@ R2D2では、輻射磁気流体力学の方程式を中央差分と非線形の�
 ライセンス
 ----------------------------------
 
-R2D2は現状、公開ソフトウェアではなく再配布も禁じている。
-これは今後変更される可能性はあるが、開発者(堀田)の利益を守るためである。
+R2D2は公開ソフトウェアではなく、再配布も禁じている。
 共同研究者のみが使って良いというルールになっており、R2D2の使用には、以下の規約を守る必要がある。
 
 * 再配布しない
 * 改変は許されるが、その時の実行結果について堀田は責任を持たない
 * R2D2で実行する計算は、堀田と議論する必要がある。パラメタ変更などの細かい変更には相談する必要はないが、新しいプロジェクトを開始するときはその都度相談すること。堀田自身のプロジェクト、堀田の指導学生のプロジェクトとの重複を避けるためである。
-* R2D2を用いた論文を出版するときは　`Hotta et al., 2019 <https://ui.adsabs.harvard.edu/abs/2019SciA....5.2307H/abstract>`_, `Hotta and Iijima, 2020 <https://ui.adsabs.harvard.edu/abs/2020MNRAS.494.2523H/abstract>`_　を引用すること。  
+* R2D2を用いた論文を出版するときは `Hotta et al., 2019 <https://ui.adsabs.harvard.edu/abs/2019SciA....5.2307H/abstract>`_, `Hotta and Iijima, 2020 <https://ui.adsabs.harvard.edu/abs/2020MNRAS.494.2523H/abstract>`_ を引用すること。  
 * R2D2を用いた研究を発表するときは、`R2D2のロゴ <https://hottahd.github.io/R2D2-manual/_images/R2D2_logo_red.png>`_ の使用が推奨される(強制ではない)。
 
 改訂履歴
@@ -61,6 +60,16 @@ R2D2を用いた研究で出版された論文は以下です。
 5. `Takahata, Hotta, Iida, and Oba, MNRAS, 503, 3610 <https://ui.adsabs.harvard.edu/abs/2021MNRAS.503.3610T/abstract>`_
 6. `Hotta and Kusano, 2021, Nature Astronomy, 5, 1100 <https://ui.adsabs.harvard.edu/abs/2021NatAs...5.1100H/abstract>`_
 7. `Hotta, Kusano, and Shimada, 2022, ApJ, 933, 2 <https://ui.adsabs.harvard.edu/abs/2022ApJ...933..199H/abstract>`_
+8. `Mori and Hotta, 2023, MNRAS, 519, 3091 <https://ui.adsabs.harvard.edu/abs/2023MNRAS.519.3091M/abstract>`_
+9. `Kaneko, Hotta, Toriumi and Kusano, 2022, MNRAS, 517, 2775 <https://ui.adsabs.harvard.edu/abs/2022MNRAS.517.2775K/abstract>`_
+10. `Mori and Hotta, 2023, MNRAS, 524, 4746 <https://ui.adsabs.harvard.edu/abs/2023MNRAS.524.4746M/abstract>`_
+11. `Toriumi, Hotta and Kusano, 2023, Scientific Report, 13, 8994 <https://ui.adsabs.harvard.edu/abs/2023NatSR..13.8994T/abstract>`_
+12. `Masaki, Hotta, Katsukawa and Ishikawa, 2023, PASJ, <https://ui.adsabs.harvard.edu/abs/2023PASJ..tmp...76M/abstract>`_
+13. `Silva et al., 2023, ApJ, 948, L24 <https://ui.adsabs.harvard.edu/abs/2023ApJ...948L..24S/abstract>`_
+
+賞
+----------------------------------
+* `HPCI ソフトウェア賞 <https://www.hpci-c.jp/hrdevelop/award.html>`_
 
 索引と検索ページ
 ----------------------------------

@@ -1,5 +1,5 @@
-\indexentry{モジュール@\spxentry{モジュール}!R2D2@\spxentry{R2D2}|hyperpage}{42}
-\indexentry{R2D2@\spxentry{R2D2}!モジュール@\spxentry{モジュール}|hyperpage}{42}
+\indexentry{module@\spxentry{module}!R2D2@\spxentry{R2D2}|hyperpage}{42}
+\indexentry{R2D2@\spxentry{R2D2}!module@\spxentry{module}|hyperpage}{42}
 \indexentry{R2D2\_data (R2D2 のクラス)@\spxentry{R2D2\_data}\spxextra{R2D2 のクラス}|hyperpage}{42}
 \indexentry{p (R2D2.R2D2\_data の属性)@\spxentry{p}\spxextra{R2D2.R2D2\_data の属性}|hyperpage}{42}
 \indexentry{t (R2D2.R2D2\_data の属性)@\spxentry{t}\spxextra{R2D2.R2D2\_data の属性}|hyperpage}{42}
@@ -23,9 +23,9 @@
 \indexentry{sync\_vc() (R2D2.R2D2\_data のメソッド)@\spxentry{sync\_vc()}\spxextra{R2D2.R2D2\_data のメソッド}|hyperpage}{46}
 \indexentry{sync\_check() (R2D2.R2D2\_data のメソッド)@\spxentry{sync\_check()}\spxextra{R2D2.R2D2\_data のメソッド}|hyperpage}{46}
 \indexentry{upgrade\_resolution() (R2D2.R2D2\_data のメソッド)@\spxentry{upgrade\_resolution()}\spxextra{R2D2.R2D2\_data のメソッド}|hyperpage}{46}
-\indexentry{組み込み関数@\spxentry{組み込み関数}!R2D2.vtk.write\_3D()@\spxentry{R2D2.vtk.write\_3D()}|hyperpage}{49}
-\indexentry{R2D2.vtk.write\_3D()@\spxentry{R2D2.vtk.write\_3D()}!組み込み関数@\spxentry{組み込み関数}|hyperpage}{49}
-\indexentry{組み込み関数@\spxentry{組み込み関数}!R2D2.vtk.write\_vtk.write\_3D\_vector()@\spxentry{R2D2.vtk.write\_vtk.write\_3D\_vector()}|hyperpage}{49}
-\indexentry{R2D2.vtk.write\_vtk.write\_3D\_vector()@\spxentry{R2D2.vtk.write\_vtk.write\_3D\_vector()}!組み込み関数@\spxentry{組み込み関数}|hyperpage}{49}
-\indexentry{組み込み関数@\spxentry{組み込み関数}!R2D2.vtk.write\_optical\_surface()@\spxentry{R2D2.vtk.write\_optical\_surface()}|hyperpage}{50}
-\indexentry{R2D2.vtk.write\_optical\_surface()@\spxentry{R2D2.vtk.write\_optical\_surface()}!組み込み関数@\spxentry{組み込み関数}|hyperpage}{50}
+\indexentry{built\sphinxhyphen{}in function@\spxentry{built\sphinxhyphen{}in function}!R2D2.vtk.write\_3D()@\spxentry{R2D2.vtk.write\_3D()}|hyperpage}{49}
+\indexentry{R2D2.vtk.write\_3D()@\spxentry{R2D2.vtk.write\_3D()}!built\sphinxhyphen{}in function@\spxentry{built\sphinxhyphen{}in function}|hyperpage}{49}
+\indexentry{built\sphinxhyphen{}in function@\spxentry{built\sphinxhyphen{}in function}!R2D2.vtk.write\_vtk.write\_3D\_vector()@\spxentry{R2D2.vtk.write\_vtk.write\_3D\_vector()}|hyperpage}{49}
+\indexentry{R2D2.vtk.write\_vtk.write\_3D\_vector()@\spxentry{R2D2.vtk.write\_vtk.write\_3D\_vector()}!built\sphinxhyphen{}in function@\spxentry{built\sphinxhyphen{}in function}|hyperpage}{49}
+\indexentry{built\sphinxhyphen{}in function@\spxentry{built\sphinxhyphen{}in function}!R2D2.vtk.write\_optical\_surface()@\spxentry{R2D2.vtk.write\_optical\_surface()}|hyperpage}{50}
+\indexentry{R2D2.vtk.write\_optical\_surface()@\spxentry{R2D2.vtk.write\_optical\_surface()}!built\sphinxhyphen{}in function@\spxentry{built\sphinxhyphen{}in function}|hyperpage}{50}

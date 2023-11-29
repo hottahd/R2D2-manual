@@ -2,21 +2,19 @@
 
 <!doctype html>
 
-<html lang="ja">
+<html lang="ja" data-content_root="./">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>R2D2 pythonでのキーワードの説明 &#8212; R2D2 1.2 ドキュメント</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=649a27d8" />
+    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css?v=82e463d1" />
     
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/translations.js"></script>
+    <script src="_static/documentation_options.js?v=f83e867c"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/translations.js?v=4dbe4bdc"></script>
     <script src="_static/bizstyle.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
@@ -53,7 +51,7 @@
           <div class="body" role="main">
             
   <section id="r2d2-python">
-<h1>R2D2 pythonでのキーワードの説明<a class="headerlink" href="#r2d2-python" title="Permalink to this heading">¶</a></h1>
+<h1>R2D2 pythonでのキーワードの説明<a class="headerlink" href="#r2d2-python" title="Link to this heading">¶</a></h1>
 <p>以下では、R2D2 pythonで使われている辞書型に含まれるキーの説明を行う</p>
 <ul class="simple">
 <li><p>キーの名前 (型) -- 説明 [単位]</p></li>
@@ -61,14 +59,14 @@
 <p>というフォーマットを採用する。</p>
 <p>R2D2では、<code class="code docutils literal notranslate"><span class="pre">R2D2_data</span></code> というクラスを用意している。</p>
 <section id="self-p-dictionary">
-<h2>self.p [dictionary]<a class="headerlink" href="#self-p-dictionary" title="Permalink to this heading">¶</a></h2>
+<h2>self.p [dictionary]<a class="headerlink" href="#self-p-dictionary" title="Link to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">R2D2</span>
 <span class="bp">self</span> <span class="o">=</span> <span class="n">R2D2</span><span class="o">.</span><span class="n">R2D2_data</span><span class="p">(</span><span class="n">datadir</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>とすると、初期設定が読み込まれる。 <code class="code docutils literal notranslate"><span class="pre">self</span></code> は <code class="code docutils literal notranslate"><span class="pre">R2D2_data</span></code> のオブジェクトであり、名前は任意である。 <code class="code docutils literal notranslate"><span class="pre">init.py</span></code> や <code class="code docutils literal notranslate"><span class="pre">mov.py</span></code> では、オブジェクト名は <code class="code docutils literal notranslate"><span class="pre">d</span></code> としてある。</p>
 <section id="id1">
-<h3>出力・時間に関する量<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
+<h3>出力・時間に関する量<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>datadir (str) -- データの保存場所</p></li>
 <li><p>nd (int) -- 現在までのアウトプット時間ステップ数(3次元データ)</p></li>
@@ -84,7 +82,7 @@
 </ul>
 </section>
 <section id="id2">
-<h3>座標に関する量<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
+<h3>座標に関する量<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>xdcheck (int) -- x軸方向に解いているか。解いていたら2、解いていなかったら1</p></li>
 <li><p>ydcheck (int) -- y軸方向に解いているか。解いていたら2、解いていなかったら1</p></li>
@@ -118,7 +116,7 @@
 </ul>
 </section>
 <section id="id3">
-<h3>背景場に関する量<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h3>
+<h3>背景場に関する量<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>pr0 (float) [ix] -- 背景場の圧力 [dyn cm <sup>-2</sup>]</p></li>
 <li><p>te0 (float) [ix] -- 背景場の温度 [K]</p></li>
@@ -129,12 +127,12 @@
 <li><p>tu0 (float) [ix] -- 背景場の光学的厚さ</p></li>
 <li><p>dsedr0 (float) [ix] -- 背景場の鉛直エントロピー勾配 [erg g <sup>-1</sup> K <sup>-1</sup> cm <sup>-1</sup>]</p></li>
 <li><p>dtedr0 (float) [ix] -- 背景場の鉛直温度勾配 [K cm <sup>-1</sup>]</p></li>
-<li><p>dprdro (float) [ix] -- 背景場の <img class="math" src="_images/math/a2101711d1093c7b19333054ea13aac07904bfee.svg" alt="(\partial p/\partial \rho)_s"/></p></li>
-<li><p>dprdse (float) [ix] -- 背景場の <img class="math" src="_images/math/dd6f7e957068b9829a0172783dbd9df215af0f95.svg" alt="(\partial p/\partial s)_\rho"/></p></li>
-<li><p>dtedro (float) [ix] -- 背景場の <img class="math" src="_images/math/f673047b1352603cb6e9462d3f09b876b50587a3.svg" alt="(\partial T/\partial \rho)_s"/></p></li>
-<li><p>dtedse (float) [ix] -- 背景場の <img class="math" src="_images/math/bb7ac328d856316fce053424d964732f0e3ce903.svg" alt="(\partial T/\partial s)_\rho"/></p></li>
-<li><p>dendro (float) [ix] -- 背景場の <img class="math" src="_images/math/f44676911fa612ecaec24e0e30a0404068cd7b74.svg" alt="(\partial e/\partial \rho)_s"/></p></li>
-<li><p>dendse (float) [ix] -- 背景場の <img class="math" src="_images/math/cdc4bddad8362c38a9cfd90d8124ca0d49bee280.svg" alt="(\partial e/\partial s)_\rho"/></p></li>
+<li><p>dprdro (float) [ix] -- 背景場の <img class="math" src="_images/math/8020c4db11488d482853aef663633b6489f21cca.svg" alt="(\partial p/\partial \rho)_s"/></p></li>
+<li><p>dprdse (float) [ix] -- 背景場の <img class="math" src="_images/math/53bc2c458f44f90486eb7a75ade4a1f90daa1e3b.svg" alt="(\partial p/\partial s)_\rho"/></p></li>
+<li><p>dtedro (float) [ix] -- 背景場の <img class="math" src="_images/math/fd1230fada2cbc687b526cbec46bf6bb21b61347.svg" alt="(\partial T/\partial \rho)_s"/></p></li>
+<li><p>dtedse (float) [ix] -- 背景場の <img class="math" src="_images/math/46f1cb97a09550eda5de7a8f0c07612d942125f6.svg" alt="(\partial T/\partial s)_\rho"/></p></li>
+<li><p>dendro (float) [ix] -- 背景場の <img class="math" src="_images/math/914971fcfd59ed5783f05be132c80bea742ac527.svg" alt="(\partial e/\partial \rho)_s"/></p></li>
+<li><p>dendse (float) [ix] -- 背景場の <img class="math" src="_images/math/7cbfb04e18f66f6b9cf5bd7184f99eadaf303cc7.svg" alt="(\partial e/\partial s)_\rho"/></p></li>
 <li><p>gx (float) [ix] -- 重力加速度 [cm s <sup>-2</sup>]</p></li>
 <li><p>kp (float) [ix] -- 放射拡散係数 [cm <sup>2</sup> s <sup>-1</sup>]</p></li>
 <li><p>cp (float) [ix] -- 定圧比熱　[erg g <sup>-1</sup> K <sup>-1</sup>]</p></li>
@@ -146,7 +144,7 @@
 </ul>
 </section>
 <section id="remap">
-<h3>解析のためのデータ再配置(remap)に関する量<a class="headerlink" href="#remap" title="Permalink to this heading">¶</a></h3>
+<h3>解析のためのデータ再配置(remap)に関する量<a class="headerlink" href="#remap" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>m2da (int) -- remapで出力した解析量の数</p></li>
 <li><p>cl (char) [m2da] --　remapで出力した解析量の名前</p></li>
@@ -168,7 +166,7 @@
 </ul>
 </section>
 <section id="id4">
-<h3>スライスデータに関する量<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h3>
+<h3>スライスデータに関する量<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>nx_slice [int] -- x一定面のスライスの数</p></li>
 <li><p>ny_slice [int] -- y一定面のスライスの数</p></li>
@@ -180,7 +178,7 @@
 </section>
 </section>
 <section id="self-qs-dictionary">
-<h2>self.qs [dictionary]<a class="headerlink" href="#self-qs-dictionary" title="Permalink to this heading">¶</a></h2>
+<h2>self.qs [dictionary]<a class="headerlink" href="#self-qs-dictionary" title="Link to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xs</span> <span class="o">=</span> <span class="mf">0.99</span><span class="o">*</span><span class="n">rsun</span>
 <span class="n">ns</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="bp">self</span><span class="o">.</span><span class="n">read_qq_select</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span><span class="n">ns</span><span class="p">)</span>
@@ -188,29 +186,29 @@
 </div>
 <p>として高さ <code class="code docutils literal notranslate"><span class="pre">xs</span></code> での二次元スライスを読み込む</p>
 <ul class="simple">
-<li><p>ro (float) [jx,kx] -- 密度の擾乱 <img class="math" src="_images/math/f8bca687b292d5b32d9e56aaede0dee89c038670.svg" alt="\rho_1"/> [g cm <sup>-3</sup>]</p></li>
-<li><p>vx (float) [jx,kx] -- x方向の速度 <img class="math" src="_images/math/f7f2266193f1cd96ee355f2d20fa53b1d97b00b1.svg" alt="v_x"/> [cm s <sup>-1</sup>]</p></li>
-<li><p>vy (float) [jx,kx] -- y方向の速度 <img class="math" src="_images/math/c59f32ff4aa43e541803639d52bbd73235d199cc.svg" alt="v_y"/> [cm s <sup>-1</sup>]</p></li>
-<li><p>vz (float) [jx,kx] -- z方向の速度 <img class="math" src="_images/math/83eae285ca95057e5aa0954ef950c8e0060db1a7.svg" alt="v_z"/> [cm s <sup>-1</sup>]</p></li>
-<li><p>bx (float) [jx,kx] -- x方向の磁場 <img class="math" src="_images/math/fac7b7f48bc43d910828f29ad82c54ed76f06c7f.svg" alt="B_x"/> [G]</p></li>
-<li><p>by (float) [jx,kx] -- y方向の磁場 <img class="math" src="_images/math/9a7f0b535b91552d65ee450fa45afebc6de14214.svg" alt="B_y"/> [G]</p></li>
-<li><p>bz (float) [jx,kx] -- z方向の磁場 <img class="math" src="_images/math/3eec937a8ff8721be0514184b899ef41a2fb03bc.svg" alt="B_z"/> [G]</p></li>
-<li><p>se (float) [jx,kx] -- エントロピーの擾乱 <img class="math" src="_images/math/04d8ce7f49afe7f657aeabdbe477c7fe9ed8f0fb.svg" alt="s_1"/> [erg g <sup>-1</sup> K <sup>-1</sup>]</p></li>
-<li><p>pr (float) [jx,kx] -- 圧力の擾乱 <img class="math" src="_images/math/1835a151df82c56ed370aebc39de59e6172bd9dc.svg" alt="p_1"/> [dyn cm <sup>-2</sup>]</p></li>
-<li><p>te (float) [jx,kx] -- 温度の擾乱 <img class="math" src="_images/math/24756f6680eb3ef26e6bd9a0d29d93e6c72a26e1.svg" alt="T_1"/> [K]</p></li>
-<li><p>op (float) [jx,kx] -- 不透明度(オパシティー) <img class="math" src="_images/math/256ac07ee0437e2f97b59fc5d7dd059d3bbeeadd.svg" alt="\kappa"/> [g <sup>-1</sup> cm <sup>-2</sup>]</p></li>
+<li><p>ro (float) [jx,kx] -- 密度の擾乱 <img class="math" src="_images/math/9d048217b981bd52222f1371e73a953dd2437e36.svg" alt="\rho_1"/> [g cm <sup>-3</sup>]</p></li>
+<li><p>vx (float) [jx,kx] -- x方向の速度 <img class="math" src="_images/math/311d1bc48d07dbbb44cd78600957064d4861ede6.svg" alt="v_x"/> [cm s <sup>-1</sup>]</p></li>
+<li><p>vy (float) [jx,kx] -- y方向の速度 <img class="math" src="_images/math/459577c647ae0b5667a7ca43be613155456d8cf0.svg" alt="v_y"/> [cm s <sup>-1</sup>]</p></li>
+<li><p>vz (float) [jx,kx] -- z方向の速度 <img class="math" src="_images/math/bf0092739d3a6af38481cbf447b1b71132c6d9a0.svg" alt="v_z"/> [cm s <sup>-1</sup>]</p></li>
+<li><p>bx (float) [jx,kx] -- x方向の磁場 <img class="math" src="_images/math/f6d86518128d6bb3efa2697b56ad376aaf1757a8.svg" alt="B_x"/> [G]</p></li>
+<li><p>by (float) [jx,kx] -- y方向の磁場 <img class="math" src="_images/math/7f9558c2bcdc2e9f3e66aa30ce2077e7a1505657.svg" alt="B_y"/> [G]</p></li>
+<li><p>bz (float) [jx,kx] -- z方向の磁場 <img class="math" src="_images/math/64e4f142035a86787e46f6319e8ef25c893484d0.svg" alt="B_z"/> [G]</p></li>
+<li><p>se (float) [jx,kx] -- エントロピーの擾乱 <img class="math" src="_images/math/98d882ed11a60469e4ea17e269e965a91bc9904a.svg" alt="s_1"/> [erg g <sup>-1</sup> K <sup>-1</sup>]</p></li>
+<li><p>pr (float) [jx,kx] -- 圧力の擾乱 <img class="math" src="_images/math/8ecd46132196f88cd12bd81ba45e5c30ec9444f1.svg" alt="p_1"/> [dyn cm <sup>-2</sup>]</p></li>
+<li><p>te (float) [jx,kx] -- 温度の擾乱 <img class="math" src="_images/math/a8965ff3cf54e95d77d16b7af3893cec7aa1bf08.svg" alt="T_1"/> [K]</p></li>
+<li><p>op (float) [jx,kx] -- 不透明度(オパシティー) <img class="math" src="_images/math/d0763988104d064f084695514d3420b602e3d6ae.svg" alt="\kappa"/> [g <sup>-1</sup> cm <sup>-2</sup>]</p></li>
 </ul>
 </section>
 <section id="self-qq-dictionary">
-<h2>self.qq [dictionary]<a class="headerlink" href="#self-qq-dictionary" title="Permalink to this heading">¶</a></h2>
+<h2>self.qq [dictionary]<a class="headerlink" href="#self-qq-dictionary" title="Link to this heading">¶</a></h2>
 <p><code class="code docutils literal notranslate"><span class="pre">self.qs</span></code> と同様</p>
 </section>
 <section id="self-qt-dictionary">
-<h2>self.qt [dictionary]<a class="headerlink" href="#self-qt-dictionary" title="Permalink to this heading">¶</a></h2>
+<h2>self.qt [dictionary]<a class="headerlink" href="#self-qt-dictionary" title="Link to this heading">¶</a></h2>
 <p>ほぼself.qsと同様だが、以下の追加量が保存してある。</p>
 </section>
 <section id="self-vc-dictionary">
-<h2>self.vc [dictionary]<a class="headerlink" href="#self-vc-dictionary" title="Permalink to this heading">¶</a></h2>
+<h2>self.vc [dictionary]<a class="headerlink" href="#self-vc-dictionary" title="Link to this heading">¶</a></h2>
 <p>数値計算実行時に解析・出力している統計量。しばしばバグがあるので注意すること。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ns</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="bp">self</span><span class="o">.</span><span class="n">read_vc</span><span class="p">(</span><span class="n">ns</span><span class="p">)</span>
@@ -218,16 +216,16 @@
 </div>
 <p>として統計量を読み込む.</p>
 <ul class="simple">
-<li><p>su, sd (float) [ix,jx] -- ある動径位置 <img class="math" src="_images/math/2a75c7fa4d829b8117a7e12b226e720a19e9b57e.svg" alt="r"/>, 余緯度 <img class="math" src="_images/math/e69d8adc68a0480b588cde59a25957e2bc257868.svg" alt="\theta"/> における上昇流(su), 下降流(sd)の格子点数 [個]</p></li>
+<li><p>su, sd (float) [ix,jx] -- ある動径位置 <img class="math" src="_images/math/aaed46f8557e83ff7e02aa58677f0ded43da65ec.svg" alt="r"/>, 余緯度 <img class="math" src="_images/math/c0575552207fc131389581e8db5012613184923e.svg" alt="\theta"/> における上昇流(su), 下降流(sd)の格子点数 [個]</p></li>
 <li><dl class="simple">
 <dt><code class="code docutils literal notranslate"><span class="pre">**m</span></code> と表されるものは経度方向平均。以下の物理量がある</dt><dd><ul>
 <li><p>rom (float) [ix,jx] -- 密度　[g cm <sup>-3</sup>]</p></li>
 <li><p>vxm (float) [ix,jx] -- x方向の速度 [cm s <sup>-1</sup>]</p></li>
 <li><p>vym (float) [ix,jx] -- y方向の速度 [cm s <sup>-1</sup>]</p></li>
 <li><p>vzm (float) [ix,jx] -- z方向の速度 [cm s <sup>-1</sup>]</p></li>
-<li><p>rxm (float) [ix,jx] -- x方向の運動量 :<img class="math" src="_images/math/2f6cf0d70a8a89f379081aff887024595adb52f6.svg" alt="\rho v_x"/>  [g cm <sup>-2</sup> s <sup>-1</sup>]</p></li>
-<li><p>rym (float) [ix,jx] -- y方向の運動量 :<img class="math" src="_images/math/2f6cf0d70a8a89f379081aff887024595adb52f6.svg" alt="\rho v_x"/>  [g cm <sup>-2</sup> s <sup>-1</sup>]</p></li>
-<li><p>rzm (float) [ix,jx] -- z方向の運動量 :<img class="math" src="_images/math/2f6cf0d70a8a89f379081aff887024595adb52f6.svg" alt="\rho v_x"/>  [g cm <sup>-2</sup> s <sup>-1</sup>]</p></li>
+<li><p>rxm (float) [ix,jx] -- x方向の運動量 :<img class="math" src="_images/math/bb9a26af5b61cb229038ef6682a76a9d02c59aa4.svg" alt="\rho v_x"/>  [g cm <sup>-2</sup> s <sup>-1</sup>]</p></li>
+<li><p>rym (float) [ix,jx] -- y方向の運動量 :<img class="math" src="_images/math/bb9a26af5b61cb229038ef6682a76a9d02c59aa4.svg" alt="\rho v_x"/>  [g cm <sup>-2</sup> s <sup>-1</sup>]</p></li>
+<li><p>rzm (float) [ix,jx] -- z方向の運動量 :<img class="math" src="_images/math/bb9a26af5b61cb229038ef6682a76a9d02c59aa4.svg" alt="\rho v_x"/>  [g cm <sup>-2</sup> s <sup>-1</sup>]</p></li>
 <li><p>bxm (float) [ix,jx] -- x方向の磁場 [G]</p></li>
 <li><p>bym (float) [ix,jx] -- y方向の磁場 [G]</p></li>
 <li><p>bzm (float) [ix,jx] -- z方向の磁場 [G]</p></li>
@@ -237,7 +235,7 @@
 </dl>
 </li>
 </ul>
-<p>最終更新日：2022年09月13日</p>
+<p>最終更新日：2023年11月29日</p>
 </section>
 </section>
 
@@ -320,8 +318,8 @@
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2021, Hideyuki Hotta.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.0.2.
+    &#169; 著作権 2020-2023, Hideyuki Hotta.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
   </body>
 </html>
