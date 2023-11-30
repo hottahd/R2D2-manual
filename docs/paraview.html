@@ -52,21 +52,21 @@
             
   <section id="paraview3d">
 <h1>Paraviewを用いた3Dデータ表示<a class="headerlink" href="#paraview3d" title="Link to this heading">¶</a></h1>
-<p>ここでは、Paraviewを用いてR2D2の計算結果を三次元表示する方法を説明する。</p>
+<p class="linemarker linemarker-4">ここでは、Paraviewを用いてR2D2の計算結果を三次元表示する方法を説明する。</p>
 <section id="id1">
 <h2>データ準備<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
-<p>すでに計算を実行していて、何らかのデータが準備できている状況を想定する。
+<p class="linemarker linemarker-8">すでに計算を実行していて、何らかのデータが準備できている状況を想定する。
 データをParaviewで扱うためにVTKフォーマットに変換する。
 変換後に用意するべきデータは</p>
 <ul class="simple">
-<li><p>ある物理量の三次元データ</p></li>
-<li><p>ある物理量の :<img class="math" src="_images/math/0765a4962991d8ac1a8c00d3c3bd6cf5ee6ebdfc.svg" alt="\tau=1"/> でのデータ</p></li>
+<li><p class="linemarker linemarker-12">ある物理量の三次元データ</p></li>
+<li><p class="linemarker linemarker-13">ある物理量の :<img class="math" src="_images/math/0765a4962991d8ac1a8c00d3c3bd6cf5ee6ebdfc.svg" alt="\tau=1"/> でのデータ</p></li>
 </ul>
-<p>それぞれのデータのためにR2D2 Pythonでは以下の関数が用意してある。</p>
+<p class="linemarker linemarker-15">それぞれのデータのためにR2D2 Pythonでは以下の関数が用意してある。</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="R2D2.vtk.write_3D">
 <span class="sig-prename descclassname"><span class="pre">R2D2.vtk.</span></span><span class="sig-name descname"><span class="pre">write_3D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.vtk.write_3D" title="Link to this definition">¶</a></dt>
-<dd><p>3次元のスカラー量をVTKフォーマットで出力するための関数</p>
+<dd><p class="linemarker linemarker-19">3次元のスカラー量をVTKフォーマットで出力するための関数</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -84,7 +84,7 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="R2D2.vtk.write_vtk.write_3D_vector">
 <span class="sig-prename descclassname"><span class="pre">R2D2.vtk.write_vtk.</span></span><span class="sig-name descname"><span class="pre">write_3D_vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.vtk.write_vtk.write_3D_vector" title="Link to this definition">¶</a></dt>
-<dd><p>３次元のベクトル量をVTKフォーマットで出力するための関数</p>
+<dd><p class="linemarker linemarker-30">３次元のベクトル量をVTKフォーマットで出力するための関数</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -104,7 +104,7 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="R2D2.vtk.write_optical_surface">
 <span class="sig-prename descclassname"><span class="pre">R2D2.vtk.</span></span><span class="sig-name descname"><span class="pre">write_optical_surface</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.vtk.write_optical_surface" title="Link to this definition">¶</a></dt>
-<dd><p><img class="math" src="_images/math/0765a4962991d8ac1a8c00d3c3bd6cf5ee6ebdfc.svg" alt="\tau=1"/> での2次元データを出力するための関数</p>
+<dd><p class="linemarker linemarker-43"><img class="math" src="_images/math/0765a4962991d8ac1a8c00d3c3bd6cf5ee6ebdfc.svg" alt="\tau=1"/> での2次元データを出力するための関数</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -119,7 +119,7 @@
 </dl>
 </dd></dl>
 
-<p>例えば、以下のようにして実行する</p>
+<p class="linemarker linemarker-52">例えば、以下のようにして実行する</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">run</span> <span class="n">init</span> <span class="c1">#　初期設定</span>
 <span class="n">d</span><span class="o">.</span><span class="n">read_qq</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># 100番目の3次元データを読込</span>
 <span class="n">bb</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">qq</span><span class="p">[</span><span class="s1">&#39;bx&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">d</span><span class="o">.</span><span class="n">qq</span><span class="p">[</span><span class="s1">&#39;by&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">d</span><span class="o">.</span><span class="n">qq</span><span class="p">[</span><span class="s1">&#39;bz&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># 磁場の強さを計算</span>
@@ -134,40 +134,40 @@
 </section>
 <section id="paraview3">
 <h2>Paraviewを用いて3次元表示<a class="headerlink" href="#paraview3" title="Link to this heading">¶</a></h2>
-<p><a class="reference external" href="https://www.paraview.org/download/">Paraviewのサイト</a> からParaviewをダウンロード。Windows, Linux, macOSのそれぞれのソフトウェアがあるのでインストール方法は各自確認すること。ここでは、macOSでの利用方法を示すが、確認している限りは、Linuxでもほとんど同じ。ここでは非常に簡単にParaviewの使い方を説明する。詳しくはParaviewの公式マニュアルなどを読むこと。</p>
+<p class="linemarker linemarker-68"><a class="reference external" href="https://www.paraview.org/download/">Paraviewのサイト</a> からParaviewをダウンロード。Windows, Linux, macOSのそれぞれのソフトウェアがあるのでインストール方法は各自確認すること。ここでは、macOSでの利用方法を示すが、確認している限りは、Linuxでもほとんど同じ。ここでは非常に簡単にParaviewの使い方を説明する。詳しくはParaviewの公式マニュアルなどを読むこと。</p>
 <ol class="arabic">
-<li><p>まず右上のファイルアイコンをクリック</p>
+<li><p class="linemarker linemarker-70">まず右上のファイルアイコンをクリック</p>
 <blockquote>
 <div><a class="reference internal image-reference" href="_images/paraview01.png"><img alt="_images/paraview01.png" src="_images/paraview01.png" style="width: 600px;" /></a>
 </div></blockquote>
 </li>
-<li><p>Pythonで生成したファイルを選択。2次元, ３次元ファイルどちらも選択する。一個一個選択しても良いし、一度に選択しても良い。時系列データの時は、すべてを一度に選択するとアニメーションを作りやすい。</p>
+<li><p class="linemarker linemarker-75">Pythonで生成したファイルを選択。2次元, ３次元ファイルどちらも選択する。一個一個選択しても良いし、一度に選択しても良い。時系列データの時は、すべてを一度に選択するとアニメーションを作りやすい。</p>
 <blockquote>
 <div><a class="reference internal image-reference" href="_images/paraview02.png"><img alt="_images/paraview02.png" src="_images/paraview02.png" style="width: 600px;" /></a>
 </div></blockquote>
 </li>
-<li><p>Applyをクリック。選択した二つのデータが表示される。</p>
+<li><p class="linemarker linemarker-80">Applyをクリック。選択した二つのデータが表示される。</p>
 <blockquote>
 <div><a class="reference internal image-reference" href="_images/paraview03.png"><img alt="_images/paraview03.png" src="_images/paraview03.png" style="width: 600px;" /></a>
 </div></blockquote>
 </li>
-<li><p>2次元データの方は、すぐに面として表示されるが、三次元データは表示方法を選ぶ必要がある。</p>
+<li><p class="linemarker linemarker-85">2次元データの方は、すぐに面として表示されるが、三次元データは表示方法を選ぶ必要がある。</p>
 <blockquote>
 <div><a class="reference internal image-reference" href="_images/paraview04.png"><img alt="_images/paraview04.png" src="_images/paraview04.png" style="width: 600px;" /></a>
 </div></blockquote>
 </li>
-<li><p>三次元データのボリュームレンダリングが行いたいので、Volumeを選ぶ。</p>
+<li><p class="linemarker linemarker-90">三次元データのボリュームレンダリングが行いたいので、Volumeを選ぶ。</p>
 <blockquote>
 <div><a class="reference internal image-reference" href="_images/paraview05.png"><img alt="_images/paraview05.png" src="_images/paraview05.png" style="width: 600px;" /></a>
 </div></blockquote>
 </li>
-<li><p>三次元データのボリュームレンダリングが表示されるので、便宜描画を回転させるなどして、解析する。</p>
+<li><p class="linemarker linemarker-95">三次元データのボリュームレンダリングが表示されるので、便宜描画を回転させるなどして、解析する。</p>
 <blockquote>
 <div><a class="reference internal image-reference" href="_images/paraview06.png"><img alt="_images/paraview06.png" src="_images/paraview06.png" style="width: 600px;" /></a>
 </div></blockquote>
 </li>
 </ol>
-<p>最終更新日：2023年11月29日</p>
+<p class="linemarker linemarker-100">最終更新日：2023年11月30日</p>
 </section>
 </section>
 

@@ -1,31 +1,31 @@
-\indexentry{module@\spxentry{module}!R2D2@\spxentry{R2D2}|hyperpage}{42}
-\indexentry{R2D2@\spxentry{R2D2}!module@\spxentry{module}|hyperpage}{42}
-\indexentry{R2D2\_data (R2D2 のクラス)@\spxentry{R2D2\_data}\spxextra{R2D2 のクラス}|hyperpage}{42}
-\indexentry{p (R2D2.R2D2\_data の属性)@\spxentry{p}\spxextra{R2D2.R2D2\_data の属性}|hyperpage}{42}
-\indexentry{t (R2D2.R2D2\_data の属性)@\spxentry{t}\spxextra{R2D2.R2D2\_data の属性}|hyperpage}{42}
-\indexentry{qs (R2D2.R2D2\_data の属性)@\spxentry{qs}\spxextra{R2D2.R2D2\_data の属性}|hyperpage}{42}
-\indexentry{qq (R2D2.R2D2\_data の属性)@\spxentry{qq}\spxextra{R2D2.R2D2\_data の属性}|hyperpage}{42}
-\indexentry{qt (R2D2.R2D2\_data の属性)@\spxentry{qt}\spxextra{R2D2.R2D2\_data の属性}|hyperpage}{42}
-\indexentry{vc (R2D2.R2D2\_data の属性)@\spxentry{vc}\spxextra{R2D2.R2D2\_data の属性}|hyperpage}{42}
-\indexentry{qc (R2D2.R2D2\_data の属性)@\spxentry{qc}\spxextra{R2D2.R2D2\_data の属性}|hyperpage}{43}
-\indexentry{ql (R2D2.R2D2\_data の属性)@\spxentry{ql}\spxextra{R2D2.R2D2\_data の属性}|hyperpage}{43}
-\indexentry{\_\_init\_\_() (R2D2.R2D2\_data のメソッド)@\spxentry{\_\_init\_\_()}\spxextra{R2D2.R2D2\_data のメソッド}|hyperpage}{43}
-\indexentry{read\_qq\_select() (R2D2.R2D2\_data のメソッド)@\spxentry{read\_qq\_select()}\spxextra{R2D2.R2D2\_data のメソッド}|hyperpage}{43}
-\indexentry{read\_qq() (R2D2.R2D2\_data のメソッド)@\spxentry{read\_qq()}\spxextra{R2D2.R2D2\_data のメソッド}|hyperpage}{43}
-\indexentry{read\_qq\_tau() (R2D2.R2D2\_data のメソッド)@\spxentry{read\_qq\_tau()}\spxextra{R2D2.R2D2\_data のメソッド}|hyperpage}{44}
-\indexentry{read\_time() (R2D2.R2D2\_data のメソッド)@\spxentry{read\_time()}\spxextra{R2D2.R2D2\_data のメソッド}|hyperpage}{44}
-\indexentry{read\_vc() (R2D2.R2D2\_data のメソッド)@\spxentry{read\_vc()}\spxextra{R2D2.R2D2\_data のメソッド}|hyperpage}{44}
-\indexentry{read\_qq\_check() (R2D2.R2D2\_data のメソッド)@\spxentry{read\_qq\_check()}\spxextra{R2D2.R2D2\_data のメソッド}|hyperpage}{44}
-\indexentry{read\_qq\_slice() (R2D2.R2D2\_data のメソッド)@\spxentry{read\_qq\_slice()}\spxextra{R2D2.R2D2\_data のメソッド}|hyperpage}{45}
-\indexentry{R2D2.sync.set() (R2D2 モジュール)@\spxentry{R2D2.sync.set()}\spxextra{R2D2 モジュール}|hyperpage}{45}
-\indexentry{sync\_tau() (R2D2.R2D2\_data のメソッド)@\spxentry{sync\_tau()}\spxextra{R2D2.R2D2\_data のメソッド}|hyperpage}{45}
-\indexentry{sync\_select() (R2D2.R2D2\_data のメソッド)@\spxentry{sync\_select()}\spxextra{R2D2.R2D2\_data のメソッド}|hyperpage}{46}
-\indexentry{sync\_vc() (R2D2.R2D2\_data のメソッド)@\spxentry{sync\_vc()}\spxextra{R2D2.R2D2\_data のメソッド}|hyperpage}{46}
-\indexentry{sync\_check() (R2D2.R2D2\_data のメソッド)@\spxentry{sync\_check()}\spxextra{R2D2.R2D2\_data のメソッド}|hyperpage}{46}
-\indexentry{upgrade\_resolution() (R2D2.R2D2\_data のメソッド)@\spxentry{upgrade\_resolution()}\spxextra{R2D2.R2D2\_data のメソッド}|hyperpage}{46}
-\indexentry{built\sphinxhyphen{}in function@\spxentry{built\sphinxhyphen{}in function}!R2D2.vtk.write\_3D()@\spxentry{R2D2.vtk.write\_3D()}|hyperpage}{49}
-\indexentry{R2D2.vtk.write\_3D()@\spxentry{R2D2.vtk.write\_3D()}!built\sphinxhyphen{}in function@\spxentry{built\sphinxhyphen{}in function}|hyperpage}{49}
-\indexentry{built\sphinxhyphen{}in function@\spxentry{built\sphinxhyphen{}in function}!R2D2.vtk.write\_vtk.write\_3D\_vector()@\spxentry{R2D2.vtk.write\_vtk.write\_3D\_vector()}|hyperpage}{49}
-\indexentry{R2D2.vtk.write\_vtk.write\_3D\_vector()@\spxentry{R2D2.vtk.write\_vtk.write\_3D\_vector()}!built\sphinxhyphen{}in function@\spxentry{built\sphinxhyphen{}in function}|hyperpage}{49}
-\indexentry{built\sphinxhyphen{}in function@\spxentry{built\sphinxhyphen{}in function}!R2D2.vtk.write\_optical\_surface()@\spxentry{R2D2.vtk.write\_optical\_surface()}|hyperpage}{50}
-\indexentry{R2D2.vtk.write\_optical\_surface()@\spxentry{R2D2.vtk.write\_optical\_surface()}!built\sphinxhyphen{}in function@\spxentry{built\sphinxhyphen{}in function}|hyperpage}{50}
+\indexentry{module@\spxentry{module}!R2D2@\spxentry{R2D2}|hyperpage}{44}
+\indexentry{R2D2@\spxentry{R2D2}!module@\spxentry{module}|hyperpage}{44}
+\indexentry{R2D2\_data (R2D2 のクラス)@\spxentry{R2D2\_data}\spxextra{R2D2 のクラス}|hyperpage}{44}
+\indexentry{p (R2D2.R2D2\_data の属性)@\spxentry{p}\spxextra{R2D2.R2D2\_data の属性}|hyperpage}{44}
+\indexentry{t (R2D2.R2D2\_data の属性)@\spxentry{t}\spxextra{R2D2.R2D2\_data の属性}|hyperpage}{44}
+\indexentry{qs (R2D2.R2D2\_data の属性)@\spxentry{qs}\spxextra{R2D2.R2D2\_data の属性}|hyperpage}{44}
+\indexentry{qq (R2D2.R2D2\_data の属性)@\spxentry{qq}\spxextra{R2D2.R2D2\_data の属性}|hyperpage}{44}
+\indexentry{qt (R2D2.R2D2\_data の属性)@\spxentry{qt}\spxextra{R2D2.R2D2\_data の属性}|hyperpage}{44}
+\indexentry{vc (R2D2.R2D2\_data の属性)@\spxentry{vc}\spxextra{R2D2.R2D2\_data の属性}|hyperpage}{44}
+\indexentry{qc (R2D2.R2D2\_data の属性)@\spxentry{qc}\spxextra{R2D2.R2D2\_data の属性}|hyperpage}{45}
+\indexentry{ql (R2D2.R2D2\_data の属性)@\spxentry{ql}\spxextra{R2D2.R2D2\_data の属性}|hyperpage}{45}
+\indexentry{\_\_init\_\_() (R2D2.R2D2\_data のメソッド)@\spxentry{\_\_init\_\_()}\spxextra{R2D2.R2D2\_data のメソッド}|hyperpage}{45}
+\indexentry{read\_qq\_select() (R2D2.R2D2\_data のメソッド)@\spxentry{read\_qq\_select()}\spxextra{R2D2.R2D2\_data のメソッド}|hyperpage}{45}
+\indexentry{read\_qq() (R2D2.R2D2\_data のメソッド)@\spxentry{read\_qq()}\spxextra{R2D2.R2D2\_data のメソッド}|hyperpage}{45}
+\indexentry{read\_qq\_tau() (R2D2.R2D2\_data のメソッド)@\spxentry{read\_qq\_tau()}\spxextra{R2D2.R2D2\_data のメソッド}|hyperpage}{46}
+\indexentry{read\_time() (R2D2.R2D2\_data のメソッド)@\spxentry{read\_time()}\spxextra{R2D2.R2D2\_data のメソッド}|hyperpage}{46}
+\indexentry{read\_vc() (R2D2.R2D2\_data のメソッド)@\spxentry{read\_vc()}\spxextra{R2D2.R2D2\_data のメソッド}|hyperpage}{46}
+\indexentry{read\_qq\_check() (R2D2.R2D2\_data のメソッド)@\spxentry{read\_qq\_check()}\spxextra{R2D2.R2D2\_data のメソッド}|hyperpage}{46}
+\indexentry{read\_qq\_slice() (R2D2.R2D2\_data のメソッド)@\spxentry{read\_qq\_slice()}\spxextra{R2D2.R2D2\_data のメソッド}|hyperpage}{47}
+\indexentry{R2D2.sync.set() (R2D2 モジュール)@\spxentry{R2D2.sync.set()}\spxextra{R2D2 モジュール}|hyperpage}{47}
+\indexentry{sync\_tau() (R2D2.R2D2\_data のメソッド)@\spxentry{sync\_tau()}\spxextra{R2D2.R2D2\_data のメソッド}|hyperpage}{47}
+\indexentry{sync\_select() (R2D2.R2D2\_data のメソッド)@\spxentry{sync\_select()}\spxextra{R2D2.R2D2\_data のメソッド}|hyperpage}{48}
+\indexentry{sync\_vc() (R2D2.R2D2\_data のメソッド)@\spxentry{sync\_vc()}\spxextra{R2D2.R2D2\_data のメソッド}|hyperpage}{48}
+\indexentry{sync\_check() (R2D2.R2D2\_data のメソッド)@\spxentry{sync\_check()}\spxextra{R2D2.R2D2\_data のメソッド}|hyperpage}{48}
+\indexentry{upgrade\_resolution() (R2D2.R2D2\_data のメソッド)@\spxentry{upgrade\_resolution()}\spxextra{R2D2.R2D2\_data のメソッド}|hyperpage}{48}
+\indexentry{built\sphinxhyphen{}in function@\spxentry{built\sphinxhyphen{}in function}!R2D2.vtk.write\_3D()@\spxentry{R2D2.vtk.write\_3D()}|hyperpage}{51}
+\indexentry{R2D2.vtk.write\_3D()@\spxentry{R2D2.vtk.write\_3D()}!built\sphinxhyphen{}in function@\spxentry{built\sphinxhyphen{}in function}|hyperpage}{51}
+\indexentry{built\sphinxhyphen{}in function@\spxentry{built\sphinxhyphen{}in function}!R2D2.vtk.write\_vtk.write\_3D\_vector()@\spxentry{R2D2.vtk.write\_vtk.write\_3D\_vector()}|hyperpage}{51}
+\indexentry{R2D2.vtk.write\_vtk.write\_3D\_vector()@\spxentry{R2D2.vtk.write\_vtk.write\_3D\_vector()}!built\sphinxhyphen{}in function@\spxentry{built\sphinxhyphen{}in function}|hyperpage}{51}
+\indexentry{built\sphinxhyphen{}in function@\spxentry{built\sphinxhyphen{}in function}!R2D2.vtk.write\_optical\_surface()@\spxentry{R2D2.vtk.write\_optical\_surface()}|hyperpage}{52}
+\indexentry{R2D2.vtk.write\_optical\_surface()@\spxentry{R2D2.vtk.write\_optical\_surface()}!built\sphinxhyphen{}in function@\spxentry{built\sphinxhyphen{}in function}|hyperpage}{52}

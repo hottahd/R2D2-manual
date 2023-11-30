@@ -44,18 +44,18 @@
             
   <section id="f2pypython">
 <h1>f2pyを用いたPythonコード<a class="headerlink" href="#f2pypython" title="Link to this heading">¶</a></h1>
-<p>いくつかのPythonで行うと遅くなってしまう作業について、fortranコードを書いた上で、f2pyを用いてPythonから使うことができるようにしている。</p>
+<p class="linemarker linemarker-4">いくつかのPythonで行うと遅くなってしまう作業について、fortranコードを書いた上で、f2pyを用いてPythonから使うことができるようにしている。</p>
 <section id="fortran">
 <h2>新しくfortranコードを書いた時<a class="headerlink" href="#fortran" title="Link to this heading">¶</a></h2>
-<p><code class="code docutils literal notranslate"><span class="pre">R2D2_py/R2D2</span></code> 下にfortranコードを配置。ファイル名とモジュール名は同じにする。その場で <code class="code docutils literal notranslate"><span class="pre">make</span></code> とした後、<code class="code docutils literal notranslate"><span class="pre">__init__.py</span></code> に</p>
+<p class="linemarker linemarker-8"><code class="code docutils literal notranslate"><span class="pre">R2D2_py/R2D2</span></code> 下にfortranコードを配置。ファイル名とモジュール名は同じにする。その場で <code class="code docutils literal notranslate"><span class="pre">make</span></code> とした後、<code class="code docutils literal notranslate"><span class="pre">__init__.py</span></code> に</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">R2D2.regrid</span>
 </pre></div>
 </div>
-<p>などと書き加える。こうすると</p>
+<p class="linemarker linemarker-14">などと書き加える。こうすると</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">R2D2</span>
 </pre></div>
 </div>
-<p>のみで、f2pyの関数を使うことができる。f2pyについては <a class="reference external" href="https://qiita.com/hotta_hideyuki/items/ae5762d3f4885de29420">こちらの記事</a> を参照。</p>
+<p class="linemarker linemarker-20">のみで、f2pyの関数を使うことができる。f2pyについては <a class="reference external" href="https://qiita.com/hotta_hideyuki/items/ae5762d3f4885de29420">こちらの記事</a> を参照。</p>
 </section>
 <section id="r2d2f2py">
 <h2>R2D2で用意されているf2pyのモジュール・関数<a class="headerlink" href="#r2d2f2py" title="Link to this heading">¶</a></h2>

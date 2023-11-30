@@ -52,44 +52,44 @@
             
   <section id="r2d2">
 <h1>R2D2を使うための環境設定<a class="headerlink" href="#r2d2" title="Link to this heading">¶</a></h1>
-<p>R2D2コードを使って計算するだけならば任意のfortranコンパイラ, FFTW, MPIのみがあれば良い。
+<p class="linemarker linemarker-4">R2D2コードを使って計算するだけならば任意のfortranコンパイラ, FFTW, MPIのみがあれば良い。
 Pythonコードを使って解析する場合は、いくつかのモジュールが必要なので、そのインストールの方法もここで説明する。</p>
 <section id="fortran">
 <h2>Fortranコードの環境設定<a class="headerlink" href="#fortran" title="Link to this heading">¶</a></h2>
 <section id="mac">
 <h3>Mac<a class="headerlink" href="#mac" title="Link to this heading">¶</a></h3>
-<p>Homebrewを用いて、必要なコンパイラ・ライブラリをインストールすることを推奨している。
+<p class="linemarker linemarker-11">Homebrewを用いて、必要なコンパイラ・ライブラリをインストールすることを推奨している。
 コンパイラとFFTWのインクルードファイルとライブラリの位置だけ指定すれば良いので、
 任意の方法でインストールして構わない。Homebrew以外を用いる場合は、便宜make/Makefileを編集すること。</p>
-<p>Homebrewのインストール</p>
+<p class="linemarker linemarker-15">Homebrewのインストール</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">ruby</span> <span class="o">-</span><span class="n">e</span> <span class="s2">&quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span>
 </pre></div>
 </div>
-<p>gfortranのインストール</p>
+<p class="linemarker linemarker-21">gfortranのインストール</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">brew</span> <span class="n">install</span> <span class="n">gcc</span>
 </pre></div>
 </div>
-<p>OpenMPIのインストール</p>
+<p class="linemarker linemarker-27">OpenMPIのインストール</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">brew</span> <span class="n">install</span> <span class="n">openmpi</span>
 </pre></div>
 </div>
-<p>FFTWのインストール</p>
+<p class="linemarker linemarker-34">FFTWのインストール</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">brew</span> <span class="n">install</span> <span class="n">fftw</span>
 </pre></div>
 </div>
 </section>
-<section id="linux-ubuntu-18-04">
-<h3>Linux (Ubuntu 18.04)<a class="headerlink" href="#linux-ubuntu-18-04" title="Link to this heading">¶</a></h3>
-<p>ここでは、Ubuntu 18.04の場合のみを説明する。</p>
-<p>gfortranのインストール</p>
+<section id="linux-ubuntu-22-04">
+<h3>Linux (Ubuntu 22.04)<a class="headerlink" href="#linux-ubuntu-22-04" title="Link to this heading">¶</a></h3>
+<p class="linemarker linemarker-43">ここでは、Ubuntu 22.04の場合のみを説明する。</p>
+<p class="linemarker linemarker-45">gfortranのインストール</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">gfortran</span>
 </pre></div>
 </div>
-<p>OpenMPIのインストール</p>
+<p class="linemarker linemarker-51">OpenMPIのインストール</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">openmpi</span><span class="o">-</span><span class="n">doc</span> <span class="n">openmpi</span><span class="o">-</span><span class="nb">bin</span> <span class="n">libopenmpi</span><span class="o">-</span><span class="n">dev</span>
 </pre></div>
 </div>
-<p>FFTWのインストール</p>
+<p class="linemarker linemarker-57">FFTWのインストール</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">libfftw3</span><span class="o">-</span><span class="n">dev</span>
 </pre></div>
 </div>
@@ -97,22 +97,22 @@ Pythonコードを使って解析する場合は、いくつかのモジュー�
 </section>
 <section id="python">
 <h2>Pythonコードの環境設定<a class="headerlink" href="#python" title="Link to this heading">¶</a></h2>
-<p>Anacondaをインストールし、以下に示すモジュール群をインストールする。
+<p class="linemarker linemarker-65">Anacondaをインストールし、以下に示すモジュール群をインストールする。
 MacとLinuxで共通する部分が多いのでまとめて説明を記す。</p>
-<p><a class="reference external" href="https://www.anaconda.com/">Anacondaのウェブサイト</a> から対応するインストーラーをダウンロードする。</p>
+<p class="linemarker linemarker-68"><a class="reference external" href="https://www.anaconda.com/">Anacondaのウェブサイト</a> から対応するインストーラーをダウンロードする。</p>
 <ul>
 <li><dl class="simple">
-<dt>Mac</dt><dd><p>dmgファイルをダウンロードして、インストール。インストールされるPATHが変わることが多いが、探してPATHを通す。 <code class="code docutils literal notranslate"><span class="pre">/anaconda/bin</span></code> や <code class="code docutils literal notranslate"><span class="pre">~/opt/anaconda/bin</span></code> など</p>
+<dt>Mac</dt><dd><p class="linemarker linemarker-71">dmgファイルをダウンロードして、インストール。インストールされるPATHが変わることが多いが、探してPATHを通す。 <code class="code docutils literal notranslate"><span class="pre">/anaconda/bin</span></code> や <code class="code docutils literal notranslate"><span class="pre">~/opt/anaconda/bin</span></code> など</p>
 </dd>
 </dl>
 </li>
 <li><dl>
-<dt>Linux</dt><dd><p>ダウンロードしてきたシェルスクリプトファイルのあるディレクトリで
+<dt>Linux</dt><dd><p class="linemarker linemarker-74">ダウンロードしてきたシェルスクリプトファイルのあるディレクトリで
 .. code:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bash</span> <span class="o">~/</span><span class="n">Anaconda</span><span class="o">***.</span><span class="n">sh</span>
 </pre></div>
 </div>
-<p>インストールするディレクトリは <code class="code docutils literal notranslate"><span class="pre">/ホームディレクトリ/anaconda3</span></code> とする。
+<p class="linemarker linemarker-79">インストールするディレクトリは <code class="code docutils literal notranslate"><span class="pre">/ホームディレクトリ/anaconda3</span></code> とする。
 <code class="code docutils literal notranslate"><span class="pre">/ホームディレクトリ/anaconda3</span></code> にPATHを通す。
 スパコンのログインノードなどでもインストール方法は共通である。</p>
 </dd>
@@ -121,7 +121,7 @@ MacとLinuxで共通する部分が多いのでまとめて説明を記す。</p
 </ul>
 <section id="ipython">
 <h3>ipythonの初期設定<a class="headerlink" href="#ipython" title="Link to this heading">¶</a></h3>
-<p>以下は必須ではないが、ipythonを使う時の初期設定ファイルである。
+<p class="linemarker linemarker-85">以下は必須ではないが、ipythonを使う時の初期設定ファイルである。
 <code class="code docutils literal notranslate"><span class="pre">~/.ipython/profile_default/startup/00_first.py</span></code>
 というファイルを作りそこに以下のように記す。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span>
@@ -138,30 +138,30 @@ MacとLinuxで共通する部分が多いのでまとめて説明を記す。</p
 <span class="k">del</span> <span class="n">r</span>
 </pre></div>
 </div>
-<p>最後に記した設定によって、</p>
+<p class="linemarker linemarker-105">最後に記した設定によって、</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="p">(</span><span class="n">Pythonスクリプト名</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>とするだけで、スクリプトを実行できるようになる。</p>
+<p class="linemarker linemarker-111">とするだけで、スクリプトを実行できるようになる。</p>
 </section>
 <section id="google">
 <h3>Googleスプレッドシート利用<a class="headerlink" href="#google" title="Link to this heading">¶</a></h3>
-<p>計算設定などをGoogleスプレッドシートにまとめておくと便利である。
+<p class="linemarker linemarker-116">計算設定などをGoogleスプレッドシートにまとめておくと便利である。
 R2D2では、Pythonから直接Googleスプレッドシートに送信する方法を提供しているので、利用したい方は検討されたい。</p>
-<p>手順については、 <a class="reference external" href="https://qiita.com/akabei/items/0eac37cb852ad476c6b9">こちら</a> を参考にしたが、少し手順が違うのでこのページでも解説する。</p>
-<p>まずは関連するモジュールのインストール。</p>
+<p class="linemarker linemarker-119">手順については、 <a class="reference external" href="https://qiita.com/akabei/items/0eac37cb852ad476c6b9">こちら</a> を参考にしたが、少し手順が違うのでこのページでも解説する。</p>
+<p class="linemarker linemarker-121">まずは関連するモジュールのインストール。</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>gspread
 pip<span class="w"> </span>install<span class="w"> </span>oauth2client
 </pre></div>
 </div>
-<p>プロキシなどの影響でpipが使えない時は以下のようにする</p>
-<p>gspreadのインストール</p>
+<p class="linemarker linemarker-128">プロキシなどの影響でpipが使えない時は以下のようにする</p>
+<p class="linemarker linemarker-130">gspreadのインストール</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:burnash/gspread.git
 <span class="nb">cd</span><span class="w"> </span>gspread
 ipython<span class="w"> </span>setup.py<span class="w"> </span>install
 </pre></div>
 </div>
-<p>oauth2clientのインストール</p>
+<p class="linemarker linemarker-138">oauth2clientのインストール</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:googleapis/oauth2client.git
 <span class="nb">cd</span><span class="w"> </span>oauth2client
 ipython<span class="w"> </span>setup.py<span class="w"> </span>install
@@ -169,51 +169,51 @@ ipython<span class="w"> </span>setup.py<span class="w"> </span>install
 </div>
 <section id="id2">
 <h4>プロジェクト作成<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h4>
-<p>ウェブブラウザで <a class="reference external" href="https://console.developers.google.com/cloud-resource-manager?pli=1">https://console.developers.google.com/cloud-resource-manager?pli=1</a> にアクセス。</p>
+<p class="linemarker linemarker-150">ウェブブラウザで <a class="reference external" href="https://console.developers.google.com/cloud-resource-manager?pli=1">https://console.developers.google.com/cloud-resource-manager?pli=1</a> にアクセス。</p>
 <a class="reference internal image-reference" href="_images/gen_project1.png"><img alt="_images/gen_project1.png" src="_images/gen_project1.png" style="width: 350px;" /></a>
-<p>「プロジェクトを作成」として、プロジェクトを作成</p>
+<p class="linemarker linemarker-155">「プロジェクトを作成」として、プロジェクトを作成</p>
 <a class="reference internal image-reference" href="_images/gen_project2.png"><img alt="_images/gen_project2.png" src="_images/gen_project2.png" style="width: 400px;" /></a>
-<p>プロジェクト名はR2D2, 場所は組織なしとする。</p>
+<p class="linemarker linemarker-160">プロジェクト名はR2D2, 場所は組織なしとする。</p>
 </section>
 <section id="api">
 <h4>API有効化<a class="headerlink" href="#api" title="Link to this heading">¶</a></h4>
 <a class="reference internal image-reference" href="_images/google_drive1.png"><img alt="_images/google_drive1.png" src="_images/google_drive1.png" style="width: 400px;" /></a>
-<p>次に検索窓にGoogle Driveと打ち込んで、Google DriveのAPIを検索</p>
+<p class="linemarker linemarker-168">次に検索窓にGoogle Driveと打ち込んで、Google DriveのAPIを検索</p>
 <a class="reference internal image-reference" href="_images/google_drive2.png"><img alt="_images/google_drive2.png" src="_images/google_drive2.png" style="width: 400px;" /></a>
-<p>Google Drive APIを有効にする。</p>
+<p class="linemarker linemarker-173">Google Drive APIを有効にする。</p>
 <a class="reference internal image-reference" href="_images/google_sheet1.png"><img alt="_images/google_sheet1.png" src="_images/google_sheet1.png" style="width: 400px;" /></a>
-<p>同様にGoogle Sheetsと検索</p>
+<p class="linemarker linemarker-178">同様にGoogle Sheetsと検索</p>
 <a class="reference internal image-reference" href="_images/google_sheet2.png"><img alt="_images/google_sheet2.png" src="_images/google_sheet2.png" style="width: 400px;" /></a>
-<p>Google Sheets APIを有効化</p>
+<p class="linemarker linemarker-183">Google Sheets APIを有効化</p>
 </section>
 <section id="id3">
 <h4>サービスアカウント作成<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h4>
 <a class="reference internal image-reference" href="_images/service_account1.png"><img alt="_images/service_account1.png" src="_images/service_account1.png" style="width: 400px;" /></a>
-<p>Google APIロゴ → 認証情報 → サービスアカウントとたどる。</p>
+<p class="linemarker linemarker-191">Google APIロゴ → 認証情報 → サービスアカウントとたどる。</p>
 <a class="reference internal image-reference" href="_images/service_account2.png"><img alt="_images/service_account2.png" src="_images/service_account2.png" style="width: 400px;" /></a>
-<p>サービスアカウント名はR2D2とする</p>
+<p class="linemarker linemarker-196">サービスアカウント名はR2D2とする</p>
 <a class="reference internal image-reference" href="_images/service_account3.png"><img alt="_images/service_account3.png" src="_images/service_account3.png" style="width: 400px;" /></a>
-<p>役割は編集者を選択</p>
+<p class="linemarker linemarker-201">役割は編集者を選択</p>
 <a class="reference internal image-reference" href="_images/service_account4.png"><img alt="_images/service_account4.png" src="_images/service_account4.png" style="width: 400px;" /></a>
-<p>キーの生成ではJSONを選択し、キーを生成する。
+<p class="linemarker linemarker-206">キーの生成ではJSONを選択し、キーを生成する。
 ダウンロードしたファイルは、使用する計算機のホームディレクトリにjsonというディレクトリを作成し、その下に配置する。そのディレクトリには、このjsonファイル以外には何も置かないこと。</p>
 </section>
 <section id="id4">
 <h4>スプレッドシート作成<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h4>
-<p>以下のウェブサイトからGoogleスプレッドシートを作成
+<p class="linemarker linemarker-212">以下のウェブサイトからGoogleスプレッドシートを作成
 <a class="reference external" href="https://docs.google.com/spreadsheets/create">https://docs.google.com/spreadsheets/create</a></p>
-<p>名前はプロジェクト名とする。R2D2では、pyディレクトリの上のディレクトリ名を読みそれをスプレッドシートの名前として情報を送るので、ディレクトリと同じ名前にする。</p>
+<p class="linemarker linemarker-215">名前はプロジェクト名とする。R2D2では、pyディレクトリの上のディレクトリ名を読みそれをスプレッドシートの名前として情報を送るので、ディレクトリと同じ名前にする。</p>
 <a class="reference internal image-reference" href="_images/spread_sheet1.png"><img alt="_images/spread_sheet1.png" src="_images/spread_sheet1.png" style="width: 400px;" /></a>
-<p>講習会ではR2D2としておく。</p>
+<p class="linemarker linemarker-220">講習会ではR2D2としておく。</p>
 <a class="reference internal image-reference" href="_images/spread_sheet2.png"><img alt="_images/spread_sheet2.png" src="_images/spread_sheet2.png" style="width: 400px;" /></a>
-<p>共有をクリックし、ダウンロードしたjsonファイルの中のclient_email行のEメールアドレスをコピーして、貼り付け。ここまでで、R2D2からGoogleスプレッドシートにアクセスできるようになる。</p>
+<p class="linemarker linemarker-225">共有をクリックし、ダウンロードしたjsonファイルの中のclient_email行のEメールアドレスをコピーして、貼り付け。ここまでで、R2D2からGoogleスプレッドシートにアクセスできるようになる。</p>
 </section>
 </section>
 </section>
 <section id="idl">
 <h2>IDLコードの環境設定<a class="headerlink" href="#idl" title="Link to this heading">¶</a></h2>
-<p>システムにIDLをインストールすれば、それのみで使える。ここでは説明しない。</p>
-<p>最終更新日：2023年11月29日</p>
+<p class="linemarker linemarker-230">システムにIDLをインストールすれば、それのみで使える。ここでは説明しない。</p>
+<p class="linemarker linemarker-232">最終更新日：2023年11月30日</p>
 </section>
 </section>
 
@@ -230,7 +230,7 @@ ipython<span class="w"> </span>setup.py<span class="w"> </span>install
 <li><a class="reference internal" href="#">R2D2を使うための環境設定</a><ul>
 <li><a class="reference internal" href="#fortran">Fortranコードの環境設定</a><ul>
 <li><a class="reference internal" href="#mac">Mac</a></li>
-<li><a class="reference internal" href="#linux-ubuntu-18-04">Linux (Ubuntu 18.04)</a></li>
+<li><a class="reference internal" href="#linux-ubuntu-22-04">Linux (Ubuntu 22.04)</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#python">Pythonコードの環境設定</a><ul>

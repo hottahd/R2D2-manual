@@ -51,7 +51,7 @@
 
 
 \title{R2D2}
-\date{2023年11月29日}
+\date{2023年11月30日}
 \release{1.2}
 \author{Hideyuki Hotta}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -88,7 +88,7 @@ R2D2では、輻射磁気流体力学の方程式を中央差分と非線形の�
 \section{ディレクトリ構造の準備}
 \label{\detokenize{start:id1}}
 \sphinxAtStartPar
-R2D2は現在公開していないので、R2D2のzipファイルを堀田から受け取ったと仮定する。コードをしっかり読めば従う必要はないが、基本的には以下のようなディレクトリ構造で計算することを想定している。
+R2D2は公開していないので、各自 \sphinxcode{\sphinxupquote{R2D2.zip}} のようなファイルを受け取るはずである。研究を実施する際には、以下のようなディレクトリ構造を構成することを推奨する。
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 project\PYGZus{}name/
@@ -103,13 +103,13 @@ project\PYGZus{}name/
 \end{sphinxVerbatim}
 
 \sphinxAtStartPar
-pyには \sphinxhref{https://github.com/hottahd/R2D2\_py}{R2D2\_py} をクローンしてきたもの、idlには \sphinxhref{https://github.com/hottahd/R2D2\_idl}{R2D2\_idl} をクローンしてきたものを配置する。ここは名前が変わっても問題ない。python(py)とidlのどちらかを使えば解析は可能である(両方ダウンロードする必要はない)。
+pyには \sphinxhref{https://github.com/hottahd/R2D2\_py}{R2D2\_py} をクローンしてきたもの、idlには \sphinxhref{https://github.com/hottahd/R2D2\_idl}{R2D2\_idl} をクローンしてきたものを配置する。ここは名前が変わっても問題ない。python(py) とidlのどちらかを使えば解析は可能である(両方ダウンロードする必要はない)。
 
 \sphinxAtStartPar
-堀田から受け取ったR2D2.zipファイルをそれぞれrunディレクトリのd001などと名前を変えて配置することで色々な計算ケースを実行するのが良いだろう。
+堀田から受け取った \sphinxcode{\sphinxupquote{R2D2.zip}} ファイルをそれぞれ \sphinxcode{\sphinxupquote{run/}} ディレクトリの \sphinxcode{\sphinxupquote{d001}} と名前を変えて配置する。新しい設定で計算する際は \sphinxcode{\sphinxupquote{d002}}, \sphinxcode{\sphinxupquote{d003}} とコピーしていくのが良いであろう。
 
 \sphinxAtStartPar
-R2D2ディレクトリの中は以下のようなディレクトリ構造になっている。
+R2D2ディレクトリの中は以下のようなディレクトリ構造を持つ。ファイル出力もプリプロセッサで制御しているため、指定によっては、 \sphinxcode{\sphinxupquote{data/}} 以下の構造は変更される。
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 R2D2/
@@ -172,7 +172,6 @@ R2D2/
    │
    ├─ input\PYGZus{}data/
    ├─ make/
-   ├─ retired\PYGZus{}src/
    ├─ sh/
    └─ src/
         ├─ all/
@@ -180,83 +179,83 @@ R2D2/
 \end{sphinxVerbatim}
 
 \sphinxAtStartPar
-それぞれのファイル、ディレクトリの簡単な説明は以下である。
+それぞれのファイル、ディレクトリの簡単な説明は以下に示す。
 \begin{itemize}
 \item {} \begin{description}
-\sphinxlineitem{F90\_deps.py}
+\sphinxlineitem{\sphinxcode{\sphinxupquote{F90\_deps.py}}}
 \sphinxAtStartPar
-make/Makefile生成のためのpythonスクリプト。fortranコードの依存性を調べて、make/R2D2.depsに出力する。新しいプログラムを作成したときは
+\sphinxcode{\sphinxupquote{make/Makefile}} 生成のためのpythonスクリプト。Fortranコードの依存性を調べて、\sphinxcode{\sphinxupquote{make/R2D2.deps}} に出力する。新しいプログラムを作成したときは
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 python\PYG{+w}{ }F90\PYGZus{}deps.py
 \end{sphinxVerbatim}
 
 \sphinxAtStartPar
-としてmake/R2D2.depsを更新する。
+として \sphinxcode{\sphinxupquote{make/R2D2.deps}} を更新する。
 
 \end{description}
 
 \item {} \begin{description}
-\sphinxlineitem{Makefile}
+\sphinxlineitem{\sphinxcode{\sphinxupquote{Makefile}}}
 \sphinxAtStartPar
-makeをするときにmakeディクレクトリに移動する為のファイル。編集する必要はない。編集すべきMakefileはmake/Makefileに配置してある。
+makeをするときに \sphinxcode{\sphinxupquote{make}} ディクレクトリに移動する為のファイル。編集する必要はない。編集すべき \sphinxcode{\sphinxupquote{Makefile}} は \sphinxcode{\sphinxupquote{make/Makefile}} に配置してある。
 
 \end{description}
 
 \item {} \begin{description}
-\sphinxlineitem{README.md}
+\sphinxlineitem{\sphinxcode{\sphinxupquote{README.md}}}
 \sphinxAtStartPar
-GitHubに表示する為の説明ファイル。情報が古くなっている可能性があるので、README.mdを見るよりは、このウェブページの情報を参照されたい。
+GitHubに表示する為の説明ファイル。情報が古くなっている可能性があるので、 \sphinxcode{\sphinxupquote{README.md}} を見るよりは、このウェブページの情報を参照されたい。
 
 \end{description}
 
 \item {} \begin{description}
-\sphinxlineitem{gen\_time.py}
+\sphinxlineitem{\sphinxcode{\sphinxupquote{gen\_time.py}}}
 \sphinxAtStartPar
 他のモデルから計算結果をもらったときにdataディレクトリや時間のファイルを生成する為のpythonスクリプト
 
 \end{description}
 
 \item {} \begin{description}
-\sphinxlineitem{copy\_caseid.py}
+\sphinxlineitem{\sphinxcode{\sphinxupquote{copy\_caseid.py}}}
 \sphinxAtStartPar
 ディレクトリを変えて続きの計算を行うためのスクリプト
 
 \end{description}
 
 \item {} \begin{description}
-\sphinxlineitem{data/}
+\sphinxlineitem{\sphinxcode{\sphinxupquote{data/}}}
 \sphinxAtStartPar
 fortranプログラムを実行した後に、データが保存されるディレクトリ。fortranプログラムを実行すると自動的に生成される。
 \begin{itemize}
 \item {} \begin{description}
-\sphinxlineitem{data/param/}
+\sphinxlineitem{\sphinxcode{\sphinxupquote{data/param/}}}
 \sphinxAtStartPar
 基本的な計算設定パラメタを出力する為のディレクトリ
 
 \end{description}
 
 \item {} \begin{description}
-\sphinxlineitem{data/qq/}
+\sphinxlineitem{\sphinxcode{\sphinxupquote{data/qq/}}}
 \sphinxAtStartPar
 チェックポイントのための３次元データを出力するためのディレクトリ
 
 \end{description}
 
 \item {} \begin{description}
-\sphinxlineitem{data/remap/}
+\sphinxlineitem{\sphinxcode{\sphinxupquote{data/remap/}}}
 \sphinxAtStartPar
 解析のためのリマッピングをしたあとのデータを格納するディレクトリ
 \begin{itemize}
 \item {} \begin{description}
-\sphinxlineitem{data/remap/qq/}
+\sphinxlineitem{\sphinxcode{\sphinxupquote{data/remap/qq/}}}
 \sphinxAtStartPar
 計算データをリマッピングして扱いやすくした三次元データを格納するディレクトリ。単精度で出力。解析には主にこのデータを使う。
 
 \end{description}
 
 \item {} \begin{description}
-\sphinxlineitem{data/remap/vl/}
+\sphinxlineitem{\sphinxcode{\sphinxupquote{data/remap/vl/}}}
 \sphinxAtStartPar
 計算実行中の解析データを格納するディレクトリ
 
@@ -267,28 +266,72 @@ fortranプログラムを実行した後に、データが保存されるディ�
 \end{description}
 
 \item {} \begin{description}
-\sphinxlineitem{data/slice/}
+\sphinxlineitem{\sphinxcode{\sphinxupquote{data/slice/}}}
 \sphinxAtStartPar
 \sphinxcode{\sphinxupquote{slice\_def.F90}} で定義したスライスデータを格納するディレクトリ
 
 \end{description}
 
 \item {} \begin{description}
-\sphinxlineitem{data/time/}
+\sphinxlineitem{\sphinxcode{\sphinxupquote{data/time/}}}
 \sphinxAtStartPar
 出力した時間を記録したファイルを格納するディレクトリ。3次元データの出力の時間を記録する \sphinxcode{\sphinxupquote{mhd}} と光学的厚さ一定の場所の出力の時間を記録する \sphinxcode{\sphinxupquote{tau}} のディレクトリがある。
 \begin{itemize}
 \item {} \begin{description}
-\sphinxlineitem{data/time/mhd/}
+\sphinxlineitem{\sphinxcode{\sphinxupquote{data/time/mhd/}}}
 \sphinxAtStartPar
 MHD量のアウトプットの時間データ
 
 \end{description}
 
 \item {} \begin{description}
-\sphinxlineitem{data/time/tau/}
+\sphinxlineitem{\sphinxcode{\sphinxupquote{data/time/tau/}}}
 \sphinxAtStartPar
 光学的厚さ一定の面アウトプットの時間データ
+
+\end{description}
+
+\end{itemize}
+
+\end{description}
+
+\item {} \begin{description}
+\sphinxlineitem{\sphinxcode{\sphinxupquote{input\_data/}}}
+\sphinxAtStartPar
+プリプロセスで用意したデータの格納ディレクトリ
+
+\end{description}
+
+\item {} \begin{description}
+\sphinxlineitem{\sphinxcode{\sphinxupquote{make/}}}
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{Makefile}} が配置してあるディレクトリ。 \sphinxcode{\sphinxupquote{make}} によって生成されたファイルもここに格納される
+
+\end{description}
+
+\item {} \begin{description}
+\sphinxlineitem{\sphinxcode{\sphinxupquote{sh/}}}
+\sphinxAtStartPar
+スーパーコンピュータでのジョブ投入のためのシェルスクリプトを格納するディレクトリ
+
+\end{description}
+
+\item {} \begin{description}
+\sphinxlineitem{\sphinxcode{\sphinxupquote{src/}}}
+\sphinxAtStartPar
+ソースファイルを格納するディレクトリ
+\begin{itemize}
+\item {} \begin{description}
+\sphinxlineitem{\sphinxcode{\sphinxupquote{all/}}}
+\sphinxAtStartPar
+メインのソースファイルを格納するディレクトリ
+
+\end{description}
+
+\item {} \begin{description}
+\sphinxlineitem{\sphinxcode{\sphinxupquote{include/}}}
+\sphinxAtStartPar
+includeファイルを格納するディレクトリ
 
 \end{description}
 
@@ -317,7 +360,7 @@ make
 このファイルの1行目に
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{n+nv}{SERVER}\PYG{o}{=}OFP
+\PYG{n+nv}{SERVER}\PYG{o}{=}FUGAKU
 \end{sphinxVerbatim}
 
 \sphinxAtStartPar
@@ -330,11 +373,7 @@ make
 
 \item {} 
 \sphinxAtStartPar
-\sphinxcode{\sphinxupquote{OFP}}: Oakforest\sphinxhyphen{}PACS
-
-\item {} 
-\sphinxAtStartPar
-\sphinxcode{\sphinxupquote{FX}}: 名大FX100
+\sphinxcode{\sphinxupquote{FX}}: 名大不老
 
 \item {} 
 \sphinxAtStartPar
@@ -351,7 +390,7 @@ make
 
 \item {} 
 \sphinxAtStartPar
-\sphinxcode{\sphinxupquote{LOCAL\_ifort}}: Ubuntuのifort
+\sphinxcode{\sphinxupquote{LOCAL\_ifort}}: UbuntuのIntel fortran ifort
 
 \item {} 
 \sphinxAtStartPar
@@ -373,7 +412,7 @@ make
 例えば、磁場なしの熱対流計算を行った後に、磁場を加える場合などに有効である。
 
 \sphinxAtStartPar
-\sphinxcode{\sphinxupquote{run/d001}} での計算を:code:\sphinxtitleref{run/d002} に移す場合について説明する。
+\sphinxcode{\sphinxupquote{run/d001}} での計算を \sphinxcode{\sphinxupquote{run/d002}} に移す場合について説明する。
 \sphinxcode{\sphinxupquote{run/d001}} の下に \sphinxcode{\sphinxupquote{copy\_caseid.py}} というスクリプトがあるのでそれを実行する(なければ堀田からもらう)
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
@@ -480,7 +519,7 @@ make
 このディレクトリを書く実行のディレクトリの配下におき、実行すると続きの計算が始まる。
 
 \sphinxAtStartPar
-最終更新日：2023年11月29日
+最終更新日：2023年11月30日
 
 \sphinxstepscope
 
@@ -531,10 +570,10 @@ FFTWのインストール
 \end{sphinxVerbatim}
 
 
-\subsection{Linux (Ubuntu 18.04)}
-\label{\detokenize{environment:linux-ubuntu-18-04}}
+\subsection{Linux (Ubuntu 22.04)}
+\label{\detokenize{environment:linux-ubuntu-22-04}}
 \sphinxAtStartPar
-ここでは、Ubuntu 18.04の場合のみを説明する。
+ここでは、Ubuntu 22.04の場合のみを説明する。
 
 \sphinxAtStartPar
 gfortranのインストール
@@ -755,7 +794,7 @@ Google APIロゴ \(\rightarrow\) 認証情報 \(\rightarrow\) サービスアカ
 システムにIDLをインストールすれば、それのみで使える。ここでは説明しない。
 
 \sphinxAtStartPar
-最終更新日：2023年11月29日
+最終更新日：2023年11月30日
 
 \sphinxstepscope
 
@@ -1268,7 +1307,7 @@ Yin\sphinxhyphen{}Yang gridを使うために \sphinxcode{\sphinxupquote{ny0*jx0
 \subsection{磁束管浮上}
 \label{\detokenize{typical_case:id14}}
 \sphinxAtStartPar
-最終更新日：2023年11月29日
+最終更新日：2023年11月30日
 
 \sphinxstepscope
 
@@ -1310,7 +1349,7 @@ s &= s_0 + s_1 \\
 T &= T_0 + T_1 \\\end{split}
 \end{equation*}
 \sphinxAtStartPar
-太陽内部では、\(\rho_1 << \rho_0\) などが成り立っているが、太陽表面では熱対流による擾乱と背景場は同程度となるので、R2D2の中では \(\rho_1 << \rho_0\) などは仮定しない。0次の量はModel Sを参考にして計算をしている。\sphinxhref{https://ui.adsabs.harvard.edu/abs/2020MNRAS.494.2523H/abstract}{Hotta \& Iijima2020} や \sphinxhref{https://ui.adsabs.harvard.edu/abs/2022ApJ...933..199H/abstract}{Hotta, Kusano and Shimada, 2022} を参照されたい。
+太陽内部では、\(\rho_1 \ll \rho_0\) などが成り立っているが、太陽表面では熱対流による擾乱と背景場は同程度となるので、R2D2の中では \(\rho_1 \ll \rho_0\) などは仮定しない。0次の量はModel Sを参考にして計算をしている。\sphinxhref{https://ui.adsabs.harvard.edu/abs/2020MNRAS.494.2523H/abstract}{Hotta \& Iijima2020} や \sphinxhref{https://ui.adsabs.harvard.edu/abs/2022ApJ...933..199H/abstract}{Hotta, Kusano and Shimada, 2022} を参照されたい。
 
 
 \section{輻射輸送}
@@ -1321,7 +1360,7 @@ T &= T_0 + T_1 \\\end{split}
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
-最終更新日：2023年11月29日
+最終更新日：2023年11月30日
 
 \sphinxstepscope
 
@@ -1345,7 +1384,7 @@ T &= T_0 + T_1 \\\end{split}
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
-最終更新日：2023年11月29日
+最終更新日：2023年11月30日
 
 \sphinxstepscope
 
@@ -1386,7 +1425,7 @@ R2D2では、
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
-最終更新日：2023年11月29日
+最終更新日：2023年11月30日
 
 \sphinxstepscope
 
@@ -1399,7 +1438,7 @@ R2D2では、
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
-最終更新日：2023年11月29日
+最終更新日：2023年11月30日
 
 \sphinxstepscope
 
@@ -1513,7 +1552,7 @@ fortranのコードの中では
 \begin{split}\delta x = \frac{2\left(x_\mathrm{tran} - n_x\Delta x_0\right)}{\left(n_x - 4\right)n_x}\end{split}
 \end{equation*}
 \sphinxAtStartPar
-最終更新日：2023年11月29日
+最終更新日：2023年11月30日
 
 \sphinxstepscope
 
@@ -1580,7 +1619,7 @@ fortranのコードの中では
 反対称な境界条件を用いて擾乱をゼロにする。これは元々のModel Sでの量を上昇流のエントロピーに用いるということである。
 
 \sphinxAtStartPar
-最終更新日：2023年11月29日
+最終更新日：2023年11月30日
 
 \sphinxstepscope
 
@@ -1593,7 +1632,7 @@ fortranのコードの中では
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
-最終更新日：2023年11月29日
+最終更新日：2023年11月30日
 
 \sphinxstepscope
 
@@ -2326,7 +2365,7 @@ ver. 1.2: データ構造を変更。
 \end{itemize}
 
 \sphinxAtStartPar
-最終更新日：2023年11月29日
+最終更新日：2023年11月30日
 
 \sphinxstepscope
 
@@ -2561,7 +2600,7 @@ Applyをクリック。選択した二つのデータが表示される。
 \end{enumerate}
 
 \sphinxAtStartPar
-最終更新日：2023年11月29日
+最終更新日：2023年11月30日
 
 \sphinxstepscope
 
@@ -3101,7 +3140,7 @@ bzm (float) {[}ix,jx{]} \sphinxhyphen{}\sphinxhyphen{} z方向の磁場 {[}G{]}
 \end{itemize}
 
 \sphinxAtStartPar
-最終更新日：2023年11月29日
+最終更新日：2023年11月30日
 
 \sphinxstepscope
 
@@ -3359,7 +3398,7 @@ To Doを書いておきたい場所に
 と書いてあるので、To Doのまとめが示されている。
 
 \sphinxAtStartPar
-最終更新日：2023年11月29日
+最終更新日：2023年11月30日
 
 
 \chapter{ライセンス}
@@ -3505,6 +3544,14 @@ R2D2を用いた研究で出版された論文は以下です。
 
 \begin{sphinxadmonition}{note}{課題:}
 \sphinxAtStartPar
+輻射輸送の方程式
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+({\hyperref[\detokenize{equation:id4}]{\sphinxcrossref{\sphinxstyleemphasis{元のエントリ}}}} は、 /Users/hotta/Library/CloudStorage/Dropbox/work/R2D2/R2D2\sphinxhyphen{}manual/equation.rst の 43 行目です)
+
+\begin{sphinxadmonition}{note}{課題:}
+\sphinxAtStartPar
 パラメータ。どのグローバル変数がどのモジュールで定義されているかを整理する。
 \end{sphinxadmonition}
 
@@ -3535,16 +3582,8 @@ R2D2を用いた研究で出版された論文は以下です。
 \sphinxAtStartPar
 ({\hyperref[\detokenize{typical_case:id10}]{\sphinxcrossref{\sphinxstyleemphasis{元のエントリ}}}} は、 /Users/hotta/Library/CloudStorage/Dropbox/work/R2D2/R2D2\sphinxhyphen{}manual/typical\_case.rst の 331 行目です)
 
-\begin{sphinxadmonition}{note}{課題:}
 \sphinxAtStartPar
-輻射輸送の方程式
-\end{sphinxadmonition}
-
-\sphinxAtStartPar
-({\hyperref[\detokenize{equation:id4}]{\sphinxcrossref{\sphinxstyleemphasis{元のエントリ}}}} は、 /Users/hotta/Library/CloudStorage/Dropbox/work/R2D2/R2D2\sphinxhyphen{}manual/equation.rst の 43 行目です)
-
-\sphinxAtStartPar
-最終更新日：2023年11月29日
+最終更新日：2023年11月30日
 
 
 \renewcommand{\indexname}{Pythonモジュール索引}

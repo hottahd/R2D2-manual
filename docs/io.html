@@ -58,38 +58,38 @@
 <h3>Fortranコード<a class="headerlink" href="#fortran" title="Link to this heading">¶</a></h3>
 <section id="slice">
 <h4>Sliceデータ<a class="headerlink" href="#slice" title="Link to this heading">¶</a></h4>
-<p>R2D2では、スライスデータも高いケーデンスで出力できるようになっている。多くのデータを出力するのには効率の悪い方法になっているので、3-4枚のスライスを出力するのに留めておくことが推奨される。 <code class="docutils literal notranslate"><span class="pre">slice_def.F90</span></code> 内でどの部分のスライスを出力するかを定義している。</p>
+<p class="linemarker linemarker-12">R2D2では、スライスデータも高いケーデンスで出力できるようになっている。多くのデータを出力するのには効率の悪い方法になっているので、3-4枚のスライスを出力するのに留めておくことが推奨される。 <code class="docutils literal notranslate"><span class="pre">slice_def.F90</span></code> 内でどの部分のスライスを出力するかを定義している。</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">nx_slice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="c">! number of slice in x direction</span>
 <span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ny_slice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="c">! number of slice in y direction</span>
 <span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">nz_slice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="c">! number of slice in z direction</span>
 </pre></div>
 </div>
-<p>この部分で、それぞれの方向に何枚のスライスを出力するかを定義。例えば <code class="docutils literal notranslate"><span class="pre">nx_slice</span></code> はスライスするy-z平面の数となる。実際にどの部分を出力するかは続く部分で指定している。</p>
+<p class="linemarker linemarker-20">この部分で、それぞれの方向に何枚のスライスを出力するかを定義。例えば <code class="docutils literal notranslate"><span class="pre">nx_slice</span></code> はスライスするy-z平面の数となる。実際にどの部分を出力するかは続く部分で指定している。</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="kt">real</span><span class="p">(</span><span class="nb">KIND</span><span class="p">(</span><span class="mf">0.d0</span><span class="p">)),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="n">nx_slice</span><span class="p">),</span><span class="w"> </span><span class="k">save</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">x_slice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">/</span><span class="n">xmin</span><span class="p">,</span><span class="n">rsun</span><span class="p">,</span><span class="n">xmax</span><span class="o">/</span><span class="p">)</span>
 <span class="kt">real</span><span class="p">(</span><span class="nb">KIND</span><span class="p">(</span><span class="mf">0.d0</span><span class="p">)),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="n">ny_slice</span><span class="p">),</span><span class="w"> </span><span class="k">save</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">y_slice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">/</span><span class="n">ymin</span><span class="p">,</span><span class="mf">0.5d0</span><span class="o">*</span><span class="p">(</span><span class="n">ymin</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ymax</span><span class="p">)</span><span class="o">/</span><span class="p">)</span>
 <span class="kt">real</span><span class="p">(</span><span class="nb">KIND</span><span class="p">(</span><span class="mf">0.d0</span><span class="p">)),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="n">nz_slice</span><span class="p">),</span><span class="w"> </span><span class="k">save</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">z_slice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">/</span><span class="n">zmin</span><span class="p">,</span><span class="mf">0.5d0</span><span class="o">*</span><span class="p">(</span><span class="n">zmin</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">zmax</span><span class="p">)</span><span class="o">/</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">nx_slice</span></code> で定義した数と合うように個数を指定しなければならない。</p>
+<p class="linemarker linemarker-28"><code class="docutils literal notranslate"><span class="pre">nx_slice</span></code> で定義した数と合うように個数を指定しなければならない。</p>
 </section>
 </section>
 </section>
 <section id="id3">
 <h2>読込<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
-<p>読み込みについては、PythonコードとIDLコードを用意しているが、開発の頻度が高いPythonコードの利用を推奨している。</p>
+<p class="linemarker linemarker-32">読み込みについては、PythonコードとIDLコードを用意しているが、開発の頻度が高いPythonコードの利用を推奨している。</p>
 <section id="module-R2D2">
 <span id="python"></span><h3>Pythonコード<a class="headerlink" href="#module-R2D2" title="Link to this heading">¶</a></h3>
-<p>PythonでR2D2で定義された関数を使うには</p>
+<p class="linemarker linemarker-39">PythonでR2D2で定義された関数を使うには</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">R2D2</span>
 </pre></div>
 </div>
-<p>として、モジュールを読み込む。R2D2には <a class="reference internal" href="#R2D2.R2D2_data" title="R2D2.R2D2_data"><code class="xref py py-class docutils literal notranslate"><span class="pre">R2D2_data</span></code></a> クラスが定義してあり、これをオブジェクト指向的に用いてデータを取り扱う。</p>
-<p>以下にそれぞれの関数を示すが、docstringは記入してあるので</p>
+<p class="linemarker linemarker-45">として、モジュールを読み込む。R2D2には <a class="reference internal" href="#R2D2.R2D2_data" title="R2D2.R2D2_data"><code class="xref py py-class docutils literal notranslate"><span class="pre">R2D2_data</span></code></a> クラスが定義してあり、これをオブジェクト指向的に用いてデータを取り扱う。</p>
+<p class="linemarker linemarker-47">以下にそれぞれの関数を示すが、docstringは記入してあるので</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">R2D2</span><span class="p">)</span>
 <span class="n">help</span><span class="p">(</span><span class="n">R2D2</span><span class="o">.</span><span class="n">R2D2_data</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>などとすると実行環境で、モジュール全体や各関数の簡単な説明を見ることができる。</p>
+<p class="linemarker linemarker-54">などとすると実行環境で、モジュール全体や各関数の簡単な説明を見ることができる。</p>
 <section id="id4">
 <h4>クラス<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h4>
 <dl class="py class">
@@ -97,84 +97,84 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">R2D2.</span></span><span class="sig-name descname"><span class="pre">R2D2_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datadir</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<p>データの読み込みには <code class="docutils literal notranslate"><span class="pre">R2D2</span></code> モジュールの中で定義されている <code class="docutils literal notranslate"><span class="pre">R2D2_data</span></code> クラスを使う必要がある。</p>
+<p class="linemarker linemarker-60">データの読み込みには <code class="docutils literal notranslate"><span class="pre">R2D2</span></code> モジュールの中で定義されている <code class="docutils literal notranslate"><span class="pre">R2D2_data</span></code> クラスを使う必要がある。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">R2D2</span>
 <span class="n">datadir</span> <span class="o">=</span> <span class="s1">&#39;../run/d002/data&#39;</span>
 <span class="n">d</span> <span class="o">=</span> <span class="n">R2D2</span><span class="o">.</span><span class="n">R2D2_data</span><span class="p">(</span><span class="n">datadir</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>などとしてインスタンスを生成する。</p>
+<p class="linemarker linemarker-68">などとしてインスタンスを生成する。</p>
 </section>
 <section id="attribute">
 <h4>Attribute<a class="headerlink" href="#attribute" title="Link to this heading">¶</a></h4>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="R2D2.R2D2_data.p">
 <span class="sig-prename descclassname"><span class="pre">R2D2_data.</span></span><span class="sig-name descname"><span class="pre">p</span></span><a class="headerlink" href="#R2D2.R2D2_data.p" title="Link to this definition">¶</a></dt>
-<dd><p>基本的なパラメタ。格子点数 <code class="docutils literal notranslate"><span class="pre">ix</span></code> や領域サイズ <code class="docutils literal notranslate"><span class="pre">xmax</span></code> など。
+<dd><p class="linemarker linemarker-75">基本的なパラメタ。格子点数 <code class="docutils literal notranslate"><span class="pre">ix</span></code> や領域サイズ <code class="docutils literal notranslate"><span class="pre">xmax</span></code> など。
 インスタンス生成時に同時に読み込まれる。</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="R2D2.R2D2_data.t">
 <span class="sig-prename descclassname"><span class="pre">R2D2_data.</span></span><span class="sig-name descname"><span class="pre">t</span></span><a class="headerlink" href="#R2D2.R2D2_data.t" title="Link to this definition">¶</a></dt>
-<dd><p>時間を格納するデータ。　<a class="reference internal" href="#R2D2.R2D2_data.read_time" title="R2D2.R2D2_data.read_time"><code class="xref py py-meth docutils literal notranslate"><span class="pre">R2D2_data.read_time()</span></code></a> では戻り値として同じ値を返すために <code class="xref py py-attr docutils literal notranslate"><span class="pre">R2D2_Data.t</span></code> はあまり使われない。</p>
+<dd><p class="linemarker linemarker-80">時間を格納するデータ。　<a class="reference internal" href="#R2D2.R2D2_data.read_time" title="R2D2.R2D2_data.read_time"><code class="xref py py-meth docutils literal notranslate"><span class="pre">R2D2_data.read_time()</span></code></a> では戻り値として同じ値を返すために <code class="xref py py-attr docutils literal notranslate"><span class="pre">R2D2_Data.t</span></code> はあまり使われない。</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="R2D2.R2D2_data.qs">
 <span class="sig-prename descclassname"><span class="pre">R2D2_data.</span></span><span class="sig-name descname"><span class="pre">qs</span></span><a class="headerlink" href="#R2D2.R2D2_data.qs" title="Link to this definition">¶</a></dt>
-<dd><p>ある高さの2次元のndarrayが含まれる辞書型。 <a class="reference internal" href="#R2D2.R2D2_data.read_qq_select" title="R2D2.R2D2_data.read_qq_select"><code class="xref py py-meth docutils literal notranslate"><span class="pre">R2D2_data.read_qq_select()</span></code></a> で読み込んだ結果。</p>
+<dd><p class="linemarker linemarker-84">ある高さの2次元のndarrayが含まれる辞書型。 <a class="reference internal" href="#R2D2.R2D2_data.read_qq_select" title="R2D2.R2D2_data.read_qq_select"><code class="xref py py-meth docutils literal notranslate"><span class="pre">R2D2_data.read_qq_select()</span></code></a> で読み込んだ結果。</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="R2D2.R2D2_data.qq">
 <span class="sig-prename descclassname"><span class="pre">R2D2_data.</span></span><span class="sig-name descname"><span class="pre">qq</span></span><a class="headerlink" href="#R2D2.R2D2_data.qq" title="Link to this definition">¶</a></dt>
-<dd><p>3次元のnumpy array。計算領域全体のデータ。<a class="reference internal" href="#R2D2.R2D2_data.read_qq" title="R2D2.R2D2_data.read_qq"><code class="xref py py-meth docutils literal notranslate"><span class="pre">R2D2_data.read_qq()</span></code></a> で読み込んだ結果。</p>
+<dd><p class="linemarker linemarker-88">3次元のnumpy array。計算領域全体のデータ。<a class="reference internal" href="#R2D2.R2D2_data.read_qq" title="R2D2.R2D2_data.read_qq"><code class="xref py py-meth docutils literal notranslate"><span class="pre">R2D2_data.read_qq()</span></code></a> で読み込んだ結果。</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="R2D2.R2D2_data.qt">
 <span class="sig-prename descclassname"><span class="pre">R2D2_data.</span></span><span class="sig-name descname"><span class="pre">qt</span></span><a class="headerlink" href="#R2D2.R2D2_data.qt" title="Link to this definition">¶</a></dt>
-<dd><p>2次元のnumpy array。ある光学的厚さの面でのデータ。現在は光学的厚さ1, 0.1, 0.01でのデータを出力している。 <a class="reference internal" href="#R2D2.R2D2_data.read_qq_tau" title="R2D2.R2D2_data.read_qq_tau"><code class="xref py py-meth docutils literal notranslate"><span class="pre">R2D2_data.read_qq_tau()</span></code></a> で読み込んだ結果。</p>
+<dd><p class="linemarker linemarker-92">2次元のnumpy array。ある光学的厚さの面でのデータ。現在は光学的厚さ1, 0.1, 0.01でのデータを出力している。 <a class="reference internal" href="#R2D2.R2D2_data.read_qq_tau" title="R2D2.R2D2_data.read_qq_tau"><code class="xref py py-meth docutils literal notranslate"><span class="pre">R2D2_data.read_qq_tau()</span></code></a> で読み込んだ結果。</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="R2D2.R2D2_data.vc">
 <span class="sig-prename descclassname"><span class="pre">R2D2_data.</span></span><span class="sig-name descname"><span class="pre">vc</span></span><a class="headerlink" href="#R2D2.R2D2_data.vc" title="Link to this definition">¶</a></dt>
-<dd><p>Fortranの計算の中で解析した結果。 <a class="reference internal" href="#R2D2.R2D2_data.read_vc" title="R2D2.R2D2_data.read_vc"><code class="xref py py-meth docutils literal notranslate"><span class="pre">R2D2_data.read_vc()</span></code></a> で読み込んだ結果。</p>
+<dd><p class="linemarker linemarker-96">Fortranの計算の中で解析した結果。 <a class="reference internal" href="#R2D2.R2D2_data.read_vc" title="R2D2.R2D2_data.read_vc"><code class="xref py py-meth docutils literal notranslate"><span class="pre">R2D2_data.read_vc()</span></code></a> で読み込んだ結果。</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="R2D2.R2D2_data.qc">
 <span class="sig-prename descclassname"><span class="pre">R2D2_data.</span></span><span class="sig-name descname"><span class="pre">qc</span></span><a class="headerlink" href="#R2D2.R2D2_data.qc" title="Link to this definition">¶</a></dt>
-<dd><p>3次元のnumpy array。計算領域全体のデータ。Fortranの計算でチェックポイントのために出力しているデータを読み込む。主に解像度をあげたいときのために使う <a class="reference internal" href="#R2D2.R2D2_data.read_qq_check" title="R2D2.R2D2_data.read_qq_check"><code class="xref py py-meth docutils literal notranslate"><span class="pre">R2D2_data.read_qq_check()</span></code></a> で読み込んだ結果。</p>
+<dd><p class="linemarker linemarker-99">3次元のnumpy array。計算領域全体のデータ。Fortranの計算でチェックポイントのために出力しているデータを読み込む。主に解像度をあげたいときのために使う <a class="reference internal" href="#R2D2.R2D2_data.read_qq_check" title="R2D2.R2D2_data.read_qq_check"><code class="xref py py-meth docutils literal notranslate"><span class="pre">R2D2_data.read_qq_check()</span></code></a> で読み込んだ結果。</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="R2D2.R2D2_data.ql">
 <span class="sig-prename descclassname"><span class="pre">R2D2_data.</span></span><span class="sig-name descname"><span class="pre">ql</span></span><a class="headerlink" href="#R2D2.R2D2_data.ql" title="Link to this definition">¶</a></dt>
-<dd><p>2次元のnumpy array。Fortranで定義したスライスデータ <a class="reference internal" href="#R2D2.R2D2_data.read_qq_slice" title="R2D2.R2D2_data.read_qq_slice"><code class="xref py py-meth docutils literal notranslate"><span class="pre">R2D2_data.read_qq_slice()</span></code></a> で読み込んだ結果。
+<dd><p class="linemarker linemarker-103">2次元のnumpy array。Fortranで定義したスライスデータ <a class="reference internal" href="#R2D2.R2D2_data.read_qq_slice" title="R2D2.R2D2_data.read_qq_slice"><code class="xref py py-meth docutils literal notranslate"><span class="pre">R2D2_data.read_qq_slice()</span></code></a> で読み込んだ結果。
 実際にどの位置のスライスを読み込んでいるかは <code class="docutils literal notranslate"><span class="pre">R2D2.p['x_slice']</span></code>, <code class="docutils literal notranslate"><span class="pre">R2D2.p['y_slice']</span></code>, <code class="docutils literal notranslate"><span class="pre">R2D2.p['z_slice']</span></code> を参照すること。スライスの位置の配列が保存されている。</p>
 </dd></dl>
 
-<p><a class="reference internal" href="#R2D2.R2D2_data.p" title="R2D2.R2D2_data.p"><code class="xref py py-attr docutils literal notranslate"><span class="pre">R2D2_data.p</span></code></a> については、<code class="docutils literal notranslate"><span class="pre">init.py</span></code> などで</p>
+<p class="linemarker linemarker-106"><a class="reference internal" href="#R2D2.R2D2_data.p" title="R2D2.R2D2_data.p"><code class="xref py py-attr docutils literal notranslate"><span class="pre">R2D2_data.p</span></code></a> については、<code class="docutils literal notranslate"><span class="pre">init.py</span></code> などで</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">R2D2</span>
 <span class="n">d</span> <span class="o">=</span> <span class="n">R2D2</span><span class="o">.</span><span class="n">R2D2_data</span><span class="p">(</span><span class="n">datadir</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">R2D2</span><span class="o">.</span><span class="n">p</span><span class="p">:</span>
     <span class="n">exec</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> = </span><span class="si">%s%s%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s1">&#39;R2D2.p[&quot;&#39;</span><span class="p">,</span><span class="n">key</span><span class="p">,</span><span class="s1">&#39;&quot;]&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>などとしているために、辞書型の <code class="docutils literal notranslate"><span class="pre">key</span></code> を名前にする変数に値が代入されている。例えば、 <code class="docutils literal notranslate"><span class="pre">R2D2_data.p['ix']</span></code> と <code class="docutils literal notranslate"><span class="pre">ix</span></code> には同じ値が入っている。</p>
+<p class="linemarker linemarker-115">などとしているために、辞書型の <code class="docutils literal notranslate"><span class="pre">key</span></code> を名前にする変数に値が代入されている。例えば、 <code class="docutils literal notranslate"><span class="pre">R2D2_data.p['ix']</span></code> と <code class="docutils literal notranslate"><span class="pre">ix</span></code> には同じ値が入っている。</p>
 </section>
 <section id="method">
 <h4>Method<a class="headerlink" href="#method" title="Link to this heading">¶</a></h4>
 <section id="id5">
 <h5>データ読み込み<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h5>
-<p>メソッドで指定する <code class="docutils literal notranslate"><span class="pre">datadir</span></code> はデータの場所を示す変数。R2D2の計算を実行すると <code class="docutils literal notranslate"><span class="pre">data</span></code> ディレクトリが生成されて、その中にデータが保存される。この場所を指定すれば良い。</p>
+<p class="linemarker linemarker-123">メソッドで指定する <code class="docutils literal notranslate"><span class="pre">datadir</span></code> はデータの場所を示す変数。R2D2の計算を実行すると <code class="docutils literal notranslate"><span class="pre">data</span></code> ディレクトリが生成されて、その中にデータが保存される。この場所を指定すれば良い。</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="R2D2.R2D2_data.__init__">
 <span class="sig-prename descclassname"><span class="pre">R2D2_data.</span></span><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datadir</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.__init__" title="Link to this definition">¶</a></dt>
-<dd><p>インスタンス生成時に実行されるメソッド。計算設定などのパラメタが読み込まれる。 <a class="reference internal" href="#R2D2.R2D2_data.p" title="R2D2.R2D2_data.p"><code class="xref py py-attr docutils literal notranslate"><span class="pre">R2D2_data.p</span></code></a> にデータが保存される。</p>
+<dd><p class="linemarker linemarker-127">インスタンス生成時に実行されるメソッド。計算設定などのパラメタが読み込まれる。 <a class="reference internal" href="#R2D2.R2D2_data.p" title="R2D2.R2D2_data.p"><code class="xref py py-attr docutils literal notranslate"><span class="pre">R2D2_data.p</span></code></a> にデータが保存される。</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>datadir</strong> (<em>str</em>) -- データの場所</p>
@@ -185,7 +185,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="R2D2.R2D2_data.read_qq_select">
 <span class="sig-prename descclassname"><span class="pre">R2D2_data.</span></span><span class="sig-name descname"><span class="pre">read_qq_select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">silent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.read_qq_select" title="Link to this definition">¶</a></dt>
-<dd><p>ある高さのデータのスライスを読み込む。戻り値を返さない時も <a class="reference internal" href="#R2D2.R2D2_data.qs" title="R2D2.R2D2_data.qs"><code class="xref py py-attr docutils literal notranslate"><span class="pre">R2D2_data.qs</span></code></a> にデータが保存される。</p>
+<dd><p class="linemarker linemarker-133">ある高さのデータのスライスを読み込む。戻り値を返さない時も <a class="reference internal" href="#R2D2.R2D2_data.qs" title="R2D2.R2D2_data.qs"><code class="xref py py-attr docutils literal notranslate"><span class="pre">R2D2_data.qs</span></code></a> にデータが保存される。</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -200,7 +200,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="R2D2.R2D2_data.read_qq">
 <span class="sig-prename descclassname"><span class="pre">R2D2_data.</span></span><span class="sig-name descname"><span class="pre">read_qq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">silent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.read_qq" title="Link to this definition">¶</a></dt>
-<dd><p>3次元のデータを読み込む。戻り値を返さない時も <a class="reference internal" href="#R2D2.R2D2_data.qq" title="R2D2.R2D2_data.qq"><code class="xref py py-attr docutils literal notranslate"><span class="pre">R2D2_data.qq</span></code></a> にデータが保存される。</p>
+<dd><p class="linemarker linemarker-141">3次元のデータを読み込む。戻り値を返さない時も <a class="reference internal" href="#R2D2.R2D2_data.qq" title="R2D2.R2D2_data.qq"><code class="xref py py-attr docutils literal notranslate"><span class="pre">R2D2_data.qq</span></code></a> にデータが保存される。</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -214,7 +214,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="R2D2.R2D2_data.read_qq_tau">
 <span class="sig-prename descclassname"><span class="pre">R2D2_data.</span></span><span class="sig-name descname"><span class="pre">read_qq_tau</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">silent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.read_qq_tau" title="Link to this definition">¶</a></dt>
-<dd><p>光学的厚さが一定の2次元のデータを読み込む。<a class="reference internal" href="#R2D2.R2D2_data.qt" title="R2D2.R2D2_data.qt"><code class="xref py py-attr docutils literal notranslate"><span class="pre">R2D2_data.qt</span></code></a> にデータが保存される。</p>
+<dd><p class="linemarker linemarker-148">光学的厚さが一定の2次元のデータを読み込む。<a class="reference internal" href="#R2D2.R2D2_data.qt" title="R2D2.R2D2_data.qt"><code class="xref py py-attr docutils literal notranslate"><span class="pre">R2D2_data.qt</span></code></a> にデータが保存される。</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -228,7 +228,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="R2D2.R2D2_data.read_time">
 <span class="sig-prename descclassname"><span class="pre">R2D2_data.</span></span><span class="sig-name descname"><span class="pre">read_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">silent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.read_time" title="Link to this definition">¶</a></dt>
-<dd><p>時間を読み込む。 <code class="xref py py-attr docutils literal notranslate"><span class="pre">R2D2.t</span></code> にもデータは格納されるが戻り値としても使うことができる。</p>
+<dd><p class="linemarker linemarker-155">時間を読み込む。 <code class="xref py py-attr docutils literal notranslate"><span class="pre">R2D2.t</span></code> にもデータは格納されるが戻り値としても使うことができる。</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -246,7 +246,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="R2D2.R2D2_data.read_vc">
 <span class="sig-prename descclassname"><span class="pre">R2D2_data.</span></span><span class="sig-name descname"><span class="pre">read_vc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">silent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.read_vc" title="Link to this definition">¶</a></dt>
-<dd><p>Fortranコードの中で解析した計算結果を読み込む。戻り値を返さない時も <a class="reference internal" href="#R2D2.R2D2_data.vc" title="R2D2.R2D2_data.vc"><code class="xref py py-attr docutils literal notranslate"><span class="pre">R2D2_data.vc</span></code></a> にデータが保存される。</p>
+<dd><p class="linemarker linemarker-164">Fortranコードの中で解析した計算結果を読み込む。戻り値を返さない時も <a class="reference internal" href="#R2D2.R2D2_data.vc" title="R2D2.R2D2_data.vc"><code class="xref py py-attr docutils literal notranslate"><span class="pre">R2D2_data.vc</span></code></a> にデータが保存される。</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -260,7 +260,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="R2D2.R2D2_data.read_qq_check">
 <span class="sig-prename descclassname"><span class="pre">R2D2_data.</span></span><span class="sig-name descname"><span class="pre">read_qq_check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">silent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.read_qq_check" title="Link to this definition">¶</a></dt>
-<dd><p>チェックポイントのための3次元データを読み込む。主に解像度をあげるときに使う。 <a class="reference internal" href="#R2D2.R2D2_data.qc" title="R2D2.R2D2_data.qc"><code class="xref py py-attr docutils literal notranslate"><span class="pre">R2D2_data.qc</span></code></a> にデータが保存される。</p>
+<dd><p class="linemarker linemarker-171">チェックポイントのための3次元データを読み込む。主に解像度をあげるときに使う。 <a class="reference internal" href="#R2D2.R2D2_data.qc" title="R2D2.R2D2_data.qc"><code class="xref py py-attr docutils literal notranslate"><span class="pre">R2D2_data.qc</span></code></a> にデータが保存される。</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -275,7 +275,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="R2D2.R2D2_data.read_qq_slice">
 <span class="sig-prename descclassname"><span class="pre">R2D2_data.</span></span><span class="sig-name descname"><span class="pre">read_qq_slice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_slice</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">silent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.read_qq_slice" title="Link to this definition">¶</a></dt>
-<dd><p><code class="docutils literal notranslate"><span class="pre">slice_def.F90</span></code> で指定したスライスデータを読み込む。<a class="reference internal" href="#R2D2.R2D2_data.ql" title="R2D2.R2D2_data.ql"><code class="xref py py-attr docutils literal notranslate"><span class="pre">R2D2_data.ql</span></code></a> にデータが保存される。</p>
+<dd><p class="linemarker linemarker-179"><code class="docutils literal notranslate"><span class="pre">slice_def.F90</span></code> で指定したスライスデータを読み込む。<a class="reference internal" href="#R2D2.R2D2_data.ql" title="R2D2.R2D2_data.ql"><code class="xref py py-attr docutils literal notranslate"><span class="pre">R2D2_data.ql</span></code></a> にデータが保存される。</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -291,11 +291,11 @@
 </section>
 <section id="id6">
 <h5>データダウンロード<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h5>
-<p>スパコンなどで計算した後に、ローカルの環境にデータをダウンロードするメソッドも提供している。堀田と全く同じようにディレクトリ構造を作ってないといけないので注意。</p>
+<p class="linemarker linemarker-189">スパコンなどで計算した後に、ローカルの環境にデータをダウンロードするメソッドも提供している。堀田と全く同じようにディレクトリ構造を作ってないといけないので注意。</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="R2D2.R2D2.sync.set">
 <span class="sig-prename descclassname"><span class="pre">R2D2.sync.</span></span><span class="sig-name descname"><span class="pre">set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">server</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">caseid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">project</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">os.getcwd().split('/')[-2]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dist</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'../run/'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2.sync.set" title="Link to this definition">¶</a></dt>
-<dd><p>設定のみをダウンロードするメソッド。ひとまずGoogleスプレッドシートに書き込みたい時などに有用。</p>
+<dd><p class="linemarker linemarker-193">設定のみをダウンロードするメソッド。ひとまずGoogleスプレッドシートに書き込みたい時などに有用。</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -311,7 +311,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="R2D2.R2D2_data.sync_tau">
 <span class="sig-prename descclassname"><span class="pre">R2D2_data.</span></span><span class="sig-name descname"><span class="pre">sync_tau</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">server</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">project</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">os.getcwd().split('/')[-2]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.sync_tau" title="Link to this definition">¶</a></dt>
-<dd><p>光学的厚さ一定の面上でのデータをダウンロードするメソッド。</p>
+<dd><p class="linemarker linemarker-202">光学的厚さ一定の面上でのデータをダウンロードするメソッド。</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -325,7 +325,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="R2D2.R2D2_data.sync_select">
 <span class="sig-prename descclassname"><span class="pre">R2D2_data.</span></span><span class="sig-name descname"><span class="pre">sync_select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">server</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">project</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">os.getcwd().split('/')[-2]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.sync_select" title="Link to this definition">¶</a></dt>
-<dd><p>２次元データをダウンロードするメソッド</p>
+<dd><p class="linemarker linemarker-209">２次元データをダウンロードするメソッド</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -340,7 +340,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="R2D2.R2D2_data.sync_vc">
 <span class="sig-prename descclassname"><span class="pre">R2D2_data.</span></span><span class="sig-name descname"><span class="pre">sync_vc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">server</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">project</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">os.getcwd().split('/')[-2]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.sync_vc" title="Link to this definition">¶</a></dt>
-<dd><p>計算実行中に解析した物理量をダウンロードするメソッド</p>
+<dd><p class="linemarker linemarker-217">計算実行中に解析した物理量をダウンロードするメソッド</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -354,7 +354,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="R2D2.R2D2_data.sync_check">
 <span class="sig-prename descclassname"><span class="pre">R2D2_data.</span></span><span class="sig-name descname"><span class="pre">sync_check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">server</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">project</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">os.getcwd().split('/')[-2]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.sync_check" title="Link to this definition">¶</a></dt>
-<dd><p>チェックポイントデータをダウンロードするメソッド</p>
+<dd><p class="linemarker linemarker-224">チェックポイントデータをダウンロードするメソッド</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -371,18 +371,18 @@
 </section>
 <section id="id7">
 <h3>解像度・計算領域変更<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h3>
-<p>R2D2のPythonの機能を用いて, 解像度や計算領域を変更することができる.</p>
-<p>以下の手順に従う</p>
+<p class="linemarker linemarker-233">R2D2のPythonの機能を用いて, 解像度や計算領域を変更することができる.</p>
+<p class="linemarker linemarker-235">以下の手順に従う</p>
 <ol class="arabic simple">
-<li><p>fortranコードで何らかの計算を実行</p></li>
-<li><p>pythonで読み込み。解像度変換を実行</p></li>
-<li><p>fortranで再度, 計算を実行</p></li>
+<li><p class="linemarker linemarker-237">fortranコードで何らかの計算を実行</p></li>
+<li><p class="linemarker linemarker-238">pythonで読み込み。解像度変換を実行</p></li>
+<li><p class="linemarker linemarker-239">fortranで再度, 計算を実行</p></li>
 </ol>
-<p>pythonでの解像度変換には <a class="reference internal" href="#R2D2.R2D2_data.upgrade_resolution" title="R2D2.R2D2_data.upgrade_resolution"><code class="xref py py-meth docutils literal notranslate"><span class="pre">R2D2_data.upgrade_resolution()</span></code></a> メソッドを用いる.</p>
+<p class="linemarker linemarker-241">pythonでの解像度変換には <a class="reference internal" href="#R2D2.R2D2_data.upgrade_resolution" title="R2D2.R2D2_data.upgrade_resolution"><code class="xref py py-meth docutils literal notranslate"><span class="pre">R2D2_data.upgrade_resolution()</span></code></a> メソッドを用いる.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="R2D2.R2D2_data.upgrade_resolution">
 <span class="sig-prename descclassname"><span class="pre">R2D2_data.</span></span><span class="sig-name descname"><span class="pre">upgrade_resolution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">caseid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ix_ununi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">32</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dx00</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">48e5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_ununif</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">endian</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'&lt;'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">memory_saving</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#R2D2.R2D2_data.upgrade_resolution" title="Link to this definition">¶</a></dt>
-<dd><p>データの解像度や計算領域を変更するためのメソッド</p>
+<dd><p class="linemarker linemarker-245">データの解像度や計算領域を変更するためのメソッド</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -403,7 +403,7 @@
 </ul>
 </dd>
 </dl>
-<p>これより下のパラメタは <cite>x_ununif=True</cite> を用いたときのみ有効となる.</p>
+<p class="linemarker linemarker-264">これより下のパラメタは <cite>x_ununif=True</cite> を用いたときのみ有効となる.</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -415,26 +415,26 @@
 </dl>
 </dd></dl>
 
-<p>例えば, <cite>caseid='d001'</cite> のデータの解像度を変更して <cite>caseid='d002'</cite> へと出力する時は</p>
+<p class="linemarker linemarker-272">例えば, <cite>caseid='d001'</cite> のデータの解像度を変更して <cite>caseid='d002'</cite> へと出力する時は</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">R2D2</span><span class="o">.</span><span class="n">R2D2_data</span><span class="p">(</span><span class="s1">&#39;../run/d001&#39;</span><span class="p">)</span>
 <span class="n">d</span><span class="o">.</span><span class="n">upgrade_resolution</span><span class="p">(</span><span class="s1">&#39;d002&#39;</span><span class="p">,</span><span class="o">...</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>として, 出力された結果を参考にd002のプログラムを変更する.</p>
+<p class="linemarker linemarker-279">として, 出力された結果を参考にd002のプログラムを変更する.</p>
 </section>
 <section id="idl">
 <h3>IDLコード<a class="headerlink" href="#idl" title="Link to this heading">¶</a></h3>
-<p><a class="reference external" href="https://github.com/hottahd/R2D2_idl">GitHubの公開レポジトリ</a> に簡単な説明あり</p>
+<p class="linemarker linemarker-284"><a class="reference external" href="https://github.com/hottahd/R2D2_idl">GitHubの公開レポジトリ</a> に簡単な説明あり</p>
 </section>
 </section>
 <section id="id8">
 <h2>バージョン履歴<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>ver. 1.0: バージョン制を導入</p></li>
-<li><p>ver. 1.1: 光学的厚さが0.1, 0.01の部分も出力することにした。qq_in, vcをconfigのグローバル変数として取扱うことにした。</p></li>
-<li><p>ver. 1.2: データ構造を変更。</p></li>
+<li><p class="linemarker linemarker-289">ver. 1.0: バージョン制を導入</p></li>
+<li><p class="linemarker linemarker-290">ver. 1.1: 光学的厚さが0.1, 0.01の部分も出力することにした。qq_in, vcをconfigのグローバル変数として取扱うことにした。</p></li>
+<li><p class="linemarker linemarker-291">ver. 1.2: データ構造を変更。</p></li>
 </ul>
-<p>最終更新日：2023年11月29日</p>
+<p class="linemarker linemarker-293">最終更新日：2023年11月30日</p>
 </section>
 </section>
 

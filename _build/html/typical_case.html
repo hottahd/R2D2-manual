@@ -52,25 +52,25 @@
             
   <section id="id1">
 <h1>典型的計算例<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h1>
-<p>ここでは、典型的計算設定について紹介する。</p>
+<p class="linemarker linemarker-4">ここでは、典型的計算設定について紹介する。</p>
 <section id="id2">
 <h2>デカルト座標<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
 <section id="id3">
 <h3>小規模局所光球計算<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
-<p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2005A%26A...429..335V/abstract">Vögler et al., 2005</a> などで行われている小規模局所光球計算の設定を説明する。</p>
+<p class="linemarker linemarker-11"><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2005A%26A...429..335V/abstract">Vögler et al., 2005</a> などで行われている小規模局所光球計算の設定を説明する。</p>
 <ul>
 <li><dl class="simple">
-<dt>Makefileのオプション</dt><dd><p>指定するオプションは
+<dt>Makefileのオプション</dt><dd><p class="linemarker linemarker-14">指定するオプションは
 光球のみ一様グリッドで計算するので, 複数方向輻射輸送で計算する。指定するオプションは</p>
 <ul class="simple">
-<li><p><code class="code docutils literal notranslate"><span class="pre">PPC</span> <span class="pre">:=</span> <span class="pre">-Dremap_2d_assign</span></code></p></li>
+<li><p class="linemarker linemarker-17"><code class="code docutils literal notranslate"><span class="pre">PPC</span> <span class="pre">:=</span> <span class="pre">-Dremap_2d_assign</span></code></p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl>
-<dt>計算領域・解像度</dt><dd><p>計算領域は鉛直方向(R2D2ではx方向)にrsun から700 km上から5.444 Mm下までをとる。水平方向(R2D2ではyとz方向)には、6.144 Mmずつとる。</p>
-<p>太陽光球を計算するときは、鉛直方向には少なくとも48 km, 水平方向には少なくとも192 kmの格子間隔が必要である。ここでは各方向に48 kmの格子点間隔をとることにして、各方向に128グリッドづつ格子点を用意する。ここではMPIプロセスを2×2×2プロセス使う例を示す。これらの設定は <code class="code docutils literal notranslate"><span class="pre">src/all/geometry_def.F90</span></code> を編集。</p>
+<dt>計算領域・解像度</dt><dd><p class="linemarker linemarker-20">計算領域は鉛直方向(R2D2ではx方向)にrsun から700 km上から5.444 Mm下までをとる。水平方向(R2D2ではyとz方向)には、6.144 Mmずつとる。</p>
+<p class="linemarker linemarker-22">太陽光球を計算するときは、鉛直方向には少なくとも48 km, 水平方向には少なくとも192 kmの格子間隔が必要である。ここでは各方向に48 kmの格子点間隔をとることにして、各方向に128グリッドづつ格子点を用意する。ここではMPIプロセスを2×2×2プロセス使う例を示す。これらの設定は <code class="code docutils literal notranslate"><span class="pre">src/all/geometry_def.F90</span></code> を編集。</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="p">,</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">nx0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">64</span><span class="p">,</span><span class="w"> </span><span class="n">ny0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">64</span><span class="p">,</span><span class="w"> </span><span class="n">nz0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">64</span>
 <span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ix0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">jx0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">kx0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
 
@@ -93,7 +93,7 @@
 <span class="cp">#endif</span>
 </pre></div>
 </div>
-<p>と設定する。念のために</p>
+<p class="linemarker linemarker-48">と設定する。念のために</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">xdcheck</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
 <span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ydcheck</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
 <span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">zdcheck</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
@@ -103,12 +103,12 @@
 <span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">iper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">jper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">kper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
 </pre></div>
 </div>
-<p>となっているかチェックする。全て <code class="code docutils literal notranslate"><span class="pre">xdcheck</span></code> などは2に設定してあると3次元計算となる。<code class="code docutils literal notranslate"><span class="pre">iper</span></code> はそれぞれの方向に周期境界条件を使うかのフラグである。</p>
+<p class="linemarker linemarker-60">となっているかチェックする。全て <code class="code docutils literal notranslate"><span class="pre">xdcheck</span></code> などは2に設定してあると3次元計算となる。<code class="code docutils literal notranslate"><span class="pre">iper</span></code> はそれぞれの方向に周期境界条件を使うかのフラグである。</p>
 </dd>
 </dl>
 </li>
 <li><dl>
-<dt>音速抑制法</dt><dd><p>光球のみ計算の時は、音速抑制法を使う必要は無いので、音速抑制率を常に1に設定する。
+<dt>音速抑制法</dt><dd><p class="linemarker linemarker-63">光球のみ計算の時は、音速抑制法を使う必要は無いので、音速抑制率を常に1に設定する。
 <code class="code docutils literal notranslate"><span class="pre">src/all/background_init.F90</span></code> を編集。</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifdef ideal</span>
 <span class="w">    </span><span class="p">...</span><span class="w"> </span><span class="p">(</span><span class="n">ignore</span><span class="w"> </span><span class="n">this</span><span class="p">)</span>
@@ -128,12 +128,12 @@
 <span class="cp">#endif</span>
 </pre></div>
 </div>
-<p>と設定する。</p>
+<p class="linemarker linemarker-85">と設定する。</p>
 </dd>
 </dl>
 </li>
 <li><dl>
-<dt>境界条件</dt><dd><p>水平方向は周期境界を用いるので、鉛直方向の境界条件のみを設定すれば良い。
+<dt>境界条件</dt><dd><p class="linemarker linemarker-89">水平方向は周期境界を用いるので、鉛直方向の境界条件のみを設定すれば良い。
 磁場の上部境界条件はポテンシャル磁場の境界条件を用いる。他の設定はVöglerの論文を参照。
 <code class="code docutils literal notranslate"><span class="pre">src/all/bc_all.F90</span></code> で設定している。</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifdef ideal</span>
@@ -148,32 +148,32 @@
 <span class="cp">#endif</span>
 </pre></div>
 </div>
-<p>とする。 <code class="code docutils literal notranslate"><span class="pre">bcx(qq)</span></code> が実行されるようにする。
+<p class="linemarker linemarker-106">とする。 <code class="code docutils literal notranslate"><span class="pre">bcx(qq)</span></code> が実行されるようにする。
 また、念のため</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">call </span><span class="n">bc_potential</span><span class="p">(</span><span class="n">qq</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>がコメントアウトされていないかチェックする。</p>
+<p class="linemarker linemarker-113">がコメントアウトされていないかチェックする。</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>輻射輸送</dt><dd><p>輻射輸送は複数本の光線を解くのが良い。Makefileで <code class="code docutils literal notranslate"><span class="pre">PPC:</span> <span class="pre">=</span> <span class="pre">-Done_ray</span></code> を設定しないようにする。</p>
+<dt>輻射輸送</dt><dd><p class="linemarker linemarker-116">輻射輸送は複数本の光線を解くのが良い。Makefileで <code class="code docutils literal notranslate"><span class="pre">PPC:</span> <span class="pre">=</span> <span class="pre">-Done_ray</span></code> を設定しないようにする。</p>
 </dd>
 </dl>
 </li>
 <li><dl>
-<dt>初期条件</dt><dd><p>初期条件は、鉛直方向速度(vx)にランダムな微小速度を与えている。プラージュ領域を計算したい場合は
+<dt>初期条件</dt><dd><p class="linemarker linemarker-119">初期条件は、鉛直方向速度(vx)にランダムな微小速度を与えている。プラージュ領域を計算したい場合は
 <code class="code docutils literal notranslate"><span class="pre">model_init.F90</span></code> で</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="n">bx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="mf">0.d0</span>
 </pre></div>
 </div>
-<p>とすれば良い.</p>
+<p class="linemarker linemarker-126">とすれば良い.</p>
 </dd>
 </dl>
 </li>
 <li><dl>
-<dt>出力アウトプット</dt><dd><p>ここは本当は完全に自由だが、データの出力の設定である。粒状斑の動きを詳しく見ようと思ったら30秒ほどの時間ケーデンスで出力するのが良い。
+<dt>出力アウトプット</dt><dd><p class="linemarker linemarker-129">ここは本当は完全に自由だが、データの出力の設定である。粒状斑の動きを詳しく見ようと思ったら30秒ほどの時間ケーデンスで出力するのが良い。
 <code class="code docutils literal notranslate"><span class="pre">main.F90</span></code> を編集。</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="n">dtout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="mf">0.d0</span>
 <span class="n">ifac</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.d0</span>
@@ -183,18 +183,18 @@
 </dl>
 </li>
 <li><dl>
-<dt>その他注意事項</dt><dd><p><code class="code docutils literal notranslate"><span class="pre">model_def.F90</span></code> で <code class="code docutils literal notranslate"><span class="pre">remap_calc.F90</span></code> で出力するスライスの位置を決定している。</p>
+<dt>その他注意事項</dt><dd><p class="linemarker linemarker-138"><code class="code docutils literal notranslate"><span class="pre">model_def.F90</span></code> で <code class="code docutils literal notranslate"><span class="pre">remap_calc.F90</span></code> で出力するスライスの位置を決定している。</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">jc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ny</span><span class="o">*</span><span class="n">jx0</span><span class="o">/</span><span class="mi">2</span>
 <span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">kc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nz</span><span class="o">*</span><span class="n">kx0</span><span class="o">/</span><span class="mi">2</span>
 </pre></div>
 </div>
-<p>と領域の真ん中を出力することにしているが、状況によって違う場所が出力されている場合がある。もし変なことが起こったらここをチェックしてみると良い。</p>
-<p>また、 <code class="code docutils literal notranslate"><span class="pre">io.F90</span></code> の中程に計算の途中に磁場などを追加する設定がある。ここに何か書いてあると初期条件に足してしまうので、add something で検索して <code class="code docutils literal notranslate"><span class="pre">call</span> <span class="pre">model_*</span></code> (<a href="#id4"><span class="problematic" id="id5">*</span></a>は任意)のところはコメントアウトするように。</p>
+<p class="linemarker linemarker-145">と領域の真ん中を出力することにしているが、状況によって違う場所が出力されている場合がある。もし変なことが起こったらここをチェックしてみると良い。</p>
+<p class="linemarker linemarker-147">また、 <code class="code docutils literal notranslate"><span class="pre">io.F90</span></code> の中程に計算の途中に磁場などを追加する設定がある。ここに何か書いてあると初期条件に足してしまうので、add something で検索して <code class="code docutils literal notranslate"><span class="pre">call</span> <span class="pre">model_*</span></code> (<a href="#id4"><span class="problematic" id="id5">*</span></a>は任意)のところはコメントアウトするように。</p>
 </dd>
 </dl>
 </li>
 <li><dl>
-<dt>計算結果</dt><dd><p>以下のような計算が得られる。</p>
+<dt>計算結果</dt><dd><p class="linemarker linemarker-151">以下のような計算が得られる。</p>
 <a class="reference internal image-reference" href="_images/photosphere.png"><img alt="_images/photosphere.png" src="_images/photosphere.png" style="width: 500px;" /></a>
 </dd>
 </dl>
@@ -203,16 +203,16 @@
 </section>
 <section id="id6">
 <h3>中規模黒点計算<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h3>
-<p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2012ApJ...750...62R/abstract">Rempel, 2012</a> で行われている中規模光球計算の設定を説明する。</p>
+<p class="linemarker linemarker-159"><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2012ApJ...750...62R/abstract">Rempel, 2012</a> で行われている中規模光球計算の設定を説明する。</p>
 <ul>
 <li><dl class="simple">
-<dt>Makefileのオプション</dt><dd><p>光球のみ一様グリッドで計算するので, :code:<a href="#id7"><span class="problematic" id="id8">`</span></a>PPC:= -Ddeep`を設定していないかチェック。</p>
+<dt>Makefileのオプション</dt><dd><p class="linemarker linemarker-162">光球のみ一様グリッドで計算するので, :code:<a href="#id7"><span class="problematic" id="id8">`</span></a>PPC:= -Ddeep`を設定していないかチェック。</p>
 </dd>
 </dl>
 </li>
 <li><dl>
-<dt>計算領域・解像度</dt><dd><p>計算領域は鉛直方向(R2D2ではx方向)にrsun から700 km上から5.444 Mm下までをとる。水平方向(R2D2ではyとz方向)には、49.152 Mmずつとる。</p>
-<p>太陽光球を計算するときは、鉛直方向には少なくとも48 km, 水平方向には少なくとも192 kmの格子間隔が必要である。ここでは鉛直方向に48 km、水平方向に96 kmの格子点間隔をとることにして、鉛直方向に128グリッド、水平方向に512グリッドづつ格子点を用意する。ここではMPIプロセスを2×4×4プロセス使う例を示す。これらの設定は <code class="code docutils literal notranslate"><span class="pre">src/all/geometry_def.F90</span></code> を編集。</p>
+<dt>計算領域・解像度</dt><dd><p class="linemarker linemarker-165">計算領域は鉛直方向(R2D2ではx方向)にrsun から700 km上から5.444 Mm下までをとる。水平方向(R2D2ではyとz方向)には、49.152 Mmずつとる。</p>
+<p class="linemarker linemarker-167">太陽光球を計算するときは、鉛直方向には少なくとも48 km, 水平方向には少なくとも192 kmの格子間隔が必要である。ここでは鉛直方向に48 km、水平方向に96 kmの格子点間隔をとることにして、鉛直方向に128グリッド、水平方向に512グリッドづつ格子点を用意する。ここではMPIプロセスを2×4×4プロセス使う例を示す。これらの設定は <code class="code docutils literal notranslate"><span class="pre">src/all/geometry_def.F90</span></code> を編集。</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifdef deep</span>
 <span class="w">    </span><span class="p">...</span><span class="w"> </span><span class="p">(</span><span class="n">ignore</span><span class="w"> </span><span class="n">this</span><span class="p">)</span>
 <span class="cp">#elif ideal</span>
@@ -236,7 +236,7 @@
 <span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ix0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">jx0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">kx0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span>
 </pre></div>
 </div>
-<p>と設定する。念のために</p>
+<p class="linemarker linemarker-193">と設定する。念のために</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">xdcheck</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
 <span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ydcheck</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
 <span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">zdcheck</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
@@ -246,12 +246,12 @@
 <span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">iper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">jper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">kper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
 </pre></div>
 </div>
-<p>となっているかチェックする。全て <code class="code docutils literal notranslate"><span class="pre">xdcheck</span></code> などは2に設定してあると3次元計算となる。<code class="code docutils literal notranslate"><span class="pre">iper</span></code> はそれぞれの方向に周期境界条件を使うかのフラグである。</p>
+<p class="linemarker linemarker-205">となっているかチェックする。全て <code class="code docutils literal notranslate"><span class="pre">xdcheck</span></code> などは2に設定してあると3次元計算となる。<code class="code docutils literal notranslate"><span class="pre">iper</span></code> はそれぞれの方向に周期境界条件を使うかのフラグである。</p>
 </dd>
 </dl>
 </li>
 <li><dl>
-<dt>音速抑制法</dt><dd><p>光球のみ計算の時は、音速抑制法を使う必要は無いので、音速抑制率を常に1に設定する。
+<dt>音速抑制法</dt><dd><p class="linemarker linemarker-208">光球のみ計算の時は、音速抑制法を使う必要は無いので、音速抑制率を常に1に設定する。
 <code class="code docutils literal notranslate"><span class="pre">src/all/background_init.F90</span></code> を編集。</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifdef ideal</span>
 <span class="w">    </span><span class="p">...</span><span class="w"> </span><span class="p">(</span><span class="n">ignore</span><span class="w"> </span><span class="n">this</span><span class="p">)</span>
@@ -271,12 +271,12 @@
 <span class="cp">#endif</span>
 </pre></div>
 </div>
-<p>と設定する。</p>
+<p class="linemarker linemarker-230">と設定する。</p>
 </dd>
 </dl>
 </li>
 <li><dl>
-<dt>境界条件</dt><dd><p>水平方向は周期境界を用いるので、鉛直方向の境界条件のみを設定すれば良い。
+<dt>境界条件</dt><dd><p class="linemarker linemarker-234">水平方向は周期境界を用いるので、鉛直方向の境界条件のみを設定すれば良い。
 磁場の上部境界条件はポテンシャル磁場の境界条件を用いる。他の設定はRempelの論文を参照。
 <code class="code docutils literal notranslate"><span class="pre">src/all/bc_all.F90</span></code> で設定している。</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifdef ideal</span>
@@ -292,34 +292,34 @@
 <span class="cp">#endif</span>
 </pre></div>
 </div>
-<p>とする。 <code class="code docutils literal notranslate"><span class="pre">bcx_sunspot(qq)</span></code> が実行されるようにする。
+<p class="linemarker linemarker-252">とする。 <code class="code docutils literal notranslate"><span class="pre">bcx_sunspot(qq)</span></code> が実行されるようにする。
 また、念のため</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">call </span><span class="n">bc_potential</span><span class="p">(</span><span class="n">qq</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>がコメントアウトされていないかチェックする。</p>
-<p>ポテンシャル磁場から少しずらしたい時は、 <code class="code docutils literal notranslate"><span class="pre">mhd_def.F90</span></code> の中でRempel, 2012で定義されている <img class="math" src="_images/math/2841b4d2731ceadeb2d0bdf7e9e4aab5d5bfebfd.svg" alt="\alpha"/> が定義されている。</p>
+<p class="linemarker linemarker-259">がコメントアウトされていないかチェックする。</p>
+<p class="linemarker linemarker-261">ポテンシャル磁場から少しずらしたい時は、 <code class="code docutils literal notranslate"><span class="pre">mhd_def.F90</span></code> の中でRempel, 2012で定義されている <img class="math" src="_images/math/2841b4d2731ceadeb2d0bdf7e9e4aab5d5bfebfd.svg" alt="\alpha"/> が定義されている。</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="kt">real</span><span class="p">(</span><span class="nb">KIND</span><span class="p">(</span><span class="mf">0.d0</span><span class="p">)),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">potential_alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.5d0</span>
 </pre></div>
 </div>
-<p>などとする。</p>
+<p class="linemarker linemarker-267">などとする。</p>
 </dd>
 </dl>
 </li>
 <li><dl>
-<dt>輻射輸送</dt><dd><p>輻射輸送は複数本の光線を解くのが良い。
+<dt>輻射輸送</dt><dd><p class="linemarker linemarker-270">輻射輸送は複数本の光線を解くのが良い。
 <code class="code docutils literal notranslate"><span class="pre">rte_def.F90</span></code> を編集する。推奨される設定は</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="kt">logical</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">rte_multiray_flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
 <span class="kt">logical</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">rte_linear_flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.</span>
 <span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">mhd_rte_ratio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
 </pre></div>
 </div>
-<p>とするのが良い。</p>
+<p class="linemarker linemarker-279">とするのが良い。</p>
 </dd>
 </dl>
 </li>
 <li><dl>
-<dt>初期条件</dt><dd><p>初期条件は、鉛直方向速度(vx)にランダムな微小速度を与えている。
+<dt>初期条件</dt><dd><p class="linemarker linemarker-283">初期条件は、鉛直方向速度(vx)にランダムな微小速度を与えている。
 黒点以外は磁場をゼロにしておく。
 <code class="code docutils literal notranslate"><span class="pre">model_init.F90</span></code> で</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="n">bx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.d0</span>
@@ -327,8 +327,8 @@
 <span class="n">bz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.d0</span>
 </pre></div>
 </div>
-<p>とすれば良い.</p>
-<p>黒点設置のために <code class="code docutils literal notranslate"><span class="pre">model_sunspot.F90</span></code> を編集。いくつかパラメタがあるが、変えたい時はプログラムのコメントを参照すること。 <code class="code docutils literal notranslate"><span class="pre">io.F90</span></code> を編集し、</p>
+<p class="linemarker linemarker-293">とすれば良い.</p>
+<p class="linemarker linemarker-295">黒点設置のために <code class="code docutils literal notranslate"><span class="pre">model_sunspot.F90</span></code> を編集。いくつかパラメタがあるが、変えたい時はプログラムのコメントを参照すること。 <code class="code docutils literal notranslate"><span class="pre">io.F90</span></code> を編集し、</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="c">!add something</span>
 <span class="n">time00</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.d0</span>
 <span class="k">if</span><span class="p">(</span><span class="n">ns</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">nd</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
@@ -336,12 +336,12 @@
 <span class="k">endif</span>
 </pre></div>
 </div>
-<p>とする。デフォルトでは、 <code class="code docutils literal notranslate"><span class="pre">call</span> <span class="pre">model_sunspot</span></code> がコメントアウトされていることが多いと思われる。</p>
+<p class="linemarker linemarker-305">とする。デフォルトでは、 <code class="code docutils literal notranslate"><span class="pre">call</span> <span class="pre">model_sunspot</span></code> がコメントアウトされていることが多いと思われる。</p>
 </dd>
 </dl>
 </li>
 <li><dl>
-<dt>出力アウトプット</dt><dd><p>ここは本当は完全に自由だが、データの出力の設定である。粒状斑の動きを詳しく見ようと思ったら30秒ほどの時間ケーデンスで出力するのが良い。
+<dt>出力アウトプット</dt><dd><p class="linemarker linemarker-307">ここは本当は完全に自由だが、データの出力の設定である。粒状斑の動きを詳しく見ようと思ったら30秒ほどの時間ケーデンスで出力するのが良い。
 <code class="code docutils literal notranslate"><span class="pre">main.F90</span></code> を編集。</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="n">dtout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="mf">0.d0</span>
 <span class="n">ifac</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.d0</span>
@@ -351,8 +351,8 @@
 </dl>
 </li>
 <li><dl>
-<dt>その他注意事項</dt><dd><p><code class="code docutils literal notranslate"><span class="pre">model_def.F90</span></code> で <code class="code docutils literal notranslate"><span class="pre">remap_calc.F90</span></code> で出力するスライスの位置を決定している。</p>
-<p>と領域の真ん中を出力することにしているが、状況によって違う場所が出力されている場合がある。もし変なことが起こったらここをチェックしてみると良い。</p>
+<dt>その他注意事項</dt><dd><p class="linemarker linemarker-316"><code class="code docutils literal notranslate"><span class="pre">model_def.F90</span></code> で <code class="code docutils literal notranslate"><span class="pre">remap_calc.F90</span></code> で出力するスライスの位置を決定している。</p>
+<p class="linemarker linemarker-323">と領域の真ん中を出力することにしているが、状況によって違う場所が出力されている場合がある。もし変なことが起こったらここをチェックしてみると良い。</p>
 </dd>
 </dl>
 </li>
@@ -362,13 +362,13 @@
 <h3>全対流層計算<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h3>
 <div class="admonition-todo admonition" id="id10">
 <p class="admonition-title">課題</p>
-<p>全対流層計算の設定例</p>
+<p class="linemarker linemarker-331">全対流層計算の設定例</p>
 </div>
 </section>
 <section id="id11">
 <h3>深い部分のみの計算<a class="headerlink" href="#id11" title="Link to this heading">¶</a></h3>
 <ul>
-<li><p>Makefileのオプション</p>
+<li><p class="linemarker linemarker-336">Makefileのオプション</p>
 <blockquote>
 <div><div class="highlight-Makefile notranslate"><div class="highlight"><pre><span></span><span class="nf">PPC</span><span class="o">:</span><span class="w"> </span>= -<span class="n">Ddeep</span> <span class="c"># 深い層のみ</span>
 <span class="nf">PPC</span><span class="o">:</span><span class="w"> </span>= -<span class="n">Done_ray</span> <span class="c"># ここでは輻射輸送は解かないがone_rayとしておくことでメモリ節約</span>
@@ -377,9 +377,9 @@
 </div>
 </div></blockquote>
 </li>
-<li><p>計算領域・解像度</p>
+<li><p class="linemarker linemarker-345">計算領域・解像度</p>
 <blockquote>
-<div><p>水平方向には98.304 Mm,</p>
+<div><p class="linemarker linemarker-347">水平方向には98.304 Mm,</p>
 </div></blockquote>
 </li>
 </ul>
@@ -392,20 +392,20 @@
 <ul class="simple">
 <li><dl class="simple">
 <dt>Makefileのオプション</dt><dd><ul>
-<li><p><code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">$(PPC)</span> <span class="pre">-Ddeep</span></code></p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">$(PPC)</span> <span class="pre">-Done_ray</span></code></p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">$(PPC)</span> <span class="pre">-Ddeep</span></code></p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">$(PPC)</span> <span class="pre">-Dspherical</span></code></p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">$(PPC)</span> <span class="pre">-DYinYang</span></code></p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">$(PPC)</span> <span class="pre">-DnoFFTW</span></code></p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">$(PPC)</span> <span class="pre">-Dremap_2d_assign</span></code></p></li>
+<li><p class="linemarker linemarker-356"><code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">$(PPC)</span> <span class="pre">-Ddeep</span></code></p></li>
+<li><p class="linemarker linemarker-357"><code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">$(PPC)</span> <span class="pre">-Done_ray</span></code></p></li>
+<li><p class="linemarker linemarker-358"><code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">$(PPC)</span> <span class="pre">-Ddeep</span></code></p></li>
+<li><p class="linemarker linemarker-359"><code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">$(PPC)</span> <span class="pre">-Dspherical</span></code></p></li>
+<li><p class="linemarker linemarker-360"><code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">$(PPC)</span> <span class="pre">-DYinYang</span></code></p></li>
+<li><p class="linemarker linemarker-361"><code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">$(PPC)</span> <span class="pre">-DnoFFTW</span></code></p></li>
+<li><p class="linemarker linemarker-362"><code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">$(PPC)</span> <span class="pre">-Dremap_2d_assign</span></code></p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
 <dt>格子点数</dt><dd><ul>
-<li><p>Yin-Yang gridを使うために <code class="code docutils literal notranslate"><span class="pre">ny0*jx0*3=nz0*kx0</span></code> となるようにする</p></li>
+<li><p class="linemarker linemarker-365">Yin-Yang gridを使うために <code class="code docutils literal notranslate"><span class="pre">ny0*jx0*3=nz0*kx0</span></code> となるようにする</p></li>
 </ul>
 </dd>
 </dl>
@@ -417,7 +417,7 @@
 <h2>2次元計算<a class="headerlink" href="#id13" title="Link to this heading">¶</a></h2>
 <section id="id14">
 <h3>磁束管浮上<a class="headerlink" href="#id14" title="Link to this heading">¶</a></h3>
-<p>最終更新日：2023年11月29日</p>
+<p class="linemarker linemarker-373">最終更新日：2023年11月30日</p>
 </section>
 </section>
 </section>

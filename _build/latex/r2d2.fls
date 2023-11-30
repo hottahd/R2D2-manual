@@ -1179,7 +1179,6 @@ INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/tex-gyre/ts1qtm.fd
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/tex-gyre/ts1qtm.fd
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/tex-gyre/ts1qtm.fd
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/tex-gyre/ts1-qtmr.tfm
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/tex-gyre/ec-qtmri.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/txfonts/t1xbtt.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/txfonts/t1xttsl.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/tex-gyre/ec-qtmr.tfm
@@ -1304,6 +1303,7 @@ INPUT bc_sym.xbb
 INPUT ./bc_sym.png
 INPUT ./bc_sym.png
 INPUT bc_sym.png
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/tex-gyre/ec-qtmri.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/tex-gyre/ts1-qtmri.tfm
 INPUT ./paraview01.png
 INPUT ./paraview01.png

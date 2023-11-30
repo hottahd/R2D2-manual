@@ -37,10 +37,10 @@ FFTWのインストール
 
     brew install fftw
 
-Linux (Ubuntu 18.04)
+Linux (Ubuntu 22.04)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-ここでは、Ubuntu 18.04の場合のみを説明する。
+ここでは、Ubuntu 22.04の場合のみを説明する。
 
 gfortranのインストール
 

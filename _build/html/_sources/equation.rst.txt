@@ -35,7 +35,7 @@ R2D2では熱力学量を以下のように時間的に一定で :math:`x` 方�
     s &= s_0 + s_1 \\
     T &= T_0 + T_1 \\
 
-太陽内部では、:math:`\rho_1 << \rho_0` などが成り立っているが、太陽表面では熱対流による擾乱と背景場は同程度となるので、R2D2の中では :math:`\rho_1 << \rho_0` などは仮定しない。0次の量はModel Sを参考にして計算をしている。`Hotta & Iijima2020 <https://ui.adsabs.harvard.edu/abs/2020MNRAS.494.2523H/abstract>`_ や `Hotta, Kusano and Shimada, 2022 <https://ui.adsabs.harvard.edu/abs/2022ApJ...933..199H/abstract>`_ を参照されたい。
+太陽内部では、:math:`\rho_1 \ll \rho_0` などが成り立っているが、太陽表面では熱対流による擾乱と背景場は同程度となるので、R2D2の中では :math:`\rho_1 \ll \rho_0` などは仮定しない。0次の量はModel Sを参考にして計算をしている。`Hotta & Iijima2020 <https://ui.adsabs.harvard.edu/abs/2020MNRAS.494.2523H/abstract>`_ や `Hotta, Kusano and Shimada, 2022 <https://ui.adsabs.harvard.edu/abs/2022ApJ...933..199H/abstract>`_ を参照されたい。
 
 輻射輸送
 -----------------
