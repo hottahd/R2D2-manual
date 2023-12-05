@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.11.21)  30 NOV 2023 21:09
+This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.11.21)  5 DEC 2023 21:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1907,16 +1907,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [62]
 第 14 章
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 3187.
+(Font)              No change on input line 3190.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 3188.
+(Font)              No change on input line 3191.
 [63
 
 ]
 File: restructuredtext_vs.png Graphic file (type bmp)
 <restructuredtext_vs.png>
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 3258.
+(Font)              No change on input line 3261.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1928,7 +1928,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [64]
 LaTeX Font Info:    Kanji font shape `JY2/gt/m/it' undefined
-(Font)              No change on input line 3290.
+(Font)              No change on input line 3293.
 File: R2D2_logo.png Graphic file (type bmp)
 <R2D2_logo.png>
 
@@ -1942,7 +1942,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [65]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 3394.
+(Font)              No change on input line 3397.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1973,22 +1973,22 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 ]
 第 19 章
 LaTeX Font Info:    Kanji font shape `JY2/gt/m/it' undefined
-(Font)              No change on input line 3527.
+(Font)              No change on input line 3530.
 LaTeX Font Info:    Kanji font shape `JY2/gt/m/it' undefined
-(Font)              No change on input line 3535.
+(Font)              No change on input line 3538.
 LaTeX Font Info:    Kanji font shape `JY2/gt/m/it' undefined
-(Font)              No change on input line 3543.
+(Font)              No change on input line 3546.
 LaTeX Font Info:    Kanji font shape `JY2/gt/m/it' undefined
-(Font)              No change on input line 3551.
+(Font)              No change on input line 3554.
 LaTeX Font Info:    Kanji font shape `JY2/gt/m/it' undefined
-(Font)              No change on input line 3559.
+(Font)              No change on input line 3562.
 LaTeX Font Info:    Kanji font shape `JY2/gt/m/it' undefined
-(Font)              No change on input line 3567.
+(Font)              No change on input line 3570.
 [75]
 LaTeX Font Info:    Kanji font shape `JY2/gt/m/it' undefined
-(Font)              No change on input line 3575.
+(Font)              No change on input line 3578.
 LaTeX Font Info:    Kanji font shape `JY2/gt/m/it' undefined
-(Font)              No change on input line 3583.
+(Font)              No change on input line 3586.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2072,4 +2072,4 @@ Here is how much of TeX's memory you used:
  930 hyphenation exceptions out of 8191
  70i,21n,76p,1275b,805s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on r2d2.dvi (83 pages, 334036 bytes).
+Output written on r2d2.dvi (83 pages, 334184 bytes).
