@@ -330,12 +330,14 @@
 
 .. todo:: 全対流層計算の設定例
 
+
+
 深い部分のみの計算
 --------------------------------
 
 - Makefileのオプション
 
-    .. code-block:: Makefile
+    .. code:: Makefile
 
         PPC: = -Ddeep # 深い層のみ
         PPC: = -Done_ray # ここでは輻射輸送は解かないがone_rayとしておくことでメモリ節約
@@ -345,7 +347,7 @@
 
 - 計算領域・解像度
 
-水平方向には太陽半径程度、鉛直方向には :math:`0.71R_\odot` から :math:`0.96R_\odot` 程度までがおすすめ。
+    水平方向には太陽半径程度、鉛直方向には :math:`0.71R_\odot` から :math:`0.96R_\odot` 程度までがおすすめ。
 
     .. code:: fortran
 
@@ -363,16 +365,16 @@
 
         ...
 
-    #ifdef deep
-        ! for deep CZ calculation
-        real(KIND(0.d0)), parameter :: ymin = 0.d0
-        real(KIND(0.d0)), parameter :: ymax = rstar
-        real(KIND(0.d0)), parameter :: zmin = 0.d0
-        real(KIND(0.d0)), parameter :: zmax = rstar
-    #else
-        ! for surface calculation
-        ... (ignore this)
-    #endif
+        #ifdef deep
+            ! for deep CZ calculation
+            real(KIND(0.d0)), parameter :: ymin = 0.d0
+            real(KIND(0.d0)), parameter :: ymax = rstar
+            real(KIND(0.d0)), parameter :: zmin = 0.d0
+            real(KIND(0.d0)), parameter :: zmax = rstar
+        #else
+            ! for surface calculation
+            ... (ignore this)
+        #endif
 
 - 音速抑制法
 
@@ -382,7 +384,8 @@
 
 - 境界条件
 
-    :code:`scr/all/bc_all.F90`を見ると良い    
+    :code:`scr/all/bc_all.F90` を見ると良い    
+    
     .. code:: fortran
 
         #ifdef spherical
@@ -406,6 +409,8 @@ Yin-Yangで深いところのみの計算
 --------------------------------
 
 - Makefileのオプション
+
+
     - :code:`PPC:= $(PPC) -Ddeep`
     - :code:`PPC:= $(PPC) -Done_ray`
     - :code:`PPC:= $(PPC) -Ddeep`

@@ -1241,12 +1241,10 @@ Makefileのオプション
 \item {} 
 \sphinxAtStartPar
 計算領域・解像度
-
-\end{itemize}
+\begin{quote}
 
 \sphinxAtStartPar
 水平方向には太陽半径程度、鉛直方向には \(0.71R_\odot\) から \(0.96R_\odot\) 程度までがおすすめ。
-\begin{quote}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{k+kt}{integer}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{parameter}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{private}\PYG{+w}{ }\PYG{k+kd}{::}\PYG{+w}{ }\PYG{n}{nx0}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{64}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ny0}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{64}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{nz0}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{64}
@@ -1262,27 +1260,20 @@ Makefileのオプション
 \PYG{c+cp}{\PYGZsh{}endif}
 
 \PYG{p}{.}\PYG{p}{.}\PYG{p}{.}
+
+\PYG{c+cp}{\PYGZsh{}ifdef deep}
+\PYG{+w}{    }\PYG{c}{! for deep CZ calculation}
+\PYG{+w}{    }\PYG{k+kt}{real}\PYG{p}{(}\PYG{n+nb}{KIND}\PYG{p}{(}\PYG{l+m+mf}{0.d0}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{parameter}\PYG{+w}{ }\PYG{k+kd}{::}\PYG{+w}{ }\PYG{n}{ymin}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mf}{0.d0}
+\PYG{+w}{    }\PYG{k+kt}{real}\PYG{p}{(}\PYG{n+nb}{KIND}\PYG{p}{(}\PYG{l+m+mf}{0.d0}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{parameter}\PYG{+w}{ }\PYG{k+kd}{::}\PYG{+w}{ }\PYG{n}{ymax}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{rstar}
+\PYG{+w}{    }\PYG{k+kt}{real}\PYG{p}{(}\PYG{n+nb}{KIND}\PYG{p}{(}\PYG{l+m+mf}{0.d0}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{parameter}\PYG{+w}{ }\PYG{k+kd}{::}\PYG{+w}{ }\PYG{n}{zmin}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mf}{0.d0}
+\PYG{+w}{    }\PYG{k+kt}{real}\PYG{p}{(}\PYG{n+nb}{KIND}\PYG{p}{(}\PYG{l+m+mf}{0.d0}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{parameter}\PYG{+w}{ }\PYG{k+kd}{::}\PYG{+w}{ }\PYG{n}{zmax}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{rstar}
+\PYG{c+cp}{\PYGZsh{}else}
+\PYG{+w}{    }\PYG{c}{! for surface calculation}
+\PYG{+w}{    }\PYG{p}{.}\PYG{p}{.}\PYG{p}{.}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{ignore}\PYG{+w}{ }\PYG{n}{this}\PYG{p}{)}
+\PYG{c+cp}{\PYGZsh{}endif}
 \end{sphinxVerbatim}
-\begin{description}
-\sphinxlineitem{\#ifdef deep}
-\sphinxAtStartPar
-! for deep CZ calculation
-real(KIND(0.d0)), parameter :: ymin = 0.d0
-real(KIND(0.d0)), parameter :: ymax = rstar
-real(KIND(0.d0)), parameter :: zmin = 0.d0
-real(KIND(0.d0)), parameter :: zmax = rstar
-
-\sphinxlineitem{\#else}
-\sphinxAtStartPar
-! for surface calculation
-... (ignore this)
-
-\end{description}
-
-\sphinxAtStartPar
-\#endif
 \end{quote}
-\begin{itemize}
+
 \item {} 
 \sphinxAtStartPar
 音速抑制法
@@ -1301,23 +1292,15 @@ real(KIND(0.d0)), parameter :: zmax = rstar
 \begin{quote}
 
 \sphinxAtStartPar
-:code:{\color{red}\bfseries{}\textasciigrave{}}scr/all/bc\_all.F90\textasciigrave{}を見ると良い
-.. code:: fortran
-\begin{quote}
-\begin{description}
-\sphinxlineitem{\#ifdef spherical}
-\sphinxAtStartPar
-... (ignore this)
+\sphinxcode{\sphinxupquote{scr/all/bc\_all.F90}} を見ると良い
 
-\sphinxlineitem{\#else}
-\sphinxAtStartPar
-call bcx\_deep(qq)
-
-\end{description}
-
-\sphinxAtStartPar
-\#endif
-\end{quote}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}ifdef spherical}
+\PYG{+w}{  }\PYG{p}{.}\PYG{p}{.}\PYG{p}{.}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{ignore}\PYG{+w}{ }\PYG{n}{this}\PYG{p}{)}
+\PYG{c+cp}{\PYGZsh{}else}
+\PYG{+w}{  }\PYG{k}{call }\PYG{n}{bcx\PYGZus{}deep}\PYG{p}{(}\PYG{n}{qq}\PYG{p}{)}
+\PYG{c+cp}{\PYGZsh{}endif}
+\end{sphinxVerbatim}
 \end{quote}
 
 \end{itemize}
@@ -1344,9 +1327,11 @@ call bcx\_deep(qq)
 \label{\detokenize{typical_case:yin-yang}}
 
 \subsection{Yin\sphinxhyphen{}Yangで深いところのみの計算}
-\label{\detokenize{typical_case:id14}}\begin{itemize}
-\item {} \begin{description}
-\sphinxlineitem{Makefileのオプション}\begin{itemize}
+\label{\detokenize{typical_case:id12}}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Makefileのオプション
+\begin{itemize}
 \item {} 
 \sphinxAtStartPar
 \sphinxcode{\sphinxupquote{PPC:= \$(PPC) \sphinxhyphen{}Ddeep}}
@@ -1377,8 +1362,6 @@ call bcx\_deep(qq)
 
 \end{itemize}
 
-\end{description}
-
 \item {} \begin{description}
 \sphinxlineitem{格子点数}\begin{itemize}
 \item {} 
@@ -1393,10 +1376,10 @@ Yin\sphinxhyphen{}Yang gridを使うために \sphinxcode{\sphinxupquote{ny0*jx0
 
 
 \section{2次元計算}
-\label{\detokenize{typical_case:id15}}
+\label{\detokenize{typical_case:id13}}
 
 \subsection{磁束管浮上}
-\label{\detokenize{typical_case:id16}}
+\label{\detokenize{typical_case:id14}}
 \sphinxAtStartPar
 最終更新日：2024年04月05日
 
