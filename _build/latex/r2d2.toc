@@ -23,10 +23,10 @@
 \contentsline {subsection}{\numberline {3.1.2}中規模黒点計算}{22}{subsection.3.1.2}%
 \contentsline {subsection}{\numberline {3.1.3}全対流層計算}{26}{subsection.3.1.3}%
 \contentsline {subsection}{\numberline {3.1.4}深い部分のみの計算}{26}{subsection.3.1.4}%
-\contentsline {section}{\numberline {3.2}球座標(Yin\sphinxhyphen {}Yang格子含む)}{26}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Yin\sphinxhyphen {}Yangで深いところのみの計算}{26}{subsection.3.2.1}%
-\contentsline {section}{\numberline {3.3}2次元計算}{27}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}磁束管浮上}{27}{subsection.3.3.1}%
+\contentsline {section}{\numberline {3.2}球座標(Yin\sphinxhyphen {}Yang格子含む)}{27}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Yin\sphinxhyphen {}Yangで深いところのみの計算}{27}{subsection.3.2.1}%
+\contentsline {section}{\numberline {3.3}2次元計算}{28}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}磁束管浮上}{28}{subsection.3.3.1}%
 \contentsline {chapter}{\numberline {第4章}方程式}{29}{chapter.4}%
 \contentsline {section}{\numberline {4.1}磁気流体力学}{29}{section.4.1}%
 \contentsline {section}{\numberline {4.2}輻射輸送}{30}{section.4.2}%

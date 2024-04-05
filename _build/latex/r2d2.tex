@@ -51,7 +51,7 @@
 
 
 \title{R2D2}
-\date{2023年12月05日}
+\date{2024年04月05日}
 \release{1.2}
 \author{Hideyuki Hotta}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -519,7 +519,7 @@ make
 このディレクトリを書く実行のディレクトリの配下におき、実行すると続きの計算が始まる。
 
 \sphinxAtStartPar
-最終更新日：2023年12月05日
+最終更新日：2024年04月05日
 
 \sphinxstepscope
 
@@ -794,7 +794,7 @@ Google APIロゴ \(\rightarrow\) 認証情報 \(\rightarrow\) サービスアカ
 システムにIDLをインストールすれば、それのみで使える。ここでは説明しない。
 
 \sphinxAtStartPar
-最終更新日：2023年12月05日
+最終更新日：2024年04月05日
 
 \sphinxstepscope
 
@@ -1234,17 +1234,108 @@ Makefileのオプション
 \PYG{n+nf}{PPC}\PYG{o}{:}\PYG{+w}{ }= \PYGZhy{}\PYG{n}{Ddeep} \PYG{c}{\PYGZsh{} 深い層のみ}
 \PYG{n+nf}{PPC}\PYG{o}{:}\PYG{+w}{ }= \PYGZhy{}\PYG{n}{Done\PYGZus{}ray} \PYG{c}{\PYGZsh{} ここでは輻射輸送は解かないがone\PYGZus{}rayとしておくことでメモリ節約}
 \PYG{n+nf}{PPC}\PYG{o}{:}\PYG{+w}{ }= \PYGZhy{}\PYG{n}{Dremap\PYGZus{}}2\PYG{n}{d\PYGZus{}assign} \PYG{c}{\PYGZsh{} remapで2次元的に出力する}
+\PYG{n+nf}{PPC}\PYG{o}{:}\PYG{+w}{ }= \PYGZhy{}\PYG{n}{Dsoundwave\PYGZus{}suppress} \PYG{c}{\PYGZsh{} 音波が暴走するのを抑える}
 \end{sphinxVerbatim}
 \end{quote}
 
 \item {} 
 \sphinxAtStartPar
 計算領域・解像度
+
+\end{itemize}
+
+\sphinxAtStartPar
+水平方向には太陽半径程度、鉛直方向には \(0.71R_\odot\) から \(0.96R_\odot\) 程度までがおすすめ。
+\begin{quote}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{integer}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{parameter}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{private}\PYG{+w}{ }\PYG{k+kd}{::}\PYG{+w}{ }\PYG{n}{nx0}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{64}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ny0}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{64}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{nz0}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{64}
+\PYG{k+kt}{integer}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{parameter}\PYG{+w}{ }\PYG{k+kd}{::}\PYG{+w}{ }\PYG{n}{ix0}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{jx0}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{kx0}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{2}
+
+\PYG{p}{.}\PYG{p}{.}\PYG{p}{.}
+
+\PYG{c+cp}{\PYGZsh{}ifdef deep}
+\PYG{+w}{    }\PYG{k+kt}{real}\PYG{p}{(}\PYG{n+nb}{KIND}\PYG{p}{(}\PYG{l+m+mf}{0.d0}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{parameter}\PYG{+w}{ }\PYG{k+kd}{::}\PYG{+w}{ }\PYG{n}{xmax}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mf}{0.96d0}\PYG{o}{*}\PYG{n}{rstar}
+\PYG{+w}{    }\PYG{k+kt}{real}\PYG{p}{(}\PYG{n+nb}{KIND}\PYG{p}{(}\PYG{l+m+mf}{0.d0}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{parameter}\PYG{+w}{ }\PYG{k+kd}{::}\PYG{+w}{ }\PYG{n}{xmin}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mf}{0.71d0}\PYG{o}{*}\PYG{n}{rstar}
+\PYG{c+cp}{\PYGZsh{}else}
+\PYG{+w}{    }\PYG{p}{.}\PYG{p}{.}\PYG{p}{.}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{ignore}\PYG{+w}{ }\PYG{n}{this}\PYG{p}{)}
+\PYG{c+cp}{\PYGZsh{}endif}
+
+\PYG{p}{.}\PYG{p}{.}\PYG{p}{.}
+\end{sphinxVerbatim}
+\begin{description}
+\sphinxlineitem{\#ifdef deep}
+\sphinxAtStartPar
+! for deep CZ calculation
+real(KIND(0.d0)), parameter :: ymin = 0.d0
+real(KIND(0.d0)), parameter :: ymax = rstar
+real(KIND(0.d0)), parameter :: zmin = 0.d0
+real(KIND(0.d0)), parameter :: zmax = rstar
+
+\sphinxlineitem{\#else}
+\sphinxAtStartPar
+! for surface calculation
+... (ignore this)
+
+\end{description}
+
+\sphinxAtStartPar
+\#endif
+\end{quote}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+音速抑制法
+
+\item {} \begin{description}
+\sphinxlineitem{音速抑制法}
+\sphinxAtStartPar
+対流層の深い部分のみを計算する場合は、音速と熱対流の比が大体同程度となるように設定する。
+\sphinxcode{\sphinxupquote{src/all/background\_init.F90}} で設定しているがやや複雑なことをしているので、このままにしておくと良いであろう。
+
+\end{description}
+
+\item {} 
+\sphinxAtStartPar
+境界条件
 \begin{quote}
 
 \sphinxAtStartPar
-水平方向には98.304 Mm,
+:code:{\color{red}\bfseries{}\textasciigrave{}}scr/all/bc\_all.F90\textasciigrave{}を見ると良い
+.. code:: fortran
+\begin{quote}
+\begin{description}
+\sphinxlineitem{\#ifdef spherical}
+\sphinxAtStartPar
+... (ignore this)
+
+\sphinxlineitem{\#else}
+\sphinxAtStartPar
+call bcx\_deep(qq)
+
+\end{description}
+
+\sphinxAtStartPar
+\#endif
 \end{quote}
+\end{quote}
+
+\end{itemize}
+
+\sphinxAtStartPar
+となっていればオーケー
+\begin{itemize}
+\item {} \begin{description}
+\sphinxlineitem{輻射輸送}
+\sphinxAtStartPar
+対流層の深い部分では、輻射輸送を解く必要はない。
+
+\end{description}
+
+\item {} 
+\sphinxAtStartPar
+初期条件
+初期条件では、鉛直方向速度(vx)にランダムな微小速度を与えている。磁場を入れたい場合は、適当な値を \sphinxcode{\sphinxupquote{model\_init.F90}} で設定すれば良い。
 
 \end{itemize}
 
@@ -1253,7 +1344,7 @@ Makefileのオプション
 \label{\detokenize{typical_case:yin-yang}}
 
 \subsection{Yin\sphinxhyphen{}Yangで深いところのみの計算}
-\label{\detokenize{typical_case:id12}}\begin{itemize}
+\label{\detokenize{typical_case:id14}}\begin{itemize}
 \item {} \begin{description}
 \sphinxlineitem{Makefileのオプション}\begin{itemize}
 \item {} 
@@ -1302,12 +1393,12 @@ Yin\sphinxhyphen{}Yang gridを使うために \sphinxcode{\sphinxupquote{ny0*jx0
 
 
 \section{2次元計算}
-\label{\detokenize{typical_case:id13}}
+\label{\detokenize{typical_case:id15}}
 
 \subsection{磁束管浮上}
-\label{\detokenize{typical_case:id14}}
+\label{\detokenize{typical_case:id16}}
 \sphinxAtStartPar
-最終更新日：2023年12月05日
+最終更新日：2024年04月05日
 
 \sphinxstepscope
 
@@ -1360,7 +1451,7 @@ T &= T_0 + T_1 \\\end{split}
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
-最終更新日：2023年12月05日
+最終更新日：2024年04月05日
 
 \sphinxstepscope
 
@@ -1384,7 +1475,7 @@ T &= T_0 + T_1 \\\end{split}
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
-最終更新日：2023年12月05日
+最終更新日：2024年04月05日
 
 \sphinxstepscope
 
@@ -1425,7 +1516,7 @@ R2D2では、
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
-最終更新日：2023年12月05日
+最終更新日：2024年04月05日
 
 \sphinxstepscope
 
@@ -1438,7 +1529,7 @@ R2D2では、
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
-最終更新日：2023年12月05日
+最終更新日：2024年04月05日
 
 \sphinxstepscope
 
@@ -1552,7 +1643,7 @@ fortranのコードの中では
 \begin{split}\delta x = \frac{2\left(x_\mathrm{tran} - n_x\Delta x_0\right)}{\left(n_x - 4\right)n_x}\end{split}
 \end{equation*}
 \sphinxAtStartPar
-最終更新日：2023年12月05日
+最終更新日：2024年04月05日
 
 \sphinxstepscope
 
@@ -1619,7 +1710,7 @@ fortranのコードの中では
 反対称な境界条件を用いて擾乱をゼロにする。これは元々のModel Sでの量を上昇流のエントロピーに用いるということである。
 
 \sphinxAtStartPar
-最終更新日：2023年12月05日
+最終更新日：2024年04月05日
 
 \sphinxstepscope
 
@@ -1632,7 +1723,7 @@ fortranのコードの中では
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
-最終更新日：2023年12月05日
+最終更新日：2024年04月05日
 
 \sphinxstepscope
 
@@ -2365,7 +2456,7 @@ ver. 1.2: データ構造を変更。
 \end{itemize}
 
 \sphinxAtStartPar
-最終更新日：2023年12月05日
+最終更新日：2024年04月05日
 
 \sphinxstepscope
 
@@ -2600,7 +2691,7 @@ Applyをクリック。選択した二つのデータが表示される。
 \end{enumerate}
 
 \sphinxAtStartPar
-最終更新日：2023年12月05日
+最終更新日：2024年04月05日
 
 \sphinxstepscope
 
@@ -3143,7 +3234,7 @@ bzm (float) {[}ix,jx{]} \sphinxhyphen{}\sphinxhyphen{} z方向の磁場 {[}G{]}
 \end{itemize}
 
 \sphinxAtStartPar
-最終更新日：2023年12月05日
+最終更新日：2024年04月05日
 
 \sphinxstepscope
 
@@ -3401,7 +3492,7 @@ To Doを書いておきたい場所に
 と書いてあるので、To Doのまとめが示されている。
 
 \sphinxAtStartPar
-最終更新日：2023年12月05日
+最終更新日：2024年04月05日
 
 
 \chapter{ライセンス}
@@ -3586,7 +3677,7 @@ R2D2を用いた研究で出版された論文は以下です。
 ({\hyperref[\detokenize{typical_case:id10}]{\sphinxcrossref{\sphinxstyleemphasis{元のエントリ}}}} は、 /Users/hotta/Library/CloudStorage/Dropbox/work/R2D2/R2D2\sphinxhyphen{}manual/typical\_case.rst の 331 行目です)
 
 \sphinxAtStartPar
-最終更新日：2023年12月05日
+最終更新日：2024年04月05日
 
 
 \renewcommand{\indexname}{Pythonモジュール索引}

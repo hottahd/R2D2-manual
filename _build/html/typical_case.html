@@ -373,39 +373,100 @@
 <div><div class="highlight-Makefile notranslate"><div class="highlight"><pre><span></span><span class="nf">PPC</span><span class="o">:</span><span class="w"> </span>= -<span class="n">Ddeep</span> <span class="c"># 深い層のみ</span>
 <span class="nf">PPC</span><span class="o">:</span><span class="w"> </span>= -<span class="n">Done_ray</span> <span class="c"># ここでは輻射輸送は解かないがone_rayとしておくことでメモリ節約</span>
 <span class="nf">PPC</span><span class="o">:</span><span class="w"> </span>= -<span class="n">Dremap_</span>2<span class="n">d_assign</span> <span class="c"># remapで2次元的に出力する</span>
+<span class="nf">PPC</span><span class="o">:</span><span class="w"> </span>= -<span class="n">Dsoundwave_suppress</span> <span class="c"># 音波が暴走するのを抑える</span>
 </pre></div>
 </div>
 </div></blockquote>
 </li>
-<li><p class="linemarker linemarker-345">計算領域・解像度</p>
+<li><p class="linemarker linemarker-346">計算領域・解像度</p></li>
+</ul>
+<p class="linemarker linemarker-348">水平方向には太陽半径程度、鉛直方向には <img class="math" src="_images/math/97df08540cf10cf53a4376b036806abcc0bc87bf.svg" alt="0.71R_\odot"/> から <img class="math" src="_images/math/4c8bf23afd4adf2b2e4712602186976eccfbe5f7.svg" alt="0.96R_\odot"/> 程度までがおすすめ。</p>
 <blockquote>
-<div><p class="linemarker linemarker-347">水平方向には98.304 Mm,</p>
+<div><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="p">,</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">nx0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">64</span><span class="p">,</span><span class="w"> </span><span class="n">ny0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">64</span><span class="p">,</span><span class="w"> </span><span class="n">nz0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">64</span>
+<span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ix0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">jx0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">kx0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+
+<span class="p">...</span>
+
+<span class="cp">#ifdef deep</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="nb">KIND</span><span class="p">(</span><span class="mf">0.d0</span><span class="p">)),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">xmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.96d0</span><span class="o">*</span><span class="n">rstar</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="nb">KIND</span><span class="p">(</span><span class="mf">0.d0</span><span class="p">)),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">xmin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.71d0</span><span class="o">*</span><span class="n">rstar</span>
+<span class="cp">#else</span>
+<span class="w">    </span><span class="p">...</span><span class="w"> </span><span class="p">(</span><span class="n">ignore</span><span class="w"> </span><span class="n">this</span><span class="p">)</span>
+<span class="cp">#endif</span>
+
+<span class="p">...</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>#ifdef deep</dt><dd><p class="linemarker linemarker-367">! for deep CZ calculation
+real(KIND(0.d0)), parameter :: ymin = 0.d0
+real(KIND(0.d0)), parameter :: ymax = rstar
+real(KIND(0.d0)), parameter :: zmin = 0.d0
+real(KIND(0.d0)), parameter :: zmax = rstar</p>
+</dd>
+<dt>#else</dt><dd><p class="linemarker linemarker-373">! for surface calculation
+... (ignore this)</p>
+</dd>
+</dl>
+<p class="linemarker linemarker-375">#endif</p>
+</div></blockquote>
+<ul>
+<li><p class="linemarker linemarker-377">音速抑制法</p></li>
+<li><dl class="simple">
+<dt>音速抑制法</dt><dd><p class="linemarker linemarker-380">対流層の深い部分のみを計算する場合は、音速と熱対流の比が大体同程度となるように設定する。
+<code class="code docutils literal notranslate"><span class="pre">src/all/background_init.F90</span></code> で設定しているがやや複雑なことをしているので、このままにしておくと良いであろう。</p>
+</dd>
+</dl>
+</li>
+<li><p class="linemarker linemarker-383">境界条件</p>
+<blockquote>
+<div><p class="linemarker linemarker-385">:code:<a href="#id12"><span class="problematic" id="id13">`</span></a>scr/all/bc_all.F90`を見ると良い
+.. code:: fortran</p>
+<blockquote>
+<div><dl class="simple">
+<dt>#ifdef spherical</dt><dd><p class="linemarker linemarker-389">... (ignore this)</p>
+</dd>
+<dt>#else</dt><dd><p class="linemarker linemarker-391">call bcx_deep(qq)</p>
+</dd>
+</dl>
+<p class="linemarker linemarker-392">#endif</p>
+</div></blockquote>
 </div></blockquote>
 </li>
+</ul>
+<p class="linemarker linemarker-395">となっていればオーケー</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>輻射輸送</dt><dd><p class="linemarker linemarker-398">対流層の深い部分では、輻射輸送を解く必要はない。</p>
+</dd>
+</dl>
+</li>
+<li><p class="linemarker linemarker-399">初期条件
+初期条件では、鉛直方向速度(vx)にランダムな微小速度を与えている。磁場を入れたい場合は、適当な値を <code class="code docutils literal notranslate"><span class="pre">model_init.F90</span></code> で設定すれば良い。</p></li>
 </ul>
 </section>
 </section>
 <section id="yin-yang">
 <h2>球座標(Yin-Yang格子含む)<a class="headerlink" href="#yin-yang" title="Link to this heading">¶</a></h2>
-<section id="id12">
-<h3>Yin-Yangで深いところのみの計算<a class="headerlink" href="#id12" title="Link to this heading">¶</a></h3>
+<section id="id14">
+<h3>Yin-Yangで深いところのみの計算<a class="headerlink" href="#id14" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><dl class="simple">
 <dt>Makefileのオプション</dt><dd><ul>
-<li><p class="linemarker linemarker-356"><code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">$(PPC)</span> <span class="pre">-Ddeep</span></code></p></li>
-<li><p class="linemarker linemarker-357"><code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">$(PPC)</span> <span class="pre">-Done_ray</span></code></p></li>
-<li><p class="linemarker linemarker-358"><code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">$(PPC)</span> <span class="pre">-Ddeep</span></code></p></li>
-<li><p class="linemarker linemarker-359"><code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">$(PPC)</span> <span class="pre">-Dspherical</span></code></p></li>
-<li><p class="linemarker linemarker-360"><code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">$(PPC)</span> <span class="pre">-DYinYang</span></code></p></li>
-<li><p class="linemarker linemarker-361"><code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">$(PPC)</span> <span class="pre">-DnoFFTW</span></code></p></li>
-<li><p class="linemarker linemarker-362"><code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">$(PPC)</span> <span class="pre">-Dremap_2d_assign</span></code></p></li>
+<li><p class="linemarker linemarker-409"><code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">$(PPC)</span> <span class="pre">-Ddeep</span></code></p></li>
+<li><p class="linemarker linemarker-410"><code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">$(PPC)</span> <span class="pre">-Done_ray</span></code></p></li>
+<li><p class="linemarker linemarker-411"><code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">$(PPC)</span> <span class="pre">-Ddeep</span></code></p></li>
+<li><p class="linemarker linemarker-412"><code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">$(PPC)</span> <span class="pre">-Dspherical</span></code></p></li>
+<li><p class="linemarker linemarker-413"><code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">$(PPC)</span> <span class="pre">-DYinYang</span></code></p></li>
+<li><p class="linemarker linemarker-414"><code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">$(PPC)</span> <span class="pre">-DnoFFTW</span></code></p></li>
+<li><p class="linemarker linemarker-415"><code class="code docutils literal notranslate"><span class="pre">PPC:=</span> <span class="pre">$(PPC)</span> <span class="pre">-Dremap_2d_assign</span></code></p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
 <dt>格子点数</dt><dd><ul>
-<li><p class="linemarker linemarker-365">Yin-Yang gridを使うために <code class="code docutils literal notranslate"><span class="pre">ny0*jx0*3=nz0*kx0</span></code> となるようにする</p></li>
+<li><p class="linemarker linemarker-418">Yin-Yang gridを使うために <code class="code docutils literal notranslate"><span class="pre">ny0*jx0*3=nz0*kx0</span></code> となるようにする</p></li>
 </ul>
 </dd>
 </dl>
@@ -413,11 +474,11 @@
 </ul>
 </section>
 </section>
-<section id="id13">
-<h2>2次元計算<a class="headerlink" href="#id13" title="Link to this heading">¶</a></h2>
-<section id="id14">
-<h3>磁束管浮上<a class="headerlink" href="#id14" title="Link to this heading">¶</a></h3>
-<p class="linemarker linemarker-373">最終更新日：2023年12月05日</p>
+<section id="id15">
+<h2>2次元計算<a class="headerlink" href="#id15" title="Link to this heading">¶</a></h2>
+<section id="id16">
+<h3>磁束管浮上<a class="headerlink" href="#id16" title="Link to this heading">¶</a></h3>
+<p class="linemarker linemarker-426">最終更新日：2024年04月05日</p>
 </section>
 </section>
 </section>
@@ -441,11 +502,11 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#yin-yang">球座標(Yin-Yang格子含む)</a><ul>
-<li><a class="reference internal" href="#id12">Yin-Yangで深いところのみの計算</a></li>
+<li><a class="reference internal" href="#id14">Yin-Yangで深いところのみの計算</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id13">2次元計算</a><ul>
-<li><a class="reference internal" href="#id14">磁束管浮上</a></li>
+<li><a class="reference internal" href="#id15">2次元計算</a><ul>
+<li><a class="reference internal" href="#id16">磁束管浮上</a></li>
 </ul>
 </li>
 </ul>

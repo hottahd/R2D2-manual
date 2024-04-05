@@ -340,11 +340,64 @@
         PPC: = -Ddeep # 深い層のみ
         PPC: = -Done_ray # ここでは輻射輸送は解かないがone_rayとしておくことでメモリ節約
         PPC: = -Dremap_2d_assign # remapで2次元的に出力する
+        PPC: = -Dsoundwave_suppress # 音波が暴走するのを抑える
     
 
 - 計算領域・解像度
 
-    水平方向には98.304 Mm, 
+水平方向には太陽半径程度、鉛直方向には :math:`0.71R_\odot` から :math:`0.96R_\odot` 程度までがおすすめ。
+
+    .. code:: fortran
+
+        integer, parameter, private :: nx0 = 64, ny0 = 64, nz0 = 64
+        integer, parameter :: ix0 = 2, jx0 = 2, kx0 = 2
+
+        ...
+
+        #ifdef deep
+            real(KIND(0.d0)), parameter :: xmax = 0.96d0*rstar
+            real(KIND(0.d0)), parameter :: xmin = 0.71d0*rstar
+        #else
+            ... (ignore this)
+        #endif
+
+        ...
+
+    #ifdef deep
+        ! for deep CZ calculation
+        real(KIND(0.d0)), parameter :: ymin = 0.d0
+        real(KIND(0.d0)), parameter :: ymax = rstar
+        real(KIND(0.d0)), parameter :: zmin = 0.d0
+        real(KIND(0.d0)), parameter :: zmax = rstar
+    #else
+        ! for surface calculation
+        ... (ignore this)
+    #endif
+
+- 音速抑制法
+
+- 音速抑制法
+    対流層の深い部分のみを計算する場合は、音速と熱対流の比が大体同程度となるように設定する。
+    :code:`src/all/background_init.F90` で設定しているがやや複雑なことをしているので、このままにしておくと良いであろう。
+
+- 境界条件
+
+    :code:`scr/all/bc_all.F90`を見ると良い    
+    .. code:: fortran
+
+        #ifdef spherical
+          ... (ignore this)
+        #else
+          call bcx_deep(qq)
+        #endif
+
+
+となっていればオーケー
+
+- 輻射輸送
+   対流層の深い部分では、輻射輸送を解く必要はない。
+- 初期条件
+  初期条件では、鉛直方向速度(vx)にランダムな微小速度を与えている。磁場を入れたい場合は、適当な値を :code:`model_init.F90` で設定すれば良い。
 
 球座標(Yin-Yang格子含む)
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
