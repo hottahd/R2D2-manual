@@ -51,7 +51,7 @@
 
 
 \title{R2D2}
-\date{2024年04月05日}
+\date{2024年09月04日}
 \release{1.2}
 \author{Hideyuki Hotta}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -390,7 +390,7 @@ make
 
 \item {} 
 \sphinxAtStartPar
-\sphinxcode{\sphinxupquote{LOCAL\_ifort}}: UbuntuのIntel fortran ifort
+\sphinxcode{\sphinxupquote{intel}}: ローカル環境のIntelコンパイラ
 
 \item {} 
 \sphinxAtStartPar
@@ -519,7 +519,7 @@ make
 このディレクトリを書く実行のディレクトリの配下におき、実行すると続きの計算が始まる。
 
 \sphinxAtStartPar
-最終更新日：2024年04月05日
+最終更新日：2024年09月04日
 
 \sphinxstepscope
 
@@ -817,11 +817,11 @@ Google APIロゴ \(\rightarrow\) 認証情報 \(\rightarrow\) サービスアカ
 \sphinxlineitem{Makefileのオプション}
 \sphinxAtStartPar
 指定するオプションは
-光球のみ一様グリッドで計算するので, 複数方向輻射輸送で計算する。指定するオプションは
+光球のみ一様グリッドで計算するので, 複数方向輻射輸送で計算する。以下が指定されていたコメントアウトする。
 \begin{itemize}
 \item {} 
 \sphinxAtStartPar
-\sphinxcode{\sphinxupquote{PPC := \sphinxhyphen{}Dremap\_2d\_assign}}
+\sphinxcode{\sphinxupquote{PPC := \sphinxhyphen{}Done\_ray}}
 
 \end{itemize}
 
@@ -1381,7 +1381,7 @@ Yin\sphinxhyphen{}Yang gridを使うために \sphinxcode{\sphinxupquote{ny0*jx0
 \subsection{磁束管浮上}
 \label{\detokenize{typical_case:id14}}
 \sphinxAtStartPar
-最終更新日：2024年04月05日
+最終更新日：2024年09月04日
 
 \sphinxstepscope
 
@@ -3468,7 +3468,7 @@ To Doを書いておきたい場所に
 と書くと、To Doが示される。トップページに
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{c+cp}{.. todolist:}
+\PYG{c}{.. todolist:}
 \end{sphinxVerbatim}
 
 \sphinxAtStartPar

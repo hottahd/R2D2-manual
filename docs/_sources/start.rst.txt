@@ -173,7 +173,7 @@ R2D2ディレクトリの中は以下のようなディレクトリ構造を持�
 以下、堀田の個人環境なので、使用は推奨されない。どうしても個人の環境で使いたい時は堀田まで相談されたい。
 
 * ``LOCAL``: UbuntuのGCC
-* ``LOCAL_ifort``: UbuntuのIntel fortran ifort
+* ``intel``: ローカル環境のIntelコンパイラ
 *  ``MAC``: MacのGCC
 
 初期条件
